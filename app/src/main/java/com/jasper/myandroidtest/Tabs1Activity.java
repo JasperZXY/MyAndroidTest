@@ -16,7 +16,7 @@ import android.widget.TextView;
  * 用FragmentTabHost 实现底部导航栏
  * FragmentTabHost 是不保存状态的，填入的信息，在tab切换后会消失
  */
-public class TabsActivity extends ActionBarActivity {
+public class Tabs1Activity extends ActionBarActivity {
     /**
      * 定义FragmentTabHost对象
      */

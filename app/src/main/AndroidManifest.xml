@@ -14,7 +14,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TabsActivity" />
+        <activity android:name=".Tabs1Activity" />
         <activity
             android:name=".Tabs2Activity"
             android:label="@string/title_activity_tabs2" >
@@ -22,6 +22,10 @@
         <activity
             android:name=".AsyncTaskActivity"
             android:label="@string/title_activity_async_task" >
+        </activity>
+        <activity
+            android:name=".Tabs3Activity"
+            android:label="@string/title_activity_tabs3" >
         </activity>
     </application>
 

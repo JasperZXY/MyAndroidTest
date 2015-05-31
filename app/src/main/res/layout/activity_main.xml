@@ -18,13 +18,19 @@
                 android:id="@+id/btn4fragmentTabHost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FragmentTabHost实现底部导航栏" />
+                android:text="底部导航栏:FragmentTabHost" />
 
             <Button
                 android:id="@+id/btn4fragment_radiogroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fragment+RadioGroup实现底部导航栏" />
+                android:text="底部导航栏:Fragment+RadioGroup" />
+
+            <Button
+                android:id="@+id/btn4fragment_viewpager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="底部导航栏:Fragment+ViewPager" />
 
             <Button
                 android:id="@+id/btn4AsyncTask"
