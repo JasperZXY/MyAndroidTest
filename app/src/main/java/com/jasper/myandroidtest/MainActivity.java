@@ -20,6 +20,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         findViewById(R.id.btn4fragmentTabHost).setOnClickListener(this);
         findViewById(R.id.btn4fragment_radiogroup).setOnClickListener(this);
+        findViewById(R.id.btn4AsyncTask).setOnClickListener(this);
     }
 
     @Override
@@ -52,6 +53,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
             case R.id.btn4fragment_radiogroup:
                 context.startActivity(new Intent(context, Tabs2Activity.class));
+                break;
+            case R.id.btn4AsyncTask:
+                context.startActivity(new Intent(context, AsyncTaskActivity.class));
                 break;
         }
     }

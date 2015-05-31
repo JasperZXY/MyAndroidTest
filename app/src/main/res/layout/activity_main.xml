@@ -25,6 +25,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fragment+RadioGroup实现底部导航栏" />
+
+            <Button
+                android:id="@+id/btn4AsyncTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AsyncTask" />
         </LinearLayout>
     </ScrollView>
 
