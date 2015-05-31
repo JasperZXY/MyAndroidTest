@@ -94,7 +94,7 @@ class ProgressBarAsyncTask extends AsyncTask<Integer, Integer, String> {
                 break;
             }
             publishProgress(i);
-            i += Math.random() * 5;
+            i += Math.random() * 15;
         }
         return "共花费：" + (System.currentTimeMillis() - curTime) + "MS";
     }
