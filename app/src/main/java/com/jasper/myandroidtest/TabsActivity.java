@@ -12,7 +12,10 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-
+/**
+ * 用FragmentTabHost 实现底部导航栏
+ * FragmentTabHost 是不保存状态的，填入的信息，在tab切换后会消失
+ */
 public class TabsActivity extends ActionBarActivity {
     /**
      * 定义FragmentTabHost对象
@@ -54,7 +57,7 @@ public class TabsActivity extends ActionBarActivity {
         //实例化TabHost对象，得到TabHost
         fragmentTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
 //		fragmentTabHost.setup();
-        fragmentTabHost.setup(this,getSupportFragmentManager(),R.id.realtabcontent);
+        fragmentTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
         //得到fragment的个数
         int count = fragmentArray.length;
         for (int i = 0; i < count; i++) {
@@ -62,9 +65,8 @@ public class TabsActivity extends ActionBarActivity {
             TabHost.TabSpec tabSpec = fragmentTabHost.newTabSpec(mTextviewArray[i]).setIndicator(getTabItemView(i));
             //将Tab按钮添加进Tab选项卡中
             fragmentTabHost.addTab(tabSpec,fragmentArray[i], null);
-            //设置Tab按钮的背景
+            //设置Tab按钮的背景，由这个selector_tab_background文件来判断当前状态，若点击则显示背景图片
             fragmentTabHost.getTabWidget().getChildAt(i).setBackgroundResource(R.drawable.selector_tab_background);
-//            fragmentTabHost.getTabWidget().getChildAt(i).setBackgroundResource(R.drawable.home_btn_bg);
         }
     }
 

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:drawable="@drawable/icon_home_sel"  android:state_selected="true"/>
-	<item android:drawable="@drawable/icon_home_nor"></item>
+   <!-- <item android:state_focused="true" android:state_enabled="true" android:state_pressed="false" android:drawable="@drawable/icon_home_sel" />
+    <item android:state_enabled="true" android:state_pressed="true" android:drawable="@drawable/icon_home_sel" />
+    <item android:state_enabled="true" android:state_checked="true" android:drawable="@drawable/icon_home_sel" />
+    <item android:drawable="@drawable/icon_home_nor"></item>-->
+    <item android:state_checked="true" android:drawable="@drawable/icon_home_sel" />
+    <item android:drawable="@drawable/icon_home_nor"></item>
 </selector>

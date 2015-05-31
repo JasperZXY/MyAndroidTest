@@ -7,12 +7,17 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name=".TabsActivity" >
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".TabsActivity" />
+        <activity
+            android:name=".Tabs2Activity"
+            android:label="@string/title_activity_tabs2" >
         </activity>
     </application>
 
