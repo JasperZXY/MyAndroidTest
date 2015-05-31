@@ -3,7 +3,6 @@ package com.jasper.myandroidtest;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.widget.RadioGroup;
 
 import java.util.List;
@@ -29,11 +28,10 @@ public class FragmentTabAdapter implements RadioGroup.OnCheckedChangeListener {
         rgs.setOnCheckedChangeListener(this);
         // 默认显示第一页
 //        rgs.check(R.id.tab_rb_a);
-//        currentTab = 0;
-//        FragmentTransaction ft = fragmentActivity.getSupportFragmentManager().beginTransaction();
-//        ft.add(fragmentContentId, fragments.get(currentTab));
-//        ft.commit();
-        rgsChange(0);
+        currentTab = 0;
+        FragmentTransaction ft = fragmentActivity.getSupportFragmentManager().beginTransaction();
+        ft.add(fragmentContentId, fragments.get(currentTab));
+        ft.commit();
         //因为默认就是第一个被选中，所以下面的代码没法让其调用onCheckedChanged
 //        ((RadioButton)rgs.getChildAt(0)).setChecked(true);
     }
@@ -41,32 +39,27 @@ public class FragmentTabAdapter implements RadioGroup.OnCheckedChangeListener {
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-        for (int i = 0; i < rgs.getChildCount(); i++) {
-            if (rgs.getChildAt(i).getId() == checkedId) {
-                Log.i("xxx", "checkId:" + checkedId + " i" + i);
-                if (currentTab != i) {
-                    rgsChange(i);
+        for (int index = 0; index < rgs.getChildCount(); index++) {
+            if (rgs.getChildAt(index).getId() == checkedId) {
+                if (currentTab != index) {
+                    Fragment fragment = fragments.get(index);
+                    FragmentTransaction ft = obtainFragmentTransaction(index);
+                    if (!fragment.isAdded()) {
+                        ft.add(fragmentContentId, fragment);
+                    }
+                    if (currentTab >= 0 && currentTab < fragments.size()) {
+                        ft.hide(fragments.get(currentTab));
+                    }
+                    ft.show(fragments.get(index));
+                    currentTab = index;
+                    ft.commit();
+
+                    // 如果设置了切换tab额外功能功能接口
+                    if (null != onRgsExtraCheckedChangedListener) {
+                        onRgsExtraCheckedChangedListener.OnRgsExtraCheckedChanged(rgs, index);
+                    }
                 }
             }
-        }
-    }
-
-    public void rgsChange(int index) {
-        Fragment fragment = fragments.get(index);
-        FragmentTransaction ft = obtainFragmentTransaction(index);
-        if (!fragment.isAdded()) {
-            ft.add(fragmentContentId, fragment, "fragment" + index);
-        }
-        if (currentTab >= 0 && currentTab < fragments.size()) {
-            ft.hide(fragments.get(currentTab));
-        }
-        ft.show(fragments.get(index));
-        currentTab = index;
-        ft.commit();
-
-        // 如果设置了切换tab额外功能功能接口
-        if (null != onRgsExtraCheckedChangedListener) {
-            onRgsExtraCheckedChangedListener.OnRgsExtraCheckedChanged(rgs, index);
         }
     }
 

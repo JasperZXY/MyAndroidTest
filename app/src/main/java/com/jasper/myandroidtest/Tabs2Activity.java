@@ -70,7 +70,7 @@ public class Tabs2Activity extends FragmentActivity {
                     ((RadioButton)rgs.getChildAt(tabAdapter.getCurrentTab() + 1)).setChecked(true);
                 }
             }
-            return false;
+            return true;
         }
     };
 
