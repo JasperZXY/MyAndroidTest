@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Test</string>
+    <string name="app_name">万能应用</string>
     <string name="title_activity_tabs">TabsActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -9,5 +9,6 @@
     <string name="title_activity_tabs2">Tabs2Activity</string>
     <string name="title_activity_async_task">AsyncTaskActivity</string>
     <string name="title_activity_tabs3">Tabs3Activity</string>
+    <string name="title_activity_file">FileActivity</string>
 
 </resources>

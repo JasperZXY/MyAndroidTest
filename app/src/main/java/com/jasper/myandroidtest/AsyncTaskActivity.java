@@ -1,6 +1,6 @@
 package com.jasper.myandroidtest;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +13,7 @@ import android.os.AsyncTask;
 /**
  * AsyncTask使用例子
  */
-public class AsyncTaskActivity extends ActionBarActivity {
+public class AsyncTaskActivity extends Activity {
     private Button button;
     private ProgressBar progressBar;
     private TextView textView;

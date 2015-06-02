@@ -1,15 +1,23 @@
 package com.jasper.myandroidtest;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.lang.reflect.Method;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
     private Context context;
 
     @Override
@@ -22,6 +30,22 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         findViewById(R.id.btn4fragment_radiogroup).setOnClickListener(this);
         findViewById(R.id.btn4fragment_viewpager).setOnClickListener(this);
         findViewById(R.id.btn4AsyncTask).setOnClickListener(this);
+        findViewById(R.id.btn4file_read_write).setOnClickListener(this);
+
+        //AndroidManifest.xml中的android:theme配置需要去掉，不然会报错
+        ActionBar actionBar = getActionBar();
+        actionBar.setCustomView(R.layout.actionbar_view);
+        final EditText search = (EditText) actionBar.getCustomView().findViewById(R.id.et_search);
+        search.clearFocus();
+        search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                Toast.makeText(MainActivity.this, "Search triggered:" + search.getText(),
+                        Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME);
     }
 
     @Override
@@ -31,18 +55,31 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         return true;
     }
 
+    /**
+     *设置Action Bar隐藏菜单、子菜单能够显示图标
+     * @param featureId
+     * @param menu
+     * @return
+     */
+    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
+            if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
+                try {
+                    Method m = menu.getClass().getDeclaredMethod(
+                            "setOptionalIconsVisible", Boolean.TYPE);
+                    m.setAccessible(true);
+                    m.invoke(menu, true); // 设置Action Bar隐藏菜单、子菜单能够显示图标
+                } catch (Exception e) {
+                }
+            }
+        }
+        return super.onMenuOpened(featureId, menu);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
+        Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
         return super.onOptionsItemSelected(item);
     }
 
@@ -60,6 +97,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
             case R.id.btn4AsyncTask:
                 context.startActivity(new Intent(context, AsyncTaskActivity.class));
+                break;
+            case R.id.btn4file_read_write:
+                context.startActivity(new Intent(context, FileActivity.class));
                 break;
         }
     }
