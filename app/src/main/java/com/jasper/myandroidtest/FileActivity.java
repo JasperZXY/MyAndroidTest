@@ -21,7 +21,9 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-
+/**
+ * 文件读写操作，如果是sdcard，需要添加权限
+ */
 public class FileActivity extends Activity implements View.OnClickListener {
     private static final String TAG = "FileActivity";
     private static final String FILE_NAME = "test.txt";
@@ -106,7 +108,7 @@ public class FileActivity extends Activity implements View.OnClickListener {
     private void sdcardWrite(String text) {
         try {
             File file = new File(Environment.getExternalStorageDirectory(), SDCARD_PATH);
-            if (file.getParentFile().exists()) {
+            if (! file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }
             //第二个参数意义是说是否以append方式添加内容

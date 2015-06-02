@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jasper.myandroidtest" >
+    package="com.jasper.myandroidtest">
+    <!-- SDCard中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 向SDCard写入数据权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 摄像头 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--录制音频-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!--通过使用<uses-feature>元素，一个应用可以指定它所支持的硬件型号-->
+    <!--摄像头 硬件支持-->
+    <uses-feature android:name="android.hardware.camera" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name" >
-        <activity android:name=".MainActivity" >
+        android:label="@string/app_name" android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,25 +28,20 @@
         <activity android:name=".Tabs1Activity" />
         <activity
             android:name=".Tabs2Activity"
-            android:label="@string/title_activity_tabs2" >
-        </activity>
+            android:label="@string/title_activity_tabs2"></activity>
         <activity
             android:name=".AsyncTaskActivity"
-            android:label="@string/title_activity_async_task" >
-        </activity>
+            android:label="@string/title_activity_async_task"></activity>
         <activity
             android:name=".Tabs3Activity"
-            android:label="@string/title_activity_tabs3" >
-        </activity>
+            android:label="@string/title_activity_tabs3"></activity>
         <activity
             android:name=".FileActivity"
-            android:label="@string/title_activity_file" >
-        </activity>
-
+            android:label="@string/title_activity_file"></activity>
+        <activity
+            android:hardwareAccelerated="false"
+            android:name=".CameraActivity"
+            android:label="@string/title_activity_camera"></activity>
     </application>
-    <!-- SDCard中创建与删除文件权限 -->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
-    <!-- 向SDCard写入数据权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
 
 </manifest>

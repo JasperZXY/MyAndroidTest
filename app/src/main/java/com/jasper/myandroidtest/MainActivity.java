@@ -31,21 +31,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.btn4fragment_viewpager).setOnClickListener(this);
         findViewById(R.id.btn4AsyncTask).setOnClickListener(this);
         findViewById(R.id.btn4file_read_write).setOnClickListener(this);
-
-        //AndroidManifest.xml中的android:theme配置需要去掉，不然会报错
-        ActionBar actionBar = getActionBar();
-        actionBar.setCustomView(R.layout.actionbar_view);
-        final EditText search = (EditText) actionBar.getCustomView().findViewById(R.id.et_search);
-        search.clearFocus();
-        search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                Toast.makeText(MainActivity.this, "Search triggered:" + search.getText(),
-                        Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME);
+        findViewById(R.id.btn4camera).setOnClickListener(this);
     }
 
     @Override
@@ -79,7 +65,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+        if (item.getItemId() == R.id.item_search) {
+            //AndroidManifest.xml中的android:theme配置需要去掉获取修改theme
+            ActionBar actionBar = getActionBar();
+            actionBar.setCustomView(R.layout.actionbar_view);
+            final EditText search = (EditText) actionBar.getCustomView().findViewById(R.id.et_search);
+            search.clearFocus();
+            search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    Toast.makeText(MainActivity.this, "Search triggered:" + search.getText(),
+                            Toast.LENGTH_LONG).show();
+                    return false;
+                }
+            });
+            actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME);
+        } else {
+            Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -100,6 +103,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn4file_read_write:
                 context.startActivity(new Intent(context, FileActivity.class));
+                break;
+            case R.id.btn4camera:
+                context.startActivity(new Intent(context, CameraActivity.class));
                 break;
         }
     }

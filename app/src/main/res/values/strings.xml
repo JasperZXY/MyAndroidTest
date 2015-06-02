@@ -10,5 +10,6 @@
     <string name="title_activity_async_task">AsyncTaskActivity</string>
     <string name="title_activity_tabs3">Tabs3Activity</string>
     <string name="title_activity_file">FileActivity</string>
+    <string name="title_activity_camera">CameraActivity</string>
 
 </resources>
