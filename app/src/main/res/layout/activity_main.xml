@@ -33,6 +33,12 @@
                 android:text="底部导航栏:Fragment+ViewPager" />
 
             <Button
+                android:id="@+id/btn4actionbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ActionBar" />
+
+            <Button
                 android:id="@+id/btn4AsyncTask"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

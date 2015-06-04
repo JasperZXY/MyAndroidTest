@@ -2,27 +2,5 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.jasper.myandroidtest.MainActivity">
-    <item
-        android:id="@+id/item_search"
-        android:orderInCategory="100"
-        android:icon="@android:drawable/ic_search_category_default"
-        android:showAsAction="always"
-        android:title="search"/>
-    <item
-        android:orderInCategory="100"
-        android:icon="@drawable/java"
-        android:showAsAction="ifRoom"
-        android:title="Java"/>
-    <item
-        android:orderInCategory="100"
-        android:icon="@drawable/sts"
-        android:title="sts"/>
-    <item
-        android:orderInCategory="100"
-        android:icon="@drawable/dreamweaver"
-        android:title="dreamweaver"/>
-    <item
-        android:orderInCategory="100"
-        android:icon="@drawable/flash"
-        android:title="flash"/>
+
 </menu>
