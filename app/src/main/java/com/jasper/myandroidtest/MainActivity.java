@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
+import com.jasper.myandroidtest.preference.MyPreferenceActivity;
+
 public class MainActivity extends Activity implements View.OnClickListener {
     private Context context;
 
@@ -23,6 +25,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.btn4file_read_write).setOnClickListener(this);
         findViewById(R.id.btn4camera).setOnClickListener(this);
         findViewById(R.id.btn4actionbar).setOnClickListener(this);
+        findViewById(R.id.btn4preference).setOnClickListener(this);
     }
 
     @Override
@@ -55,6 +58,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn4actionbar:
                 context.startActivity(new Intent(context, MyActionBarActivity.class));
+                break;
+            case R.id.btn4preference:
+                context.startActivity(new Intent(context, MyPreferenceActivity.class));
                 break;
         }
     }
