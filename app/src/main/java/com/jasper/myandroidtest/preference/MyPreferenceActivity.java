@@ -23,8 +23,7 @@ public class MyPreferenceActivity extends Activity {
 
         resources = getResources();
         tv = (TextView) findViewById(R.id.tv);
-
-
+        setValue();
     }
 
     @Override
@@ -42,25 +41,18 @@ public class MyPreferenceActivity extends Activity {
 
     private void setValue() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String option = preferences.getString(resources.getString(R.string.selected_option), resources.getString(R.string.selected_option_default_value));
+        String option = preferences.getString(resources.getString(R.string.selected_option), resources.getString(R.string.selected_option_default_index));
         String[] options = resources.getStringArray(R.array.flight_options);
         tv.setText(options[Integer.parseInt(option)]);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.item_pre) {
-            Intent intent = new Intent(this, FlightPreferenceActivity.class);
-            this.startActivity(intent);
-            return true;
+            Intent intent = new Intent(this, PreferenceOptionActivity.class);
+            this.startActivityForResult(intent, 0);
         }
-
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 }

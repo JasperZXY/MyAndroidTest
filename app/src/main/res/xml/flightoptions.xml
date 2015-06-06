@@ -10,6 +10,6 @@
         android:entries="@array/flight_options"
         android:entryValues="@array/flight_options_values"
         android:dialogTitle="dialog_title"
-        android:defaultValue="@string/selected_option_default_value"/>
+        android:defaultValue="@string/selected_option_default_index"/>
 
 </PreferenceScreen>

@@ -66,11 +66,8 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name=".preference.FlightPreferenceActivity"
-            android:label="@string/title_activity_flight_preference" >
-            <intent-filter>
-                <category android:name="android.intent.category.PREFERENCE" />
-            </intent-filter>
+            android:name=".preference.PreferenceOptionActivity"
+            android:label="@string/title_activity_option_preference" >
         </activity>
         <activity
             android:name=".preference.MyPreferenceActivity"
