@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="empty_preference_key_test">
+
+    <ListPreference
+        android:key="@string/selected_option"/>
+
+    <EditTextPreference
+        android:key="key" />
+
+</PreferenceScreen>

@@ -25,5 +25,6 @@
 1. ActionBar：实现搜索功能、下拉菜单、Tab按钮
 
 ## 2015-06-06
-1. 首选项：ListPreference
+1. 首选项：ListPreference、CheckboxPreference、EditTextboxPreference、
+	动态配置的ListPreference、手动读写Preference
 2. 整理FragmentPage，分扩展包跟非扩展包

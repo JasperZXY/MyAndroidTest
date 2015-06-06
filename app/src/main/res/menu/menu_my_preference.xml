@@ -2,6 +2,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.jasper.myandroidtest.preference.MyPreferenceActivity">
-    <item android:id="@+id/item_pre" android:title="首选项"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:id="@+id/item_list"
+        android:title="List"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_checkbox"
+        android:title="Checkbox"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_edit"
+        android:title="Edit"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_my_list"
+        android:title="my_list"
+        app:showAsAction="never" />
 </menu>

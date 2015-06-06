@@ -65,13 +65,26 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity
-            android:name=".preference.PreferenceOptionActivity"
-            android:label="@string/title_activity_option_preference" >
-        </activity>
+        <!--首选项例子-->
         <activity
             android:name=".preference.MyPreferenceActivity"
             android:label="@string/title_activity_my_preference" >
+        </activity>
+        <activity
+            android:name=".preference.ListPreferenceActivity"
+            android:label="@string/title_activity_list_preference" >
+        </activity>
+        <activity
+            android:name=".preference.MyListPreferenceActivity"
+            android:label="@string/title_activity__my_list_preference" >
+        </activity>
+        <activity
+            android:name=".preference.CheckboxPreferenceActivity"
+            android:label="@string/title_activity_checkbox_preference" >
+        </activity>
+        <activity
+            android:name=".preference.EditPreferenceActivity"
+            android:label="@string/title_activity_edit_preference" >
         </activity>
     </application>
 

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="flight_option_preference"
-    android:title="title_flight"
-    android:summary="summary_flight">
+    android:key="list_preference_test_key"
+    android:title="title"
+    android:summary="简要说明">
     <ListPreference
         android:key="@string/selected_option"
         android:title="list_title"
         android:summary="list_summary"
-        android:entries="@array/flight_options"
-        android:entryValues="@array/flight_options_values"
+        android:entries="@array/preference_options"
+        android:entryValues="@array/preference_options_values"
         android:dialogTitle="dialog_title"
         android:defaultValue="@string/selected_option_default_index"/>
 

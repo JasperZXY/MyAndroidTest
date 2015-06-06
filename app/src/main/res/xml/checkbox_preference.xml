@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="checkbox_preference_test_key">
+
+    <CheckBoxPreference
+        android:key="key1"
+        android:title="title1"
+        android:summary="summary1" />
+    <CheckBoxPreference
+        android:key="key2"
+        android:title="title2"
+        android:summary="summary2" />
+    <CheckBoxPreference
+        android:key="key3"
+        android:title="title3"
+        android:summary="summary3" />
+
+</PreferenceScreen>
