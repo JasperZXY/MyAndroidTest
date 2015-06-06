@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.fragmentPageV4;
 
 
 import android.app.Activity;
@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.jasper.myandroidtest.R;
 
 public class FragmentPage05 extends Fragment {
     private static final String TAG = "FragmentPage05";

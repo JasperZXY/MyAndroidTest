@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.fragmentPageV4;
 
 
 import android.app.Activity;
@@ -10,80 +10,82 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FragmentPage02 extends Fragment {
-    private static final String TAG = "FragmentPage02";
+import com.jasper.myandroidtest.R;
+
+public class FragmentPage04 extends Fragment {
+    private static final String TAG = "FragmentPage04";
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        Log.i(TAG, "onAttach");
+        Log.d(TAG, "onAttach");
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i(TAG, "onCreate");
+        Log.d(TAG, "onCreate");
     }
 
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.i(TAG, "onViewCreated");
+        Log.d(TAG, "onViewCreated");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.i(TAG, "onCreateView");
-        return inflater.inflate(R.layout.fragment02, null);
+        Log.d(TAG, "onCreateView");
+        return inflater.inflate(R.layout.fragment04, null);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.i(TAG, "onActivityCreated");
+        Log.d(TAG, "onActivityCreated");
     }
 
     @Override
     public void onStart() {
         super.onPause();
-        Log.i(TAG, "onStart");
+        Log.d(TAG, "onStart");
     }
 
     @Override
     public void onResume() {
         super.onPause();
-        Log.i(TAG, "onResume");
+        Log.d(TAG, "onResume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.i(TAG, "onPause");
+        Log.d(TAG, "onPause");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Log.i(TAG, "onStop");
+        Log.d(TAG, "onStop");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.i(TAG, "onDestroyView");
+        Log.d(TAG, "onDestroyView");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.i(TAG, "onDestroy");
+        Log.d(TAG, "onDestroy");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.i(TAG, "onDetach");
+        Log.d(TAG, "onDetach");
     }
 }

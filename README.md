@@ -26,3 +26,4 @@
 
 ## 2015-06-06
 1. 首选项：ListPreference
+2. 整理FragmentPage，分扩展包跟非扩展包

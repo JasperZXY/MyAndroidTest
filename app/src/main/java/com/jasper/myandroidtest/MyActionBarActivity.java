@@ -1,6 +1,6 @@
 package com.jasper.myandroidtest;
 
-import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
@@ -10,18 +10,19 @@ import android.app.SearchableInfo;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 import android.widget.Toast;
+
+import com.jasper.myandroidtest.fragmentPage.FragmentPage01;
+import com.jasper.myandroidtest.fragmentPage.FragmentPage02;
 
 import java.lang.reflect.Method;
 
@@ -35,8 +36,8 @@ import java.lang.reflect.Method;
 public class MyActionBarActivity extends Activity {
     private static final String TAG = "MyActionBarActivity";
     private Context context;
-    private Fragment01 fragment01 = new Fragment01();
-    private Fragment02 fragment02 = new Fragment02();
+    private FragmentPage01 fragment01 = new FragmentPage01();
+    private FragmentPage02 fragment02 = new FragmentPage02();
     private boolean isSwitch = true;
 
     @Override
@@ -72,6 +73,7 @@ public class MyActionBarActivity extends Activity {
         actionBar.setListNavigationCallbacks(arrayAdapter, mOnNavigationListener);
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Nullable
     @Override
     public Intent getParentActivityIntent() {
@@ -177,23 +179,6 @@ public class MyActionBarActivity extends Activity {
 
         }
     }
-
-    @SuppressLint("ValidFragment")
-    class Fragment01 extends Fragment {
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment01, null);
-        }
-    }
-
-    @SuppressLint("ValidFragment")
-    class Fragment02 extends Fragment {
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment02, null);
-        }
-    }
-
 
     ActionBar.OnNavigationListener mOnNavigationListener = new ActionBar.OnNavigationListener() {
         Fragment curFagment = null;

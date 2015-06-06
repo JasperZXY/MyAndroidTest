@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.jasper.myandroidtest.fragmentPageV4.*;
+
 /**
  * 用FragmentTabHost 实现底部导航栏
  * FragmentTabHost 是不保存状态的，填入的信息，在tab切换后会消失

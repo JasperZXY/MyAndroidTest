@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.fragmentPageV4;
 
 
 import android.app.Activity;
@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FragmentPage04 extends Fragment {
-    private static final String TAG = "FragmentPage04";
+import com.jasper.myandroidtest.R;
+
+public class FragmentPage03 extends Fragment {
+    private static final String TAG = "FragmentPage03";
 
     @Override
     public void onAttach(Activity activity) {
@@ -36,7 +38,7 @@ public class FragmentPage04 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
-        return inflater.inflate(R.layout.fragment04, null);
+        return inflater.inflate(R.layout.fragment03, null);
     }
 
     @Override

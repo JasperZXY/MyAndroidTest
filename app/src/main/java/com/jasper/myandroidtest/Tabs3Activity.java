@@ -15,6 +15,8 @@ import android.widget.RadioGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jasper.myandroidtest.fragmentPageV4.*;
+
 
 public class Tabs3Activity extends FragmentActivity {
     private Context context;

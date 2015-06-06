@@ -1,18 +1,19 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.fragmentPage;
 
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 
-public class FragmentPage01 extends Fragment {
-    private static final String TAG = "FragmentPage01";
+import com.jasper.myandroidtest.R;
+
+public class FragmentPage04 extends Fragment {
+    private static final String TAG = FragmentPage04.class.getSimpleName();
 
     @Override
     public void onAttach(Activity activity) {
@@ -37,7 +38,7 @@ public class FragmentPage01 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
-        return inflater.inflate(R.layout.fragment01, null);
+        return inflater.inflate(R.layout.fragment04, null);
     }
 
     @Override
