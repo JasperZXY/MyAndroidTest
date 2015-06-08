@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
+import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -26,11 +27,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.btn4camera).setOnClickListener(this);
         findViewById(R.id.btn4actionbar).setOnClickListener(this);
         findViewById(R.id.btn4preference).setOnClickListener(this);
+        findViewById(R.id.btn4simpleListView).setOnClickListener(this);
+        findViewById(R.id.btn4refresh).setOnClickListener(this);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -62,6 +64,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.btn4preference:
                 context.startActivity(new Intent(context, MyPreferenceActivity.class));
                 break;
+            case R.id.btn4simpleListView:
+                context.startActivity(new Intent(context, SimpleListViewActivity.class));
+                break;
+//            case R.id.btn4refresh:
+//                context.startActivity(new Intent(context, PullToRefreshActivity.class));
+//                break;
         }
     }
 }

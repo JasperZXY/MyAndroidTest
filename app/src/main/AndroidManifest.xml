@@ -65,7 +65,7 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <!--首选项例子-->
+        <!-- 首选项例子 -->
         <activity
             android:name=".preference.MyPreferenceActivity"
             android:label="@string/title_activity_my_preference" >
@@ -85,6 +85,10 @@
         <activity
             android:name=".preference.EditPreferenceActivity"
             android:label="@string/title_activity_edit_preference" >
+        </activity>
+        <activity
+            android:name=".listView.SimpleListViewActivity"
+            android:label="@string/title_activity_simple_list_view" >
         </activity>
     </application>
 

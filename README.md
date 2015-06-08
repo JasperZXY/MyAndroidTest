@@ -28,3 +28,7 @@
 1. 首选项：ListPreference、CheckboxPreference、EditTextboxPreference、
 	动态配置的ListPreference、手动读写Preference
 2. 整理FragmentPage，分扩展包跟非扩展包
+
+
+## 2015-06-08
+1. ListView使用
