@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jasper.myandroidtest.R;
 
@@ -272,7 +273,7 @@ public class MyListView extends ListView implements OnScrollListener {
 
     //TODO 待实现，代码调用进行刷新
     public void refresh() {
-
+        Toast.makeText(getContext(), "未实现", Toast.LENGTH_SHORT).show();
     }
 
     @Override

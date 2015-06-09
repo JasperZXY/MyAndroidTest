@@ -94,6 +94,14 @@
             android:name=".listView.MyListViewActivity"
             android:label="@string/title_activity_my_list_view" >
         </activity>
+        <activity
+            android:name=".ImageViewActivity"
+            android:label="@string/title_activity_image_view" >
+        </activity>
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/title_activity_menu" >
+        </activity>
     </application>
 
 </manifest>

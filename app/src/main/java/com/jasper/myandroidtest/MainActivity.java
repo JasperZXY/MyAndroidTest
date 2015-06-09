@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.jasper.myandroidtest.listView.MyListViewActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
@@ -20,16 +24,30 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
         context = this;
 
-        findViewById(R.id.btn4fragmentTabHost).setOnClickListener(this);
-        findViewById(R.id.btn4fragment_radiogroup).setOnClickListener(this);
-        findViewById(R.id.btn4fragment_viewpager).setOnClickListener(this);
-        findViewById(R.id.btn4AsyncTask).setOnClickListener(this);
-        findViewById(R.id.btn4file_read_write).setOnClickListener(this);
-        findViewById(R.id.btn4camera).setOnClickListener(this);
-        findViewById(R.id.btn4actionbar).setOnClickListener(this);
-        findViewById(R.id.btn4preference).setOnClickListener(this);
-        findViewById(R.id.btn4simpleListView).setOnClickListener(this);
-        findViewById(R.id.btn4refresh).setOnClickListener(this);
+        findButtonAndSetOnClickListenr((ViewGroup) findViewById(R.id.layout_main));
+
+//        findViewById(R.id.btn4fragmentTabHost).setOnClickListener(this);
+//        findViewById(R.id.btn4fragment_radiogroup).setOnClickListener(this);
+//        findViewById(R.id.btn4fragment_viewpager).setOnClickListener(this);
+//        findViewById(R.id.btn4AsyncTask).setOnClickListener(this);
+//        findViewById(R.id.btn4file_read_write).setOnClickListener(this);
+//        findViewById(R.id.btn4camera).setOnClickListener(this);
+//        findViewById(R.id.btn4actionbar).setOnClickListener(this);
+//        findViewById(R.id.btn4preference).setOnClickListener(this);
+//        findViewById(R.id.btn4simpleListView).setOnClickListener(this);
+//        findViewById(R.id.btn4refresh).setOnClickListener(this);
+//        findViewById(R.id.btn4imageview).setOnClickListener(this);
+    }
+
+    private void findButtonAndSetOnClickListenr(ViewGroup viewGroup) {
+        for (int i=0; i<viewGroup.getChildCount(); i++) {
+            if (viewGroup.getChildAt(i) instanceof Button) {
+                Log.i("TAG", "view text:" + ((Button) viewGroup.getChildAt(i)).getText());
+                viewGroup.getChildAt(i).setOnClickListener(this);
+            } else if (viewGroup.getChildAt(i) instanceof ViewGroup) {
+                findButtonAndSetOnClickListenr((ViewGroup) viewGroup.getChildAt(i));
+            }
+        }
     }
 
     @Override
@@ -70,6 +88,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn4refresh:
                 context.startActivity(new Intent(context, MyListViewActivity.class));
+                break;
+            case R.id.btn4imageview:
+                context.startActivity(new Intent(context, ImageViewActivity.class));
                 break;
         }
     }
