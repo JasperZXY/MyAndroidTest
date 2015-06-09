@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.jasper.myandroidtest.listView.MyListViewActivity">
+    <item android:id="@+id/item_refresh" android:title="刷新"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>

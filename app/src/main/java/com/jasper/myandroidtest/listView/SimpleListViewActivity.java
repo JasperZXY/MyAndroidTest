@@ -14,6 +14,6 @@ public class SimpleListViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_list_view);
         listView = (ListView) findViewById(R.id.listView);
-        listView.setAdapter(new MyListViewAdapter(this));
+        listView.setAdapter(new SimpleListViewAdapter(this));
     }
 }

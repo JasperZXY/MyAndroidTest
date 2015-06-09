@@ -16,12 +16,12 @@ import java.util.List;
 /**
  * Created by Jasper on 2015/6/8.
  */
-public class MyListViewAdapter extends BaseAdapter {
+public class SimpleListViewAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater mInflater;
     private List<UserInfo> users;
 
-    public MyListViewAdapter(Context context) {
+    public SimpleListViewAdapter(Context context) {
         this.context = context;
         mInflater = LayoutInflater.from(context);
         users = new ArrayList<>();

@@ -39,4 +39,14 @@
     <string name="title_activity_pull_to_refresh">PullToRefreshActivity</string>
     <string name="title_activity_simple_list_view">SimpleListViewActivity</string>
 
+
+    <!--下拉刷新 上拉加载-->
+    <string name="mylistview_header_hint_normal">下拉刷新</string>
+    <string name="mylistview_header_hint_ready">松开刷新数据</string>
+    <string name="mylistview_header_hint_loading">正在加载...</string>
+    <string name="mylistview_header_last_time">上次更新时间：</string>
+    <string name="mylistview_footer_hint_normal">查看更多</string>
+    <string name="mylistview_footer_hint_ready">松开载入更多</string>
+    <string name="title_activity_my_list_view">MyListView：下拉刷新上拉载入</string>
+
 </resources>

@@ -90,6 +90,10 @@
             android:name=".listView.SimpleListViewActivity"
             android:label="@string/title_activity_simple_list_view" >
         </activity>
+        <activity
+            android:name=".listView.MyListViewActivity"
+            android:label="@string/title_activity_my_list_view" >
+        </activity>
     </application>
 
 </manifest>

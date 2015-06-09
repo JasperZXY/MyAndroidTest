@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
+import com.jasper.myandroidtest.listView.MyListViewActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 
@@ -67,9 +68,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.btn4simpleListView:
                 context.startActivity(new Intent(context, SimpleListViewActivity.class));
                 break;
-//            case R.id.btn4refresh:
-//                context.startActivity(new Intent(context, PullToRefreshActivity.class));
-//                break;
+            case R.id.btn4refresh:
+                context.startActivity(new Intent(context, MyListViewActivity.class));
+                break;
         }
     }
 }
