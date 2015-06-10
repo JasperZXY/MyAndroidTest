@@ -59,7 +59,6 @@ public class MyDialogFragment extends DialogFragment implements View.OnClickList
     private void init(View view) {
         etName = (EditText) view.findViewById(R.id.et_username);
         etPass = (EditText) view.findViewById(R.id.et_password);
-        getFragmentManager().beginTransaction().addToBackStack()
 
         view.findViewById(R.id.btn_cancle).setOnClickListener(this);
         view.findViewById(R.id.btn_login).setOnClickListener(this);
