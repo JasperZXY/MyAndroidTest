@@ -63,6 +63,12 @@
                 android:text="文件读写" />
 
             <Button
+                android:id="@+id/btn4permission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="权限相关" />
+
+            <Button
                 android:id="@+id/btn4camera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

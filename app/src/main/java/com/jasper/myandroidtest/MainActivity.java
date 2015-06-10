@@ -80,6 +80,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.btn4menu:
                 context.startActivity(new Intent(context, MenuActivity.class));
                 break;
+            case R.id.btn4permission:
+                context.startActivity(new Intent(context, PermissionActivity.class));
+                break;
         }
     }
 }

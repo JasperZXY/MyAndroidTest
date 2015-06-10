@@ -10,6 +10,8 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- 录制音频 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- 通过使用<uses-feature>元素，一个应用可以指定它所支持的硬件型号 -->
     <!-- 摄像头 硬件支持 -->
@@ -100,7 +102,11 @@
         </activity>
         <activity
             android:name=".MenuActivity"
-            android:label="@string/title_activity_menu">
+            android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name=".PermissionActivity"
+            android:label="@string/title_activity_permission" >
         </activity>
     </application>
 

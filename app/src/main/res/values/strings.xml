@@ -50,5 +50,6 @@
     <string name="title_activity_my_list_view">MyListView：下拉刷新上拉载入</string>
     <string name="title_activity_image_view">ImageView的scaleType问题</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_permission">PermissionActivity</string>
 
 </resources>
