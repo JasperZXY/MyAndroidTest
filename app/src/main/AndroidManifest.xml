@@ -108,6 +108,10 @@
             android:name=".PermissionActivity"
             android:label="@string/title_activity_permission" >
         </activity>
+        <activity
+            android:name=".dialog.DialogActivity"
+            android:label="@string/title_activity_dialog" >
+        </activity>
     </application>
 
 </manifest>

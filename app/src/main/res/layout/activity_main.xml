@@ -1,6 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_main"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,6 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="30dp"
             android:orientation="vertical">
 
             <Button
@@ -66,7 +71,7 @@
                 android:id="@+id/btn4permission"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="权限相关" />
+                android:text="文件读写" />
 
             <Button
                 android:id="@+id/btn4camera"
@@ -79,6 +84,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="首选项" />
+            <Button
+                android:id="@+id/btn4dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="对话框" />
 
             <Button
                 android:id="@+id/btn4simpleListView"

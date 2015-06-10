@@ -39,7 +39,6 @@
     <string name="title_activity_pull_to_refresh">PullToRefreshActivity</string>
     <string name="title_activity_simple_list_view">SimpleListViewActivity</string>
 
-
     <!--下拉刷新 上拉加载-->
     <string name="mylistview_header_hint_normal">下拉刷新</string>
     <string name="mylistview_header_hint_ready">松开刷新数据</string>
@@ -49,7 +48,9 @@
     <string name="mylistview_footer_hint_ready">松开载入更多</string>
     <string name="title_activity_my_list_view">MyListView：下拉刷新上拉载入</string>
     <string name="title_activity_image_view">ImageView的scaleType问题</string>
-    <string name="title_activity_menu">MenuActivity</string>
-    <string name="title_activity_permission">PermissionActivity</string>
+
+    <string name="title_activity_menu">菜单</string>
+    <string name="title_activity_permission">权限</string>
+    <string name="title_activity_dialog">对话框</string>
 
 </resources>

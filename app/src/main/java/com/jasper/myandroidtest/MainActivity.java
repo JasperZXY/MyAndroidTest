@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.jasper.myandroidtest.dialog.DialogActivity;
 import com.jasper.myandroidtest.listView.MyListViewActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
@@ -82,6 +83,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn4permission:
                 context.startActivity(new Intent(context, PermissionActivity.class));
+                break;
+            case R.id.btn4dialog:
+                context.startActivity(new Intent(context, DialogActivity.class));
                 break;
         }
     }
