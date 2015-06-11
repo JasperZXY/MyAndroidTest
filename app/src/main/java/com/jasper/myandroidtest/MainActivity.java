@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
 
 import com.jasper.myandroidtest.dialog.DialogActivity;
@@ -90,6 +91,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn4FragmentManager:
                 context.startActivity(new Intent(context, FragmentManagerActivity.class));
+                break;
+            case R.id.btn4WebView:
+                context.startActivity(new Intent(context, WebViewActivity.class));
                 break;
         }
     }

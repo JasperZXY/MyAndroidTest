@@ -116,6 +116,10 @@
             android:name=".fragmentManager.FragmentManagerActivity"
             android:label="@string/title_activity_fragment_manager" >
         </activity>
+        <activity
+            android:name=".WebViewActivity"
+            android:label="@string/title_activity_web_view" >
+        </activity>
     </application>
 
 </manifest>

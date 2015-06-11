@@ -108,6 +108,12 @@
                 android:layout_height="wrap_content"
                 android:text="FragmentManager" />
 
+            <Button
+                android:id="@+id/btn4WebView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WebView" />
+
         </LinearLayout>
     </ScrollView>
 
