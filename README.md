@@ -10,7 +10,7 @@
 
 
 ## 2015-06-01
-1. sample for ActionBar
+1. ActionBar
 2. 存储使用
 
 
@@ -42,3 +42,7 @@
 ## 2015-06-10
 1. 简单获取应用的权限
 2. 对话框应用
+
+## 2015-06-11
+1. FragmentTransaction中的addToBackStack操作
+

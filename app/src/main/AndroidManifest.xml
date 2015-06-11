@@ -112,6 +112,10 @@
             android:name=".dialog.DialogActivity"
             android:label="@string/title_activity_dialog" >
         </activity>
+        <activity
+            android:name=".fragmentManager.FragmentManagerActivity"
+            android:label="@string/title_activity_fragment_manager" >
+        </activity>
     </application>
 
 </manifest>

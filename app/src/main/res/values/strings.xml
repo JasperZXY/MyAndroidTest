@@ -52,5 +52,8 @@
     <string name="title_activity_menu">菜单</string>
     <string name="title_activity_permission">权限</string>
     <string name="title_activity_dialog">对话框</string>
+    <string name="title_activity_fragment_manager">FragmentManagerActivity</string>
+    <string name="fragment_manager_result">测试结果是：主页面显示F1，F1跳到F2，F1做了回退栈操作，
+        F2再跳到F3，F2不做回退栈操作，那么在按返回键的时候，F3会跟F1重叠</string>
 
 </resources>
