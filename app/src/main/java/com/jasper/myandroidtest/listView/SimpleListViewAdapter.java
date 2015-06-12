@@ -1,6 +1,7 @@
 package com.jasper.myandroidtest.listView;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Jasper on 2015/6/8.
+ * <ol>
+ * <li>运行发现，如果ListView的高度不确定，会一直调用getView方法，所以需要设置高度，选择fill_parent或者设定数值高度</li>
+ * </ol>
  */
 public class SimpleListViewAdapter extends BaseAdapter {
+    private static final String TAG = "SimpleListViewAdapter";
     private Context context;
     private LayoutInflater mInflater;
     private List<UserInfo> users;
@@ -25,7 +29,7 @@ public class SimpleListViewAdapter extends BaseAdapter {
         this.context = context;
         mInflater = LayoutInflater.from(context);
         users = new ArrayList<>();
-        for (int i=0; i<100; i++) {
+        for (int i=0; i<50; i++) {
             UserInfo userInfo = new UserInfo();
             userInfo.setHead("");
             userInfo.setName("名字" + i);
@@ -53,6 +57,7 @@ public class SimpleListViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         UserInfo info = users.get(position);
         ViewHolder holder = null;
+        Log.d(TAG, String.format("2 getView position:%s, converView:%s", position, convertView));
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.adapter_user_info, null);
             holder = new ViewHolder();
