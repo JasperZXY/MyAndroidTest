@@ -104,7 +104,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onDestroy() {
-        BitmapCache.getInstance(this).clearCache();
+        BitmapCache.getInstance().clearCache();
         super.onDestroy();
     }
 }

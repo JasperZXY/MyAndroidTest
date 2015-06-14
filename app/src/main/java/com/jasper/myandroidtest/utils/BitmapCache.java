@@ -20,7 +20,6 @@ import java.util.Hashtable;
 public class BitmapCache {
     private static final String TAG = "BitmapCache";
     private static BitmapCache cache;
-    private static Context context;
     /** 用于Chche内容的存储 */
     private Hashtable<String, MySoftRef> hashRefs;
     /** 垃圾Reference的队列（所引用的对象已经被回收，则将该引用存入队列中） */
@@ -46,23 +45,32 @@ public class BitmapCache {
     /**
      * 取得缓存器实例
      */
-    public static BitmapCache getInstance(Context context) {
+    public static BitmapCache getInstance() {
         if (cache == null ) {
             cache = new BitmapCache();
         }
-        BitmapCache.context = context;
         return cache;
+    }
+
+    private static final void closeIO(Closeable obj) {
+        if (obj != null) {
+            try {
+                obj.close();
+            } catch (IOException e) {
+                Log.e(TAG, "closeIO error:" + e.getLocalizedMessage());
+            }
+        }
     }
 
     /**
      * 以软引用的方式对一个Bitmap对象的实例进行引用并保存该引用
      */
-    public void addBitmapAndSaveFile(Bitmap bmp, String key) {
+    public void addBitmapAndSaveFile(Context context, Bitmap bmp, String key) {
         addBitmap(bmp, key);
         FileOutputStream fos = null;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
-            fos = new FileOutputStream(getFilePath(key), false);
+            fos = new FileOutputStream(getFilePath(context, key), false);
             //FIXME 这里选择的是WEBP图片格式，待确定
             bmp.compress(Bitmap.CompressFormat.WEBP, 100, baos);
             fos.write(baos.toByteArray());
@@ -80,33 +88,26 @@ public class BitmapCache {
         hashRefs.put(key, ref);
     }
 
-    private static final void closeIO(Closeable obj) {
-        if (obj != null) {
-            try {
-                obj.close();
-            } catch (IOException e) {
-                Log.e(TAG, "closeIO error:" + e.getLocalizedMessage());
-            }
-        }
-    }
-
-    public Bitmap getBitmap( String key) {
+    public Bitmap getBitmap(Context context, String key) {
         Bitmap bmp = null ;
         if (hashRefs.containsKey(key)) {
             MySoftRef ref = hashRefs.get(key);
             bmp = ref.get();
         }
         if (bmp == null) {
-            bmp = BitmapFactory.decodeFile(getFilePath(key));
-            if (bmp != null) {
-                addBitmap(bmp, key);
+            String filePath = getFilePath(context, key);
+            if (new File(filePath).exists()) {
+                bmp = BitmapFactory.decodeFile(filePath);
+                if (bmp != null) {
+                    addBitmap(bmp, key);
+                }
             }
         }
         return bmp;
     }
 
     //优先考虑外置SDCARD，没有再用内置私有目录
-    private final String getFilePath(String key) {
+    private final String getFilePath(Context context, String key) {
         File sdcache = context.getExternalCacheDir();
         if (sdcache != null) {
             return sdcache.getPath() + "/" + key;

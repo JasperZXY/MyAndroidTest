@@ -19,7 +19,7 @@ import java.net.URL;
 
 public class BitmapCacheActivity extends Activity {
     private static final String TAG = "BitmapCacheActivity";
-    private static final String IMG_URL = "http://himg.bdimg.com/sys/portrait/item/f09de9929fe78caee880802514.jpg";
+    private static final String IMG_URL = "http://b.hiphotos.baidu.com/baike/g%3D0%3Bw%3D268/sign=60c889ffb051f819e1250641ad8978db/ae51f3deb48f8c54cd34cafb3a292df5e1fe7f7a.jpg";
     private static final String IMG_KEY = "bitmapcache_test";
 
     @Override
@@ -59,10 +59,10 @@ public class BitmapCacheActivity extends Activity {
 
         @Override
         protected Bitmap doInBackground(String... params) {
-            Bitmap bitmap = BitmapCache.getInstance(getBaseContext()).getBitmap(params[0]);
+            Bitmap bitmap = BitmapCache.getInstance().getBitmap(getBaseContext(), params[0]);
             if (bitmap == null) {
                 bitmap = downloadBitMap(params[1]);
-                BitmapCache.getInstance(getBaseContext()).addBitmapAndSaveFile(bitmap, params[0]);
+                BitmapCache.getInstance().addBitmapAndSaveFile(getBaseContext(), bitmap, params[0]);
             }
             return bitmap;
         }
