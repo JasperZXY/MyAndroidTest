@@ -16,7 +16,7 @@
     <string name="search">搜索</string>
     <string name="search_hint">输入要搜索的内容</string>
 
-    <!--首选项用-->
+    <!-- 首选项用 -->
     <string name="title_activity_my_preference">MyPreferenceActivity</string>
     <string name="title_activity_list_preference">ListPreferenceActivity</string>
     <string name="title_activity__my_list_preference">MyListPreferenceActivity</string>
@@ -39,7 +39,7 @@
     <string name="title_activity_pull_to_refresh">PullToRefreshActivity</string>
     <string name="title_activity_simple_list_view">SimpleListViewActivity</string>
 
-    <!--下拉刷新 上拉加载-->
+    <!-- 下拉刷新 上拉加载 -->
     <string name="mylistview_header_hint_normal">下拉刷新</string>
     <string name="mylistview_header_hint_ready">松开刷新数据</string>
     <string name="mylistview_header_hint_loading">正在加载...</string>
@@ -48,7 +48,6 @@
     <string name="mylistview_footer_hint_ready">松开载入更多</string>
     <string name="title_activity_my_list_view">MyListView：下拉刷新上拉载入</string>
     <string name="title_activity_image_view">ImageView的scaleType问题</string>
-
     <string name="title_activity_menu">菜单</string>
     <string name="title_activity_permission">权限</string>
     <string name="title_activity_dialog">对话框</string>
@@ -56,5 +55,6 @@
     <string name="fragment_manager_result">测试结果是：主页面显示F1，F1跳到F2，F1做了回退栈操作，
         F2再跳到F3，F2不做回退栈操作，那么在按返回键的时候，F3会跟F1重叠</string>
     <string name="title_activity_web_view">WebViewActivity</string>
+    <string name="title_activity_bitmap_cache">BitmapCache使用</string>
 
 </resources>

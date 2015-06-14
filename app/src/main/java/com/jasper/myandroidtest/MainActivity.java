@@ -15,6 +15,7 @@ import com.jasper.myandroidtest.fragmentManager.FragmentManagerActivity;
 import com.jasper.myandroidtest.listView.MyListViewActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
+import com.jasper.myandroidtest.utils.BitmapCache;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private Context context;
@@ -95,6 +96,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.btn4WebView:
                 context.startActivity(new Intent(context, WebViewActivity.class));
                 break;
+            case R.id.btn4BitmapCache:
+                context.startActivity(new Intent(context, BitmapCacheActivity.class));
+                break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        BitmapCache.getInstance(this).clearCache();
+        super.onDestroy();
     }
 }

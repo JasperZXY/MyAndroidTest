@@ -47,3 +47,7 @@
 1. FragmentTransaction中的addToBackStack操作
 2. 简单WebView使用
 
+
+## 2015-06-14
+1. Bitmap二级缓存，内存+文件存储
+

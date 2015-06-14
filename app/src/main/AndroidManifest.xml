@@ -120,6 +120,10 @@
             android:name=".WebViewActivity"
             android:label="@string/title_activity_web_view" >
         </activity>
+        <activity
+            android:name=".BitmapCacheActivity"
+            android:label="@string/title_activity_bitmap_cache" >
+        </activity>
     </application>
 
 </manifest>

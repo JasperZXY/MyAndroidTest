@@ -114,6 +114,12 @@
                 android:layout_height="wrap_content"
                 android:text="WebView" />
 
+            <Button
+                android:id="@+id/btn4BitmapCache"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BitmapCache使用" />
+
         </LinearLayout>
     </ScrollView>
 
