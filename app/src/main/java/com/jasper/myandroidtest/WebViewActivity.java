@@ -8,7 +8,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
 
-
 public class WebViewActivity extends Activity {
 
     @Override
@@ -21,6 +20,20 @@ public class WebViewActivity extends Activity {
         final String mimeType = "text/html";
         myWebView.addJavascriptInterface(new WebAppInterface(this), "Android");
         myWebView.loadData("<input type=\"button\" value=\"Say hello\" onClick=\"Android.showToast('hello')\" />", mimeType, null);
+
+        WebView myWebView2 = (WebView) findViewById(R.id.webview2);
+        myWebView2.setBackgroundColor(0);
+        /**
+         * 这个需要在res的同级目录放一个文件夹assets，
+         * 这个文件夹下的文件就不会被编译成二进制字节码，
+         * 然后就可以通过file:///android_asset/进行引用了
+         */
+        myWebView2.loadUrl("file:///android_asset/qh.gif");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     public class WebAppInterface {
