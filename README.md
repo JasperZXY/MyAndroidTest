@@ -54,5 +54,5 @@
 
 ## 2015-06-17
 1. WebView加载项目gif图片
-2. FlowLayout 来自git
+2. FlowLayout 来自博客
 
