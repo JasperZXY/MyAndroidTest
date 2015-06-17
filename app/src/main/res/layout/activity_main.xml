@@ -14,11 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <com.jasper.myandroidtest.view.FlowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="30dp"
-            android:orientation="vertical">
+            android:paddingBottom="30dp">
 
             <Button
                 android:id="@+id/btn4fragmentTabHost"
@@ -26,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:text="底部导航栏:FragmentTabHost" />
 
-            <Button
+            <Buttony
                 android:id="@+id/btn4fragment_radiogroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -120,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:text="BitmapCache使用" />
 
-        </LinearLayout>
+        </com.jasper.myandroidtest.view.FlowLayout>
     </ScrollView>
 
 
