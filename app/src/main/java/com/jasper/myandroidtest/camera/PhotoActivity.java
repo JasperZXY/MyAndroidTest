@@ -1,97 +1,55 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.camera;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-/**
- * 摄像头操作
- * 1. 通过Intent调用系统功能进行拍照，不需要权限
- * 2. 自定义拍摄UI，需要添加权限
- * <p/>
- * 注：经常报Bitmap too large to be uploaded into a texture的意思是图片超过了硬件加速所规定的高度
- * 在AndroidManifest.xml中对应的Activity添加android:hardwareAccelerated="false"
- */
-public class CameraActivity extends Activity implements View.OnClickListener {
-    private static final String TAG = "CameraActivity";
+import com.jasper.myandroidtest.R;
 
-    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
-
-    public static final int MEDIA_TYPE_IMAGE = 1;
-    public static final int MEDIA_TYPE_VIDEO = 2;
-
-    private Button btn;
-    private Button btnStart;
-    private Button btnSure;
-    private Button btnOri;
-    private ImageView imageView;
-    private FrameLayout preview;
+public class PhotoActivity extends Activity implements View.OnClickListener {
+    private static final String TAG = "PhotoActivity";
     private Context context;
 
     private int cameraOrientation = 0;
 
     private static Camera mCamera;
     private CameraPreview mPreview;
+    private FrameLayout preview;
     private Handler handler;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_camera);
         context = this;
-
+        setContentView(R.layout.activity_photo);
+        intent = getIntent();
         preview = (FrameLayout) findViewById(R.id.camera_preview);
-        imageView = (ImageView) findViewById(R.id.imageview);
-        btn = (Button) findViewById(R.id.btn);
-        btnStart = (Button) findViewById(R.id.btn_start);
-        btnSure = (Button) findViewById(R.id.btn_sure);
-        btnOri = (Button) findViewById(R.id.btn_ori);
-        btn.setOnClickListener(this);
-        btnStart.setOnClickListener(this);
-        btnSure.setOnClickListener(this);
-        btnOri.setOnClickListener(this);
-
+        findButtonAndSetOnClickListenr((ViewGroup) findViewById(R.id.layout_main));
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            imageView.setImageBitmap(photo);
-        }
-    }
-
-    /**
-     * 检查硬件是否支持摄像头
-     *
-     * @param context
-     * @return
-     */
-    private boolean checkCameraHardware(Context context) {
-        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
-            return true;
-        } else {
-            return false;
+    private void findButtonAndSetOnClickListenr(ViewGroup viewGroup) {
+        for (int i=0; i<viewGroup.getChildCount(); i++) {
+            if (viewGroup.getChildAt(i) instanceof Button) {
+                viewGroup.getChildAt(i).setOnClickListener(this);
+            } else if (viewGroup.getChildAt(i) instanceof ViewGroup) {
+                findButtonAndSetOnClickListenr((ViewGroup) viewGroup.getChildAt(i));
+            }
         }
     }
 
@@ -130,15 +88,15 @@ public class CameraActivity extends Activity implements View.OnClickListener {
         return super.onOptionsItemSelected(item);
     }
 
+    private boolean checkCameraHardware() {
+        return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn:
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-                break;
             case R.id.btn_start:
-                if (checkCameraHardware(context)) {
+                if (checkCameraHardware()) {
                     if (mCamera == null) {
                         try {
                             mCamera = Camera.open(); // attempt to get a Camera instance
@@ -167,12 +125,15 @@ public class CameraActivity extends Activity implements View.OnClickListener {
 
         @Override
         public void onPictureTaken(final byte[] data, Camera camera) {
-            Log.i(TAG, "onPictureTaken:" + data.length + " camera:" + camera + " mCamera:" + mCamera);
+            Log.i(TAG, "11  onPictureTaken:" + data.length + " camera:" + camera + " mCamera:" + mCamera);
             try {
 //                BitmapFactory.Options options = new BitmapFactory.Options();
 //                options.outHeight = 30;
 //                Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length, options);
-                imageView.setImageBitmap(BitmapFactory.decodeByteArray(data, 0, data.length));
+                intent.getExtras().putParcelable("data", BitmapFactory.decodeByteArray(data, 0, data.length));
+                setResult(CameraActivity.INTENT_TACK_PHOTO_MY_UI, intent);
+                finish();
+//                imageView.setImageBitmap(BitmapFactory.decodeByteArray(data, 0, data.length));
 //                File file = new File(Environment.getExternalStorageDirectory(), "/test/1.jpg");
 //                if (! file.getParentFile().exists()) {
 //                    file.getParentFile().mkdirs();

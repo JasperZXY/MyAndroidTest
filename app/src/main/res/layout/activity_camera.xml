@@ -7,50 +7,40 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.jasper.myandroidtest.CameraActivity">
+    android:id="@+id/layout_main"
+    tools:context="com.jasper.myandroidtest.camera.CameraActivity">
 
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/btn_camera_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Intent跳转拍摄" />
+        android:text="检测是否支持摄像头" />
+    <Button
+        android:id="@+id/btn_intent_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Intent跳转拍照" />
+    <Button
+        android:id="@+id/btn_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义界面拍照" />
+    <Button
+        android:id="@+id/btn_intent_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Intent跳转拍摄视频" />
+    <Button
+        android:id="@+id/btn_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义拍摄视频" />
 
     <ImageView
-        android:id="@+id/imageview"
+        android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:src="@drawable/xianjian01" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="自定义"/>
-        <Button
-            android:id="@+id/btn_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="开始"/>
-        <Button
-            android:id="@+id/btn_ori"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="旋转90度"/>
-        <Button
-            android:id="@+id/btn_sure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="确定"/>
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/camera_preview"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
 
 </LinearLayout>

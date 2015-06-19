@@ -49,7 +49,7 @@
             android:name=".FileActivity"
             android:label="@string/title_activity_file" />
         <activity
-            android:name=".CameraActivity"
+            android:name=".camera.CameraActivity"
             android:hardwareAccelerated="false"
             android:label="@string/title_activity_camera" />
         <activity
@@ -123,6 +123,10 @@
         <activity
             android:name=".BitmapCacheActivity"
             android:label="@string/title_activity_bitmap_cache" >
+        </activity>
+        <activity
+            android:name=".camera.PhotoActivity"
+            android:label="@string/title_activity_photo" >
         </activity>
     </application>
 

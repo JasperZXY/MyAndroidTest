@@ -56,5 +56,6 @@
         F2再跳到F3，F2不做回退栈操作，那么在按返回键的时候，F3会跟F1重叠</string>
     <string name="title_activity_web_view">WebViewActivity</string>
     <string name="title_activity_bitmap_cache">BitmapCache使用</string>
+    <string name="title_activity_photo">PhotoActivity</string>
 
 </resources>
