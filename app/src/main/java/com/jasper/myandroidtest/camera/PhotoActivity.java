@@ -4,88 +4,65 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.PixelFormat;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.jasper.myandroidtest.R;
 
-public class PhotoActivity extends Activity implements View.OnClickListener {
+/**
+ * 有点小问题，旋转后无法知道屏幕进行了旋转
+ */
+public class PhotoActivity extends Activity implements View.OnClickListener, Camera.PictureCallback {
     private static final String TAG = "PhotoActivity";
     private Context context;
-
-    private int cameraOrientation = 0;
-
-    private static Camera mCamera;
-    private CameraPreview mPreview;
+    private Camera camera;
+    private boolean isBackCamera = true;
+    private int cameraId = 0;
     private FrameLayout preview;
-    private Handler handler;
+    private SurfaceHolder surfaceHolder;
+    private Bitmap bitmap;
     private Intent intent;
+    private CameraPreview cameraPreview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_photo);
         intent = getIntent();
-        preview = (FrameLayout) findViewById(R.id.camera_preview);
+        preview = (FrameLayout) findViewById(R.id.preview);
+        cameraPreview = new CameraPreview(this);
+        preview.addView(cameraPreview);
         findButtonAndSetOnClickListenr((ViewGroup) findViewById(R.id.layout_main));
+
+        surfaceHolder = cameraPreview.getHolder();
+        surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
     }
 
     private void findButtonAndSetOnClickListenr(ViewGroup viewGroup) {
-        for (int i=0; i<viewGroup.getChildCount(); i++) {
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
             if (viewGroup.getChildAt(i) instanceof Button) {
                 viewGroup.getChildAt(i).setOnClickListener(this);
             } else if (viewGroup.getChildAt(i) instanceof ViewGroup) {
                 findButtonAndSetOnClickListenr((ViewGroup) viewGroup.getChildAt(i));
             }
         }
-    }
-
-    public static Camera getCameraInstance() {
-//        Camera c = null;
-//        try {
-//            c = Camera.open(); // attempt to get a Camera instance
-//        }
-//        catch (Exception e){
-//            Log.e(TAG, "Camera is not available (in use or does not exist)");
-//        }
-//        return c; // returns null if camera is unavailable
-        if (mCamera == null) {
-            try {
-                mCamera = Camera.open(); // attempt to get a Camera instance
-            } catch (Exception e) {
-                Log.e(TAG, "Camera is not available (in use or does not exist)");
-            }
-        }
-        return mCamera; // returns null if camera is unavailable
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_camera, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private boolean checkCameraHardware() {
@@ -95,146 +72,170 @@ public class PhotoActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_start:
-                if (checkCameraHardware()) {
-                    if (mCamera == null) {
-                        try {
-                            mCamera = Camera.open(); // attempt to get a Camera instance
-                        } catch (Exception e) {
-                            Log.e(TAG, "Camera is not available (in use or does not exist)");
-                        }
-                    }
-                    mPreview = new CameraPreview(this, mCamera);
-                    preview.addView(mPreview);
-                } else {
-                    Toast.makeText(context, "摄像头不可用", Toast.LENGTH_LONG).show();
-                }
+            case R.id.btn_restart:
+                camera.startPreview();
+                break;
+            case R.id.btn_photo:
+                camera.takePicture(null, null, this);
                 break;
             case R.id.btn_sure:
-                mCamera.takePicture(null, null, mPicture);
-                preview.removeAllViews();
-                break;
-            case R.id.btn_ori:
-                cameraOrientation = (cameraOrientation + 90) % 360;
-                mCamera.setDisplayOrientation(cameraOrientation);
-                break;
-        }
-    }
-
-    Camera.PictureCallback mPicture = new Camera.PictureCallback() {
-
-        @Override
-        public void onPictureTaken(final byte[] data, Camera camera) {
-            Log.i(TAG, "11  onPictureTaken:" + data.length + " camera:" + camera + " mCamera:" + mCamera);
-            try {
-//                BitmapFactory.Options options = new BitmapFactory.Options();
-//                options.outHeight = 30;
-//                Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length, options);
-                intent.getExtras().putParcelable("data", BitmapFactory.decodeByteArray(data, 0, data.length));
+                intent.putExtra("data", bitmap);
                 setResult(CameraActivity.INTENT_TACK_PHOTO_MY_UI, intent);
                 finish();
-//                imageView.setImageBitmap(BitmapFactory.decodeByteArray(data, 0, data.length));
-//                File file = new File(Environment.getExternalStorageDirectory(), "/test/1.jpg");
-//                if (! file.getParentFile().exists()) {
-//                    file.getParentFile().mkdirs();
-//                }
-//                FileOutputStream fos = new FileOutputStream(file);
-//                fos.write(data);
-//                fos.close();
+                break;
+            case R.id.btn_around:
+                getDispalyRotation();
+                isBackCamera = !isBackCamera;
+                preview.removeAllViews();
+                preview.addView(cameraPreview);
+                break;
+        }
+    }
 
-//                imageView.setImageBitmap(BitmapFactory.decodeFile(file.getAbsolutePath()));
-            } catch (Exception e) {
-                Log.e(TAG, "setImageBitmap error:" + e.getLocalizedMessage());
-                e.printStackTrace();
+    private int findFrontCamera() {
+        int cameraCount = 0;
+        Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+        cameraCount = Camera.getNumberOfCameras(); // get cameras number
+
+        for (int camIdx = 0; camIdx < cameraCount; camIdx++) {
+            Camera.getCameraInfo(camIdx, cameraInfo); // get camerainfo
+            if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+                // 代表摄像头的方位，目前有定义值两个分别为CAMERA_FACING_FRONT前置和CAMERA_FACING_BACK后置
+                return camIdx;
             }
-//            handler.post(new Runnable() {
-//                @Override
-//                public void run() {
-//                }
-//            });
-
-//            File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
-//            if (pictureFile == null){
-//                Log.d(TAG, "Error creating media file, check storage permissions: " +
-//                        e.getMessage());
-//                return;
-//            }
-//
-//            try {
-//                FileOutputStream fos = new FileOutputStream(pictureFile);
-//                fos.write(data);
-//                fos.close();
-//            } catch (FileNotFoundException e) {
-//                Log.d(TAG, "File not found: " + e.getMessage());
-//            } catch (IOException e) {
-//                Log.d(TAG, "Error accessing file: " + e.getMessage());
-//            }
         }
-    };
+        return -1;
+    }
 
+    private int findBackCamera() {
+        int cameraCount = 0;
+        Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+        cameraCount = Camera.getNumberOfCameras(); // get cameras number
 
-    class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
-        private SurfaceHolder mHolder;
-        private Camera mCamera;
+        for (int camIdx = 0; camIdx < cameraCount; camIdx++) {
+            Camera.getCameraInfo(camIdx, cameraInfo); // get camerainfo
+            if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {
+                // 代表摄像头的方位，目前有定义值两个分别为CAMERA_FACING_FRONT前置和CAMERA_FACING_BACK后置
+                return camIdx;
+            }
+        }
+        return -1;
+    }
 
-        public CameraPreview(Context context, Camera camera) {
+    private int getDisplayOritation(int degrees, int cameraId) {
+        Camera.CameraInfo info = new Camera.CameraInfo();
+        Camera.getCameraInfo(cameraId, info);
+        int result;
+        if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+            result = (info.orientation + degrees) % 360;
+            result = (360 - result) % 360;
+        } else {
+            result = (info.orientation - degrees + 360) % 360;
+        }
+        return result;
+    }
+
+    //获取手机旋转的角度
+    //FIXME 这里方向的原点待确定
+    private int getDispalyRotation() {
+        int i = getWindowManager().getDefaultDisplay().getRotation();
+        Log.i(TAG, "1 getDispalyRotation:" + i);
+        switch (i) {
+            case Surface.ROTATION_0:
+                return 0;
+            case Surface.ROTATION_90:
+                return 90;
+            case Surface.ROTATION_180:
+                return 180;
+            case Surface.ROTATION_270:
+                return 270;
+        }
+        return 0;
+    }
+
+    @Override
+    public void onPictureTaken(byte[] data, Camera camera) {
+        bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+        int degrees = getDispalyRotation();
+        if (isBackCamera) {
+            Matrix m = new Matrix();
+            m.setRotate(90);
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m, true);
+        } else {
+            Matrix m = new Matrix();
+            m.setRotate(270);
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m, true);
+            android.graphics.Camera camera2 = new android.graphics.Camera();
+            camera2.rotateY(180);
+            camera2.getMatrix(m);
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m, true);
+        }
+        Log.i(TAG, "onPictureTaken:" + bitmap);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.i(TAG, "onConfigurationChanged orientation:" + newConfig.orientation);
+    }
+
+    private class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
+
+        public CameraPreview(Context context) {
             super(context);
-            mCamera = camera;
-
-            // Install a SurfaceHolder.Callback so we get notified when the
-            // underlying surface is created and destroyed.
-            mHolder = getHolder();
-            mHolder.addCallback(this);
-            // deprecated setting, but required on Android versions prior to 3.0
-            mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+            getHolder().addCallback(this);
         }
 
+        @Override
         public void surfaceCreated(SurfaceHolder holder) {
             Log.d(TAG, "surfaceCreated");
-            try {
-                mCamera.setPreviewDisplay(holder);
-                mCamera.startPreview();
-            } catch (Exception e) {
-                Log.d(TAG, "Error setting camera preview: " + e.getMessage());
+            if (checkCameraHardware()) {
+                if (isBackCamera) {
+                    cameraId = findBackCamera();
+//                    camera = Camera.open(findBackCamera());
+                } else {
+                    cameraId = findFrontCamera();
+//                    camera = Camera.open(findFrontCamera());
+                }
+                camera = Camera.open(cameraId);
+                  /* 创建Camera.Parameters对象 */
+                Camera.Parameters parameters = camera.getParameters();
+                 /* 设置相片格式为JPEG */
+                parameters.setPictureFormat(PixelFormat.JPEG);
+                 /* 指定preview的屏幕大小 */
+                parameters.setPreviewSize(640, 480);
+                    /* 设置图片分辨率大小，不能设置太大，不然Intent传输的时候会报FAILED BINDER TRANSACTION */
+                parameters.setPictureSize(320, 240);
+                camera.setParameters(parameters);
+                camera.setDisplayOrientation(90);
+                try {
+                    camera.setPreviewDisplay(surfaceHolder);
+                    camera.startPreview();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                camera.startPreview();
+            } else {
+                Toast.makeText(context, "摄像头不可用", Toast.LENGTH_LONG).show();
             }
         }
 
+        @Override
+        public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+            Log.d(TAG, String.format("surfaceChanged format:%s, width:%s, height:%s", format, width, height));
+            camera.stopPreview();
+            camera.startPreview();
+        }
+
+        @Override
         public void surfaceDestroyed(SurfaceHolder holder) {
-            // empty. Take care of releasing the Camera preview in your activity.
             Log.d(TAG, "surfaceDestroyed");
-            mCamera.stopPreview();
-            mCamera.release();
-            mCamera = null;
-        }
-
-        public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
-            // If your preview can change or rotate, take care of those events here.
-            // Make sure to stop the preview before resizing or reformatting it.
-            Log.d(TAG, "surfaceChanged");
-
-            if (mHolder.getSurface() == null) {
-                // preview surface does not exist
-                return;
-            }
-
-            // stop preview before making changes
-            try {
-                mCamera.stopPreview();
-            } catch (Exception e) {
-                // ignore: tried to stop a non-existent preview
-            }
-
-            // set preview size and make any resize, rotate or
-            // reformatting changes here
-
-            // start preview with new settings
-            try {
-                mCamera.setPreviewDisplay(mHolder);
-                mCamera.startPreview();
-
-            } catch (Exception e) {
-                Log.d(TAG, "Error starting camera preview: " + e.getMessage());
+            if (camera != null) {
+                camera.stopPreview();
+                camera.release();
+                camera = null;
             }
         }
     }
+
 }

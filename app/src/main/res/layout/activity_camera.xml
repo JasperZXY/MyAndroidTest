@@ -19,7 +19,7 @@
         android:id="@+id/btn_intent_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Intent跳转拍照" />
+        android:text="系统拍照" />
     <Button
         android:id="@+id/btn_photo"
         android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
         android:id="@+id/btn_intent_video"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Intent跳转拍摄视频" />
+        android:text="系统拍摄视频" />
     <Button
         android:id="@+id/btn_video"
         android:layout_width="wrap_content"
@@ -38,9 +38,9 @@
 
     <ImageView
         android:id="@+id/img"
+        android:scaleType="fitCenter"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:src="@drawable/xianjian01" />
 
 </LinearLayout>

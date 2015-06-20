@@ -126,7 +126,7 @@
         </activity>
         <activity
             android:name=".camera.PhotoActivity"
-            android:label="@string/title_activity_photo" >
+            android:label="@string/title_activity_photo">
         </activity>
     </application>
 

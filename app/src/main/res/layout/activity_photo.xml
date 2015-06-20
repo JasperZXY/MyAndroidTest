@@ -14,15 +14,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/btn_start"
+            android:id="@+id/btn_restart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="开始"/>
+            android:text="重拍"/>
         <Button
-            android:id="@+id/btn_ori"
+            android:id="@+id/btn_around"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="旋转90度"/>
+            android:text="前后"/>
+        <Button
+            android:id="@+id/btn_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拍"/>
         <Button
             android:id="@+id/btn_sure"
             android:layout_width="wrap_content"
@@ -31,9 +36,12 @@
     </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/camera_preview"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:id="@+id/preview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></FrameLayout>
+    <!--<SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />-->
 
 </LinearLayout>

@@ -10,7 +10,7 @@
     <string name="title_activity_async_task">AsyncTaskActivity</string>
     <string name="title_activity_tabs3">Tabs3Activity</string>
     <string name="title_activity_file">FileActivity</string>
-    <string name="title_activity_camera">CameraActivity</string>
+    <string name="title_activity_camera">摄像头使用</string>
     <string name="title_activity_my_action_bar">MyActionBarActivity</string>
     <string name="title_activity_search_result">SearchResultActivity</string>
     <string name="search">搜索</string>
@@ -56,6 +56,6 @@
         F2再跳到F3，F2不做回退栈操作，那么在按返回键的时候，F3会跟F1重叠</string>
     <string name="title_activity_web_view">WebViewActivity</string>
     <string name="title_activity_bitmap_cache">BitmapCache使用</string>
-    <string name="title_activity_photo">PhotoActivity</string>
+    <string name="title_activity_photo">自定义界面拍照</string>
 
 </resources>
