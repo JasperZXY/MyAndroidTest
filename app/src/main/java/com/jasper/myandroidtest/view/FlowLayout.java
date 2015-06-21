@@ -87,8 +87,8 @@ public class FlowLayout extends ViewGroup {
             // 当前行的最大高度
             lineHeight = mLineHeight.get(i);
 
-            Log.d(TAG, "第" + i + "行 ：" + lineViews.size() + " , " + lineViews);
-            Log.d(TAG, "第" + i + "行， ：" + lineHeight);
+//            Log.d(TAG, "第" + i + "行 ：" + lineViews.size() + " , " + lineViews);
+//            Log.d(TAG, "第" + i + "行， ：" + lineHeight);
 
             // 遍历当前行所有的View
             for (int j = 0; j < lineViews.size(); j++)
@@ -107,8 +107,8 @@ public class FlowLayout extends ViewGroup {
                 int rc =lc + child.getMeasuredWidth();
                 int bc = tc + child.getMeasuredHeight();
 
-                Log.d(TAG, child + " , l = " + lc + " , t = " + t + " , r ="
-                        + rc + " , b = " + bc);
+//                Log.d(TAG, child + " , l = " + lc + " , t = " + t + " , r ="
+//                        + rc + " , b = " + bc);
 
                 child.layout(lc, tc, rc, bc);
 
