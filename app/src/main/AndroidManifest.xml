@@ -12,6 +12,11 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--获取网络状态权限-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--读取电话信息-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <!-- 通过使用<uses-feature>元素，一个应用可以指定它所支持的硬件型号 -->
     <!-- 摄像头 硬件支持 -->
