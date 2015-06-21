@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import com.jasper.myandroidtest.R;
+import com.jasper.myandroidtest.listView.adapter.SimpleListViewAdapter;
 
 public class SimpleListViewActivity extends Activity {
     private ListView listView;

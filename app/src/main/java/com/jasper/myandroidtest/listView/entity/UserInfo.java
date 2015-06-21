@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.listView;
+package com.jasper.myandroidtest.listView.entity;
 
 /**
  * Created by Jasper on 2015/6/8.

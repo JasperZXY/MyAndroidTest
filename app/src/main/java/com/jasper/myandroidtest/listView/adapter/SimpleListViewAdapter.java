@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.listView;
+package com.jasper.myandroidtest.listView.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jasper.myandroidtest.R;
+import com.jasper.myandroidtest.listView.entity.UserInfo;
 
 import java.util.ArrayList;
 import java.util.List;

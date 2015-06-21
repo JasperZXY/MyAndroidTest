@@ -123,7 +123,13 @@
                 android:id="@+id/btn4gradienter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="水平仪" />
+                android:text="@string/title_activity_gradienter" />
+
+            <Button
+                android:id="@+id/btn4phone_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_activity_phone_info" />
 
         </com.jasper.myandroidtest.view.FlowLayout>
     </ScrollView>

@@ -58,5 +58,6 @@
     <string name="title_activity_bitmap_cache">BitmapCache使用</string>
     <string name="title_activity_photo">自定义界面拍照</string>
     <string name="title_activity_gradienter">水平仪</string>
+    <string name="title_activity_phone_info">手机相关信息</string>
 
 </resources>

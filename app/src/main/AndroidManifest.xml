@@ -132,6 +132,10 @@
             android:name=".sensor.GradienterActivity"
             android:label="@string/title_activity_gradienter" >
         </activity>
+        <activity
+            android:name=".listView.PhoneInfoActivity"
+            android:label="@string/title_activity_phone_info" >
+        </activity>
     </application>
 
 </manifest>

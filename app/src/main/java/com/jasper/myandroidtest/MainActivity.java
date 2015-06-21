@@ -1,7 +1,6 @@
 package com.jasper.myandroidtest;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,19 +12,18 @@ import com.jasper.myandroidtest.camera.CameraActivity;
 import com.jasper.myandroidtest.dialog.DialogActivity;
 import com.jasper.myandroidtest.fragmentManager.FragmentManagerActivity;
 import com.jasper.myandroidtest.listView.MyListViewActivity;
+import com.jasper.myandroidtest.listView.PhoneInfoActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.GradienterActivity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        context = this;
 
         findButtonAndSetOnClickListenr((ViewGroup) findViewById(R.id.layout_main));
     }
@@ -50,58 +48,61 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn4fragmentTabHost:
-                context.startActivity(new Intent(context, Tabs1Activity.class));
+                startActivity(new Intent(this, Tabs1Activity.class));
                 break;
             case R.id.btn4fragment_radiogroup:
-                context.startActivity(new Intent(context, Tabs2Activity.class));
+                startActivity(new Intent(this, Tabs2Activity.class));
                 break;
             case R.id.btn4fragment_viewpager:
-                context.startActivity(new Intent(context, Tabs3Activity.class));
+                startActivity(new Intent(this, Tabs3Activity.class));
                 break;
             case R.id.btn4AsyncTask:
-                context.startActivity(new Intent(context, AsyncTaskActivity.class));
+                startActivity(new Intent(this, AsyncTaskActivity.class));
                 break;
             case R.id.btn4file_read_write:
-                context.startActivity(new Intent(context, FileActivity.class));
+                startActivity(new Intent(this, FileActivity.class));
                 break;
             case R.id.btn4camera:
-                context.startActivity(new Intent(context, CameraActivity.class));
+                startActivity(new Intent(this, CameraActivity.class));
                 break;
             case R.id.btn4actionbar:
-                context.startActivity(new Intent(context, MyActionBarActivity.class));
+                startActivity(new Intent(this, MyActionBarActivity.class));
                 break;
             case R.id.btn4preference:
-                context.startActivity(new Intent(context, MyPreferenceActivity.class));
+                startActivity(new Intent(this, MyPreferenceActivity.class));
                 break;
             case R.id.btn4simpleListView:
-                context.startActivity(new Intent(context, SimpleListViewActivity.class));
+                startActivity(new Intent(this, SimpleListViewActivity.class));
                 break;
             case R.id.btn4refresh:
-                context.startActivity(new Intent(context, MyListViewActivity.class));
+                startActivity(new Intent(this, MyListViewActivity.class));
                 break;
             case R.id.btn4imageview:
-                context.startActivity(new Intent(context, ImageViewActivity.class));
+                startActivity(new Intent(this, ImageViewActivity.class));
                 break;
             case R.id.btn4menu:
-                context.startActivity(new Intent(context, MenuActivity.class));
+                startActivity(new Intent(this, MenuActivity.class));
                 break;
             case R.id.btn4permission:
-                context.startActivity(new Intent(context, PermissionActivity.class));
+                startActivity(new Intent(this, PermissionActivity.class));
                 break;
             case R.id.btn4dialog:
-                context.startActivity(new Intent(context, DialogActivity.class));
+                startActivity(new Intent(this, DialogActivity.class));
                 break;
             case R.id.btn4FragmentManager:
-                context.startActivity(new Intent(context, FragmentManagerActivity.class));
+                startActivity(new Intent(this, FragmentManagerActivity.class));
                 break;
             case R.id.btn4WebView:
-                context.startActivity(new Intent(context, WebViewActivity.class));
+                startActivity(new Intent(this, WebViewActivity.class));
                 break;
             case R.id.btn4BitmapCache:
-                context.startActivity(new Intent(context, BitmapCacheActivity.class));
+                startActivity(new Intent(this, BitmapCacheActivity.class));
                 break;
             case R.id.btn4gradienter:
-                context.startActivity(new Intent(context, GradienterActivity.class));
+                startActivity(new Intent(this, GradienterActivity.class));
+                break;
+            case R.id.btn4phone_info:
+                startActivity(new Intent(this, PhoneInfoActivity.class));
                 break;
         }
     }
