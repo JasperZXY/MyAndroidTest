@@ -60,5 +60,6 @@
     <string name="title_activity_gradienter">水平仪</string>
     <string name="title_activity_phone_info">手机相关信息</string>
     <string name="title_activity_simple_sensor">重力感应</string>
+    <string name="title_activity_matrix">图片变化</string>
 
 </resources>

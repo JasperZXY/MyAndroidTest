@@ -145,6 +145,10 @@
             android:name=".sensor.SimpleSensorActivity"
             android:label="@string/title_activity_simple_sensor" >
         </activity>
+        <activity
+            android:name=".MatrixActivity"
+            android:label="@string/title_activity_matrix" >
+        </activity>
     </application>
 
 </manifest>

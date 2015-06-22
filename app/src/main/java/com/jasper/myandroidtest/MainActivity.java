@@ -40,12 +40,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn4fragmentTabHost:
@@ -107,6 +101,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn4phone_info:
                 startActivity(new Intent(this, PhoneInfoActivity.class));
+                break;
+            case R.id.btn4Matrix:
+                startActivity(new Intent(this, MatrixActivity.class));
                 break;
         }
     }

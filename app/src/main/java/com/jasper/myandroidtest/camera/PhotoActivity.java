@@ -13,7 +13,6 @@ import android.hardware.Camera;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.OrientationEventListener;
-import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -31,7 +30,6 @@ import com.jasper.myandroidtest.R;
  * <li>需要添加权限：android.permission.CAMERA</li>
  * <li>注册OrientationEventListener，获取屏幕旋转事件</li>
  * <li>让摄像头的预览正常显示，camera.setDisplayOrientation(90);</li>
- * <li>若是前置摄像头，图片要进行二次处理</li>
  * </ul>
  */
 public class PhotoActivity extends Activity implements View.OnClickListener, Camera.PictureCallback {
@@ -163,11 +161,15 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
             bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m, true);
         } else {
             Matrix m = new Matrix();
-            m.setRotate(getDegree());
-            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m, true);
-            android.graphics.Camera camera2 = new android.graphics.Camera();
-            camera2.rotateY(180);
-            camera2.getMatrix(m);
+            android.graphics.Camera cameraMatrix = new android.graphics.Camera();
+            cameraMatrix.rotateY(180);
+            /*
+             * 用下面这句，或者进行二次处理
+             * m.setRotate(getDegree());
+             * bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m, true)
+             */
+            cameraMatrix.rotateZ(getDegree());
+            cameraMatrix.getMatrix(m);
             bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m, true);
         }
         Log.i(TAG, "2 onPictureTaken:" + bitmap);
