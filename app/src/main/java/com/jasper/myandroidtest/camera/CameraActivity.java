@@ -40,7 +40,7 @@ public class CameraActivity extends Activity implements View.OnClickListener {
     }
 
     private void findButtonAndSetOnClickListenr(ViewGroup viewGroup) {
-        for (int i=0; i<viewGroup.getChildCount(); i++) {
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
             if (viewGroup.getChildAt(i) instanceof Button) {
                 viewGroup.getChildAt(i).setOnClickListener(this);
             } else if (viewGroup.getChildAt(i) instanceof ViewGroup) {
@@ -51,13 +51,13 @@ public class CameraActivity extends Activity implements View.OnClickListener {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == INTENT_TACK_PHOTO || requestCode == INTENT_TACK_PHOTO_MY_UI) {
-            if (data != null && data.getExtras() != null && data.getExtras().get("data") != null) {
-                try {
+            try {
+                if (data != null && data.getExtras() != null && data.getExtras().get("data") != null) {
                     Bitmap photo = (Bitmap) data.getExtras().get("data");
                     imageView.setImageBitmap(photo);
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

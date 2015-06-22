@@ -12,6 +12,7 @@ import android.graphics.PixelFormat;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.OrientationEventListener;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -25,7 +26,13 @@ import android.widget.Toast;
 import com.jasper.myandroidtest.R;
 
 /**
- * 有点小问题，旋转后无法知道屏幕进行了旋转
+ * <strong>注意事项</strong>
+ * <ul>
+ * <li>需要添加权限：android.permission.CAMERA</li>
+ * <li>注册OrientationEventListener，获取屏幕旋转事件</li>
+ * <li>让摄像头的预览正常显示，camera.setDisplayOrientation(90);</li>
+ * <li>若是前置摄像头，图片要进行二次处理</li>
+ * </ul>
  */
 public class PhotoActivity extends Activity implements View.OnClickListener, Camera.PictureCallback {
     private static final String TAG = "PhotoActivity";
@@ -35,9 +42,11 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
     private int cameraId = 0;
     private FrameLayout preview;
     private SurfaceHolder surfaceHolder;
+    private int curOrientation = 0;
     private Bitmap bitmap;
     private Intent intent;
     private CameraPreview cameraPreview;
+    private OrientationEventListener orientationEventListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +62,30 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
 
         surfaceHolder = cameraPreview.getHolder();
         surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+
+        //屏幕旋转事件获取
+        orientationEventListener = new OrientationEventListener(this) {
+            @Override
+            public void onOrientationChanged(int orientation) {
+                curOrientation = orientation;
+            }
+        };
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (orientationEventListener != null) {
+            orientationEventListener.enable();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        if (orientationEventListener != null) {
+            orientationEventListener.disable();
+        }
+        super.onPause();
     }
 
     private void findButtonAndSetOnClickListenr(ViewGroup viewGroup) {
@@ -84,7 +117,6 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
                 finish();
                 break;
             case R.id.btn_around:
-                getDispalyRotation();
                 isBackCamera = !isBackCamera;
                 preview.removeAllViews();
                 preview.addView(cameraPreview);
@@ -122,55 +154,38 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
         return -1;
     }
 
-    private int getDisplayOritation(int degrees, int cameraId) {
-        Camera.CameraInfo info = new Camera.CameraInfo();
-        Camera.getCameraInfo(cameraId, info);
-        int result;
-        if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-            result = (info.orientation + degrees) % 360;
-            result = (360 - result) % 360;
-        } else {
-            result = (info.orientation - degrees + 360) % 360;
-        }
-        return result;
-    }
-
-    //获取手机旋转的角度
-    //FIXME 这里方向的原点待确定
-    private int getDispalyRotation() {
-        int i = getWindowManager().getDefaultDisplay().getRotation();
-        Log.i(TAG, "1 getDispalyRotation:" + i);
-        switch (i) {
-            case Surface.ROTATION_0:
-                return 0;
-            case Surface.ROTATION_90:
-                return 90;
-            case Surface.ROTATION_180:
-                return 180;
-            case Surface.ROTATION_270:
-                return 270;
-        }
-        return 0;
-    }
-
     @Override
     public void onPictureTaken(byte[] data, Camera camera) {
         bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
-        int degrees = getDispalyRotation();
         if (isBackCamera) {
             Matrix m = new Matrix();
-            m.setRotate(90);
+            m.setRotate(getDegree());
             bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m, true);
         } else {
             Matrix m = new Matrix();
-            m.setRotate(270);
+            m.setRotate(getDegree());
             bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m, true);
             android.graphics.Camera camera2 = new android.graphics.Camera();
             camera2.rotateY(180);
             camera2.getMatrix(m);
             bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), m, true);
         }
-        Log.i(TAG, "onPictureTaken:" + bitmap);
+        Log.i(TAG, "2 onPictureTaken:" + bitmap);
+    }
+
+    private int getDegree() {
+        int degree = 0;
+        if (curOrientation > 325 || curOrientation <= 45) {
+            degree = 90;
+        } else if (curOrientation > 45 && curOrientation <= 135) {
+            degree = 180;
+        } else if (curOrientation > 135 && curOrientation < 225) {
+            degree = 270;
+        }
+        if (isBackCamera) {
+            return degree;
+        }
+        return (360 - degree) % 360;
     }
 
     @Override
@@ -192,10 +207,10 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
             if (checkCameraHardware()) {
                 if (isBackCamera) {
                     cameraId = findBackCamera();
-//                    camera = Camera.open(findBackCamera());
+                    //                    camera = Camera.open(findBackCamera());
                 } else {
                     cameraId = findFrontCamera();
-//                    camera = Camera.open(findFrontCamera());
+                    //                    camera = Camera.open(findFrontCamera());
                 }
                 camera = Camera.open(cameraId);
                   /* 创建Camera.Parameters对象 */
