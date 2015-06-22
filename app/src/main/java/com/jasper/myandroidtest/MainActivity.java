@@ -16,6 +16,7 @@ import com.jasper.myandroidtest.listView.PhoneInfoActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.GradienterActivity;
+import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -97,6 +98,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn4BitmapCache:
                 startActivity(new Intent(this, BitmapCacheActivity.class));
+                break;
+            case R.id.btn4simple_sensor:
+                startActivity(new Intent(this, SimpleSensorActivity.class));
                 break;
             case R.id.btn4gradienter:
                 startActivity(new Intent(this, GradienterActivity.class));
