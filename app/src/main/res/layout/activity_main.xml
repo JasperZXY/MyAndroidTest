@@ -143,6 +143,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_activity_matrix" />
 
+            <Button
+                android:id="@+id/btn4viedo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_activity_video" />
+
         </com.jasper.myandroidtest.view.FlowLayout>
     </ScrollView>
 

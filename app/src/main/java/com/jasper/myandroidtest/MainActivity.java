@@ -3,7 +3,6 @@ package com.jasper.myandroidtest;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,6 +17,7 @@ import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.GradienterActivity;
 import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
 import com.jasper.myandroidtest.utils.BitmapCache;
+import com.jasper.myandroidtest.video.VideoActivity;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -104,6 +104,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn4Matrix:
                 startActivity(new Intent(this, MatrixActivity.class));
+                break;
+            case R.id.btn4viedo:
+                startActivity(new Intent(this, VideoActivity.class));
                 break;
         }
     }

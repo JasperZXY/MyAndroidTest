@@ -149,6 +149,18 @@
             android:name=".MatrixActivity"
             android:label="@string/title_activity_matrix" >
         </activity>
+        <activity
+            android:name=".video.VideoActivity"
+            android:label="@string/title_activity_video" >
+        </activity>
+        <activity
+            android:name=".video.VideoViewActivity"
+            android:label="@string/title_activity_video_view" >
+        </activity>
+        <activity
+            android:name=".video.MediaPlayerActivity"
+            android:label="@string/title_activity_media_player" >
+        </activity>
     </application>
 
 </manifest>

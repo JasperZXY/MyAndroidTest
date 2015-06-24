@@ -1,0 +1,36 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.jasper.myandroidtest.video.VideoActivity">
+
+    <Button
+        android:id="@+id/btn_chose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择视频文件"/>
+    <TextView
+        android:id="@+id/tv_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前文件："/>
+    <Button
+        android:id="@+id/btn_system_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="系统播放器"/>
+    <Button
+        android:id="@+id/btn_video_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VideoView"/>
+    <Button
+        android:id="@+id/btn_MediaPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MediaPlayer"/>
+
+</LinearLayout>
