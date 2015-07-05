@@ -165,6 +165,10 @@
             android:name=".FlowLayoutActivity"
             android:label="@string/title_activity_flow_layout" >
         </activity>
+        <activity
+            android:name=".DrawableActivity"
+            android:label="@string/title_activity_drawable" >
+        </activity>
     </application>
 
 </manifest>

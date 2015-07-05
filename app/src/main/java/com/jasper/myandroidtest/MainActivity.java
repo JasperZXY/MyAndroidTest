@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
         display.getMetrics(mDisplayMetrics);
         density = mDisplayMetrics.density;
         elv = (ExpandableListView) findViewById(R.id.elv);
+        //让group不显示那个箭头
         elv.setGroupIndicator(null);
         elv.setAdapter(new MainAdapter(this, getData(), density));
     }
@@ -77,6 +78,7 @@ public class MainActivity extends Activity {
         groupView.getChildren().add(new Child("ImageView的scaleType问题", ImageViewActivity.class));
         groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
         groupView.getChildren().add(new Child("自定义FlowLayout", FlowLayoutActivity.class));
+        groupView.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
         groups.add(groupView);
 
         Group groupStore = new Group("store", new ArrayList<Child>());
@@ -101,7 +103,6 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("图片-矩阵变化", MatrixActivity.class));
         groupOther.getChildren().add(new Child("BitmapCache使用", BitmapCacheActivity.class));
         groups.add(groupOther);
-
 
         return groups;
     }
