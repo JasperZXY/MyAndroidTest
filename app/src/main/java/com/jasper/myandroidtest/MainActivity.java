@@ -25,6 +25,10 @@ import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.GradienterActivity;
 import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
+import com.jasper.myandroidtest.store.FileActivity;
+import com.jasper.myandroidtest.tabhost.Tabs1Activity;
+import com.jasper.myandroidtest.tabhost.Tabs2Activity;
+import com.jasper.myandroidtest.tabhost.Tabs3Activity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
 

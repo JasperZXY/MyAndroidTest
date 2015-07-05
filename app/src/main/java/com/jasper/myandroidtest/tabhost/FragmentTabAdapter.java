@@ -1,9 +1,11 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.tabhost;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.RadioGroup;
+
+import com.jasper.myandroidtest.R;
 
 import java.util.List;
 
