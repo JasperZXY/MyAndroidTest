@@ -101,7 +101,7 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
         groupOther.getChildren().add(new Child("图片-矩阵变化", MatrixActivity.class));
         groupOther.getChildren().add(new Child("BitmapCache使用", BitmapCacheActivity.class));
-        groupView.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
+        groupOther.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
         groups.add(groupOther);
 
         return groups;
