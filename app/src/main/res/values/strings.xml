@@ -64,5 +64,6 @@
     <string name="title_activity_video">视频</string>
     <string name="title_activity_video_view">VideoViewActivity</string>
     <string name="title_activity_media_player">MediaPlayerActivity</string>
+    <string name="title_activity_flow_layout">自定义FlowLayout</string>
 
 </resources>

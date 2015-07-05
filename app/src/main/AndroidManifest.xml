@@ -161,6 +161,10 @@
             android:name=".video.MediaPlayerActivity"
             android:label="@string/title_activity_media_player" >
         </activity>
+        <activity
+            android:name=".FlowLayoutActivity"
+            android:label="@string/title_activity_flow_layout" >
+        </activity>
     </application>
 
 </manifest>

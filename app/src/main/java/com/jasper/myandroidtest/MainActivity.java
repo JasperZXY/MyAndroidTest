@@ -76,6 +76,7 @@ public class MainActivity extends Activity {
         Group groupView = new Group("View", new ArrayList<Child>());
         groupView.getChildren().add(new Child("ImageView的scaleType问题", ImageViewActivity.class));
         groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
+        groupView.getChildren().add(new Child("自定义FlowLayout", FlowLayoutActivity.class));
         groups.add(groupView);
 
         Group groupStore = new Group("store", new ArrayList<Child>());
