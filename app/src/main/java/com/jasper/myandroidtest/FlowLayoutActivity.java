@@ -15,7 +15,6 @@ public class FlowLayoutActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ScrollView scrollView = new ScrollView(this);
         FlowLayout layout = new FlowLayout(this);
         for (int i=1; i<=81; i++) {
             Button button = new Button(this);
@@ -23,11 +22,12 @@ public class FlowLayoutActivity extends Activity {
                     ViewGroup.MarginLayoutParams.WRAP_CONTENT, ViewGroup.MarginLayoutParams.WRAP_CONTENT);
             params.setMargins(20, 20, 0, 0);
             button.setLayoutParams(params);
-            button.setPadding(30, 50, 30, 50);
             button.setTextSize((float) (12 + Math.random() * 12));
             button.setText("button" + i);
             layout.addView(button);
         }
+
+        ScrollView scrollView = new ScrollView(this);
         scrollView.addView(layout);
         setContentView(scrollView);
     }
