@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.store;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.jasper.myandroidtest.R;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

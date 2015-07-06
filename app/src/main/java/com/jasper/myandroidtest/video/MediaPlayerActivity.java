@@ -39,7 +39,6 @@ public class MediaPlayerActivity extends Activity implements SurfaceHolder.Callb
         //支持屏幕旋转
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
         videoPath = getIntent().getStringExtra(Constants.VIDEO_PATH);
-        Log.i(TAG, "version 11");
         if (videoPath == null || videoPath.equals("")) {
             Toast.makeText(this, "没传视频路径", Toast.LENGTH_LONG).show();
             return;
@@ -123,22 +122,20 @@ public class MediaPlayerActivity extends Activity implements SurfaceHolder.Callb
 
     @Override
     public void onPrepared(MediaPlayer mediaPlayer) {
-        Log.v(TAG, "onPrepared called");
+        Log.v(TAG, "onPrepared called. width:" + mediaPlayer.getVideoWidth() + " height:" + mediaPlayer.getVideoHeight());
         if (mediaPlayer.getVideoWidth() > 0 && mediaPlayer.getVideoHeight() > 0) {
-            int sw = screenWidth;
-            int sh = screenHeight;
-            if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                sw = screenHeight;
-                sh = screenWidth;
-            }
-            float rw = 1.0f * sw / mediaPlayer.getVideoWidth();
-            float rh = 1.0f * sh / mediaPlayer.getVideoHeight();
-//            /* 设置视频的宽度和高度 */
+            float rw = 1.0f * screenWidth / mediaPlayer.getVideoWidth();
+            float rh = 1.0f * screenHeight / mediaPlayer.getVideoHeight();
+            /* 设置视频的宽度和高度 */
             if (rw > rh) {
-                Log.i(TAG, String.format("newWidth:%s, newHeight:%s", (int) (rh * mediaPlayer.getVideoWidth()), (int) (rh * mediaPlayer.getVideoHeight())));
-                Log.i(TAG, String.format("newWidth:%s, newHeight:%s", (int) (rw * mediaPlayer.getVideoWidth()), (int) (rw * mediaPlayer.getVideoHeight())));
+                Log.i(TAG, String.format("screenWidth:%s, screenHeight:%s, newWidth:%s, newHeight:%s",
+                        screenWidth, screenHeight,
+                        (int) (rh * mediaPlayer.getVideoWidth()), (int) (rh * mediaPlayer.getVideoHeight())));
                 surfaceHolder.setFixedSize((int) (rh * mediaPlayer.getVideoWidth()), (int) (rh * mediaPlayer.getVideoHeight()));
             } else {
+                Log.i(TAG, String.format("screenWidth:%s, screenHeight:%s, newWidth:%s, newHeight:%s",
+                        screenWidth, screenHeight,
+                        (int) (rw * mediaPlayer.getVideoWidth()), (int) (rw * mediaPlayer.getVideoHeight())));
                 surfaceHolder.setFixedSize((int) (rw * mediaPlayer.getVideoWidth()), (int) (rw * mediaPlayer.getVideoHeight()));
             }
             /* 开始播放 */

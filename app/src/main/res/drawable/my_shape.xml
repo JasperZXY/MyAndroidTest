@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--shape可选属性"rectangle" | "oval" | "line" | "ring"-->
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!--定义4个角的弧度-->
+    <corners
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:radius="100dp"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"/>
+    <!--单色填充-->
+    <!--<solid
+        android:color="#ff0000"/>-->
+    <!--使用渐变色填充-->
+    <!--type可选["linear" | "radial" | "sweep"]-->
+    <!--centerX跟centerY，试了一下，只能一个生效，若两个都在，已centerX为准-->
+    <!--angle必须是45的倍数，0代表左到右，45代表左下角到右上角，以此类推-->
+    <gradient
+        android:angle="135"
+        android:centerColor="#ff0"
+        android:centerX="0.5"
+        android:endColor="#000"
+        android:gradientRadius="100"
+        android:startColor="#FFFFFF"
+        android:type="linear"
+        android:useLevel="false"/>
+    <!--内边框-->
+    <padding
+        android:left="120dp"
+        android:top="20dp"/>
+    <!--大小-->
+    <size
+        android:width="120dp"
+        android:height="120dp"/>
+    <!--绘制边框-->
+    <stroke
+        android:width="20dp"
+        android:color="#00ff00"
+        android:dashGap="10dp"
+        android:dashWidth="10dp"/>
+</shape>

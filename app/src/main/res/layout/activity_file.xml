@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
-    tools:context="com.jasper.myandroidtest.FileActivity">
+    tools:context="com.jasper.myandroidtest.store.FileActivity">
 
     <Button
         android:id="@+id/btn_write"

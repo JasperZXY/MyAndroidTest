@@ -40,18 +40,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Tabs1Activity" />
+        <activity android:name=".tabhost.Tabs1Activity" />
         <activity
-            android:name=".Tabs2Activity"
+            android:name=".tabhost.Tabs2Activity"
             android:label="@string/title_activity_tabs2" />
         <activity
             android:name=".AsyncTaskActivity"
             android:label="@string/title_activity_async_task" />
         <activity
-            android:name=".Tabs3Activity"
+            android:name=".tabhost.Tabs3Activity"
             android:label="@string/title_activity_tabs3" />
         <activity
-            android:name=".FileActivity"
+            android:name=".store.FileActivity"
             android:label="@string/title_activity_file" />
         <activity
             android:name=".camera.CameraActivity"
@@ -160,6 +160,14 @@
         <activity
             android:name=".video.MediaPlayerActivity"
             android:label="@string/title_activity_media_player" >
+        </activity>
+        <activity
+            android:name=".FlowLayoutActivity"
+            android:label="@string/title_activity_flow_layout" >
+        </activity>
+        <activity
+            android:name=".DrawableActivity"
+            android:label="@string/title_activity_drawable" >
         </activity>
     </application>
 
