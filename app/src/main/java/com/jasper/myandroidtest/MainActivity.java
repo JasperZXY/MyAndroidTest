@@ -29,6 +29,7 @@ import com.jasper.myandroidtest.store.FileActivity;
 import com.jasper.myandroidtest.tabhost.Tabs1Activity;
 import com.jasper.myandroidtest.tabhost.Tabs2Activity;
 import com.jasper.myandroidtest.tabhost.Tabs3Activity;
+import com.jasper.myandroidtest.tabhost.Tabs4Activity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
 
@@ -60,6 +61,7 @@ public class MainActivity extends Activity {
         groupTab.getChildren().add(new Child("FragmentTabHost", Tabs1Activity.class));
         groupTab.getChildren().add(new Child("Fragment+RadioGroup", Tabs2Activity.class));
         groupTab.getChildren().add(new Child("Fragment+ViewPager", Tabs3Activity.class));
+        groupTab.getChildren().add(new Child("TabActivity+Activity", Tabs4Activity.class));
         groups.add(groupTab);
 
         Group groupList = new Group("ListView", new ArrayList<Child>());

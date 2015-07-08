@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0" >
+        </FrameLayout>
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:visibility="gone" >
+        </TabWidget>
+
+        <RadioGroup
+            android:id="@+id/gr_main_tab"
+            android:layout_width="match_parent"
+            android:layout_height="48dip"
+            android:layout_gravity="bottom"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@drawable/maintab_toolbar_btn_bg" >
+
+            <RadioButton
+                android:id="@+id/tab1"
+                style="@style/main_tab4_bottom"
+                android:layout_marginTop="2.0dip"
+                android:drawableTop="@drawable/tab_home_btn"
+                android:text="主页" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/tab2"
+                style="@style/main_tab4_bottom"
+                android:layout_marginTop="2.0dip"
+                android:drawableTop="@drawable/tab_message_btn"
+                android:text="消息" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/tab3"
+                style="@style/main_tab4_bottom"
+                android:layout_marginTop="2.0dip"
+                android:drawableTop="@drawable/tab_selfinfo_btn"
+                android:text="我" >
+            </RadioButton>
+
+        </RadioGroup>
+    </LinearLayout>
+
+</TabHost>

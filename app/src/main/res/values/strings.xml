@@ -66,5 +66,7 @@
     <string name="title_activity_media_player">MediaPlayerActivity</string>
     <string name="title_activity_flow_layout">自定义FlowLayout</string>
     <string name="title_activity_drawable">Drawable资源</string>
+    <string name="title_activity_tabs4">Tabs4Activity</string>
+    <string name="title_activity_tab_test">TabTestActivity</string>
 
 </resources>

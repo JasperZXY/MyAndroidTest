@@ -91,3 +91,7 @@
 2. FlowLayout简单使用例子
 3. Drawable资源
 
+
+## 2015-07-08
+1. 底部导航栏，用TabActivity+Activity实现<br/>
+   注：这种方式是为了支持低版本的API，可支持2.x，另外用TabActivity是弃用的API
