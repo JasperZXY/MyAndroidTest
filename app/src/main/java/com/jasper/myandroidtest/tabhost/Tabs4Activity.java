@@ -8,6 +8,10 @@ import android.widget.TabHost;
 
 import com.jasper.myandroidtest.R;
 
+/**
+ * 每个页面的状态是会保存的（EditText）
+ * 各位页面自己的Intent跳转会整个页面跳转（Button）
+ */
 public class Tabs4Activity extends TabActivity implements RadioGroup.OnCheckedChangeListener {
     private final static int TAB_COUNT = 3;
 
@@ -40,9 +44,6 @@ public class Tabs4Activity extends TabActivity implements RadioGroup.OnCheckedCh
     //添加Tab按钮
     private TabHost.TabSpec buildTabSqec(String tag, Intent intent) {
         return mTabHost.newTabSpec(tag).setIndicator(null, null).setContent(intent);
-    }
-    //为TabHost添加Tab
-    private void addTabSqec() {
     }
 
     public void onCheckedChanged(RadioGroup group, int checkedId) {
