@@ -1,5 +1,7 @@
 package com.jasper.myandroidtest.utils;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import org.apache.http.HttpEntity;
@@ -14,6 +16,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -69,5 +76,28 @@ public class HttpUtil {
             Log.e(TAG, "httpPost error:" + e.getMessage());
         }
         return null;
+    }
+
+
+    public static Bitmap downloadBitmap(String url) {
+        URL imgUrl = null;
+        Bitmap bitmap = null;
+        try {
+            imgUrl = new URL(url);
+        } catch (MalformedURLException e) {
+            Log.e(TAG, "MalformedURLException:" + e.getLocalizedMessage());
+            return null;
+        }
+        try {
+            HttpURLConnection conn = (HttpURLConnection) imgUrl.openConnection();
+            conn.setDoInput(true);
+            conn.connect();
+            InputStream is = conn.getInputStream();
+            bitmap = BitmapFactory.decodeStream(is);
+            is.close();
+        } catch (IOException e) {
+            Log.e(TAG, "downloadBitmap url:" + url + " errror:" + e.getLocalizedMessage());
+        }
+        return bitmap;
     }
 }
