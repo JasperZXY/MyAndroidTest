@@ -1,0 +1,531 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    tools:context="com.jasper.myandroidtest.ApiOverviewActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="http://developer.android.com/guide/topics/manifest/uses-sdk-element.html" />
+
+    <!--
+    TableLayout设置了background，TextView设置了padding，就可以显示边框了
+    TableRow里面具体的View设置android:layout_height="match_parent"则可以让改view与其他view的高度一致
+    -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#999">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#999"
+                    android:padding="3dp"
+                    android:textColor="#fff"
+                    android:text="Platform \nVersion" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#999"
+                    android:padding="3dp"
+                    android:textColor="#fff"
+                    android:text="API \nLevel" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#999"
+                    android:padding="3dp"
+                    android:textColor="#fff"
+                    android:text="VERSION_CODE" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 5.1" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="22" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="LOLLIPOP_MR1" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 5.0" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="21" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="LOLLIPOP" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 4.4W" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="20" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="KITKAT_WATCH\n(KitKat for Wearables Only)" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 4.4" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="19" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="KITKAT" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 4.3" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="18" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="JELLY_BEAN_MR2" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 4.2, 4.2.2" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="17" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="JELLY_BEAN_MR1" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 4.1, 4.1.1" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="16" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="JELLY_BEAN" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android\n 4.0.3, 4.0.4" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="15" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="ICE_CREAM_\nSANDWICH_MR1" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android \n4.0, 4.0.1, 4.0.2" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="14" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="ICE_CREAM_SANDWICH" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 3.2" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="13" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="HONEYCOMB_MR2" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 3.1.x" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="12" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="HONEYCOMB_MR1" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 3.0.x" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="11" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="HONEYCOMB" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 2.3.4\nAndroid 2.3.3" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="10" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="GINGERBREAD_MR1" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 2.3.2\nAndroid 2.3.1\nAndroid 2.3" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="9" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="GINGERBREAD" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 2.2.x" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="8" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="FROYO" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 2.1.x" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="7" />
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="ECLAIR_MR1" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 2.0.1" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="6" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="ECLAIR_0_1" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 2.0" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="5" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="ECLAIR" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 1.6" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="4" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="DONUT" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 1.5" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="3" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="CUPCAKE" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 1.1" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="2" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="BASE_1_1" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="Android 1.0" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="1" />
+
+                <TextView
+                    android:layout_margin="1dp"
+                    android:background="#eee"
+                    android:padding="3dp"
+                    android:text="BASE" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+</LinearLayout>

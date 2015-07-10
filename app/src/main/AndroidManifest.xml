@@ -23,6 +23,7 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
@@ -184,6 +185,10 @@
         <activity
             android:name=".tabhost.TabTest3Activity"
             android:label="@string/title_activity_tab_test" >
+        </activity>
+        <activity
+            android:name=".ApiOverviewActivity"
+            android:label="@string/title_activity_api_overview" >
         </activity>
     </application>
 

@@ -44,6 +44,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MyApplication application = (MyApplication) getApplication();
+        application.sayHello(this);
+
         DisplayMetrics mDisplayMetrics = new DisplayMetrics();//屏幕分辨率容器
         Display display = getWindowManager().getDefaultDisplay();
         display.getMetrics(mDisplayMetrics);
@@ -52,6 +56,13 @@ public class MainActivity extends Activity {
         //让group不显示那个箭头
         elv.setGroupIndicator(null);
         elv.setAdapter(new MainAdapter(this, getData(), density));
+    }
+
+    @Override
+    protected void onDestroy() {
+        BitmapCache.getInstance().clearCache();
+        super.onDestroy();
+        getApplication().onTerminate();
     }
 
     private List<Group> getData() {
@@ -70,17 +81,21 @@ public class MainActivity extends Activity {
         groupList.getChildren().add(new Child("分类ListView-手机相关信息", PhoneInfoActivity.class));
         groups.add(groupList);
 
+        Group groupLayout = new Group("Layout", new ArrayList<Child>());
+        groupLayout.getChildren().add(new Child("自定义FlowLayout", FlowLayoutActivity.class));
+        groupLayout.getChildren().add(new Child("TableLayout-Android版本与API版本对应表", ApiOverviewActivity.class));
+        groups.add(groupLayout);
+
+        Group groupView = new Group("View", new ArrayList<Child>());
+        groupView.getChildren().add(new Child("ImageView的scaleType问题", ImageViewActivity.class));
+        groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
+        groups.add(groupView);
+
         Group groupAMD = new Group("AMD", new ArrayList<Child>());
         groupAMD.getChildren().add(new Child("ActionBar", MyActionBarActivity.class));
         groupAMD.getChildren().add(new Child("Menu", MenuActivity.class));
         groupAMD.getChildren().add(new Child("Dialog", DialogActivity.class));
         groups.add(groupAMD);
-
-        Group groupView = new Group("View", new ArrayList<Child>());
-        groupView.getChildren().add(new Child("ImageView的scaleType问题", ImageViewActivity.class));
-        groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
-        groupView.getChildren().add(new Child("自定义FlowLayout", FlowLayoutActivity.class));
-        groups.add(groupView);
 
         Group groupStore = new Group("store", new ArrayList<Child>());
         groupStore.getChildren().add(new Child("文件读写", FileActivity.class));
@@ -107,12 +122,6 @@ public class MainActivity extends Activity {
         groups.add(groupOther);
 
         return groups;
-    }
-
-    @Override
-    protected void onDestroy() {
-        BitmapCache.getInstance().clearCache();
-        super.onDestroy();
     }
 
     private class Child {
