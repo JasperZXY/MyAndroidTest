@@ -139,7 +139,11 @@
             android:label="@string/title_activity_gradienter" >
         </activity>
         <activity
-            android:name=".listView.PhoneInfoActivity"
+            android:name=".listView.Classify1Activity"
+            android:label="@string/title_activity_phone_info" >
+        </activity>
+        <activity
+            android:name=".listView.Classify2Activity"
             android:label="@string/title_activity_phone_info" >
         </activity>
         <activity

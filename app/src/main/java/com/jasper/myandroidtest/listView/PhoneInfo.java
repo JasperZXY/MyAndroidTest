@@ -7,7 +7,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
 import android.telephony.NeighboringCellInfo;
@@ -15,10 +14,7 @@ import android.telephony.TelephonyManager;
 import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 import android.view.Display;
-import android.widget.ListView;
 
-import com.jasper.myandroidtest.R;
-import com.jasper.myandroidtest.listView.adapter.PhoneInfoAdapter;
 import com.jasper.myandroidtest.listView.entity.ContentItem;
 import com.jasper.myandroidtest.listView.entity.GroupItem;
 import com.jasper.myandroidtest.listView.entity.IItem;
@@ -27,40 +23,29 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhoneInfoActivity extends Activity {
-    private List<IItem> items;
-    private ListView listView;
-    private PhoneInfoAdapter adapter;
+/**
+ * @author Jasper
+ */
+public class PhoneInfo {
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phone_info);
-
-        items = new ArrayList<>();
-        listView = (ListView) findViewById(R.id.listView);
-        initData();
-        adapter = new PhoneInfoAdapter(this, items);
-        listView.setAdapter(adapter);
+    public List<IItem> getData(Activity activity) {
+        List<IItem> items = new ArrayList<>();
+        getPhoneInfo(activity, items);
+        getScreenInfo(activity, items);
+        getMemoryInfo(activity, items);
+        getStorageInfo(activity, items);
+        getNetworkInfo(activity, items);
+        getTelephonyInfo(activity, items);
+        return items;
     }
 
-    private void initData() {
-        getPhoneInfo();
-        getScreenInfo();
-        getMemoryInfo();
-        getStorageInfo();
-        getNetworkInfo();
-        getTelephonyInfo();
-    }
-
-    private void getPhoneInfo() {
+    private void getPhoneInfo(Activity activity, List<IItem> items) {
         items.add(new GroupItem("手机"));
         items.add(new ContentItem("手机型号", android.os.Build.MODEL));
         items.add(new ContentItem("SDK版本", android.os.Build.VERSION.SDK));
         items.add(new ContentItem("系统版本", android.os.Build.VERSION.RELEASE));
         try {
-            PackageManager packageManager = getPackageManager();
+            PackageManager packageManager = activity.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo("com.jasper.myandroidtest", 0);
             items.add(new ContentItem("本软件版本", packageInfo.versionName));
         } catch (Exception e) {
@@ -68,10 +53,10 @@ public class PhoneInfoActivity extends Activity {
         }
     }
 
-    private void getScreenInfo() {
+    private void getScreenInfo(Activity activity, List<IItem> items) {
         items.add(new GroupItem("屏幕信息"));
         DisplayMetrics mDisplayMetrics = new DisplayMetrics();//屏幕分辨率容器
-        Display display = getWindowManager().getDefaultDisplay();
+        Display display = activity.getWindowManager().getDefaultDisplay();
         display.getMetrics(mDisplayMetrics);
         items.add(new ContentItem("大小", String.format("%spx * %spx", mDisplayMetrics.widthPixels, mDisplayMetrics.heightPixels)));
         //同上面的一致，不过getWidth跟getHeight已经是Deprecated的了
@@ -80,43 +65,43 @@ public class PhoneInfoActivity extends Activity {
         items.add(new ContentItem("densityDpi", Integer.toString(mDisplayMetrics.densityDpi)));
     }
 
-    private void getMemoryInfo() {
+    private void getMemoryInfo(Activity activity, List<IItem> items) {
         items.add(new GroupItem("内存"));
-        ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager am = (ActivityManager) activity.getSystemService(Context.ACTIVITY_SERVICE);
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(mi);
-        items.add(new ContentItem("总共", Formatter.formatFileSize(this, mi.totalMem)));
-        items.add(new ContentItem("可用", Formatter.formatFileSize(this, mi.availMem)));
+        items.add(new ContentItem("总共", Formatter.formatFileSize(activity, mi.totalMem)));
+        items.add(new ContentItem("可用", Formatter.formatFileSize(activity, mi.availMem)));
     }
 
-    private void getStorageInfo() {
+    private void getStorageInfo(Activity activity, List<IItem> items) {
         items.add(new GroupItem("系统存储"));
         File root = Environment.getRootDirectory();
         StatFs sfRoot = new StatFs(root.getPath());
-        items.add(new ContentItem("block大小", Formatter.formatFileSize(this, sfRoot.getBlockSizeLong())));
+        items.add(new ContentItem("block大小", Formatter.formatFileSize(activity, sfRoot.getBlockSizeLong())));
         items.add(new ContentItem("block数目", Long.toString(sfRoot.getBlockCountLong())));
-        items.add(new ContentItem("总大小", Formatter.formatFileSize(this, sfRoot.getBlockSizeLong() * sfRoot.getBlockCountLong())));
+        items.add(new ContentItem("总大小", Formatter.formatFileSize(activity, sfRoot.getBlockSizeLong() * sfRoot.getBlockCountLong())));
         items.add(new ContentItem("可用的block数目", Long.toString(sfRoot.getAvailableBlocksLong())));
-        items.add(new ContentItem("剩余", Formatter.formatFileSize(this, sfRoot.getBlockSizeLong() * sfRoot.getAvailableBlocksLong())));
+        items.add(new ContentItem("剩余", Formatter.formatFileSize(activity, sfRoot.getBlockSizeLong() * sfRoot.getAvailableBlocksLong())));
 
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
             items.add(new GroupItem("外部存储"));
             File sdcardDir = Environment.getExternalStorageDirectory();
             StatFs sf = new StatFs(sdcardDir.getPath());
-            items.add(new ContentItem("block大小", Formatter.formatFileSize(this, sf.getBlockSizeLong())));
+            items.add(new ContentItem("block大小", Formatter.formatFileSize(activity, sf.getBlockSizeLong())));
             items.add(new ContentItem("block数目", Long.toString(sf.getBlockCountLong())));
-            items.add(new ContentItem("总大小", Formatter.formatFileSize(this, sf.getBlockSizeLong() * sf.getBlockCountLong())));
+            items.add(new ContentItem("总大小", Formatter.formatFileSize(activity, sf.getBlockSizeLong() * sf.getBlockCountLong())));
             items.add(new ContentItem("可用的block数目", Long.toString(sf.getAvailableBlocksLong())));
-            items.add(new ContentItem("剩余", Formatter.formatFileSize(this, sf.getBlockSizeLong() * sf.getAvailableBlocksLong())));
+            items.add(new ContentItem("剩余", Formatter.formatFileSize(activity, sf.getBlockSizeLong() * sf.getAvailableBlocksLong())));
         }
     }
 
     /**
      * 获取网络状态，需要权限
      */
-    private void getNetworkInfo() {
+    private void getNetworkInfo(Activity activity, List<IItem> items) {
         items.add(new GroupItem("网络信息"));
-        ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivity = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivity != null) {
             NetworkInfo activeNetInfo = connectivity.getActiveNetworkInfo();
             if (activeNetInfo != null) {
@@ -143,8 +128,8 @@ public class PhoneInfoActivity extends Activity {
     /**
      * 获取电话信息，需要添加权限android.permission.READ_PHONE_STATE跟其他权限
      */
-    private void getTelephonyInfo() {
-        TelephonyManager tm = (TelephonyManager) this.getSystemService(TELEPHONY_SERVICE);
+    private void getTelephonyInfo(Activity activity, List<IItem> items) {
+        TelephonyManager tm = (TelephonyManager) activity.getSystemService(activity.TELEPHONY_SERVICE);
         items.add(new GroupItem("电话信息"));
         switch (tm.getCallState()) {
             case TelephonyManager.CALL_STATE_IDLE:

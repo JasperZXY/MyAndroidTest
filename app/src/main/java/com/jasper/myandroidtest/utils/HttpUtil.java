@@ -22,6 +22,11 @@ import java.util.List;
 public class HttpUtil {
     private static final String TAG = "HttpUtil";
 
+    /**
+     * Http的get请求
+     * @param url
+     * @return
+     */
     public static String httpGet(String url) {
         HttpGet httpGet = new HttpGet(url);
         HttpClient httpClient = new DefaultHttpClient();
@@ -43,6 +48,12 @@ public class HttpUtil {
         return null;
     }
 
+    /**
+     * Http的post请求
+     * @param url
+     * @param params 请求的参数
+     * @return
+     */
     public static String httpPost(String url, List<NameValuePair> params) {
         HttpPost post = new HttpPost(url);
         HttpResponse response;

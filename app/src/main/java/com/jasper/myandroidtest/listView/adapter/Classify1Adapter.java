@@ -20,14 +20,12 @@ import java.util.List;
  * 分类显示，用到的方式是，布局文件同时定义了Group跟Item,
  * 若要Group，则隐藏Item；若显示Item，则隐藏Group。
  */
-public class PhoneInfoAdapter extends BaseAdapter {
-    private static final String TAG = "PhoneInfoAdapter";
-    private Context context;
+public class Classify1Adapter extends BaseAdapter {
+    private static final String TAG = "Classify1Adapter";
     private LayoutInflater mInflater;
     private List<IItem> items;
 
-    public PhoneInfoAdapter(Context context, List<IItem> items) {
-        this.context = context;
+    public Classify1Adapter(Context context, List<IItem> items) {
         this.items = items;
         mInflater = LayoutInflater.from(context);
     }

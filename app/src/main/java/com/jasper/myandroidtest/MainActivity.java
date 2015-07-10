@@ -19,8 +19,9 @@ import android.widget.TextView;
 import com.jasper.myandroidtest.camera.CameraActivity;
 import com.jasper.myandroidtest.dialog.DialogActivity;
 import com.jasper.myandroidtest.fragmentManager.FragmentManagerActivity;
+import com.jasper.myandroidtest.listView.Classify1Activity;
+import com.jasper.myandroidtest.listView.Classify2Activity;
 import com.jasper.myandroidtest.listView.MyListViewActivity;
-import com.jasper.myandroidtest.listView.PhoneInfoActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.GradienterActivity;
@@ -78,7 +79,8 @@ public class MainActivity extends Activity {
         Group groupList = new Group("ListView", new ArrayList<Child>());
         groupList.getChildren().add(new Child("简单ListView", SimpleListViewActivity.class));
         groupList.getChildren().add(new Child("可上拉下拉ListView", MyListViewActivity.class));
-        groupList.getChildren().add(new Child("分类ListView-手机相关信息", PhoneInfoActivity.class));
+        groupList.getChildren().add(new Child("分类ListView1-手机相关信息", Classify1Activity.class));
+        groupList.getChildren().add(new Child("分类ListView2-手机相关信息", Classify2Activity.class));
         groups.add(groupList);
 
         Group groupLayout = new Group("Layout", new ArrayList<Child>());
