@@ -24,6 +24,7 @@ public class MyApplication extends Application {
     public void onTerminate() {
         Log.i(TAG, "onTerminate");
         super.onTerminate();
+        System.exit(0);
     }
 
     @Override

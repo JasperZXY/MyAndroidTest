@@ -69,5 +69,6 @@
     <string name="title_activity_tabs4">Tabs4Activity</string>
     <string name="title_activity_tab_test">TabTestActivity</string>
     <string name="title_activity_api_overview">Android版本与API版本对应表</string>
+    <string name="title_activity_service">Service与Activity通信</string>
 
 </resources>

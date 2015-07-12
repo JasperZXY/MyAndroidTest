@@ -26,6 +26,7 @@ import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.GradienterActivity;
 import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
+import com.jasper.myandroidtest.service.ServiceActivity;
 import com.jasper.myandroidtest.store.FileActivity;
 import com.jasper.myandroidtest.tabhost.Tabs1Activity;
 import com.jasper.myandroidtest.tabhost.Tabs2Activity;
@@ -121,6 +122,7 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("图片-矩阵变化", MatrixActivity.class));
         groupOther.getChildren().add(new Child("BitmapCache使用", BitmapCacheActivity.class));
         groupOther.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
+        groupOther.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
         groups.add(groupOther);
 
         return groups;

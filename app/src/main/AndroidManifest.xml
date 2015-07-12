@@ -194,6 +194,18 @@
             android:name=".ApiOverviewActivity"
             android:label="@string/title_activity_api_overview" >
         </activity>
+
+        <service
+            android:name=".service.MyService">
+            <intent-filter>
+                <action android:name="com.jasper.myandroidtest.myservice" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".service.ServiceActivity"
+            android:label="@string/title_activity_service" >
+        </activity>
     </application>
 
 </manifest>
