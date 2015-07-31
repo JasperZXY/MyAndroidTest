@@ -1,7 +1,9 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.layout;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.jasper.myandroidtest.R;
 
 
 public class ApiOverviewActivity extends Activity {

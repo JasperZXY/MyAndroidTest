@@ -167,7 +167,7 @@
             android:label="@string/title_activity_media_player" >
         </activity>
         <activity
-            android:name=".FlowLayoutActivity"
+            android:name=".layout.FlowLayoutActivity"
             android:label="@string/title_activity_flow_layout" >
         </activity>
         <activity
@@ -191,12 +191,11 @@
             android:label="@string/title_activity_tab_test" >
         </activity>
         <activity
-            android:name=".ApiOverviewActivity"
+            android:name=".layout.ApiOverviewActivity"
             android:label="@string/title_activity_api_overview" >
         </activity>
 
-        <service
-            android:name=".service.MyService">
+        <service android:name=".service.MyService" >
             <intent-filter>
                 <action android:name="com.jasper.myandroidtest.myservice" />
             </intent-filter>
@@ -205,6 +204,14 @@
         <activity
             android:name=".service.ServiceActivity"
             android:label="@string/title_activity_service" >
+        </activity>
+        <activity
+            android:name=".widget.GridViewActivity"
+            android:label="@string/title_activity_grid_view" >
+        </activity>
+        <activity
+            android:name=".layout.LayoutParamActivity"
+            android:label="@string/title_activity_layout_param" >
         </activity>
     </application>
 

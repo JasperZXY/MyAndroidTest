@@ -19,6 +19,9 @@ import android.widget.TextView;
 import com.jasper.myandroidtest.camera.CameraActivity;
 import com.jasper.myandroidtest.dialog.DialogActivity;
 import com.jasper.myandroidtest.fragmentManager.FragmentManagerActivity;
+import com.jasper.myandroidtest.layout.ApiOverviewActivity;
+import com.jasper.myandroidtest.layout.FlowLayoutActivity;
+import com.jasper.myandroidtest.layout.LayoutParamActivity;
 import com.jasper.myandroidtest.listView.Classify1Activity;
 import com.jasper.myandroidtest.listView.Classify2Activity;
 import com.jasper.myandroidtest.listView.MyListViewActivity;
@@ -34,6 +37,7 @@ import com.jasper.myandroidtest.tabhost.Tabs3Activity;
 import com.jasper.myandroidtest.tabhost.Tabs4Activity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
+import com.jasper.myandroidtest.widget.GridViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,11 +91,13 @@ public class MainActivity extends Activity {
         Group groupLayout = new Group("Layout", new ArrayList<Child>());
         groupLayout.getChildren().add(new Child("自定义FlowLayout", FlowLayoutActivity.class));
         groupLayout.getChildren().add(new Child("TableLayout-Android版本与API版本对应表", ApiOverviewActivity.class));
+        groupLayout.getChildren().add(new Child("LayoutParam", LayoutParamActivity.class));
         groups.add(groupLayout);
 
         Group groupView = new Group("View", new ArrayList<Child>());
         groupView.getChildren().add(new Child("ImageView的scaleType问题", ImageViewActivity.class));
         groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
+        groupView.getChildren().add(new Child("GridView", GridViewActivity.class));
         groups.add(groupView);
 
         Group groupAMD = new Group("AMD", new ArrayList<Child>());
