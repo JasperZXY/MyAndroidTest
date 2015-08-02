@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.view;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
+
+import com.jasper.myandroidtest.R;
 
 public class WebViewActivity extends Activity {
 

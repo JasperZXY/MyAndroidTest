@@ -38,7 +38,9 @@ import com.jasper.myandroidtest.tabhost.Tabs3Activity;
 import com.jasper.myandroidtest.tabhost.Tabs4Activity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
-import com.jasper.myandroidtest.widget.GridViewActivity;
+import com.jasper.myandroidtest.view.ImageViewActivity;
+import com.jasper.myandroidtest.view.WebViewActivity;
+import com.jasper.myandroidtest.view.GridViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;

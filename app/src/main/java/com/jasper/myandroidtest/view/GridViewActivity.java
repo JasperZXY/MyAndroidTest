@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.widget;
+package com.jasper.myandroidtest.view;
 
 import android.app.Activity;
 import android.content.Context;

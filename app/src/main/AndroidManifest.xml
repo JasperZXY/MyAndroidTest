@@ -103,7 +103,7 @@
             android:label="@string/title_activity_my_list_view" >
         </activity>
         <activity
-            android:name=".ImageViewActivity"
+            android:name=".view.ImageViewActivity"
             android:label="@string/title_activity_image_view" >
         </activity>
         <activity
@@ -123,7 +123,7 @@
             android:label="@string/title_activity_fragment_manager" >
         </activity>
         <activity
-            android:name=".WebViewActivity"
+            android:name=".view.WebViewActivity"
             android:label="@string/title_activity_web_view" >
         </activity>
         <activity
@@ -206,7 +206,7 @@
             android:label="@string/title_activity_service" >
         </activity>
         <activity
-            android:name=".widget.GridViewActivity"
+            android:name=".view.GridViewActivity"
             android:label="@string/title_activity_grid_view" >
         </activity>
         <activity

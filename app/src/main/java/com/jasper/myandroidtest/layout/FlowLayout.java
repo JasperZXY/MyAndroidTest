@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.view;
+package com.jasper.myandroidtest.layout;
 
 import android.content.Context;
 import android.util.AttributeSet;
