@@ -34,6 +34,7 @@ import com.jasper.myandroidtest.other.DrawableActivity;
 import com.jasper.myandroidtest.other.MatrixActivity;
 import com.jasper.myandroidtest.other.MenuActivity;
 import com.jasper.myandroidtest.other.PermissionActivity;
+import com.jasper.myandroidtest.other.SoftInputActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.GradienterActivity;
 import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
@@ -140,6 +141,7 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("BitmapCache使用", BitmapCacheActivity.class));
         groupOther.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
         groupOther.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
+        groupOther.getChildren().add(new Child("软键盘", SoftInputActivity.class));
         groups.add(groupOther);
 
         return groups;

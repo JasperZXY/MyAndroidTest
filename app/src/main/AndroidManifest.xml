@@ -217,6 +217,10 @@
             android:name=".layout.MarginPaddingActivity"
             android:label="@string/title_activity_margin_padding" >
         </activity>
+        <activity
+            android:name=".other.SoftInputActivity"
+            android:label="@string/title_activity_soft_input" >
+        </activity>
     </application>
 
 </manifest>
