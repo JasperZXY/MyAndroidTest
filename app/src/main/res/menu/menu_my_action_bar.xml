@@ -14,10 +14,10 @@
         android:showAsAction="always"
         android:title="切换"/>
     <item
-        android:icon="@drawable/dreamweaver"
-        android:title="dreamweaver"/>
+        android:icon="@drawable/icon_home_sel"
+        android:title="Home"/>
     <item
         android:orderInCategory="100"
-        android:icon="@drawable/flash"
-        android:title="flash"/>
+        android:icon="@drawable/icon_meassage_sel"
+        android:title="message"/>
 </menu>

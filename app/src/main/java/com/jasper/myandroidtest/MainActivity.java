@@ -93,15 +93,15 @@ public class MainActivity extends Activity {
 
         Group groupLayout = new Group("Layout", new ArrayList<Child>());
         groupLayout.getChildren().add(new Child("Margin与Padding", MarginPaddingActivity.class));
-        groupLayout.getChildren().add(new Child("自定义FlowLayout", FlowLayoutActivity.class));
-        groupLayout.getChildren().add(new Child("TableLayout-Android版本与API版本对应表", ApiOverviewActivity.class));
         groupLayout.getChildren().add(new Child("LayoutParam", LayoutParamActivity.class));
+        groupLayout.getChildren().add(new Child("TableLayout-Android版本与API版本对应表", ApiOverviewActivity.class));
+        groupLayout.getChildren().add(new Child("自定义FlowLayout", FlowLayoutActivity.class));
         groups.add(groupLayout);
 
         Group groupView = new Group("View", new ArrayList<Child>());
         groupView.getChildren().add(new Child("ImageView的scaleType问题", ImageViewActivity.class));
-        groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
         groupView.getChildren().add(new Child("GridView", GridViewActivity.class));
+        groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
         groups.add(groupView);
 
         Group groupAMD = new Group("AMD", new ArrayList<Child>());

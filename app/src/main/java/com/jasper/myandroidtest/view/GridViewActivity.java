@@ -15,10 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO
- * GridView 一行显示，还没实现
+ * GridView 一行显示
  */
 public class GridViewActivity extends Activity {
+    private static final int IMG_WIDTH = 80;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,10 @@ public class GridViewActivity extends Activity {
         list.add(R.drawable.icon_selfinfo_sel);
         gridView.setAdapter(new MyAdapter(this, list));
 
+        ViewGroup.LayoutParams layoutParams = gridView.getLayoutParams();
+        //要实现一行显示，重点是这两行代码
+        layoutParams.width = IMG_WIDTH * list.size();
+        gridView.setNumColumns(list.size());
     }
 
     private class MyAdapter extends BaseAdapter {
@@ -75,7 +79,7 @@ public class GridViewActivity extends Activity {
 
         public View getView(int position, View convertView, ViewGroup parent) {
             ImageView imageView = new ImageView(context);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+            imageView.setLayoutParams(new GridView.LayoutParams(IMG_WIDTH, IMG_WIDTH));
             imageView.setPadding(5, 5, 5, 5);
             imageView.setImageResource(list.get(position));
             return imageView;

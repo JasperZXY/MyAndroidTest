@@ -10,24 +10,20 @@
     tools:context="com.jasper.myandroidtest.view.GridViewActivity">
 
     <HorizontalScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <GridView
                 android:id="@+id/gridview"
-                android:layout_width="1100dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
-                android:columnWidth="150px"
-                android:horizontalSpacing="10.0px"
-                android:numColumns="auto_fit"
-                android:stretchMode="none"
-                android:verticalSpacing="1.0px"></GridView>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"></GridView>
         </LinearLayout>
     </HorizontalScrollView>
 
