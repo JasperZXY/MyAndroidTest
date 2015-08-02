@@ -196,8 +196,7 @@ public class MainActivity extends Activity {
         TextView getTextView() {
             AbsListView.LayoutParams lp = new AbsListView.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            TextView textView = new TextView(
-                    MainActivity.this);
+            TextView textView = new TextView(context);
             textView.setLayoutParams(lp);
             textView.setGravity(Gravity.CENTER_VERTICAL);
             int padding = (int) (8 * density);
@@ -246,8 +245,7 @@ public class MainActivity extends Activity {
         @Override
         public View getGroupView(int groupPosition, boolean isExpanded,
                                  View convertView, ViewGroup parent) {
-            LinearLayout ll = new LinearLayout(
-                    MainActivity.this);
+            LinearLayout ll = new LinearLayout(context);
             ll.setOrientation(LinearLayout.HORIZONTAL);
             ll.setBackgroundColor(Color.rgb(215, 202, 153));
             TextView textView = getTextView();
@@ -261,8 +259,7 @@ public class MainActivity extends Activity {
         @Override
         public View getChildView(int groupPosition, int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent) {
-            LinearLayout ll = new LinearLayout(
-                    MainActivity.this);
+            LinearLayout ll = new LinearLayout(context);
             ll.setOrientation(LinearLayout.HORIZONTAL);
             TextView textView = getTextView();
             final Child child = (Child) getChild(groupPosition, childPosition);
