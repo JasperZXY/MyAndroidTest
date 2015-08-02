@@ -213,6 +213,10 @@
             android:name=".layout.LayoutParamActivity"
             android:label="@string/title_activity_layout_param" >
         </activity>
+        <activity
+            android:name=".layout.MarginPaddingActivity"
+            android:label="@string/title_activity_margin_padding" >
+        </activity>
     </application>
 
 </manifest>

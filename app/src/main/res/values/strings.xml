@@ -72,5 +72,6 @@
     <string name="title_activity_service">Service与Activity通信</string>
     <string name="title_activity_grid_view">GridViewActivity</string>
     <string name="title_activity_layout_param">LayoutParam相关</string>
+    <string name="title_activity_margin_padding">Margin与Padding</string>
 
 </resources>

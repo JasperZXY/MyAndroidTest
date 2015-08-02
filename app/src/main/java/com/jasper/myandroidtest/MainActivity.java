@@ -22,6 +22,7 @@ import com.jasper.myandroidtest.fragmentManager.FragmentManagerActivity;
 import com.jasper.myandroidtest.layout.ApiOverviewActivity;
 import com.jasper.myandroidtest.layout.FlowLayoutActivity;
 import com.jasper.myandroidtest.layout.LayoutParamActivity;
+import com.jasper.myandroidtest.layout.MarginPaddingActivity;
 import com.jasper.myandroidtest.listView.Classify1Activity;
 import com.jasper.myandroidtest.listView.Classify2Activity;
 import com.jasper.myandroidtest.listView.MyListViewActivity;
@@ -89,6 +90,7 @@ public class MainActivity extends Activity {
         groups.add(groupList);
 
         Group groupLayout = new Group("Layout", new ArrayList<Child>());
+        groupLayout.getChildren().add(new Child("Margin与Padding", MarginPaddingActivity.class));
         groupLayout.getChildren().add(new Child("自定义FlowLayout", FlowLayoutActivity.class));
         groupLayout.getChildren().add(new Child("TableLayout-Android版本与API版本对应表", ApiOverviewActivity.class));
         groupLayout.getChildren().add(new Child("LayoutParam", LayoutParamActivity.class));

@@ -26,9 +26,9 @@ public class LayoutParamActivity extends Activity {
         iv2.getLayoutParams().height = 120;
 
         //动态设置padding跟margin
-        iv3.setPadding(60, 60, 60, 60);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        lp.setMargins(120, 120, 60, 60);
+        iv3.setPadding(20, 20, 20, 20);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(120, 120);
+        lp.setMargins(30, 30, 20, 20);
         //设置LayoutParams的类型要跟父控件一致，由于iv3是放在LinearLayout里的，所以用LinearLayout.LayoutParams
         iv3.setLayoutParams(lp);
 
