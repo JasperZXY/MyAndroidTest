@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.jasper.myandroidtest.MyActionBarActivity">
+    tools:context="com.jasper.myandroidtest.actionbar.MyActionBarActivity">
 
     <item
         android:id="@+id/item_search"

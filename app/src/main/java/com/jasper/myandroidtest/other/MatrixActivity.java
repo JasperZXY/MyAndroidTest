@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.other;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -10,6 +10,8 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.jasper.myandroidtest.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

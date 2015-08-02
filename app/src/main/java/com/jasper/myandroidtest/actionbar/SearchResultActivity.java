@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.actionbar;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.jasper.myandroidtest.R;
 
 /**
  * 搜索展示的类，需要在AndroidManifest.xml对这个Activity进行相应的配置

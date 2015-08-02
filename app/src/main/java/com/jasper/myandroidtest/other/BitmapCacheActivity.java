@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.other;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.jasper.myandroidtest.R;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.utils.HttpUtil;
 

@@ -46,7 +46,7 @@
             android:name=".tabhost.Tabs2Activity"
             android:label="@string/title_activity_tabs2" />
         <activity
-            android:name=".AsyncTaskActivity"
+            android:name=".other.AsyncTaskActivity"
             android:label="@string/title_activity_async_task" />
         <activity
             android:name=".tabhost.Tabs3Activity"
@@ -59,11 +59,11 @@
             android:hardwareAccelerated="false"
             android:label="@string/title_activity_camera" />
         <activity
-            android:name=".MyActionBarActivity"
+            android:name=".actionbar.MyActionBarActivity"
             android:label="@string/title_activity_my_action_bar" >
         </activity>
         <activity
-            android:name=".SearchResultActivity"
+            android:name=".actionbar.SearchResultActivity"
             android:label="@string/title_activity_search_result" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
@@ -107,11 +107,11 @@
             android:label="@string/title_activity_image_view" >
         </activity>
         <activity
-            android:name=".MenuActivity"
+            android:name=".other.MenuActivity"
             android:label="@string/title_activity_menu" >
         </activity>
         <activity
-            android:name=".PermissionActivity"
+            android:name=".other.PermissionActivity"
             android:label="@string/title_activity_permission" >
         </activity>
         <activity
@@ -127,7 +127,7 @@
             android:label="@string/title_activity_web_view" >
         </activity>
         <activity
-            android:name=".BitmapCacheActivity"
+            android:name=".other.BitmapCacheActivity"
             android:label="@string/title_activity_bitmap_cache" >
         </activity>
         <activity
@@ -151,7 +151,7 @@
             android:label="@string/title_activity_simple_sensor" >
         </activity>
         <activity
-            android:name=".MatrixActivity"
+            android:name=".other.MatrixActivity"
             android:label="@string/title_activity_matrix" >
         </activity>
         <activity
@@ -171,7 +171,7 @@
             android:label="@string/title_activity_flow_layout" >
         </activity>
         <activity
-            android:name=".DrawableActivity"
+            android:name=".other.DrawableActivity"
             android:label="@string/title_activity_drawable" >
         </activity>
         <activity

@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest;
+package com.jasper.myandroidtest.actionbar;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.jasper.myandroidtest.R;
 import com.jasper.myandroidtest.fragmentPage.FragmentPage01;
 import com.jasper.myandroidtest.fragmentPage.FragmentPage02;
 
