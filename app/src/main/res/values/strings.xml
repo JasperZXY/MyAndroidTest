@@ -74,5 +74,6 @@
     <string name="title_activity_layout_param">LayoutParam相关</string>
     <string name="title_activity_margin_padding">Margin与Padding</string>
     <string name="title_activity_soft_input">软键盘</string>
+    <string name="title_activity_soft_input_mode_choose">软键盘</string>
 
 </resources>

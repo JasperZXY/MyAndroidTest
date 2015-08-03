@@ -1,0 +1,119 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:padding="3dp"
+    tools:context="com.jasper.myandroidtest.other.SoftInputActivity">
+
+    <LinearLayout
+        android:id="@+id/layout_chose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="00"
+            android:text="adjustUnspecified：默认设置，系统自行决定" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="10"
+            android:text="adjustResize：该Activity总是调整屏幕的大小以便留出软键盘的空间" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="20"
+            android:text="adjustPan：当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="30"
+            android:text="adjustNothing：该Activity不做处理" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="0"
+            android:text="stateUnspecified：默认配置，系统自行决定" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="1"
+            android:text="stateUnchanged：软键盘将一直保持在上一个activity里的状态" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="2"
+            android:text="stateHidden：用户选择activity时，软键盘总是被隐藏" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="3"
+            android:text="stateAlwaysHidden：当该Activity主窗口获取焦点时，软键盘也总是被隐藏的" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="4"
+            android:text="stateVisible：软键盘通常是可见的" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="5"
+            android:text="stateAlwaysVisible：用户选择activity时，软键盘总是显示的状态" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hide跟show有没有always，测试效果一样"/>
+        <Button
+            android:id="@+id/btn_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/my_btn"
+            android:text="确定"
+            android:textColor="#FFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="6dp">
+
+        <EditText
+            android:id="@+id/et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/my_edittext_bg"
+            android:hint="请输入..."
+            android:padding="5dp"
+            android:singleLine="true"
+            android:textColorHint="#AAAAAA"
+            android:textSize="15dp" />
+
+        <ToggleButton
+            android:id="@+id/tb_show_hide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textOff="隐藏键盘"
+            android:textOn="显示键盘" />
+
+    </LinearLayout>
+
+</LinearLayout>

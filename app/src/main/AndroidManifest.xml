@@ -221,6 +221,10 @@
             android:name=".other.SoftInputActivity"
             android:label="@string/title_activity_soft_input" >
         </activity>
+        <activity
+            android:name=".other.SoftInputModeChooseActivity"
+            android:label="@string/title_activity_soft_input_mode_choose" >
+        </activity>
     </application>
 
 </manifest>
