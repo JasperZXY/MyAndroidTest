@@ -3,8 +3,11 @@ package com.jasper.myandroidtest.image;
 import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.jasper.myandroidtest.R;
@@ -24,10 +27,23 @@ public class GifViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LinearLayout layout = new LinearLayout(this);
+        layout.setBackgroundResource(R.drawable.bg);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setGravity(Gravity.CENTER);
         this.setContentView(layout);
+        layout.getLayoutParams().width = LinearLayout.LayoutParams.MATCH_PARENT;
+        layout.getLayoutParams().height = LinearLayout.LayoutParams.MATCH_PARENT;
+
+        FrameLayout frameLayout = new FrameLayout(this);
+        layout.addView(frameLayout);
+        frameLayout.getLayoutParams().width = 300;
+        frameLayout.getLayoutParams().height = 300;
 
         GifImageView gifImageView = new GifImageView(this);
-        layout.addView(gifImageView);
+        frameLayout.addView(gifImageView);
+        gifImageView.getLayoutParams().width = LinearLayout.LayoutParams.MATCH_PARENT;
+        gifImageView.getLayoutParams().height = LinearLayout.LayoutParams.MATCH_PARENT;
+
         try {
             GifDrawable gifDrawable = new GifDrawable(getAssets(), "qh.gif");
             gifImageView.setImageDrawable(gifDrawable);
