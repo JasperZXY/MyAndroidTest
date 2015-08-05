@@ -225,6 +225,10 @@
             android:name=".other.SoftInputModeChooseActivity"
             android:label="@string/title_activity_soft_input_mode_choose" >
         </activity>
+        <activity
+            android:name=".image.GifViewActivity"
+            android:label="@string/title_activity_gif_view" >
+        </activity>
     </application>
 
 </manifest>

@@ -113,6 +113,7 @@ public class MainActivity extends Activity {
         groupImage.getChildren().add(new Child("图片-矩阵变化", MatrixActivity.class));
         groupImage.getChildren().add(new Child("BitmapCache使用", BitmapCacheActivity.class));
         groupImage.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
+        groupImage.getChildren().add(new Child("GifView（第三方库）", GifViewActivity.class));
         groups.add(groupImage);
 
         Group groupAMD = new Group("AMD", new ArrayList<Child>());
