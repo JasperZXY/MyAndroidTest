@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                tools:context="com.jasper.myandroidtest.other.DrawableActivity">
+                tools:context="com.jasper.myandroidtest.image.DrawableActivity">
 
     <ScrollView
         android:layout_width="match_parent"

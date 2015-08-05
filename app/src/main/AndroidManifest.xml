@@ -103,7 +103,7 @@
             android:label="@string/title_activity_my_list_view" >
         </activity>
         <activity
-            android:name=".view.ImageViewActivity"
+            android:name=".image.ImageViewActivity"
             android:label="@string/title_activity_image_view" >
         </activity>
         <activity
@@ -127,7 +127,7 @@
             android:label="@string/title_activity_web_view" >
         </activity>
         <activity
-            android:name=".other.BitmapCacheActivity"
+            android:name=".image.BitmapCacheActivity"
             android:label="@string/title_activity_bitmap_cache" >
         </activity>
         <activity
@@ -151,7 +151,7 @@
             android:label="@string/title_activity_simple_sensor" >
         </activity>
         <activity
-            android:name=".other.MatrixActivity"
+            android:name=".image.MatrixActivity"
             android:label="@string/title_activity_matrix" >
         </activity>
         <activity
@@ -171,7 +171,7 @@
             android:label="@string/title_activity_flow_layout" >
         </activity>
         <activity
-            android:name=".other.DrawableActivity"
+            android:name=".image.DrawableActivity"
             android:label="@string/title_activity_drawable" >
         </activity>
         <activity

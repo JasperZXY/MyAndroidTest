@@ -29,12 +29,8 @@ import com.jasper.myandroidtest.listView.Classify2Activity;
 import com.jasper.myandroidtest.listView.MyListViewActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.other.AsyncTaskActivity;
-import com.jasper.myandroidtest.other.BitmapCacheActivity;
-import com.jasper.myandroidtest.other.DrawableActivity;
-import com.jasper.myandroidtest.other.MatrixActivity;
 import com.jasper.myandroidtest.other.MenuActivity;
 import com.jasper.myandroidtest.other.PermissionActivity;
-import com.jasper.myandroidtest.other.SoftInputActivity;
 import com.jasper.myandroidtest.other.SoftInputModeChooseActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.GradienterActivity;
@@ -47,9 +43,9 @@ import com.jasper.myandroidtest.tabhost.Tabs3Activity;
 import com.jasper.myandroidtest.tabhost.Tabs4Activity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
-import com.jasper.myandroidtest.view.ImageViewActivity;
 import com.jasper.myandroidtest.view.WebViewActivity;
 import com.jasper.myandroidtest.view.GridViewActivity;
+import com.jasper.myandroidtest.image.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,10 +104,16 @@ public class MainActivity extends Activity {
         groups.add(groupLayout);
 
         Group groupView = new Group("View", new ArrayList<Child>());
-        groupView.getChildren().add(new Child("ImageView的scaleType问题", ImageViewActivity.class));
         groupView.getChildren().add(new Child("GridView", GridViewActivity.class));
         groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
         groups.add(groupView);
+
+        Group groupImage = new Group("Image", new ArrayList<Child>());
+        groupImage.getChildren().add(new Child("ImageView的scaleType问题", ImageViewActivity.class));
+        groupImage.getChildren().add(new Child("图片-矩阵变化", MatrixActivity.class));
+        groupImage.getChildren().add(new Child("BitmapCache使用", BitmapCacheActivity.class));
+        groupImage.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
+        groups.add(groupImage);
 
         Group groupAMD = new Group("AMD", new ArrayList<Child>());
         groupAMD.getChildren().add(new Child("ActionBar", MyActionBarActivity.class));
@@ -138,9 +140,6 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("FragmentManager", FragmentManagerActivity.class));
         groupOther.getChildren().add(new Child("异步任务", AsyncTaskActivity.class));
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
-        groupOther.getChildren().add(new Child("图片-矩阵变化", MatrixActivity.class));
-        groupOther.getChildren().add(new Child("BitmapCache使用", BitmapCacheActivity.class));
-        groupOther.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
         groupOther.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
         groupOther.getChildren().add(new Child("软键盘", SoftInputModeChooseActivity.class));
         groups.add(groupOther);
