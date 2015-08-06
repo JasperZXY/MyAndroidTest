@@ -1,0 +1,14 @@
+同一个控件的Touch与Click
+1、Touch事件发生顺序：一个Action_DOWN, n个ACTION_MOVE, 1个ACTION_UP；
+2、Touch事件要返回false，Click才能触发；
+3、Touch的Down事件返回false，Up事件返回true，会触发LongClick事件。
+
+  第三种情况的机制分析：
+onTouch事件中：down事件返回值标记此次事件是否为点击事件（返回false，是点击事件；返回true，不记为点击事件），而up事件标记此次事件结束时间，也就是判断是否为长按。当down返回false，标记此次事件为点击事件，而up返回了true，则表示此次事件一直没有结束，也就是一直长按下去了，达到长按临界时间后，自然触发长按事件，而onClick事件没有触发到。
+
+----------分割线----------
+
+控件与其父控件的Click事件
+以下控件用widget替换，其父控件用container替换
+1、如果widget跟container都可点击，那么点击widget或container有onClick事件，不会进行事件传递；
+2、如果container可点击，但里面的widget都设置不可点击，那么对container进行点击，container有onClick事件，而且widget也有点击效果但没onClick事件。

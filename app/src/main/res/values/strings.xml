@@ -76,5 +76,6 @@
     <string name="title_activity_soft_input">软键盘</string>
     <string name="title_activity_soft_input_mode_choose">软键盘</string>
     <string name="title_activity_gif_view">GifView（第三方库）</string>
+    <string name="title_activity_touch_click">Touch跟Click</string>
 
 </resources>

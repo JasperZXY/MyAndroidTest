@@ -108,3 +108,7 @@
 
 ## 2015-08-03
 1. 软键盘windowSoftInputMode属性及显示隐藏
+
+
+## 2015-08-06
+1. Touch跟Click事件处理

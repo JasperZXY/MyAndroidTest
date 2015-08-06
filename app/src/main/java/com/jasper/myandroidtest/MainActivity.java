@@ -32,6 +32,7 @@ import com.jasper.myandroidtest.other.AsyncTaskActivity;
 import com.jasper.myandroidtest.other.MenuActivity;
 import com.jasper.myandroidtest.other.PermissionActivity;
 import com.jasper.myandroidtest.other.SoftInputModeChooseActivity;
+import com.jasper.myandroidtest.other.TouchClickActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.GradienterActivity;
 import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
@@ -143,6 +144,7 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
         groupOther.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
         groupOther.getChildren().add(new Child("软键盘", SoftInputModeChooseActivity.class));
+        groupOther.getChildren().add(new Child("Touch跟Click", TouchClickActivity.class));
         groups.add(groupOther);
 
         return groups;

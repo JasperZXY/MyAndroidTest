@@ -23,4 +23,14 @@
         <item name="android:layout_weight">1.0</item>
     </style>
 
+    <style name="my_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/my_btn</item>
+        <item name="android:text">自定义按钮样式</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
 </resources>
