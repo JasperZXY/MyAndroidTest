@@ -31,6 +31,7 @@ public class HttpUtil {
 
     /**
      * Http的get请求
+     *
      * @param url
      * @return
      */
@@ -57,6 +58,7 @@ public class HttpUtil {
 
     /**
      * Http的post请求
+     *
      * @param url
      * @param params 请求的参数
      * @return
@@ -78,25 +80,17 @@ public class HttpUtil {
         return null;
     }
 
-
     public static Bitmap downloadBitmap(String url) {
-        URL imgUrl = null;
         Bitmap bitmap = null;
+        InputStream is = null;
         try {
-            imgUrl = new URL(url);
-        } catch (MalformedURLException e) {
-            Log.e(TAG, "MalformedURLException:" + e.getLocalizedMessage());
-            return null;
-        }
-        try {
-            HttpURLConnection conn = (HttpURLConnection) imgUrl.openConnection();
-            conn.setDoInput(true);
-            conn.connect();
-            InputStream is = conn.getInputStream();
+            is = new URL(url).openStream();
             bitmap = BitmapFactory.decodeStream(is);
             is.close();
         } catch (IOException e) {
-            Log.e(TAG, "downloadBitmap url:" + url + " errror:" + e.getLocalizedMessage());
+            Log.e(TAG, "downloadBitmap url:" + url + " error:" + e.getLocalizedMessage());
+        } finally {
+            IOUtil.close(is);
         }
         return bitmap;
     }
