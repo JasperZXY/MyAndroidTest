@@ -13,28 +13,13 @@
         android:layout_height="wrap_content"
         android:src="@drawable/android"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+    <Button
+        android:id="@+id/btn_show_dialog"
+        style="@style/my_button"
+        android:text="选择操作"
+        android:layout_margin="3dp"
         android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:paddingBottom="5dp">
-        <Button
-            android:id="@+id/btn_freefall1"
-            style="@style/my_button"
-            android:text="自由落体1"
-            android:layout_margin="3dp"/>
-        <Button
-            android:id="@+id/btn_freefall2"
-            style="@style/my_button"
-            android:text="自由落体2"
-            android:layout_margin="3dp"/>
-        <Button
-            android:id="@+id/btn_revert"
-            style="@style/my_button"
-            android:text="复原"
-            android:layout_margin="3dp"/>
-    </LinearLayout>
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="5dp"/>
 
 </RelativeLayout>

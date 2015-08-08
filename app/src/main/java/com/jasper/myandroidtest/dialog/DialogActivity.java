@@ -123,24 +123,34 @@ public class DialogActivity extends Activity implements OnLoginListener, View.On
                         .setTitle("仿IOS选择对话框")
                         .setCancelable(true)
                         .setCanceledOnTouchOutside(true)
-                        .addSheetItem("条目0")
-                        .addSheetItem("条目1")
-                        .addSheetItem("条目2")
-                        .addSheetItem("条目3")
-                        .addSheetItem("条目4")
-                        .addSheetItem("条目5")
-                        .addSheetItem("条目6")
-                        .addSheetItem("条目7")
-                        .addSheetItem("条目8")
-                        .addSheetItem("删除", ActionSheetDialog.SheetItemColor.Red.getColor())
-                        .addOnSheetItemClickListener(new ActionSheetDialog.OnSheetItemClickListener() {
+                        .addSheetItem("条目0", new ActionSheetItemClickListener("条目0"))
+                        .addSheetItem("条目1", new ActionSheetItemClickListener("条目1"))
+                        .addSheetItem("条目2", new ActionSheetItemClickListener("条目2"))
+                        .addSheetItem("条目3", new ActionSheetItemClickListener("条目3"))
+                        .addSheetItem("条目4", new ActionSheetItemClickListener("条目4"))
+                        .addSheetItem("条目5", new ActionSheetItemClickListener("条目5"))
+                        .addSheetItem("条目6", new ActionSheetItemClickListener("条目6"))
+                        .addSheetItem("删除", ActionSheetDialog.SheetItemColor.Red.getColor(), new ActionSheetItemClickListener("删除"))
+                        .addOnCancelLisener(new ActionSheetDialog.OnCancelListener() {
                             @Override
-                            public void onClick(int which) {
-                                tv.setText("点击的项目:" + which);
+                            public void onCancel() {
+                                tv.setText("取消选择");
                             }
                         })
                         .show();
                 break;
+        }
+    }
+
+    private class ActionSheetItemClickListener implements ActionSheetDialog.OnItemClickListener {
+        private String name;
+        public ActionSheetItemClickListener(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public void onClick() {
+            tv.setText(name + " clicked");
         }
     }
 

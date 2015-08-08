@@ -9,8 +9,9 @@ import android.view.animation.BounceInterpolator;
 import android.widget.ImageView;
 
 import com.jasper.myandroidtest.R;
+import com.jasper.myandroidtest.dialog.ActionSheetDialog;
 
-public class AnimatorActivity extends Activity implements View.OnClickListener {
+public class AnimatorActivity extends Activity {
     private ImageView imageView;
     private View layout;
 
@@ -20,9 +21,39 @@ public class AnimatorActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_animator);
         imageView = (ImageView) findViewById(R.id.iv);
         layout = findViewById(R.id.layout);
-        findViewById(R.id.btn_revert).setOnClickListener(this);
-        findViewById(R.id.btn_freefall1).setOnClickListener(this);
-        findViewById(R.id.btn_freefall2).setOnClickListener(this);
+
+        findViewById(R.id.btn_show_dialog).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
+    }
+
+    private void showDialog() {
+        new ActionSheetDialog(AnimatorActivity.this).builder()
+                .setTitle("选择操作")
+                .setCancelable(true)
+                .setCanceledOnTouchOutside(true)
+                .addSheetItem("复原", new ActionSheetDialog.OnItemClickListener() {
+                    @Override
+                    public void onClick() {
+                        revert();
+                    }
+                })
+                .addSheetItem("自由落体-ValueAnimator实现", new ActionSheetDialog.OnItemClickListener() {
+                    @Override
+                    public void onClick() {
+                        freefallWithValueAnimator();
+                    }
+                })
+                .addSheetItem("自由落体-ObjectAnimator实现", new ActionSheetDialog.OnItemClickListener() {
+                    @Override
+                    public void onClick() {
+                        freefallWithObjectAnimator();
+                    }
+                })
+                .show();
     }
 
     private void revert() {
@@ -59,19 +90,5 @@ public class AnimatorActivity extends Activity implements View.OnClickListener {
         animator.setDuration(1000).start();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_revert:
-                revert();
-                break;
-            case R.id.btn_freefall1:
-                freefallWithValueAnimator();
-                break;
-            case R.id.btn_freefall2:
-                freefallWithObjectAnimator();
-                break;
-        }
 
-    }
 }

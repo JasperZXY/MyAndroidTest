@@ -36,12 +36,7 @@ public class ActionSheetDialog {
     private List<SheetItem> sheetItemList;
     private int screenWidth;
     private int screenHeight;
-    private OnSheetItemClickListener listener;
-
-    public ActionSheetDialog addOnSheetItemClickListener(OnSheetItemClickListener listener) {
-        this.listener = listener;
-        return this;
-    }
+    private OnCancelListener cancelListener;
 
     public ActionSheetDialog setSheetItemList(List<SheetItem> sheetItemList) {
         this.sheetItemList = sheetItemList;
@@ -71,7 +66,15 @@ public class ActionSheetDialog {
         layout = (LinearLayout) view.findViewById(R.id.layout_item);
         tvTitle = (TextView) view.findViewById(R.id.tv_title);
         tvCancel = (TextView) view.findViewById(R.id.tv_cancel);
-        tvCancel.setOnClickListener(new ViewClickListener(-1));
+        tvCancel.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                if (cancelListener != null) {
+                    cancelListener.onCancel();
+                }
+            }
+        });
 
         // 定义Dialog布局和参数
         dialog = new Dialog(context, R.style.ActionSheetDialogStyle);
@@ -86,7 +89,9 @@ public class ActionSheetDialog {
         dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialog) {
-                callback(-1);
+                if (cancelListener != null) {
+                    cancelListener.onCancel();
+                }
             }
         });
 
@@ -110,16 +115,41 @@ public class ActionSheetDialog {
         return this;
     }
 
+    public ActionSheetDialog addOnCancelLisener(OnCancelListener lisener) {
+        cancelListener = lisener;
+        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                cancelListener.onCancel();
+            }
+        });
+        return this;
+    }
+
     /**
      * @param item  条目名称
      * @param color 条目字体颜色
+     * @param listener 点击事件监听器
      * @return
      */
-    public ActionSheetDialog addSheetItem(String item, int color) {
+    public ActionSheetDialog addSheetItem(String item, int color, OnItemClickListener listener) {
         if (sheetItemList == null) {
             sheetItemList = new ArrayList<>();
         }
-        sheetItemList.add(new SheetItem(item, color));
+        sheetItemList.add(new SheetItem(item, color, listener));
+        return this;
+    }
+
+    /**
+     * @param item  条目名称
+     * @param listener 点击事件监听器
+     * @return
+     */
+    public ActionSheetDialog addSheetItem(String item, OnItemClickListener listener) {
+        if (sheetItemList == null) {
+            sheetItemList = new ArrayList<>();
+        }
+        sheetItemList.add(new SheetItem(item, SheetItemColor.Blue.getColor(), listener));
         return this;
     }
 
@@ -128,19 +158,10 @@ public class ActionSheetDialog {
      * @return
      */
     public ActionSheetDialog addSheetItem(String item) {
-        return addSheetItem(item, SheetItemColor.Blue.getColor());
-    }
-
-    public ActionSheetDialog addSheetItems(List<String> items) {
-        if (items == null || items.isEmpty()) {
-            return this;
-        }
         if (sheetItemList == null) {
             sheetItemList = new ArrayList<>();
         }
-        for (int i = 0; i<items.size(); i++) {
-            sheetItemList.add(new SheetItem(items.get(i), SheetItemColor.Blue.getColor()));
-        }
+        sheetItemList.add(new SheetItem(item, SheetItemColor.Blue.getColor(), null));
         return this;
     }
 
@@ -165,8 +186,7 @@ public class ActionSheetDialog {
 
         // 循环添加条目
         for (int i = 0; i < size; i++) {
-            final int index = i;
-            SheetItem sheetItem = sheetItemList.get(i);
+            final SheetItem sheetItem = sheetItemList.get(i);
 
             TextView textView = new TextView(context);
             textView.setText(sheetItem.name);
@@ -206,7 +226,15 @@ public class ActionSheetDialog {
             textView.setLayoutParams(new LinearLayout.LayoutParams(
                     LayoutParams.MATCH_PARENT, height));
 
-            textView.setOnClickListener(new ViewClickListener(index));
+            textView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                    if (sheetItem.listener != null) {
+                        sheetItem.listener.onClick();
+                    }
+                }
+            });
 
             layout.addView(textView);
         }
@@ -217,46 +245,28 @@ public class ActionSheetDialog {
         dialog.show();
     }
 
-    private final void callback(int index) {
-        if (listener != null) {
-            listener.onClick(index);
-            dialog.dismiss();
-        }
+    public interface OnItemClickListener {
+        void onClick();
     }
-
-    private class ViewClickListener implements OnClickListener {
-        private int index;
-        public ViewClickListener(int index) {
-            this.index = index;
-        }
-
-        @Override
-        public void onClick(View v) {
-            callback(index);
-        }
-    }
-
-    public interface OnSheetItemClickListener {
-        /**
-         * @param which -1代表点击了取消
-         */
-        void onClick(int which);
+    public interface OnCancelListener {
+        void onCancel();
     }
 
     public class SheetItem {
         String name;
         int color;
+        OnItemClickListener listener;
 
-        public SheetItem(String name, int color) {
+        public SheetItem(String name, int color, OnItemClickListener listener) {
             this.name = name;
             this.color = color;
+            this.listener = listener;
         }
     }
 
     public enum SheetItemColor {
         Blue(0xFF037BFF),
-        Red(0xFFFD4A2E),
-        Gray(0xFF8F8F8F),;
+        Red(0xFFFD4A2E),;
 
         private int color;
 
