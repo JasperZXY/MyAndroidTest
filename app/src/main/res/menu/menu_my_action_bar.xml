@@ -10,7 +10,7 @@
         android:title="search"/>
     <item
         android:id="@+id/item_switch"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/android"
         android:showAsAction="always"
         android:title="切换"/>
     <item

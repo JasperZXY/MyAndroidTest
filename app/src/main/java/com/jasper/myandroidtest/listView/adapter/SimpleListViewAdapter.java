@@ -70,7 +70,7 @@ public class SimpleListViewAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         if (info.getHead() == null || info.getHead() == "") {
-            holder.head.setImageResource(R.drawable.ic_launcher);
+            holder.head.setImageResource(R.drawable.android);
         } else {
             //加载本地或网络图片
         }
