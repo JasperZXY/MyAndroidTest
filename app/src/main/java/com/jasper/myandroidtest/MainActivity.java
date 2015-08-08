@@ -45,6 +45,7 @@ import com.jasper.myandroidtest.tabhost.Tabs3Activity;
 import com.jasper.myandroidtest.tabhost.Tabs4Activity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
+import com.jasper.myandroidtest.view.DragViewActivity;
 import com.jasper.myandroidtest.view.WebViewActivity;
 import com.jasper.myandroidtest.view.GridViewActivity;
 import com.jasper.myandroidtest.image.*;
@@ -108,6 +109,7 @@ public class MainActivity extends Activity {
         Group groupView = new Group("View", new ArrayList<Child>());
         groupView.getChildren().add(new Child("GridView", GridViewActivity.class));
         groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
+        groupView.getChildren().add(new Child("控件拖动", DragViewActivity.class));
         groups.add(groupView);
 
         Group groupImage = new Group("Image", new ArrayList<Child>());

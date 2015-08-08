@@ -239,6 +239,10 @@
             android:name=".other.AnimatorActivity"
             android:label="@string/title_activity_animator" >
         </activity>
+        <activity
+            android:name=".view.DragViewActivity"
+            android:label="@string/title_activity_drag_view" >
+        </activity>
     </application>
 
 </manifest>
