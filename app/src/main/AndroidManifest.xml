@@ -233,8 +233,11 @@
             android:name=".other.TouchClickActivity"
             android:label="@string/title_activity_touch_click" >
         </activity>
+        <activity android:name=".NoteActivity" >
+        </activity>
         <activity
-            android:name=".NoteActivity" >
+            android:name=".other.AnimatorActivity"
+            android:label="@string/title_activity_animator" >
         </activity>
     </application>
 

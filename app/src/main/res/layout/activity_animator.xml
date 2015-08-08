@@ -1,0 +1,40 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="com.jasper.myandroidtest.other.AnimatorActivity">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/android"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:paddingBottom="5dp">
+        <Button
+            android:id="@+id/btn_freefall1"
+            style="@style/my_button"
+            android:text="自由落体1"
+            android:layout_margin="3dp"/>
+        <Button
+            android:id="@+id/btn_freefall2"
+            style="@style/my_button"
+            android:text="自由落体2"
+            android:layout_margin="3dp"/>
+        <Button
+            android:id="@+id/btn_revert"
+            style="@style/my_button"
+            android:text="复原"
+            android:layout_margin="3dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

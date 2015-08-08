@@ -28,6 +28,7 @@ import com.jasper.myandroidtest.listView.Classify1Activity;
 import com.jasper.myandroidtest.listView.Classify2Activity;
 import com.jasper.myandroidtest.listView.MyListViewActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
+import com.jasper.myandroidtest.other.AnimatorActivity;
 import com.jasper.myandroidtest.other.AsyncTaskActivity;
 import com.jasper.myandroidtest.other.MenuActivity;
 import com.jasper.myandroidtest.other.PermissionActivity;
@@ -145,6 +146,7 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
         groupOther.getChildren().add(new Child("软键盘", SoftInputModeChooseActivity.class));
         groupOther.getChildren().add(new Child("Touch跟Click", TouchClickActivity.class));
+        groupOther.getChildren().add(new Child("动画", AnimatorActivity.class));
         groups.add(groupOther);
 
         return groups;
@@ -207,7 +209,7 @@ public class MainActivity extends Activity {
             int padding = (int) (8 * density);
             textView.setPadding(padding, padding, padding, padding);
             textView.setTextSize(20);
-            textView.setTextColor(Color.BLACK);
+            textView.setTextColor(Color.DKGRAY);
             return textView;
         }
 
@@ -254,7 +256,7 @@ public class MainActivity extends Activity {
             ll.setOrientation(LinearLayout.HORIZONTAL);
             ll.setBackgroundColor(Color.rgb(215, 202, 153));
             TextView textView = getTextView();
-            textView.setTextColor(Color.BLACK);
+            textView.setTextColor(Color.DKGRAY);
             Group group = (Group) getGroup(groupPosition);
             textView.setText(group.getName());
             ll.addView(textView);
