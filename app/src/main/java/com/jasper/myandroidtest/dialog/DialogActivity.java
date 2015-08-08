@@ -31,7 +31,7 @@ public class DialogActivity extends Activity implements OnLoginListener, View.On
     }
 
     private void findButtonAndSetOnClickListenr(ViewGroup viewGroup) {
-        for (int i=0; i<viewGroup.getChildCount(); i++) {
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
             if (viewGroup.getChildAt(i) instanceof Button) {
                 viewGroup.getChildAt(i).setOnClickListener(this);
             } else if (viewGroup.getChildAt(i) instanceof ViewGroup) {
@@ -73,7 +73,7 @@ public class DialogActivity extends Activity implements OnLoginListener, View.On
             case R.id.btn_radio:
                 AlertDialog.Builder builder4 = new AlertDialog.Builder(this)
                         .setTitle("评价")
-                        //这里可以看which查看是点击的哪一项
+                                //这里可以看which查看是点击的哪一项
                         .setSingleChoiceItems(new String[]{"很好", "及格", "不好"}, 0, new DialogButtonClickListener("radio"))
                         .setPositiveButton("确定", new DialogButtonClickListener("sure"));
                 builder4.create().show();
@@ -109,14 +109,38 @@ public class DialogActivity extends Activity implements OnLoginListener, View.On
                         EditText etName = (EditText) view.findViewById(R.id.et_username);
                         EditText etPass = (EditText) view.findViewById(R.id.et_password);
                         Toast.makeText(context, String.format("name:%s, password:%s",
-                                etName.getText().toString(), etPass.getText().toString()), Toast.LENGTH_SHORT ).show();
+                                etName.getText().toString(), etPass.getText().toString()), Toast.LENGTH_SHORT).show();
                         dialog6.dismiss();
                     }
                 });
                 break;
             case R.id.btn_df:
                 MyDialogFragment myDialogFragment = new MyDialogFragment();
-                myDialogFragment.show(getFragmentManager().beginTransaction(),"MyDialogFragment");
+                myDialogFragment.show(getFragmentManager().beginTransaction(), "MyDialogFragment");
+                break;
+            case R.id.btn_ios:
+                new ActionSheetDialog(DialogActivity.this).builder()
+                        .setTitle("仿IOS选择对话框")
+                        .setCancelable(true)
+                        .setCanceledOnTouchOutside(true)
+                        .addSheetItem("条目0")
+                        .addSheetItem("条目1")
+                        .addSheetItem("条目2")
+                        .addSheetItem("条目3")
+                        .addSheetItem("条目4")
+                        .addSheetItem("条目5")
+                        .addSheetItem("条目6")
+                        .addSheetItem("条目7")
+                        .addSheetItem("条目8")
+                        .addSheetItem("删除", ActionSheetDialog.SheetItemColor.Red.getColor())
+                        .addOnSheetItemClickListener(new ActionSheetDialog.OnSheetItemClickListener() {
+                            @Override
+                            public void onClick(int which) {
+                                tv.setText("点击的项目:" + which);
+                            }
+                        })
+                        .show();
+                break;
         }
     }
 
@@ -127,9 +151,11 @@ public class DialogActivity extends Activity implements OnLoginListener, View.On
 
     private class DialogButtonClickListener implements DialogInterface.OnClickListener {
         private String tag;
+
         public DialogButtonClickListener(String tag) {
             this.tag = tag;
         }
+
         @Override
         public void onClick(DialogInterface dialog, int which) {
             if (et == null) {

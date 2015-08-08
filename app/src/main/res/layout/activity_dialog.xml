@@ -43,6 +43,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DialogFragment"/>
+    <Button
+        android:id="@+id/btn_ios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="仿IOS选择对话框"/>
     <TextView
         android:id="@+id/tv_result"
         android:layout_width="wrap_content"

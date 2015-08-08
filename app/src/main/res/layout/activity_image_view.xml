@@ -39,7 +39,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background" />
+                        android:background="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -73,7 +73,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="matrix"
                         android:src="@drawable/img_96" />
 
@@ -92,7 +92,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="fitXY"
                         android:src="@drawable/img_96" />
 
@@ -111,7 +111,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="fitStart"
                         android:src="@drawable/img_96" />
 
@@ -130,7 +130,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="fitCenter"
                         android:src="@drawable/img_96" />
 
@@ -149,7 +149,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="fitEnd"
                         android:src="@drawable/img_96" />
 
@@ -168,7 +168,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="center"
                         android:src="@drawable/img_96" />
 
@@ -187,7 +187,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="centerCrop"
                         android:src="@drawable/img_96" />
 
@@ -206,7 +206,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="centerInside"
                         android:src="@drawable/img_96" />
 
@@ -232,7 +232,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background" />
+                        android:background="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -266,7 +266,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="matrix"
                         android:src="@drawable/img_48" />
 
@@ -285,7 +285,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="fitXY"
                         android:src="@drawable/img_48" />
 
@@ -304,7 +304,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="fitStart"
                         android:src="@drawable/img_48" />
 
@@ -323,7 +323,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="fitCenter"
                         android:src="@drawable/img_48" />
 
@@ -342,7 +342,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="fitEnd"
                         android:src="@drawable/img_48" />
 
@@ -361,7 +361,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="center"
                         android:src="@drawable/img_48" />
 
@@ -380,7 +380,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="centerCrop"
                         android:src="@drawable/img_48" />
 
@@ -399,7 +399,7 @@
                     <ImageView
                         android:layout_width="@dimen/image_view_width"
                         android:layout_height="@dimen/image_view_height"
-                        android:background="@color/image_view_background"
+                        android:background="@color/black"
                         android:scaleType="centerInside"
                         android:src="@drawable/img_48" />
 

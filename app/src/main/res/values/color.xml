@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="image_view_background">#000</color>
+    <color name="black">#000</color>
+    <color name="darker_gray">#aaa</color>
+    <color name="lighter_gray">#ddd</color>
+
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="actionsheet_red">#FD4A2E</color>
+    <color name="actionsheet_gray">#8F8F8F</color>
+    <color name="actionsheet_background_normal">#CFFF</color>
+    <color name="actionsheet_background_press">#CCCC</color>
+    <color name="actionsheet_border">#CCC</color>
+
 </resources>

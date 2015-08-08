@@ -14,6 +14,7 @@ import android.telephony.TelephonyManager;
 import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 import android.view.Display;
+import android.view.WindowManager;
 
 import com.jasper.myandroidtest.listView.entity.ContentItem;
 import com.jasper.myandroidtest.listView.entity.GroupItem;
@@ -55,14 +56,15 @@ public class PhoneInfo {
 
     private void getScreenInfo(Activity activity, List<IItem> items) {
         items.add(new GroupItem("屏幕信息"));
-        DisplayMetrics mDisplayMetrics = new DisplayMetrics();//屏幕分辨率容器
+        DisplayMetrics displayMetrics = new DisplayMetrics();//屏幕分辨率容器
+        //(WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display display = activity.getWindowManager().getDefaultDisplay();
-        display.getMetrics(mDisplayMetrics);
-        items.add(new ContentItem("大小", String.format("%spx * %spx", mDisplayMetrics.widthPixels, mDisplayMetrics.heightPixels)));
+        display.getMetrics(displayMetrics);
+        items.add(new ContentItem("大小", String.format("%spx * %spx", displayMetrics.widthPixels, displayMetrics.heightPixels)));
         //同上面的一致，不过getWidth跟getHeight已经是Deprecated的了
 //        items.add(new ContentItem("大小", String.format("%spx * %spx", display.getWidth(), display.getHeight())));
-        items.add(new ContentItem("density", Float.toString(mDisplayMetrics.density)));
-        items.add(new ContentItem("densityDpi", Integer.toString(mDisplayMetrics.densityDpi)));
+        items.add(new ContentItem("density", Float.toString(displayMetrics.density)));
+        items.add(new ContentItem("densityDpi", Integer.toString(displayMetrics.densityDpi)));
     }
 
     private void getMemoryInfo(Activity activity, List<IItem> items) {
