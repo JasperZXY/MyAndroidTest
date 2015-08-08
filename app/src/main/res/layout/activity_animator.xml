@@ -8,18 +8,28 @@
     tools:context="com.jasper.myandroidtest.other.AnimatorActivity">
 
     <ImageView
-        android:id="@+id/iv"
+        android:id="@+id/iv_target"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:src="@drawable/android"/>
 
-    <Button
-        android:id="@+id/btn_show_dialog"
-        style="@style/my_button"
-        android:text="选择操作"
-        android:layout_margin="3dp"
+    <ImageView
+        android:id="@+id/view_function"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_point"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"/>
+
+    <ImageView
+        android:id="@+id/iv_heart"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/heart"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:paddingBottom="5dp"/>
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:visibility="invisible"/>
 
 </RelativeLayout>

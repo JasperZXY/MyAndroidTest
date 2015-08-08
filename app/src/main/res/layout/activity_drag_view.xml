@@ -11,7 +11,7 @@
     tools:context="com.jasper.myandroidtest.view.DragViewActivity">
 
     <ImageView
-        android:id="@+id/iv_dv_view"
+        android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/android" />

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Selection;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,7 @@ public class TouchClickActivity extends Activity {
         //同一个控件的Touch与Click
         tgTouchDown = (ToggleButton) findViewById(R.id.tg_touch_down);
         tgTouchUp = (ToggleButton) findViewById(R.id.tg_touch_up);
-        Button buttonTouch = (Button) findViewById(R.id.btn_touch);
+        final Button buttonTouch = (Button) findViewById(R.id.btn_touch);
         buttonTouch.setOnTouchListener(new TouchListener());
         buttonTouch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +63,7 @@ public class TouchClickActivity extends Activity {
                 return false;
             }
         });
+        findViewById(R.id.btn_no_clickable).setOnTouchListener(new TouchListener());
 
         //控件与父控件的Click事件
         tgLayoutClickable= (ToggleButton) findViewById(R.id.tg_layout_clickable);

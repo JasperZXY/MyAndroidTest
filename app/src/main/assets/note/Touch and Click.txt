@@ -2,6 +2,7 @@
 1、Touch事件发生顺序：一个Action_DOWN, n个ACTION_MOVE, 1个ACTION_UP；
 2、Touch事件要返回false，Click才能触发；
 3、Touch的Down事件返回false，Up事件返回true，会触发LongClick事件。
+4、注意：若控件不可点击，则只有Touch的Action_DOWN事件
 
   第三种情况的机制分析：
 onTouch事件中：down事件返回值标记此次事件是否为点击事件（返回false，是点击事件；返回true，不记为点击事件），而up事件标记此次事件结束时间，也就是判断是否为长按。当down返回false，标记此次事件为点击事件，而up返回了true，则表示此次事件一直没有结束，也就是一直长按下去了，达到长按临界时间后，自然触发长按事件，而onClick事件没有触发到。

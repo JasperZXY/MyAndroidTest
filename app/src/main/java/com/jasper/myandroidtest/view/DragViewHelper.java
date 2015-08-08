@@ -15,7 +15,9 @@ public class DragViewHelper {
         this.view = view;
     }
 
-    public void justDrag() {
+    public void makeItCanDrag() {
+        //这一步是必须的，不然就只有Touch的Action_DOWN事件
+        view.setClickable(true);
         view.setOnTouchListener(new TouchListener());
     }
 
@@ -30,6 +32,7 @@ public class DragViewHelper {
                     startx = (int) event.getRawX();
                     starty = (int) event.getRawY();
                     break;
+
                 case MotionEvent.ACTION_MOVE:// 手指在屏幕上移动对应的事件
                     int x = (int) event.getRawX();
                     int y = (int) event.getRawY();
@@ -49,11 +52,10 @@ public class DragViewHelper {
                     // 获取移动后的位置
                     startx = (int) event.getRawX();
                     starty = (int) event.getRawY();
-
                     break;
             }
 
-            return true;// 不会中断触摸事件的返回
+            return false;
         }
     }
 
