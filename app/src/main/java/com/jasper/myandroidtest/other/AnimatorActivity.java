@@ -1,11 +1,14 @@
 package com.jasper.myandroidtest.other;
 
 import android.animation.ObjectAnimator;
+import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.graphics.PointF;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.BounceInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
 import com.jasper.myandroidtest.R;
@@ -53,6 +56,12 @@ public class AnimatorActivity extends Activity {
                         freefallWithObjectAnimator();
                     }
                 })
+                .addSheetItem("类抛物线", new ActionSheetDialog.OnItemClickListener() {
+                    @Override
+                    public void onClick() {
+                        parabola();
+                    }
+                })
                 .show();
     }
 
@@ -88,6 +97,29 @@ public class AnimatorActivity extends Activity {
                 0, layout.getHeight() - imageView.getHeight());
         animator.setInterpolator(new BounceInterpolator());
         animator.setDuration(1000).start();
+    }
+
+    private void parabola() {
+        ValueAnimator animator = ValueAnimator.ofObject(new TypeEvaluator<PointF>() {
+
+            @Override
+            public PointF evaluate(float fraction, PointF startValue, PointF endValue) {
+                PointF p = new PointF();
+                p.x = fraction * (layout.getWidth() - imageView.getWidth());
+                p.y = fraction * fraction * 0.5f * (layout.getHeight() - imageView.getHeight()) * 4f * 0.5f;
+                return p;
+            }
+        }, new PointF(0, 0));
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setDuration(1000).start();
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                PointF pointF = (PointF) animation.getAnimatedValue();
+                imageView.setTranslationX(pointF.x);
+                imageView.setTranslationY(pointF.y);
+            }
+        });
     }
 
 
