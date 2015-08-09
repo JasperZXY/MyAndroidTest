@@ -236,7 +236,7 @@
         <activity android:name=".NoteActivity" >
         </activity>
         <activity
-            android:name=".other.AnimatorActivity"
+            android:name=".animator.AnimatorActivity"
             android:label="@string/title_activity_animator" >
         </activity>
         <activity

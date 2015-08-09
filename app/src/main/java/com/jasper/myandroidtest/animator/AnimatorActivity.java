@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.other;
+package com.jasper.myandroidtest.animator;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
