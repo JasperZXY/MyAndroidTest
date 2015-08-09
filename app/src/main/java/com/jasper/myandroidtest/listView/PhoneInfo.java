@@ -62,7 +62,7 @@ public class PhoneInfo {
         display.getMetrics(displayMetrics);
         items.add(new ContentItem("大小", String.format("%spx * %spx", displayMetrics.widthPixels, displayMetrics.heightPixels)));
         //同上面的一致，不过getWidth跟getHeight已经是Deprecated的了
-//        items.add(new ContentItem("大小", String.format("%spx * %spx", display.getWidth(), display.getHeight())));
+//        items.addButton(new ContentItem("大小", String.format("%spx * %spx", display.getWidth(), display.getHeight())));
         items.add(new ContentItem("density", Float.toString(displayMetrics.density)));
         items.add(new ContentItem("densityDpi", Integer.toString(displayMetrics.densityDpi)));
     }
@@ -121,7 +121,7 @@ public class PhoneInfo {
 
             NetworkInfo mobNetInfo = connectivity.getNetworkInfo( ConnectivityManager.TYPE_MOBILE );
             if (mobNetInfo != null) {
-//                items.add(new ContentItem("NetState_" + mobNetInfo.getTypeName(), mobNetInfo.getExtraInfo()));
+//                items.addButton(new ContentItem("NetState_" + mobNetInfo.getTypeName(), mobNetInfo.getExtraInfo()));
                 items.add(new ContentItem("手机网络", mobNetInfo.getExtraInfo()));
             }
         }

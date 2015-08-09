@@ -110,7 +110,7 @@ public class MyListView extends ListView implements OnScrollListener {
 
     @Override
     public void setAdapter(ListAdapter adapter) {
-        // make sure MyListViewFooter is the last footer view, and only add once.
+        // make sure MyListViewFooter is the last footer view, and only addButton once.
         if (mIsFooterReady == false) {
             mIsFooterReady = true;
             addFooterView(mFooterView);

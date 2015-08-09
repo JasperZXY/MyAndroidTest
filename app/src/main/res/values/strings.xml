@@ -79,5 +79,7 @@
     <string name="title_activity_touch_click">Touch跟Click</string>
     <string name="title_activity_animator">动画</string>
     <string name="title_activity_drag_view">控件拖动</string>
+    <string name="title_activity_layout_transition">LayoutTransition</string>
+    <string name="title_activity_layout_animation">LayoutAnimation</string>
 
 </resources>

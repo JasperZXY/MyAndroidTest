@@ -7,10 +7,13 @@ import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
@@ -21,6 +24,18 @@ import com.jasper.myandroidtest.view.DragViewHelper;
 
 import java.util.Random;
 
+/**
+ * Interpolators（插值器）
+ * 系统默认的有Interpolators有
+ * AccelerateInterpolator 加速
+ * Decelerate 减速
+ * AccelerateDecelerateInterpolator 开始，和结尾都很慢，但是，中间加速
+ * AnticipateInterpolator 开始向后一点，然后，往前抛
+ * OvershootInterpolator 往前抛超过一点，然后返回来
+ * AnticipateOvershootInterpolator 开始向后一点，往前抛过点，然后返回来
+ * BounceInterpolator 结束的时候弹一下
+ * LinearInterpolator 默认匀速
+ */
 public class AnimatorActivity extends Activity {
     private ImageView ivTarget;
     private ViewGroup layout;
@@ -81,10 +96,30 @@ public class AnimatorActivity extends Activity {
                         freefallWithAnimatorSet();
                     }
                 })
+                .addSheetItem("自由落体-xml实现", new ActionSheetDialog.OnItemClickListener() {
+                    @Override
+                    public void onClick() {
+                        freefallWithXml();
+                    }
+                })
                 .addSheetItem("类抛物线", new ActionSheetDialog.OnItemClickListener() {
                     @Override
                     public void onClick() {
                         parabola();
+                    }
+                })
+                .addSheetItem("LayoutTransition-过渡动画", new ActionSheetDialog.OnItemClickListener() {
+                    @Override
+                    public void onClick() {
+                        startActivity(new Intent(getApplicationContext(), LayoutTransitionActivity.class));
+                        overridePendingTransition(R.anim.abc_slide_in_top, R.anim.abc_slide_out_bottom);
+                    }
+                })
+                .addSheetItem("LayoutAnimation-布局加载过程中的动画", new ActionSheetDialog.OnItemClickListener() {
+                    @Override
+                    public void onClick() {
+                        startActivity(new Intent(getApplicationContext(), LayoutAnimationActivity.class));
+                        overridePendingTransition(R.anim.abc_slide_in_top, R.anim.abc_slide_out_bottom);
                     }
                 })
                 .show();
@@ -111,6 +146,14 @@ public class AnimatorActivity extends Activity {
                 ivTarget.setTranslationY(value);
             }
         });
+    }
+
+    /**
+     * 测试结果，xml文件中的Interpolator要设置在顶级，不然无效，并且高度比较难把控
+     */
+    private void freefallWithXml() {
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.freefall);
+        ivTarget.startAnimation(animation);
     }
 
     /**
