@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    tools:context="com.jasper.myandroidtest.animator.AnimatorActivity">
+    tools:context="com.jasper.myandroidtest.effect.animator.AnimatorActivity">
 
     <ImageView
         android:id="@+id/iv_target"

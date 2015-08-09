@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.animator;
+package com.jasper.myandroidtest.effect.animator;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -20,7 +20,7 @@ import android.widget.ImageView;
 
 import com.jasper.myandroidtest.R;
 import com.jasper.myandroidtest.dialog.ActionSheetDialog;
-import com.jasper.myandroidtest.view.DragViewHelper;
+import com.jasper.myandroidtest.effect.DragViewHelper;
 
 import java.util.Random;
 

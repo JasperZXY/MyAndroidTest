@@ -1,17 +1,12 @@
-package com.jasper.myandroidtest.animator;
+package com.jasper.myandroidtest.effect.animator;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.animation.LayoutAnimationController;
 import android.view.animation.ScaleAnimation;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import com.jasper.myandroidtest.R;
-import com.jasper.myandroidtest.listView.adapter.SimpleListViewAdapter;
 
 public class LayoutAnimationActivity extends Activity {
 

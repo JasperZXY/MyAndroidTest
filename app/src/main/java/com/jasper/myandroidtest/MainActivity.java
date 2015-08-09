@@ -28,12 +28,12 @@ import com.jasper.myandroidtest.listView.Classify1Activity;
 import com.jasper.myandroidtest.listView.Classify2Activity;
 import com.jasper.myandroidtest.listView.MyListViewActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
-import com.jasper.myandroidtest.animator.AnimatorActivity;
+import com.jasper.myandroidtest.effect.animator.AnimatorActivity;
 import com.jasper.myandroidtest.other.AsyncTaskActivity;
 import com.jasper.myandroidtest.other.MenuActivity;
 import com.jasper.myandroidtest.other.PermissionActivity;
-import com.jasper.myandroidtest.other.SoftInputModeChooseActivity;
-import com.jasper.myandroidtest.other.TouchClickActivity;
+import com.jasper.myandroidtest.effect.SoftInputModeChooseActivity;
+import com.jasper.myandroidtest.effect.TouchClickActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.GradienterActivity;
 import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
@@ -45,7 +45,7 @@ import com.jasper.myandroidtest.tabhost.Tabs3Activity;
 import com.jasper.myandroidtest.tabhost.Tabs4Activity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
-import com.jasper.myandroidtest.view.DragViewActivity;
+import com.jasper.myandroidtest.effect.DragViewActivity;
 import com.jasper.myandroidtest.view.WebViewActivity;
 import com.jasper.myandroidtest.view.GridViewActivity;
 import com.jasper.myandroidtest.image.*;
@@ -109,7 +109,6 @@ public class MainActivity extends Activity {
         Group groupView = new Group("View", new ArrayList<Child>());
         groupView.getChildren().add(new Child("GridView", GridViewActivity.class));
         groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
-        groupView.getChildren().add(new Child("控件拖动", DragViewActivity.class));
         groups.add(groupView);
 
         Group groupImage = new Group("Image", new ArrayList<Child>());
@@ -119,6 +118,13 @@ public class MainActivity extends Activity {
         groupImage.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
         groupImage.getChildren().add(new Child("GifView（第三方库）", GifViewActivity.class));
         groups.add(groupImage);
+
+        Group groupEffect = new Group("效果", new ArrayList<Child>());
+        groupEffect.getChildren().add(new Child("Touch跟Click", TouchClickActivity.class));
+        groupEffect.getChildren().add(new Child("控件拖动", DragViewActivity.class));
+        groupEffect.getChildren().add(new Child("软键盘", SoftInputModeChooseActivity.class));
+        groupEffect.getChildren().add(new Child("动画", AnimatorActivity.class));
+        groups.add(groupEffect);
 
         Group groupAMD = new Group("AMD", new ArrayList<Child>());
         groupAMD.getChildren().add(new Child("ActionBar", MyActionBarActivity.class));
@@ -146,9 +152,6 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("异步任务", AsyncTaskActivity.class));
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
         groupOther.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
-        groupOther.getChildren().add(new Child("软键盘", SoftInputModeChooseActivity.class));
-        groupOther.getChildren().add(new Child("Touch跟Click", TouchClickActivity.class));
-        groupOther.getChildren().add(new Child("动画", AnimatorActivity.class));
         groups.add(groupOther);
 
         return groups;

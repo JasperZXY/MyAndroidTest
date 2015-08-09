@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.view;
+package com.jasper.myandroidtest.effect;
 
 import android.view.MotionEvent;
 import android.view.View;

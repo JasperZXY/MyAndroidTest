@@ -218,11 +218,11 @@
             android:label="@string/title_activity_margin_padding" >
         </activity>
         <activity
-            android:name=".other.SoftInputActivity"
+            android:name=".effect.SoftInputActivity"
             android:label="@string/title_activity_soft_input" >
         </activity>
         <activity
-            android:name=".other.SoftInputModeChooseActivity"
+            android:name=".effect.SoftInputModeChooseActivity"
             android:label="@string/title_activity_soft_input_mode_choose" >
         </activity>
         <activity
@@ -230,25 +230,25 @@
             android:label="@string/title_activity_gif_view" >
         </activity>
         <activity
-            android:name=".other.TouchClickActivity"
+            android:name=".effect.TouchClickActivity"
             android:label="@string/title_activity_touch_click" >
         </activity>
         <activity android:name=".NoteActivity" >
         </activity>
         <activity
-            android:name=".animator.AnimatorActivity"
+            android:name=".effect.animator.AnimatorActivity"
             android:label="@string/title_activity_animator" >
         </activity>
         <activity
-            android:name=".view.DragViewActivity"
+            android:name=".effect.DragViewActivity"
             android:label="@string/title_activity_drag_view" >
         </activity>
         <activity
-            android:name=".animator.LayoutTransitionActivity"
+            android:name=".effect.animator.LayoutTransitionActivity"
             android:label="@string/title_activity_layout_transition" >
         </activity>
         <activity
-            android:name=".animator.LayoutAnimationActivity"
+            android:name=".effect.animator.LayoutAnimationActivity"
             android:label="@string/title_activity_layout_animation" >
         </activity>
     </application>
