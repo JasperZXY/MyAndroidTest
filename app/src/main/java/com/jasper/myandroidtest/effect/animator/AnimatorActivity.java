@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PointF;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -149,7 +150,8 @@ public class AnimatorActivity extends Activity {
     }
 
     /**
-     * 测试结果，xml文件中的Interpolator要设置在顶级，不然无效，并且高度比较难把控
+     * 测试结果，xml文件中的Interpolator要设置在顶级，不然无效，并且高度比较难把控，
+     * 如果设置了fillAfter为true，那么最终的状态会保存，但复原无效。
      */
     private void freefallWithXml() {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.freefall);
@@ -247,11 +249,11 @@ public class AnimatorActivity extends Activity {
                 if (fraction < 0.1) {
                     endValue.alpha = 1;
                     endValue.scale = fraction * 10;
-                    endValue.y = startHeight - (startHeight - minHeight) * fraction * 0.3f;
+                    endValue.y = startHeight - (startHeight - minHeight) * fraction * 0.7f;
                     endValue.orientation = random.nextBoolean();
                 } else {
                     //防止震动太厉害采取的措施
-                    int probability = random.nextInt(7);
+                    int probability = random.nextInt(15);
                     if (probability < 1) {
                         endValue.orientation = ! endValue.orientation;
                     }
