@@ -44,6 +44,7 @@ public class SoftInputModeChooseActivity extends Activity implements View.OnClic
 
         btnSure = (Button) findViewById(R.id.btn_sure);
         btnSure.setOnClickListener(this);
+        findViewById(R.id.btn_manual).setOnClickListener(this);
         et = (EditText) findViewById(R.id.et);
         tgInputStatus = (ToggleButton) findViewById(R.id.tb_show_hide);
         tgInputStatus.setChecked(false);
@@ -71,6 +72,7 @@ public class SoftInputModeChooseActivity extends Activity implements View.OnClic
                     imm.hideSoftInputFromWindow(et.getWindowToken(), 0);
                 }
                 break;
+
             case R.id.btn_sure:
                 int mode = 0;
                 for (CheckBox checkBox : checkBoxList) {
@@ -81,6 +83,10 @@ public class SoftInputModeChooseActivity extends Activity implements View.OnClic
                 Intent intent = new Intent(getApplicationContext(), SoftInputActivity.class);
                 intent.putExtra(SoftInputActivity.WINDOW_SOFT_INPUT_MODE, mode);
                 startActivity(intent);
+                break;
+
+            case R.id.btn_manual:
+                startActivity(new Intent(getApplicationContext(), ManualSoftInputActivity.class));
                 break;
         }
     }

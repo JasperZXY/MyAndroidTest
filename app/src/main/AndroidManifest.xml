@@ -251,6 +251,10 @@
             android:name=".effect.animator.LayoutAnimationActivity"
             android:label="@string/title_activity_layout_animation" >
         </activity>
+        <activity
+            android:name=".effect.ManualSoftInputActivity"
+            android:label="@string/title_activity_manual_soft_input" >
+        </activity>
     </application>
 
 </manifest>

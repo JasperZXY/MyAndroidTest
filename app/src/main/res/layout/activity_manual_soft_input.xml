@@ -192,32 +192,22 @@
         </LinearLayout>
     </LinearLayout>
 
-
-    <EditText
-        android:id="@+id/et_top"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:singleLine="true"
-        android:background="@drawable/my_edittext_bg"
-        android:padding="5dp"
-        android:layout_margin="6dp"
-        android:textColorHint="#AAAAAA"
-        android:textSize="15dp"
-        android:hint="top 请输入..." />
-
-    <EditText
-        android:id="@+id/et_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:singleLine="true"
-        android:background="@drawable/my_edittext_bg"
-        android:padding="5dp"
-        android:layout_margin="6dp"
-        android:textColorHint="#AAAAAA"
-        android:textSize="15dp"
-        android:hint="bottom 请输入..." />
-
+        android:layout_margin="6dp">
+        <EditText
+            android:id="@+id/et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:singleLine="true"
+            android:background="@drawable/my_edittext_bg"
+            android:padding="5dp"
+            android:textColorHint="#AAAAAA"
+            android:textSize="15dp"
+            android:hint="bottom 请输入..." />
+    </FrameLayout>
 
 </RelativeLayout>

@@ -2,6 +2,7 @@ package com.jasper.myandroidtest.effect;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.EditText;
 
 import com.jasper.myandroidtest.R;
 
