@@ -230,26 +230,28 @@ public class AnimatorActivity extends Activity {
     private void bubble() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        float density = displayMetrics.density;
 
-        final ImageView imageViewNew = new ImageView(this);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.heart);
-        imageViewNew.setImageBitmap(bitmap);
+        float density = displayMetrics.density;
         int imgWidth = (int) (30 * density);
         final int imgHeight = imgWidth * bitmap.getHeight() / bitmap.getWidth();
-        //特别要注意的，setX是针对父控件而言的
-        imageViewNew.setX(layoutMain.getWidth() - imgWidth - 20 * density);
-        imageViewNew.setY(layoutMain.getHeight() - imgHeight - 20 * density);
-        layoutMain.addView(imageViewNew);
-        imageViewNew.getLayoutParams().width = imgWidth;
-        imageViewNew.getLayoutParams().height = imgHeight;
 
         final Random random = new Random();
-        final int startHeight = (int) imageViewNew.getY();
-        final int minHeight = startHeight / 2 - random.nextInt(100);
+        final int startY = (int) (layoutMain.getHeight() - imgHeight - 20 * density);
+        final int endY = startY / 2 - random.nextInt(100);
         final int left = layoutMain.getWidth() - 300;
         final int right = layoutMain.getWidth() - imgWidth - 20;
         final float scaleHeight = imgHeight * 0.2f;
+        final float scaleRaiseHeight = imgHeight * 0.3f;
+
+        final ImageView imageViewNew = new ImageView(this);
+        imageViewNew.setImageBitmap(bitmap);
+        //特别要注意的，setX是针对父控件而言的
+        imageViewNew.setX(right - 15 * density);
+        imageViewNew.setY(startY - 10 * density);
+        layoutMain.addView(imageViewNew);
+        imageViewNew.getLayoutParams().width = imgWidth;
+        imageViewNew.getLayoutParams().height = imgHeight;
 
         HeartWrapper heartWrapper = new HeartWrapper();
         heartWrapper.alpha = 1;
@@ -268,14 +270,14 @@ public class AnimatorActivity extends Activity {
                     endValue.alpha = 1;
                     //scaleHeight * endValue.scale 让变大的时候看起来不是从中间变大，而是从下面冲上去慢慢变大
                     //imgHeight * 0.1f * (1 - endValue.scale) 让变大的过程有个上升的空间
-                    endValue.y = startHeight - scaleHeight * endValue.scale + imgHeight * 0.1f * (1 - endValue.scale);
+                    endValue.y = startY - scaleHeight * endValue.scale + scaleRaiseHeight * (1 - endValue.scale);
                     endValue.isAdd = random.nextBoolean();
                 } else {
                     //防止震动太厉害采取的措施
                     if (random.nextDouble() < 0.015) {
                         endValue.isAdd = ! endValue.isAdd;
                     }
-                    endValue.x += (random.nextFloat() * 3) * (endValue.isAdd ? 1 : -1);
+                    endValue.x += (random.nextFloat() * 2) * (endValue.isAdd ? 1 : -1);
                     //碰到边界的转方向
                     if (endValue.x > right) {
                         endValue.x = right;
@@ -285,7 +287,7 @@ public class AnimatorActivity extends Activity {
                         endValue.y = left;
                         endValue.isAdd = true;
                     }
-                    endValue.y = startHeight - (startHeight - minHeight) * fraction - scaleHeight;
+                    endValue.y = startY - (startY - endY) * fraction - scaleHeight;
                     if (fraction > 0.7) {
                         endValue.alpha = (float) (1 - (fraction - 0.7) / 0.3);
                     }
