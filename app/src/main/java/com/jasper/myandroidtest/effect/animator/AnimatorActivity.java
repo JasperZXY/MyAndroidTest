@@ -8,9 +8,11 @@ import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.PointF;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -39,16 +41,16 @@ import java.util.Random;
  */
 public class AnimatorActivity extends Activity {
     private ImageView ivTarget;
-    private ViewGroup layout;
+    private ViewGroup layoutMain;
     private View viewFunction;
-    private ImageView ivHeart;
+//    private ImageView ivHeart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animator);
         ivTarget = (ImageView) findViewById(R.id.iv_target);
-        layout = (ViewGroup) findViewById(R.id.layout);
+        layoutMain = (ViewGroup) findViewById(R.id.layout);
 
         viewFunction = findViewById(R.id.view_function);
         new DragViewHelper(viewFunction).makeItCanDrag();
@@ -59,10 +61,13 @@ public class AnimatorActivity extends Activity {
             }
         });
 
-        ivHeart = (ImageView) findViewById(R.id.iv_heart);
-        layout.setOnClickListener(new View.OnClickListener() {
+//        ivHeart = (ImageView) findViewById(R.id.iv_heart);
+        layoutMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                int sum = new Random().nextInt(10) + 10;
+//                for (int i=0; i<sum; i++) {
+//                }
                 bubble();
             }
         });
@@ -137,7 +142,7 @@ public class AnimatorActivity extends Activity {
      * 用ValueAnimator来产生一系列值，通过addUpdateListener监听变化值来实现想要的效果
      */
     private void freefallWithValueAnimator() {
-        ValueAnimator animator = ValueAnimator.ofFloat(0, layout.getHeight() - ivTarget.getHeight());
+        ValueAnimator animator = ValueAnimator.ofFloat(0, layoutMain.getHeight() - ivTarget.getHeight());
         animator.setInterpolator(new BounceInterpolator());
         animator.setDuration(1000).start();
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -164,7 +169,7 @@ public class AnimatorActivity extends Activity {
     private void freefallWithAnimatorSet() {
         ObjectAnimator animator1 = ObjectAnimator.ofFloat(
                 ivTarget, "translationY",
-                0, layout.getHeight() - ivTarget.getHeight());
+                0, layoutMain.getHeight() - ivTarget.getHeight());
 
         ObjectAnimator animator2 = ObjectAnimator.ofFloat(ivTarget, "scaleX", 1.0f, 1.5f);
         ObjectAnimator animator3 = ObjectAnimator.ofFloat(ivTarget, "scaleY", 1.0f, 1.5f);
@@ -187,10 +192,10 @@ public class AnimatorActivity extends Activity {
      *
      */
     private void freefallWithObjectAnimator() {
-        //动画要修改的属性translationY，从0到(layout.getHeight() - ivTarget.getHeight())
+        //动画要修改的属性translationY，从0到(layoutMain.getHeight() - ivTarget.getHeight())
         ObjectAnimator animator = ObjectAnimator.ofFloat(
                 ivTarget, "translationY",
-                0, layout.getHeight() - ivTarget.getHeight());
+                0, layoutMain.getHeight() - ivTarget.getHeight());
         animator.setInterpolator(new BounceInterpolator());
         animator.setDuration(1000).start();
     }
@@ -200,8 +205,8 @@ public class AnimatorActivity extends Activity {
             @Override
             public PointF evaluate(float fraction, PointF startValue, PointF endValue) {
                 PointF p = new PointF();
-                p.x = fraction * (layout.getWidth() - ivTarget.getWidth());
-                p.y = fraction * fraction * 0.5f * (layout.getHeight() - ivTarget.getHeight()) * 4f * 0.5f;
+                p.x = fraction * (layoutMain.getWidth() - ivTarget.getWidth());
+                p.y = fraction * fraction * 0.5f * (layoutMain.getHeight() - ivTarget.getHeight()) * 4f * 0.5f;
                 return p;
             }
         }, new PointF(0, 0));
@@ -223,50 +228,64 @@ public class AnimatorActivity extends Activity {
      * onAnimationEnd监听器回调的使用
      */
     private void bubble() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        float density = displayMetrics.density;
+
         final ImageView imageViewNew = new ImageView(this);
-        imageViewNew.setImageResource(R.drawable.heart);
-        imageViewNew.setX(ivHeart.getX());
-        imageViewNew.setY(ivHeart.getY());
-        layout.addView(imageViewNew);
-        imageViewNew.getLayoutParams().width = ivHeart.getWidth();
-        imageViewNew.getLayoutParams().height = ivHeart.getHeight();
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.heart);
+        imageViewNew.setImageBitmap(bitmap);
+        int imgWidth = (int) (30 * density);
+        final int imgHeight = imgWidth * bitmap.getHeight() / bitmap.getWidth();
+        //特别要注意的，setX是针对父控件而言的
+        imageViewNew.setX(layoutMain.getWidth() - imgWidth - 20 * density);
+        imageViewNew.setY(layoutMain.getHeight() - imgHeight - 20 * density);
+        layoutMain.addView(imageViewNew);
+        imageViewNew.getLayoutParams().width = imgWidth;
+        imageViewNew.getLayoutParams().height = imgHeight;
 
         final Random random = new Random();
         final int startHeight = (int) imageViewNew.getY();
         final int minHeight = startHeight / 2 - random.nextInt(100);
-        final int left = layout.getWidth() - 300;
-        final int right = layout.getWidth() - ivHeart.getWidth() - 20;
+        final int left = layoutMain.getWidth() - 300;
+        final int right = layoutMain.getWidth() - imgWidth - 20;
+        final float scaleHeight = imgHeight * 0.2f;
 
         HeartWrapper heartWrapper = new HeartWrapper();
         heartWrapper.alpha = 1;
         heartWrapper.x = imageViewNew.getX();
         heartWrapper.y = imageViewNew.getY();
         heartWrapper.scale = 0;
-        ValueAnimator animator = ValueAnimator.ofObject(new TypeEvaluator<HeartWrapper>() {
 
+        ValueAnimator animator = ValueAnimator.ofObject(new TypeEvaluator<HeartWrapper>() {
             @Override
             public HeartWrapper evaluate(float fraction, HeartWrapper startValue, HeartWrapper endValue) {
-                if (fraction < 0.1) {
+                if (endValue.scale < 1) {
+                    endValue.scale += 0.1f;
+                    if (endValue.scale > 1.0f) {
+                        endValue.scale = 1.0f;
+                    }
                     endValue.alpha = 1;
-                    endValue.scale = fraction * 10;
-                    endValue.y = startHeight - (startHeight - minHeight) * fraction * 0.7f;
-                    endValue.orientation = random.nextBoolean();
+                    //scaleHeight * endValue.scale 让变大的时候看起来不是从中间变大，而是从下面冲上去慢慢变大
+                    //imgHeight * 0.1f * (1 - endValue.scale) 让变大的过程有个上升的空间
+                    endValue.y = startHeight - scaleHeight * endValue.scale + imgHeight * 0.1f * (1 - endValue.scale);
+                    endValue.isAdd = random.nextBoolean();
                 } else {
                     //防止震动太厉害采取的措施
-                    int probability = random.nextInt(15);
-                    if (probability < 1) {
-                        endValue.orientation = ! endValue.orientation;
+                    if (random.nextDouble() < 0.015) {
+                        endValue.isAdd = ! endValue.isAdd;
                     }
-                    endValue.x += (1 + random.nextFloat() * 3) * (endValue.orientation ? 1 : -1);
+                    endValue.x += (random.nextFloat() * 3) * (endValue.isAdd ? 1 : -1);
+                    //碰到边界的转方向
                     if (endValue.x > right) {
                         endValue.x = right;
-                        endValue.orientation = false;
+                        endValue.isAdd = false;
                     }
                     if (endValue.y < left) {
                         endValue.y = left;
-                        endValue.orientation = true;
+                        endValue.isAdd = true;
                     }
-                    endValue.y = startHeight - (startHeight - minHeight) * fraction;
+                    endValue.y = startHeight - (startHeight - minHeight) * fraction - scaleHeight;
                     if (fraction > 0.7) {
                         endValue.alpha = (float) (1 - (fraction - 0.7) / 0.3);
                     }
@@ -289,7 +308,7 @@ public class AnimatorActivity extends Activity {
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                layout.removeView(imageViewNew);
+                layoutMain.removeView(imageViewNew);
             }
         });
     }
@@ -299,7 +318,7 @@ public class AnimatorActivity extends Activity {
         public float x;
         public float y;
         public float alpha;
-        public boolean orientation;
+        public boolean isAdd;
 
         @Override
         public String toString() {
@@ -308,7 +327,7 @@ public class AnimatorActivity extends Activity {
                     ", x=" + x +
                     ", y=" + y +
                     ", alpha=" + alpha +
-                    ", orientation=" + orientation +
+                    ", isAdd=" + isAdd +
                     '}';
         }
     }

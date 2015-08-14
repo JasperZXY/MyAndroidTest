@@ -22,7 +22,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"/>
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/iv_heart"
         android:layout_width="30dp"
         android:layout_height="wrap_content"
@@ -30,6 +30,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="20dp"
-        android:visibility="invisible"/>
+        android:visibility="invisible"/>-->
 
 </RelativeLayout>

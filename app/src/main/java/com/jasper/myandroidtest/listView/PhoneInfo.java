@@ -58,8 +58,7 @@ public class PhoneInfo {
         items.add(new GroupItem("屏幕信息"));
         DisplayMetrics displayMetrics = new DisplayMetrics();//屏幕分辨率容器
         //(WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        Display display = activity.getWindowManager().getDefaultDisplay();
-        display.getMetrics(displayMetrics);
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         items.add(new ContentItem("大小", String.format("%spx * %spx", displayMetrics.widthPixels, displayMetrics.heightPixels)));
         //同上面的一致，不过getWidth跟getHeight已经是Deprecated的了
 //        items.addButton(new ContentItem("大小", String.format("%spx * %spx", display.getWidth(), display.getHeight())));
@@ -145,7 +144,11 @@ public class PhoneInfo {
                 break;
         }
         //需要添加权限android.permission.ACCESS_COARSE_LOCATION
-        items.add(new ContentItem("方位", tm.getCellLocation().toString()));
+        try {
+            items.add(new ContentItem("方位", tm.getCellLocation().toString()));
+        } catch (Exception e) {
+            items.add(new ContentItem("方位", "获取失败"));
+        }
         items.add(new ContentItem("设备ID", tm.getDeviceId()));
         items.add(new ContentItem("软件版本号", tm.getDeviceSoftwareVersion()));
         items.add(new ContentItem("手机号", tm.getLine1Number()));

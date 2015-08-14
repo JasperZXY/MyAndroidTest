@@ -193,7 +193,7 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        Log.i(TAG, "onConfigurationChanged orientation:" + newConfig.orientation);
+        Log.i(TAG, "onConfigurationChanged isAdd:" + newConfig.orientation);
     }
 
     private class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
