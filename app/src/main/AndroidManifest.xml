@@ -235,8 +235,6 @@
             android:name=".effect.TouchClickActivity"
             android:label="@string/title_activity_touch_click" >
         </activity>
-        <activity android:name=".NoteActivity" >
-        </activity>
         <activity
             android:name=".effect.animator.AnimatorActivity"
             android:label="@string/title_activity_animator" >

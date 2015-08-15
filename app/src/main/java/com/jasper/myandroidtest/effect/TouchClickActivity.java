@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Selection;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +12,9 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ToggleButton;
 
-import com.jasper.myandroidtest.NoteActivity;
 import com.jasper.myandroidtest.R;
+import com.jasper.myandroidtest.fragment.reader.DetailsActivity;
+import com.jasper.myandroidtest.fragment.reader.ReaderManager;
 
 public class TouchClickActivity extends Activity {
     private EditText etLog;
@@ -38,9 +38,9 @@ public class TouchClickActivity extends Activity {
         findViewById(R.id.btn_result).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), NoteActivity.class);
-                intent.putExtra(NoteActivity.TITLE, "Touch跟Click");
-                intent.putExtra(NoteActivity.PATH, "note/Touch and Click.txt");
+                Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
+                intent.putExtra(ReaderManager.TITLE, "Touch跟Click");
+                intent.putExtra(ReaderManager.PATH, "note/Touch and Click.txt");
                 startActivity(intent);
             }
         });

@@ -15,6 +15,8 @@ import java.util.List;
 public class ReaderManager {
     private static final String TAG = "ReaderManager";
     public static final String INDEX = "index";
+    public static final String TITLE = "title";
+    public static final String PATH = "path";
     private static ReaderManager readerManager = new ReaderManager();
     private List<Item> items;
     private List<String> titles;

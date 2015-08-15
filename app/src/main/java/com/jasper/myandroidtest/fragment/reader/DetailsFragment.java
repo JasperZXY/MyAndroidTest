@@ -31,8 +31,19 @@ public class DetailsFragment extends Fragment {
         return f;
     }
 
+    public static DetailsFragment newInstance(String title, String path) {
+        DetailsFragment f = new DetailsFragment();
+
+        Bundle args = new Bundle();
+        args.putString(ReaderManager.TITLE, title);
+        args.putString(ReaderManager.PATH, path);
+        f.setArguments(args);
+
+        return f;
+    }
+
     public int getShownIndex() {
-        return getArguments().getInt(ReaderManager.INDEX, 0);
+        return getArguments().getInt(ReaderManager.INDEX, -1);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -60,25 +71,38 @@ public class DetailsFragment extends Fragment {
                 4, getActivity().getResources().getDisplayMetrics());
         text.setPadding(padding, padding, padding, padding);
         scroller.addView(text);
-        int index = getShownIndex();
+        int index = getArguments().getInt(ReaderManager.INDEX, -1);
+        String title;
+        String path;
         if (index >= 0 && index < ReaderManager.getInstance().getItems().size()) {
             ReaderManager.Item item = ReaderManager.getInstance().getItems().get(index);
-            getActivity().setTitle(item.name);
+            title = item.name;
+            path = item.path;
+        } else {
+            title = getArguments().getString(ReaderManager.TITLE, "");
+            path = getArguments().getString(ReaderManager.PATH, "");
+        }
+        if (title != null && path != null) {
+            getActivity().setTitle(title);
 
             AssetManager am = getActivity().getAssets();
             InputStream is = null;
             try {
-                is = am.open(item.path);
+                is = am.open(path);
                 String note = IOUtil.inputStream2String(is);
                 if (note == null || note == "") {
                     text.setText("error");
                 }
                 text.setText(note);
             } catch (Exception e) {
+                getActivity().setTitle("error");
                 text.setText("error:" + e.getLocalizedMessage());
             } finally {
                 IOUtil.close(is);
             }
+        } else {
+            getActivity().setTitle("error");
+            text.setText("错误原因：传递的参数有误");
         }
         return scroller;
     }
