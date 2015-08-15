@@ -13,6 +13,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -50,7 +51,8 @@ public class AnimatorActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animator);
         ivTarget = (ImageView) findViewById(R.id.iv_target);
-        layoutMain = (ViewGroup) findViewById(R.id.layout);
+//        layoutMain = (ViewGroup) findViewById(R.id.layout);
+        layoutMain = (ViewGroup) ((ViewGroup)findViewById(android.R.id.content)).getChildAt(0);
 
         viewFunction = findViewById(R.id.view_function);
         new DragViewHelper(viewFunction).makeItCanDrag();

@@ -1,0 +1,4 @@
+小贴士
+
+1. 获得根视图
+((ViewGroup)findViewById(android.R.id.content)).getChildAt(0)
