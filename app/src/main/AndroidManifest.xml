@@ -265,6 +265,18 @@
             android:name=".activity.InputActivity"
             android:label="@string/title_activity_input" >
         </activity>
+        <activity
+            android:name=".fragment.reader.ReaderActivity"
+            android:label="@string/title_activity_reader" >
+        </activity>
+        <activity
+            android:name=".fragment.reader.DetailsActivity"
+            android:label="@string/title_activity_reader" >
+        </activity>
+        <activity
+            android:name=".fragment.ListFragmentActivity"
+            android:label="@string/title_activity_list_fragment" >
+        </activity>
     </application>
 
 </manifest>

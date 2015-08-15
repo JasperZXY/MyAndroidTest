@@ -22,7 +22,7 @@ public class SimpleActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple);
-        //横竖屏切换设置
+        //根据重力感应进行横竖屏切换设置，而不是默认的，因为有的手机可能禁止了横竖屏切换
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
 
         et = (EditText) findViewById(R.id.et);

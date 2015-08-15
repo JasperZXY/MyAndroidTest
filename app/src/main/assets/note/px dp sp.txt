@@ -1,0 +1,16 @@
+1.基本概念
+px:屏幕的像素点
+dp/dip:一个基于density的抽象单位，如果一个160dpi的屏幕，1dp=1px
+sp:同dp相似，但还会根据用户的字体大小偏好来缩放(建议使用sp作为文本的单位，其它用dip)
+
+2.适配资源文件夹
+drawable-ldpi：屏幕密度为120的手机设备
+drawable-mdpi：屏幕密度为160的手机设备（此为baseline，其他均以此为基准，在此设备上，1dp = 1px）
+drawable-hdpi：屏幕密度为240的手机设备
+drawable-xhdpi：屏幕密度为320的手机设备（2dp=1px）
+drawable-xxhdpi：屏幕密度为480的手机设备
+
+3.公式
+dp与px换算公式：
+pixs = dips * (densityDpi/160)
+dips = (pixs*160)/densityDpi

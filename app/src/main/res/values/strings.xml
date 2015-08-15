@@ -84,5 +84,7 @@
     <string name="title_activity_layout_animation">LayoutAnimation</string>
     <string name="title_activity_simple">Activity</string>
     <string name="title_activity_input">InputActivity</string>
+    <string name="title_activity_reader">Assets文件阅读器</string>
+    <string name="title_activity_list_fragment">ListFragment</string>
 
 </resources>

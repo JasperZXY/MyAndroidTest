@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -20,6 +21,8 @@ import com.jasper.myandroidtest.actionbar.MyActionBarActivity;
 import com.jasper.myandroidtest.activity.SimpleActivity;
 import com.jasper.myandroidtest.camera.CameraActivity;
 import com.jasper.myandroidtest.dialog.DialogActivity;
+import com.jasper.myandroidtest.fragment.ListFragmentActivity;
+import com.jasper.myandroidtest.fragment.reader.ReaderActivity;
 import com.jasper.myandroidtest.fragmentManager.FragmentManagerActivity;
 import com.jasper.myandroidtest.layout.ApiOverviewActivity;
 import com.jasper.myandroidtest.layout.FlowLayoutActivity;
@@ -73,6 +76,7 @@ public class MainActivity extends Activity {
         //让group不显示那个箭头
         elv.setGroupIndicator(null);
         elv.setAdapter(new MainAdapter(this, getData(), density));
+
     }
 
     @Override
@@ -85,12 +89,13 @@ public class MainActivity extends Activity {
     private List<Group> getData() {
         List<Group> groups = new ArrayList<>();
 
-        Group groupTab  = new Group("TabHost", new ArrayList<Child>());
-        groupTab.getChildren().add(new Child("FragmentTabHost", Tabs1Activity.class));
-        groupTab.getChildren().add(new Child("Fragment+RadioGroup", Tabs2Activity.class));
-        groupTab.getChildren().add(new Child("Fragment+ViewPager", Tabs3Activity.class));
-        groupTab.getChildren().add(new Child("TabActivity+Activity", Tabs4Activity.class));
-        groups.add(groupTab);
+        Group groupAndroid  = new Group("四大组件与Fragment", new ArrayList<Child>());
+        groupAndroid.getChildren().add(new Child("Activity", SimpleActivity.class));
+        groupAndroid.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
+        groupAndroid.getChildren().add(new Child("FragmentManager", FragmentManagerActivity.class));
+        groupAndroid.getChildren().add(new Child("ListFragment", ListFragmentActivity.class));
+        groupAndroid.getChildren().add(new Child("Fragment-Assets文件阅读器", ReaderActivity.class));
+        groups.add(groupAndroid);
 
         Group groupList = new Group("ListView", new ArrayList<Child>());
         groupList.getChildren().add(new Child("简单ListView", SimpleListViewActivity.class));
@@ -98,6 +103,13 @@ public class MainActivity extends Activity {
         groupList.getChildren().add(new Child("分类ListView1-手机相关信息", Classify1Activity.class));
         groupList.getChildren().add(new Child("分类ListView2-手机相关信息", Classify2Activity.class));
         groups.add(groupList);
+
+        Group groupTab  = new Group("TabHost", new ArrayList<Child>());
+        groupTab.getChildren().add(new Child("FragmentTabHost", Tabs1Activity.class));
+        groupTab.getChildren().add(new Child("Fragment+RadioGroup", Tabs2Activity.class));
+        groupTab.getChildren().add(new Child("Fragment+ViewPager", Tabs3Activity.class));
+        groupTab.getChildren().add(new Child("TabActivity+Activity", Tabs4Activity.class));
+        groups.add(groupTab);
 
         Group groupLayout = new Group("Layout", new ArrayList<Child>());
         groupLayout.getChildren().add(new Child("Margin与Padding", MarginPaddingActivity.class));
@@ -143,12 +155,9 @@ public class MainActivity extends Activity {
         groups.add(groupCV);
 
         Group groupOther = new Group("其他", new ArrayList<Child>());
-        groupOther.getChildren().add(new Child("FragmentManager", FragmentManagerActivity.class));
         groupOther.getChildren().add(new Child("异步任务", AsyncTaskActivity.class));
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
-        groupOther.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
         groupOther.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
-        groupOther.getChildren().add(new Child("Activity", SimpleActivity.class));
         groups.add(groupOther);
 
         return groups;
