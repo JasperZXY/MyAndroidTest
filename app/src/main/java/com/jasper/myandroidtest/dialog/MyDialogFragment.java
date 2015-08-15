@@ -60,7 +60,7 @@ public class MyDialogFragment extends DialogFragment implements View.OnClickList
         etName = (EditText) view.findViewById(R.id.et_username);
         etPass = (EditText) view.findViewById(R.id.et_password);
 
-        view.findViewById(R.id.btn_cancle).setOnClickListener(this);
+        view.findViewById(R.id.btn_cancel).setOnClickListener(this);
         view.findViewById(R.id.btn_login).setOnClickListener(this);
         view.findViewById(R.id.btn_register).setOnClickListener(this);
     }
@@ -68,7 +68,7 @@ public class MyDialogFragment extends DialogFragment implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_cancle:
+            case R.id.btn_cancel:
                 break;
             case R.id.btn_login:
                 Toast.makeText(getActivity(), String.format("name:%s password:%s",

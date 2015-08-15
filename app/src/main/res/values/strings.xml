@@ -82,5 +82,7 @@
     <string name="title_activity_drag_view">控件拖动</string>
     <string name="title_activity_layout_transition">LayoutTransition</string>
     <string name="title_activity_layout_animation">LayoutAnimation</string>
+    <string name="title_activity_simple">Activity</string>
+    <string name="title_activity_input">InputActivity</string>
 
 </resources>

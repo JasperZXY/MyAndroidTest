@@ -97,7 +97,7 @@ public class DialogActivity extends Activity implements OnLoginListener, View.On
                         .setView(view);
                 final AlertDialog dialog6 = builder6.create();
                 dialog6.show();
-                view.findViewById(R.id.btn_cancle).setOnClickListener(new View.OnClickListener() {
+                view.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dialog6.dismiss();

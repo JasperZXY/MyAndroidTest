@@ -41,8 +41,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tabhost.Tabs1Activity"
-            android:configChanges=""/>
+        <activity
+            android:name=".tabhost.Tabs1Activity"
+            android:configChanges="" />
         <activity
             android:name=".tabhost.Tabs2Activity"
             android:label="@string/title_activity_tabs2" />
@@ -255,6 +256,14 @@
         <activity
             android:name=".effect.ManualSoftInputActivity"
             android:label="@string/title_activity_manual_soft_input" >
+        </activity>
+        <activity
+            android:name=".activity.SimpleActivity"
+            android:label="@string/title_activity_simple" >
+        </activity>
+        <activity
+            android:name=".activity.InputActivity"
+            android:label="@string/title_activity_input" >
         </activity>
     </application>
 

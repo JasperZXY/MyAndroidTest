@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jasper.myandroidtest.actionbar.MyActionBarActivity;
+import com.jasper.myandroidtest.activity.SimpleActivity;
 import com.jasper.myandroidtest.camera.CameraActivity;
 import com.jasper.myandroidtest.dialog.DialogActivity;
 import com.jasper.myandroidtest.fragmentManager.FragmentManagerActivity;
@@ -35,7 +36,6 @@ import com.jasper.myandroidtest.other.PermissionActivity;
 import com.jasper.myandroidtest.effect.SoftInputModeChooseActivity;
 import com.jasper.myandroidtest.effect.TouchClickActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
-import com.jasper.myandroidtest.sensor.GradienterActivity;
 import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
 import com.jasper.myandroidtest.service.ServiceActivity;
 import com.jasper.myandroidtest.store.FileActivity;
@@ -148,6 +148,7 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
         groupOther.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
         groupOther.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
+        groupOther.getChildren().add(new Child("Activity", SimpleActivity.class));
         groups.add(groupOther);
 
         return groups;

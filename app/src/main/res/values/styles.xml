@@ -32,6 +32,17 @@
         <item name="android:textSize">20sp</item>
         <item name="android:padding">5dp</item>
     </style>
+
+    <style name="my_edittext_single_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/my_edittext_bg</item>
+        <item name="android:hint">请输入...</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColorHint">#AAAAAA</item>
+        <item name="android:textSize">15dp</item>
+    </style>
 	
 	<!-- 自定义仿IOS的ActionSheet底部Dialog的样式 ，有模糊效果 -->
     <style name="ActionSheetDialogStyle" parent="@android:style/Theme.Dialog">
