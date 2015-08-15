@@ -41,7 +41,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tabhost.Tabs1Activity" />
+        <activity android:name=".tabhost.Tabs1Activity"
+            android:configChanges=""/>
         <activity
             android:name=".tabhost.Tabs2Activity"
             android:label="@string/title_activity_tabs2" />

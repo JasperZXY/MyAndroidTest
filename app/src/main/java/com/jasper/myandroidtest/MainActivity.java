@@ -142,16 +142,12 @@ public class MainActivity extends Activity {
         groupCV.getChildren().add(new Child("视频", VideoActivity.class));
         groups.add(groupCV);
 
-        Group groupSensor = new Group("重力感应", new ArrayList<Child>());
-        groupSensor.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
-        groupSensor.getChildren().add(new Child("水平仪", GradienterActivity.class));
-        groups.add(groupSensor);
-
         Group groupOther = new Group("其他", new ArrayList<Child>());
         groupOther.getChildren().add(new Child("FragmentManager", FragmentManagerActivity.class));
         groupOther.getChildren().add(new Child("异步任务", AsyncTaskActivity.class));
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
         groupOther.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
+        groupOther.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
         groups.add(groupOther);
 
         return groups;

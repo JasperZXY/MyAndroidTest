@@ -1,20 +1,22 @@
 package com.jasper.myandroidtest.sensor;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.TextView;
 
 import com.jasper.myandroidtest.R;
 
-public class SimpleSensorActivity extends Activity implements SensorEventListener {
+public class SimpleSensorActivity extends Activity
+        implements SensorEventListener, View.OnClickListener {
     private SensorManager sensorMgr;
     private TextView textView;
-    private Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,8 @@ public class SimpleSensorActivity extends Activity implements SensorEventListene
 
         textView = (TextView) findViewById(R.id.tv);
         sensorMgr = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+        findViewById(R.id.btn_gradienter).setOnClickListener(this);
     }
 
     @Override
@@ -49,5 +53,13 @@ public class SimpleSensorActivity extends Activity implements SensorEventListene
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_gradienter:
+                startActivity(new Intent(getApplicationContext(), GradienterActivity.class));
+        }
     }
 }
