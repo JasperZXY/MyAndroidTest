@@ -1,4 +1,7 @@
-小贴士
+Tips
 
 1. 获得根视图
 ((ViewGroup)findViewById(android.R.id.content)).getChildAt(0)
+
+2. View的getX与setX
+都是相对父控件来说的

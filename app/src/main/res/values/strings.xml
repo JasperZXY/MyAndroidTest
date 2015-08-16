@@ -86,5 +86,6 @@
     <string name="title_activity_input">InputActivity</string>
     <string name="title_activity_reader">Assets文件阅读器</string>
     <string name="title_activity_list_fragment">ListFragment</string>
+    <string name="title_activity_cursor_loader">CursorLoaderActivity</string>
 
 </resources>

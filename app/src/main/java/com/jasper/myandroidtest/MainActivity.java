@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -34,6 +33,7 @@ import com.jasper.myandroidtest.listView.MyListViewActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.effect.animator.AnimatorActivity;
 import com.jasper.myandroidtest.other.AsyncTaskActivity;
+import com.jasper.myandroidtest.other.CursorLoaderActivity;
 import com.jasper.myandroidtest.other.MenuActivity;
 import com.jasper.myandroidtest.other.PermissionActivity;
 import com.jasper.myandroidtest.effect.SoftInputModeChooseActivity;
@@ -158,6 +158,7 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("异步任务", AsyncTaskActivity.class));
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
         groupOther.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
+        groupOther.getChildren().add(new Child("CursorLoader", CursorLoaderActivity.class));
         groups.add(groupOther);
 
         return groups;
