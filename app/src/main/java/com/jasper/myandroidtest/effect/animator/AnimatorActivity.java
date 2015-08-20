@@ -284,8 +284,8 @@ public class AnimatorActivity extends Activity {
                         endValue.x = right;
                         endValue.isAdd = false;
                     }
-                    if (endValue.y < left) {
-                        endValue.y = left;
+                    if (endValue.x < left) {
+                        endValue.x = left;
                         endValue.isAdd = true;
                     }
                     endValue.y = startY - (startY - endY) * fraction - scaleHeight;

@@ -281,6 +281,10 @@
             android:name=".other.CursorLoaderActivity"
             android:label="@string/title_activity_cursor_loader" >
         </activity>
+        <activity
+            android:name=".other.ScreenActivity"
+            android:label="@string/title_activity_screen" >
+        </activity>
     </application>
 
 </manifest>

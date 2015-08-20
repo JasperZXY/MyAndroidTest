@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.jasper.myandroidtest.R;
 
@@ -22,9 +23,10 @@ public class ListFragmentActivity extends Activity {
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
+            getListView().setOverScrollMode(ListView.OVER_SCROLL_NEVER);
             String[] strings = new String[20];
             for (int i=0; i<strings.length; i++) {
-                strings[i] = "string" + i;
+                strings[i] = Integer.toString(i);
             }
             setListAdapter(new ArrayAdapter<>(
                     getActivity(),

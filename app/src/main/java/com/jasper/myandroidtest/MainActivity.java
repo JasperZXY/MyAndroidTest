@@ -38,6 +38,7 @@ import com.jasper.myandroidtest.other.MenuActivity;
 import com.jasper.myandroidtest.other.PermissionActivity;
 import com.jasper.myandroidtest.effect.SoftInputModeChooseActivity;
 import com.jasper.myandroidtest.effect.TouchClickActivity;
+import com.jasper.myandroidtest.other.ScreenActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
 import com.jasper.myandroidtest.service.ServiceActivity;
@@ -159,6 +160,7 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
         groupOther.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
         groupOther.getChildren().add(new Child("CursorLoader", CursorLoaderActivity.class));
+        groupOther.getChildren().add(new Child("屏幕", ScreenActivity.class));
         groups.add(groupOther);
 
         return groups;

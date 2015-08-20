@@ -5,3 +5,15 @@ Tips
 
 2. View的getX与setX
 都是相对父控件来说的
+
+3. 魅族手机中屏蔽ListView下拉悬停
+xml中添加属性 android:overScrollMode="never"
+或者代码修改 listView.setOverScrollMode(ListView.OVER_SCROLL_NEVER);
+
+4. Bitmap问题
+自己创建出来的Bitmap要自己进行回收（BitmapFactory.decodeResource、Bitmap.createBitmap）
+回收方式
+if (bitmap != null && !bitmap.isRecycled()) {
+    bitmap.recycle();
+    bitmap = null;
+}
