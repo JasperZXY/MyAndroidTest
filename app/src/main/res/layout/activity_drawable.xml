@@ -1,13 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                tools:context="com.jasper.myandroidtest.image.DrawableActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:paddingTop="10dp"
+    tools:context="com.jasper.myandroidtest.image.DrawableActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbarThumbVertical="@drawable/my_transparent_bg">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="StateListDrawable\n自定义RadioButton的显示。\n本想用纯颜色的，但显示不出来，只好用图片"/>
+                android:text="StateListDrawable\n自定义RadioButton的显示。\n本想用纯颜色的，但显示不出来，只好用图片" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,28 +31,28 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:layout_gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/icon_home_nor"
-                        android:text="default"/>
+                        android:text="default" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/icon_home_sel"
-                        android:text="pressed"/>
+                        android:text="pressed" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/icon_selfinfo_sel"
-                        android:text="checked"/>
+                        android:text="checked" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -70,8 +72,8 @@
                             android:layout_weight="1"
                             android:button="@null"
                             android:drawableLeft="@drawable/my_radio_button"
-                            android:padding="20dp"
-                            android:text="radio1"/>
+                            android:padding="5dp"
+                            android:text="radio1" />
 
                         <RadioButton
                             android:layout_width="match_parent"
@@ -79,8 +81,8 @@
                             android:layout_weight="1"
                             android:button="@null"
                             android:drawableLeft="@drawable/my_radio_button"
-                            android:padding="20dp"
-                            android:text="radio2"/>
+                            android:padding="5dp"
+                            android:text="radio2" />
                     </RadioGroup>
                 </LinearLayout>
 
@@ -88,26 +90,28 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray"/>
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/darker_gray" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="LayerDrawable\n单边圆角，不支持透明效果"/>
+                android:text="LayerDrawable\n单边圆角，不支持透明效果" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:src="@drawable/my_shape_corner_one_side"/>
+                android:src="@drawable/my_shape_corner_one_side" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray"/>
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/darker_gray" />
 
 
             <TextView
@@ -115,57 +119,54 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="LayerDrawable\n自定义SeekBar的显示"/>
+                android:text="LayerDrawable\n自定义SeekBar的显示" />
 
             <SeekBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:progressDrawable="@drawable/my_seekbar"
-                android:progress="50"
                 android:max="100"
-                android:thumb="@drawable/icon"/>
+                android:progress="50"
+                android:progressDrawable="@drawable/my_seekbar"
+                android:thumb="@drawable/icon" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray"/>
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/darker_gray" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="ProgressBar自定义样式"/>
+                android:text="ProgressBar自定义样式" />
 
             <ProgressBar
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:indeterminateDrawable="@drawable/my_progressbar_circle"
-                android:indeterminateDuration="500"/>
+                android:indeterminateDuration="500" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray"/>
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/darker_gray" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="ShareDrawable"/>
+                android:text="ShareDrawable" />
 
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:src="@drawable/my_shape"
+                android:layout_gravity="center"
                 android:background="@android:color/holo_blue_light"
-                android:layout_gravity="center"/>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray"/>
+                android:src="@drawable/my_shape" />
         </LinearLayout>
 
     </ScrollView>

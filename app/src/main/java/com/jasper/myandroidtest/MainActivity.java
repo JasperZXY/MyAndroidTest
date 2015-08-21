@@ -162,7 +162,7 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
         groupOther.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
         groupOther.getChildren().add(new Child("CursorLoader", CursorLoaderActivity.class));
-        groupOther.getChildren().add(new Child("屏幕", ScreenActivity.class));
+        groupOther.getChildren().add(new Child("状态栏一体化", ScreenActivity.class));
         groups.add(groupOther);
 
         return groups;

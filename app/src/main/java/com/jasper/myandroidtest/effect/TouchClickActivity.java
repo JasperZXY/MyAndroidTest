@@ -112,7 +112,11 @@ public class TouchClickActivity extends Activity {
     }
 
     private void appendLog(String name, String msg) {
-        etLog.append(String.format("%s:%s\n", name, msg));
+        if ("".equals(etLog.getText().toString())) {
+            etLog.append(String.format("%s:%s", name, msg));
+        } else {
+            etLog.append(String.format("\n%s:%s", name, msg));
+        }
         Selection.setSelection(etLog.getText(), etLog.getText().length());
     }
 

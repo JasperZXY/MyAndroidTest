@@ -17,6 +17,7 @@
         android:scrollbarThumbVertical="@drawable/my_transparent_bg">
 
         <LinearLayout
+            android:id="@+id/layout_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="5"
@@ -28,7 +29,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
-                android:text="下面所用的图片都是96px * 96px\n只是图片放在了不同drawable文件夹" />
+                android:text="下面所用的图片都是96px * 96px\n只是同一张图片复制到了不同drawable文件夹" />
+
+            <TextView
+                android:id="@+id/tv_img_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="drawable中图片用程序获取到的尺寸:" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

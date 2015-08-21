@@ -3,6 +3,7 @@ package com.jasper.myandroidtest.effect;
 import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
@@ -13,6 +14,7 @@ import com.jasper.myandroidtest.R;
 /**
  * 手动控制软键盘的显示，软键盘显示时，让输入框能够推上去。
  * 如果单纯用SOFT_INPUT_ADJUST_PAN，那么是整个页面都会被推上去。
+ * TODO 以前还可以用的，最近在魅族上测试不通过
  */
 public class ManualSoftInputActivity extends Activity {
     public static final String TAG = "ManualSoftInputActivity";

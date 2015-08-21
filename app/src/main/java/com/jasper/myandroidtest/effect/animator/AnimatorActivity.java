@@ -232,7 +232,7 @@ public class AnimatorActivity extends Activity {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.heart);
+        final Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.heart);
         float density = displayMetrics.density;
         int imgWidth = (int) (30 * density);
         final int imgHeight = imgWidth * bitmap.getHeight() / bitmap.getWidth();
@@ -312,6 +312,9 @@ public class AnimatorActivity extends Activity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 layoutMain.removeView(imageViewNew);
+                if (bitmap != null) {
+                    bitmap.recycle();
+                }
             }
         });
     }
