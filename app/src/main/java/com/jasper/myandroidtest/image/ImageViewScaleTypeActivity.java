@@ -5,12 +5,11 @@ import android.os.Bundle;
 
 import com.jasper.myandroidtest.R;
 
-
-public class ImageViewActivity extends Activity {
+public class ImageViewScaleTypeActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_view);
+        setContentView(R.layout.activity_image_view_scale_type);
     }
 }

@@ -77,6 +77,7 @@ public class MainActivity extends Activity {
         //让group不显示那个箭头
         elv.setGroupIndicator(null);
         elv.setAdapter(new MainAdapter(this, getData(), density));
+        elv.setOverScrollMode(ExpandableListView.OVER_SCROLL_NEVER);
 
     }
 
@@ -125,7 +126,8 @@ public class MainActivity extends Activity {
         groups.add(groupView);
 
         Group groupImage = new Group("Image", new ArrayList<Child>());
-        groupImage.getChildren().add(new Child("ImageView的scaleType问题", ImageViewActivity.class));
+        groupImage.getChildren().add(new Child("ImageView的scaleType问题", ImageViewScaleTypeActivity.class));
+        groupImage.getChildren().add(new Child(getString(R.string.title_activity_image_view_different_dpi), ImageViewDifferentDPIActivity.class));
         groupImage.getChildren().add(new Child("图片-矩阵变化", MatrixActivity.class));
         groupImage.getChildren().add(new Child("BitmapCache使用", BitmapCacheActivity.class));
         groupImage.getChildren().add(new Child("Drawable资源", DrawableActivity.class));

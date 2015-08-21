@@ -57,7 +57,7 @@ public class ScreenActivity extends Activity {
         for (int i=0; i<5; i++) {
             Button button = new Button(this);
             button.setText("" + (i + 1));
-            button.setTextColor(Color.DKGRAY);
+            button.setTextColor(Color.WHITE);
             button.setBackgroundResource(R.drawable.my_btn);
             viewGroup.addView(button, 0);
         }

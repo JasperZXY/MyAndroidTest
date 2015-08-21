@@ -107,8 +107,8 @@
             android:label="@string/title_activity_my_list_view" >
         </activity>
         <activity
-            android:name=".image.ImageViewActivity"
-            android:label="@string/title_activity_image_view" >
+            android:name=".image.ImageViewScaleTypeActivity"
+            android:label="@string/title_activity_image_view_scale_type" >
         </activity>
         <activity
             android:name=".other.MenuActivity"
@@ -284,6 +284,10 @@
         <activity
             android:name=".other.ScreenActivity"
             android:label="@string/title_activity_screen" >
+        </activity>
+        <activity
+            android:name=".image.ImageViewDifferentDPIActivity"
+            android:label="@string/title_activity_image_view_different_dpi" >
         </activity>
     </application>
 

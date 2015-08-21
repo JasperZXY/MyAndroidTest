@@ -1,14 +1,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@drawable/bg"
-              android:orientation="vertical"
-              android:paddingBottom="@dimen/activity_vertical_margin"
-              android:paddingLeft="@dimen/activity_horizontal_margin"
-              android:paddingRight="@dimen/activity_horizontal_margin"
-              android:paddingTop="@dimen/activity_vertical_margin"
-              tools:context="com.jasper.myandroidtest.effect.TouchClickActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.jasper.myandroidtest.effect.TouchClickActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,19 +18,19 @@
         <Button
             android:id="@+id/btn_clean"
             style="@style/my_button"
-            android:text="清除Log"/>
+            android:text="清除Log" />
 
         <Button
             android:id="@+id/btn_result"
             style="@style/my_button"
-            android:text="结果"/>
+            android:text="结果" />
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="同一个控件的Touch与Click"/>
+        android:text="同一个控件的Touch与Click" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,32 +42,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textOff="down事件返回false"
-            android:textOn="down事件返回true"/>
+            android:textOn="down事件返回true" />
 
         <ToggleButton
             android:id="@+id/tg_touch_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textOff="up事件返回false"
-            android:textOn="up事件返回true"/>
+            android:textOn="up事件返回true" />
+
         <Button
             android:id="@+id/btn_touch"
             style="@style/my_button"
-            android:text="验证"/>
+            android:text="验证" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_no_clickable"
         style="@style/my_button"
         android:clickable="false"
-        android:text="验证当按钮不可点击时的事件行为"/>
+        android:text="验证当按钮不可点击时的事件行为" />
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="控件与其父控件的Click事件"/>
+        android:text="控件与其父控件的Click事件" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -79,14 +80,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textOff="Layout.clickable=false"
-            android:textOn="Layout.clickable=true"/>
+            android:textOn="Layout.clickable=true" />
 
         <ToggleButton
             android:id="@+id/tg_button_clickable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textOff="Button.clickable=false"
-            android:textOn="Button.clickable=true"/>
+            android:textOn="Button.clickable=true" />
     </LinearLayout>
 
     <LinearLayout
@@ -100,18 +101,15 @@
             android:id="@+id/btn_layout"
             style="@style/my_button"
             android:layout_margin="10dp"
-            android:text="普通子控件"/>
+            android:text="普通子控件" />
     </LinearLayout>
 
     <EditText
         android:id="@+id/et_log"
+        style="@style/my_edittext_log"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:background="@null"
-        android:editable="false"
-        android:gravity="left"
-        android:text="Log\n"
-        android:textColor="#444"/>
+        android:text="LOG\n" />
 
 </LinearLayout>
