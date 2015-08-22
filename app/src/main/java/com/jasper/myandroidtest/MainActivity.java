@@ -41,6 +41,8 @@ import com.jasper.myandroidtest.effect.TouchClickActivity;
 import com.jasper.myandroidtest.other.ScreenActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
+import com.jasper.myandroidtest.service.BinderServiceActivity;
+import com.jasper.myandroidtest.service.MessengerServiceActivity;
 import com.jasper.myandroidtest.service.ServiceActivity;
 import com.jasper.myandroidtest.store.FileActivity;
 import com.jasper.myandroidtest.tabhost.Tabs1Activity;
@@ -94,6 +96,8 @@ public class MainActivity extends Activity {
         Group groupAndroid  = new Group("四大组件与Fragment", new ArrayList<Child>());
         groupAndroid.getChildren().add(new Child("Activity", SimpleActivity.class));
         groupAndroid.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
+        groupAndroid.getChildren().add(new Child(getString(R.string.title_activity_binder_service), BinderServiceActivity.class));
+        groupAndroid.getChildren().add(new Child(getString(R.string.title_activity_messenger_service), MessengerServiceActivity.class));
         groupAndroid.getChildren().add(new Child("FragmentManager", FragmentManagerActivity.class));
         groupAndroid.getChildren().add(new Child("ListFragment", ListFragmentActivity.class));
         groupAndroid.getChildren().add(new Child("Fragment-Assets文件阅读器", ReaderActivity.class));

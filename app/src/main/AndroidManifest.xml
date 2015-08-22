@@ -289,6 +289,22 @@
             android:name=".image.ImageViewDifferentDPIActivity"
             android:label="@string/title_activity_image_view_different_dpi" >
         </activity>
+        <activity
+            android:name=".service.BinderServiceActivity"
+            android:label="@string/title_activity_binder_service" >
+        </activity>
+
+        <service android:name=".service.BinderService" >
+        </service>
+
+        <activity
+            android:name=".service.MessengerServiceActivity"
+            android:label="@string/title_activity_messenger_service" >
+        </activity>
+        <service
+            android:name=".service.MessengerService"
+            android:process=":MessengerService">
+        </service>
     </application>
 
 </manifest>

@@ -89,5 +89,7 @@
     <string name="title_activity_cursor_loader">CursorLoaderActivity</string>
     <string name="title_activity_screen">屏幕</string>
     <string name="title_activity_image_view_different_dpi">不同drawable文件夹下图片的ImageView显示</string>
+    <string name="title_activity_binder_service">Bound Service-Binder</string>
+    <string name="title_activity_messenger_service">Bound Service-Messenger</string>
 
 </resources>

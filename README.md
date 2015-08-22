@@ -140,3 +140,7 @@
 
 ## 2015-08-21
 1. 不同drawable文件夹下图片的ImageView显示
+
+
+## 2015-08-22
+1. Bound Service学习例子
