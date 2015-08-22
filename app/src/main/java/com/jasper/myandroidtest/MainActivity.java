@@ -44,6 +44,7 @@ import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
 import com.jasper.myandroidtest.service.BinderServiceActivity;
 import com.jasper.myandroidtest.service.MessengerServiceActivity;
 import com.jasper.myandroidtest.service.ServiceActivity;
+import com.jasper.myandroidtest.service.aidl.MyAidlActivity;
 import com.jasper.myandroidtest.store.FileActivity;
 import com.jasper.myandroidtest.tabhost.Tabs1Activity;
 import com.jasper.myandroidtest.tabhost.Tabs2Activity;
@@ -98,6 +99,7 @@ public class MainActivity extends Activity {
         groupAndroid.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
         groupAndroid.getChildren().add(new Child(getString(R.string.title_activity_binder_service), BinderServiceActivity.class));
         groupAndroid.getChildren().add(new Child(getString(R.string.title_activity_messenger_service), MessengerServiceActivity.class));
+        groupAndroid.getChildren().add(new Child(getString(R.string.title_activity_my_aidl), MyAidlActivity.class));
         groupAndroid.getChildren().add(new Child("FragmentManager", FragmentManagerActivity.class));
         groupAndroid.getChildren().add(new Child("ListFragment", ListFragmentActivity.class));
         groupAndroid.getChildren().add(new Child("Fragment-Assets文件阅读器", ReaderActivity.class));
@@ -166,7 +168,7 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
         groupOther.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
         groupOther.getChildren().add(new Child("CursorLoader", CursorLoaderActivity.class));
-        groupOther.getChildren().add(new Child("状态栏一体化", ScreenActivity.class));
+        groupOther.getChildren().add(new Child(getString(R.string.title_activity_screen), ScreenActivity.class));
         groups.add(groupOther);
 
         return groups;

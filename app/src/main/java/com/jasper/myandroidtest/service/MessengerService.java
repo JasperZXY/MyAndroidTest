@@ -15,8 +15,9 @@ public class MessengerService extends Service {
     public static final String DATA = "data";
     public static final String NAME = "name";
     public static final int MSG_GET_PROCESS_ID = 1;
-    public static final int MSG_SAY_HELLO = 2;
-    public static final int MSG_STOP = 3;
+    public static final int MSG_ADD = 2;
+    public static final int MSG_MULTI_THREAD = 3;
+    public static final int MSG_STOP = 100;
 
     private Handler handler = new Handler() {
         @Override
@@ -33,10 +34,20 @@ public class MessengerService extends Service {
                         e.printStackTrace();
                     }
                     break;
-                case MSG_SAY_HELLO:
+                case MSG_ADD:
                     try {
-                        String name = msg.getData().getString(NAME);
-                        msgReply.getData().putString(DATA, "Hello " + name);
+                        msgReply.getData().putString(DATA,
+                                String.format("%d + %d = %d", msg.arg1, msg.arg2, msg.arg1 + msg.arg2));
+                        msg.replyTo.send(msgReply);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case MSG_MULTI_THREAD:
+                    try {
+                        Thread.sleep(500);
+                        msgReply.getData().putString(DATA,
+                                "ret " + msg.arg1 + ":" + Thread.currentThread().getName());
                         msg.replyTo.send(msgReply);
                     } catch (Exception e) {
                         e.printStackTrace();

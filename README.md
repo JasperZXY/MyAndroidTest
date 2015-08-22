@@ -143,4 +143,9 @@
 
 
 ## 2015-08-22
-1. Bound Service学习例子
+1. Bound Service学习例子（Binder、Messenger、AIDL）
+
+
+### 问题
+AIDL无法实现多线程调用
+

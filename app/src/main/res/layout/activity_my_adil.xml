@@ -9,14 +9,20 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.jasper.myandroidtest.service.MessengerServiceActivity">
+    tools:context="com.jasper.myandroidtest.service.aidl.MyAidlActivity">
 
     <Button
-        android:id="@+id/btn_add"
+        android:id="@+id/btn_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/my_button"
-        android:text="传入随机两个数，返回相加的结果"/>
+        android:text="获取List数据"/>
+    <Button
+        android:id="@+id/btn_person"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/my_button"
+        android:text="随机获取一个人"/>
     <Button
         android:id="@+id/btn_multi_thread"
         android:layout_width="match_parent"
@@ -29,6 +35,7 @@
         android:layout_height="wrap_content"
         style="@style/my_button"
         android:text="清除日志"/>
+
 
     <EditText
         android:id="@+id/et_log"

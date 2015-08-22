@@ -15,6 +15,8 @@ import android.widget.EditText;
 import com.jasper.myandroidtest.R;
 import com.jasper.myandroidtest.utils.ProcessUtil;
 
+import java.util.Random;
+
 /**
  * 这个Activity要配合MessengerService一起看，实现用Messenger进行远程通信。
  * 为了实现远程服务调用，在mainfest中对Service的进程进行修改，使Activity跟Service不在同一个进程。
@@ -24,24 +26,31 @@ import com.jasper.myandroidtest.utils.ProcessUtil;
 public class MessengerServiceActivity extends Activity {
     private static final String TAG = "MessengerServiceActivity";
     private EditText etLog;
-    private EditText etName;
     //这个Messenger用于发送请求
     private Messenger requestMessenger;
     //这个Messenger用于处理接收的数据
     private Messenger responseMessenger;
     private int serivicePid;
 
+    private final int APPEND_LOG = 1000;
+
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case MessengerService.MSG_SAY_HELLO:
+                case MessengerService.MSG_ADD:
                     appendLog(msg.getData().getString(MessengerService.DATA));
                     break;
                 case MessengerService.MSG_GET_PROCESS_ID:
                     serivicePid = msg.arg1;
                     appendLog(String.format("Service所在进程：[%d] %s",
                             serivicePid, ProcessUtil.getProcessName(getApplicationContext(), serivicePid)));
+                    break;
+                case MessengerService.MSG_MULTI_THREAD:
+                    appendLog(msg.getData().getString(MessengerService.DATA));
+                    break;
+                case APPEND_LOG:
+                    appendLog((String) msg.obj);
                     break;
                 default:
                     appendLog("未知消息：" + msg.what);
@@ -58,15 +67,21 @@ public class MessengerServiceActivity extends Activity {
         responseMessenger = new Messenger(handler);
 
         etLog = (EditText) findViewById(R.id.et_log);
-        etName = (EditText) findViewById(R.id.et_name);
-        findViewById(R.id.btn_send).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_clean).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etLog.setText("");
+            }
+        });
+        findViewById(R.id.btn_add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (requestMessenger == null) {
                     appendLog("未绑定");
                 } else {
-                    Message msg = Message.obtain(null, MessengerService.MSG_SAY_HELLO, 0, 0);
-                    msg.getData().putString(MessengerService.NAME, etName.getText().toString());
+                    Random random = new Random();
+                    Message msg = Message.obtain(null, MessengerService.MSG_ADD,
+                            random.nextInt(100), random.nextInt(100));
                     //注意这里的参数，是把应答的Messenger设置进去
                     msg.replyTo = responseMessenger;
                     try {
@@ -74,6 +89,37 @@ public class MessengerServiceActivity extends Activity {
                     } catch (RemoteException e) {
                         appendLog("error:" + e.getLocalizedMessage());
                     }
+                }
+            }
+        });
+        findViewById(R.id.btn_multi_thread).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (requestMessenger == null) {
+                    appendLog("未绑定");
+                } else {
+                    for (int i=1; i<10; i++) {
+                        final int a = i;
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Message message = Message.obtain(null, APPEND_LOG, a, 0);
+                                message.obj = "发送请求：" + Thread.currentThread().getName() + " " + a;
+                                handler.sendMessage(message);
+
+                                Message msg = Message.obtain(null, MessengerService.MSG_MULTI_THREAD, a, 0);
+                                //注意这里的参数，是把应答的Messenger设置进去
+                                msg.replyTo = responseMessenger;
+                                try {
+                                    requestMessenger.send(msg);
+                                } catch (RemoteException e) {
+                                    message.obj = "error:" + e.getLocalizedMessage();
+                                    handler.sendMessage(message);
+                                }
+                            }
+                        }).start();
+                    }
+
                 }
             }
         });

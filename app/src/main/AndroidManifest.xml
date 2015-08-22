@@ -301,9 +301,22 @@
             android:name=".service.MessengerServiceActivity"
             android:label="@string/title_activity_messenger_service" >
         </activity>
+
         <service
             android:name=".service.MessengerService"
-            android:process=":MessengerService">
+            android:process=":MessengerService" >
+        </service>
+
+        <activity
+            android:name=".service.aidl.MyAidlActivity"
+            android:label="@string/title_activity_my_aidl" >
+        </activity>
+        <service
+            android:name=".service.aidl.MyAidlRemoteService"
+            android:process=":MyAidlRemoteService" >
+            <intent-filter>
+                <action android:name="com.jasper.myandroidtest.service.aidl.IMyAidlRemoteService" />
+            </intent-filter>
         </service>
     </application>
 

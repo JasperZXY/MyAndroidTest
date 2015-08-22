@@ -87,9 +87,10 @@
     <string name="title_activity_reader">Assets文件阅读器</string>
     <string name="title_activity_list_fragment">ListFragment</string>
     <string name="title_activity_cursor_loader">CursorLoaderActivity</string>
-    <string name="title_activity_screen">屏幕</string>
+    <string name="title_activity_screen">状态栏一体化</string>
     <string name="title_activity_image_view_different_dpi">不同drawable文件夹下图片的ImageView显示</string>
-    <string name="title_activity_binder_service">Bound Service-Binder</string>
-    <string name="title_activity_messenger_service">Bound Service-Messenger</string>
+    <string name="title_activity_binder_service">Bound Service - Binder</string>
+    <string name="title_activity_messenger_service">Bound Service - Messenger</string>
+    <string name="title_activity_my_aidl">Bound Service - AIDL</string>
 
 </resources>
