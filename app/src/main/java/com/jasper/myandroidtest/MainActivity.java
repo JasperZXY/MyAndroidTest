@@ -33,6 +33,7 @@ import com.jasper.myandroidtest.listView.MyListViewActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.effect.animator.AnimatorActivity;
 import com.jasper.myandroidtest.other.AsyncTaskActivity;
+import com.jasper.myandroidtest.other.BroadcastReceiverActivity;
 import com.jasper.myandroidtest.other.CursorLoaderActivity;
 import com.jasper.myandroidtest.other.MenuActivity;
 import com.jasper.myandroidtest.other.PermissionActivity;
@@ -53,6 +54,7 @@ import com.jasper.myandroidtest.tabhost.Tabs4Activity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
 import com.jasper.myandroidtest.effect.DragViewActivity;
+import com.jasper.myandroidtest.view.EditTextActivity;
 import com.jasper.myandroidtest.view.WebViewActivity;
 import com.jasper.myandroidtest.view.GridViewActivity;
 import com.jasper.myandroidtest.image.*;
@@ -103,6 +105,7 @@ public class MainActivity extends Activity {
         groupAndroid.getChildren().add(new Child("FragmentManager", FragmentManagerActivity.class));
         groupAndroid.getChildren().add(new Child("ListFragment", ListFragmentActivity.class));
         groupAndroid.getChildren().add(new Child("Fragment-Assets文件阅读器", ReaderActivity.class));
+        groupAndroid.getChildren().add(new Child(getString(R.string.title_activity_broadcast_receiver), BroadcastReceiverActivity.class));
         groups.add(groupAndroid);
 
         Group groupList = new Group("ListView", new ArrayList<Child>());
@@ -129,6 +132,7 @@ public class MainActivity extends Activity {
         Group groupView = new Group("View", new ArrayList<Child>());
         groupView.getChildren().add(new Child("GridView", GridViewActivity.class));
         groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
+        groupView.getChildren().add(new Child("EditText", EditTextActivity.class));
         groups.add(groupView);
 
         Group groupImage = new Group("Image", new ArrayList<Child>());

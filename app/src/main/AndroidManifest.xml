@@ -45,7 +45,7 @@
         </activity>
         <activity
             android:name=".tabhost.Tabs1Activity"
-            android:configChanges="" />
+            android:label="@string/title_activity_tabs1" />
         <activity
             android:name=".tabhost.Tabs2Activity"
             android:label="@string/title_activity_tabs2" />
@@ -311,6 +311,7 @@
             android:name=".service.aidl.MyAidlActivity"
             android:label="@string/title_activity_my_aidl" >
         </activity>
+
         <service
             android:name=".service.aidl.MyAidlRemoteService"
             android:process=":MyAidlRemoteService" >
@@ -318,6 +319,15 @@
                 <action android:name="com.jasper.myandroidtest.service.aidl.IMyAidlRemoteService" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".other.BroadcastReceiverActivity"
+            android:label="@string/title_activity_broadcast_receiver" >
+        </activity>
+        <activity
+            android:name=".view.EditTextActivity"
+            android:label="@string/title_activity_edit_text" >
+        </activity>
     </application>
 
 </manifest>

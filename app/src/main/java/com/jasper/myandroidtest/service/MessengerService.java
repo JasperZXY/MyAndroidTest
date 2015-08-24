@@ -13,7 +13,6 @@ import com.jasper.myandroidtest.utils.ProcessUtil;
 public class MessengerService extends Service {
     private static final String TAG = "MessengerService";
     public static final String DATA = "data";
-    public static final String NAME = "name";
     public static final int MSG_GET_PROCESS_ID = 1;
     public static final int MSG_ADD = 2;
     public static final int MSG_MULTI_THREAD = 3;

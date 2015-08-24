@@ -113,6 +113,7 @@ public class MessengerServiceActivity extends Activity {
                                 try {
                                     requestMessenger.send(msg);
                                 } catch (RemoteException e) {
+                                    message = Message.obtain(null, APPEND_LOG, a, 0);
                                     message.obj = "error:" + e.getLocalizedMessage();
                                     handler.sendMessage(message);
                                 }

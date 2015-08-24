@@ -52,7 +52,7 @@ public class MyAidlRemoteService extends Service {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            return "ret " + i + ":" + Thread.currentThread().getName();
+            return String.format("ret [%d]:[%s]", i, Thread.currentThread().getName());
         }
 
         @Override

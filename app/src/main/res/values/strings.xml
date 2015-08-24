@@ -6,9 +6,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_tabs2">Tabs2Activity</string>
+    <string name="title_activity_tabs1">FragmentTabHost</string>
+    <string name="title_activity_tabs2">Fragment+RadioGroup</string>
+    <string name="title_activity_tabs3">Fragment+ViewPager</string>
+    <string name="title_activity_tabs4">TabActivity+Activity</string>
     <string name="title_activity_async_task">AsyncTaskActivity</string>
-    <string name="title_activity_tabs3">Tabs3Activity</string>
     <string name="title_activity_file">FileActivity</string>
     <string name="title_activity_camera">摄像头使用</string>
     <string name="title_activity_my_action_bar">MyActionBarActivity</string>
@@ -66,7 +68,6 @@
     <string name="title_activity_media_player">MediaPlayerActivity</string>
     <string name="title_activity_flow_layout">自定义FlowLayout</string>
     <string name="title_activity_drawable">Drawable资源</string>
-    <string name="title_activity_tabs4">Tabs4Activity</string>
     <string name="title_activity_tab_test">TabTestActivity</string>
     <string name="title_activity_api_overview">Android版本与API版本对应表</string>
     <string name="title_activity_service">Service与Activity通信</string>
@@ -92,5 +93,7 @@
     <string name="title_activity_binder_service">Bound Service - Binder</string>
     <string name="title_activity_messenger_service">Bound Service - Messenger</string>
     <string name="title_activity_my_aidl">Bound Service - AIDL</string>
+    <string name="title_activity_broadcast_receiver">BroadcastReceiver</string>
+    <string name="title_activity_edit_text">EditText</string>
 
 </resources>
