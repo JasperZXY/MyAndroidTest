@@ -24,6 +24,7 @@ import com.jasper.myandroidtest.fragment.ListFragmentActivity;
 import com.jasper.myandroidtest.fragment.reader.ReaderActivity;
 import com.jasper.myandroidtest.fragmentManager.FragmentManagerActivity;
 import com.jasper.myandroidtest.layout.ApiOverviewActivity;
+import com.jasper.myandroidtest.layout.CoordinateActivity;
 import com.jasper.myandroidtest.layout.FlowLayoutActivity;
 import com.jasper.myandroidtest.layout.LayoutParamActivity;
 import com.jasper.myandroidtest.layout.MarginPaddingActivity;
@@ -127,6 +128,7 @@ public class MainActivity extends Activity {
         groupLayout.getChildren().add(new Child("LayoutParam", LayoutParamActivity.class));
         groupLayout.getChildren().add(new Child("TableLayout-Android版本与API版本对应表", ApiOverviewActivity.class));
         groupLayout.getChildren().add(new Child("自定义FlowLayout", FlowLayoutActivity.class));
+        groupLayout.getChildren().add(new Child("动态确定坐标", CoordinateActivity.class));
         groups.add(groupLayout);
 
         Group groupView = new Group("View", new ArrayList<Child>());

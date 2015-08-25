@@ -94,7 +94,7 @@ public class MyService extends Service {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                intentResponse.putExtra("data", type + new Date());
+                intentResponse.putExtra("data", type + " " + new Date());
                 sendBroadcast(intentResponse);
             }
         });

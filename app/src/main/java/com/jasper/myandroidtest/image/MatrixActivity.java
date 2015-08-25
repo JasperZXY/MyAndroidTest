@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Camera;
 import android.graphics.Matrix;
+import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -19,9 +21,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * 注意xml文件中SeekBar配置的progress跟max属性
- * Bitmap.createBitmap有时会报OutOfMemoryError，已经做了两层保护措施，
- * 1. 拖动时超过一定的秒数才进行图像处理
- * 2. 定时器处理图片，每隔一段时间进行图片强制回收
+ *
+ * 这里要注意Bitmap的回收，不然会报OOM错误。
  */
 public class MatrixActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
     private static final String TAG = "MatrixActivity";
@@ -30,26 +31,31 @@ public class MatrixActivity extends Activity implements SeekBar.OnSeekBarChangeL
     private SeekBar seekBarRotateZ;
     private SeekBar seekBarSkewX;
     private SeekBar seekBarSkewY;
+    private SeekBar seekBarTranslateX;
+    private SeekBar seekBarTranslateY;
     private SeekBar seekBarTranslateZ;
     private TextView tvRotateX;
     private TextView tvRotateY;
     private TextView tvRotateZ;
     private TextView tvSkewX;
     private TextView tvSkewY;
+    private TextView tvTranslateX;
+    private TextView tvTranslateY;
     private TextView tvTranslateZ;
     private ImageView imageView;
 
     private int rotateX, rotateY, rotateZ;
     private float skewX, skewY;
-    private int translateZ;
+    private int translateX, translateY, translateZ;
 
     //注意这个Camera的包android.graphics下的类
     private Camera camera;
     //要处理图片的原图
     private Bitmap bitmapSource;
     private long lastTime = 0;
-    private CopyOnWriteArrayList<Bitmap> bitmaps = new CopyOnWriteArrayList<>();
-    private Timer timer;
+//    private CopyOnWriteArrayList<Bitmap> bitmaps = new CopyOnWriteArrayList<>();
+    private Bitmap lastBitmap;
+//    private Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +69,8 @@ public class MatrixActivity extends Activity implements SeekBar.OnSeekBarChangeL
         tvRotateZ = (TextView) findViewById(R.id.tv_rotate_z);
         tvSkewX = (TextView) findViewById(R.id.tv_skew_x);
         tvSkewY = (TextView) findViewById(R.id.tv_skew_y);
+        tvTranslateX = (TextView) findViewById(R.id.tv_translate_x);
+        tvTranslateY = (TextView) findViewById(R.id.tv_translate_y);
         tvTranslateZ = (TextView) findViewById(R.id.tv_translate_z);
 
         seekBarRotateX = (SeekBar) findViewById(R.id.sb_rotate_x);
@@ -70,6 +78,8 @@ public class MatrixActivity extends Activity implements SeekBar.OnSeekBarChangeL
         seekBarRotateZ = (SeekBar) findViewById(R.id.sb_rotate_z);
         seekBarSkewX = (SeekBar) findViewById(R.id.sb_skew_x);
         seekBarSkewY = (SeekBar) findViewById(R.id.sb_skew_y);
+        seekBarTranslateX = (SeekBar) findViewById(R.id.sb_translate_x);
+        seekBarTranslateY = (SeekBar) findViewById(R.id.sb_translate_y);
         seekBarTranslateZ = (SeekBar) findViewById(R.id.sb_translate_z);
 
         seekBarRotateX.setOnSeekBarChangeListener(this);
@@ -77,30 +87,37 @@ public class MatrixActivity extends Activity implements SeekBar.OnSeekBarChangeL
         seekBarRotateZ.setOnSeekBarChangeListener(this);
         seekBarSkewX.setOnSeekBarChangeListener(this);
         seekBarSkewY.setOnSeekBarChangeListener(this);
+        seekBarTranslateX.setOnSeekBarChangeListener(this);
+        seekBarTranslateY.setOnSeekBarChangeListener(this);
         seekBarTranslateZ.setOnSeekBarChangeListener(this);
 
         camera = new Camera();
         bitmapSource = ((BitmapDrawable) getResources().getDrawable(R.drawable.icon)).getBitmap();
+//        bitmapCenterPoint = new Point(bitmapSource.getWidth() >> 1, bitmapSource.getHeight() >> 1);
 
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                for (int i=0; i<bitmaps.size() - 1; i++) {
-                    Bitmap bitmap = bitmaps.get(i);
-                    bitmap.recycle();
-                    bitmaps.remove(i);
-                    Log.i(TAG,"bitmap recycle");
-                }
-                System.gc();
-            }
-        }, 100, 200);
+//        timer = new Timer();
+//        timer.scheduleAtFixedRate(new TimerTask() {
+//            @Override
+//            public void run() {
+//                for (int i=0; i<bitmaps.size() - 1; i++) {
+//                    Bitmap bitmap = bitmaps.get(i);
+//                    bitmap.recycle();
+//                    bitmaps.remove(i);
+//                    Log.i(TAG,"bitmap recycle");
+//                }
+//                System.gc();
+//            }
+//        }, 100, 200);
     }
 
     @Override
     protected void onDestroy() {
-        timer.cancel();
+//        timer.cancel();
         super.onDestroy();
+        if (lastBitmap != null && ! lastBitmap.isRecycled()) {
+            lastBitmap.recycle();
+            lastBitmap = null;
+        }
     }
 
     private void refreshImage() {
@@ -115,12 +132,12 @@ public class MatrixActivity extends Activity implements SeekBar.OnSeekBarChangeL
         camera.rotateY(rotateY);
         camera.rotateZ(rotateZ);
         // translate
-        camera.translate(0, 0, translateZ);
+        camera.translate(translateX, translateY, translateZ);
         camera.getMatrix(matrix);
         // 恢复到之前的初始状态。
         camera.restore();
         // 设置图像处理的中心点
-        matrix.preTranslate(bitmapSource.getWidth() >> 1, bitmapSource.getHeight() >> 1);
+        matrix.preTranslate(0, 0);
         matrix.preSkew(skewX, skewY);
         // matrix.postSkew(skewX, skewY);
         // 直接setSkew()，则前面处理的rotate()、translate()等等都将无效。
@@ -130,7 +147,12 @@ public class MatrixActivity extends Activity implements SeekBar.OnSeekBarChangeL
             // 经过矩阵转换后的图像宽高有可能不大于0，此时会抛出IllegalArgumentException
             Bitmap bitmapResult = Bitmap.createBitmap(bitmapSource, 0, 0, bitmapSource.getWidth(), bitmapSource.getHeight(), matrix, true);
             imageView.setImageBitmap(bitmapResult);
-            bitmaps.add(bitmapResult);
+            //这里进行图片回收，防止OOM
+            if (lastBitmap != null && ! lastBitmap.isRecycled()) {
+                lastBitmap.recycle();
+                lastBitmap = bitmapResult;
+            }
+//            bitmaps.add(bitmapResult);
         } catch (IllegalArgumentException e) {
             Log.w(TAG, "Bitmap.createBitmap error:" + e.getLocalizedMessage());
         }
@@ -159,21 +181,26 @@ public class MatrixActivity extends Activity implements SeekBar.OnSeekBarChangeL
                 skewY = (progress - 100) * 1.0f / 100;
                 tvSkewY.setText(Float.toString(skewY));
                 break;
+            case R.id.sb_translate_x:
+                translateX = progress - 100;
+                tvTranslateX.setText(Integer.toString(translateX));
+                break;
+            case R.id.sb_translate_y:
+                translateY = progress - 100;
+                tvTranslateY.setText(Integer.toString(translateY));
+                break;
             case R.id.sb_translate_z:
-                /*
-                * 这里的处理比较特殊，camera.translate方法的第三个参数传递的是Z轴，
-                * 负数时图片反而变动，正数是反而变小，故这么处理
-                 */
-                translateZ = 100 - progress;
-                tvTranslateZ.setText(Integer.toString(- translateZ));
+                translateZ = progress - 100;
+                tvTranslateZ.setText(Integer.toString(translateZ));
                 break;
         }
         //防止调用太多次，有时会报OutOfMemoryError
-        long curTime = System.currentTimeMillis();
-        if (curTime - lastTime > 300) {
-                lastTime = curTime;
-                refreshImage();
-        }
+//        long curTime = System.currentTimeMillis();
+//        if (curTime - lastTime > 300) {
+//                lastTime = curTime;
+//                refreshImage();
+//        }
+        refreshImage();
     }
 
     @Override

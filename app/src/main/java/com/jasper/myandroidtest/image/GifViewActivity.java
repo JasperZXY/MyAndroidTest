@@ -22,6 +22,7 @@ import pl.droidsonroids.gif.GifImageView;
  * <a href="https://github.com/koral--/android-gif-drawable">项目地址</a>
  */
 public class GifViewActivity extends Activity {
+    private GifDrawable gifDrawable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +46,19 @@ public class GifViewActivity extends Activity {
         gifImageView.getLayoutParams().height = LinearLayout.LayoutParams.MATCH_PARENT;
 
         try {
-            GifDrawable gifDrawable = new GifDrawable(getAssets(), "qh.gif");
+            gifDrawable = new GifDrawable(getAssets(), "qh.gif");
             gifImageView.setImageDrawable(gifDrawable);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (gifDrawable != null || ! gifDrawable.isRecycled()) {
+            gifDrawable.recycle();
+            gifDrawable = null;
+        }
+    }
 }

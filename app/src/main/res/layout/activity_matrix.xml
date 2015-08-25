@@ -13,17 +13,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="注：在图片处理时，有时会报OutOfMemoryError" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="原点：是正常显示下的中点" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="XYZ轴旋转（单位：角度；范围：0°~360°）" />
+        android:text="XYZ轴旋转-rotate（单位：角度；范围：0°~360°）" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -109,7 +104,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="XY倾斜" />
+        android:text="XY倾斜-skew" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -170,7 +165,63 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="缩放" />
+        android:text="translate" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="X轴：" />
+
+        <SeekBar
+            android:id="@+id/sb_translate_x"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:max="200"
+            android:progress="100" />
+
+        <TextView
+            android:id="@+id/tv_translate_x"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Y轴：" />
+
+        <SeekBar
+            android:id="@+id/sb_translate_y"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:max="200"
+            android:progress="100" />
+
+        <TextView
+            android:id="@+id/tv_translate_y"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="0" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -211,12 +262,17 @@
             android:src="@drawable/icon"
             android:background="@android:color/holo_blue_dark"/>
         </LinearLayout>-->
-    <ImageView
-        android:id="@+id/img"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
-        android:src="@drawable/icon" />
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_light">
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/icon" />
+    </FrameLayout>
 
 
 </LinearLayout>

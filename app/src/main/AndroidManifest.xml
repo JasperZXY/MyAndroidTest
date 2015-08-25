@@ -328,6 +328,10 @@
             android:name=".view.EditTextActivity"
             android:label="@string/title_activity_edit_text" >
         </activity>
+        <activity
+            android:name=".layout.CoordinateActivity"
+            android:label="@string/title_activity_coordinate" >
+        </activity>
     </application>
 
 </manifest>

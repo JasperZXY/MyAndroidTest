@@ -43,14 +43,12 @@ public class AnimatorActivity extends Activity {
     private ImageView ivTarget;
     private ViewGroup layoutMain;
     private View viewFunction;
-//    private ImageView ivHeart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animator);
         ivTarget = (ImageView) findViewById(R.id.iv_target);
-//        layoutMain = (ViewGroup) findViewById(R.id.layout);
         layoutMain = (ViewGroup) ((ViewGroup)findViewById(android.R.id.content)).getChildAt(0);
 
         viewFunction = findViewById(R.id.view_function);
@@ -62,13 +60,9 @@ public class AnimatorActivity extends Activity {
             }
         });
 
-//        ivHeart = (ImageView) findViewById(R.id.iv_heart);
         layoutMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                int sum = new Random().nextInt(10) + 10;
-//                for (int i=0; i<sum; i++) {
-//                }
                 bubble();
             }
         });

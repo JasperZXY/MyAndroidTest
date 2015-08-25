@@ -17,3 +17,16 @@ if (bitmap != null && !bitmap.isRecycled()) {
     bitmap.recycle();
     bitmap = null;
 }
+
+5. 获取控件大小
+View view = ...;
+view.getViewTreeObserver().addOnGlobalLayoutListener(
+    new ViewTreeObserver.OnGlobalLayoutListener() {
+        @SuppressLint("NewApi")
+        @Override
+        public void onGlobalLayout() {
+            view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            int width = view.getWidth();
+            int height = view.getHeight();
+        }
+    });
