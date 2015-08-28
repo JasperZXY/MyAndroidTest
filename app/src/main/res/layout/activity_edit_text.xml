@@ -52,4 +52,12 @@
         android:hint="密码框"
         android:password="true"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        style="@style/my_edittext_single_line"
+        android:hint="最多5个字符"
+        android:maxLength="5"/>
+
 </LinearLayout>

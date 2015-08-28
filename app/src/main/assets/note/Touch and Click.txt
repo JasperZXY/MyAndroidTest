@@ -13,3 +13,8 @@ onTouch事件中：down事件返回值标记此次事件是否为点击事件（
 以下控件用widget替换，其父控件用container替换
 1、如果widget跟container都可点击，那么点击widget或container有onClick事件，不会进行事件传递；
 2、如果container可点击，但里面的widget都设置不可点击，那么对container进行点击，container有onClick事件，而且widget也有点击效果但没onClick事件。
+
+
+----------分割线----------
+子控件Click事件对父控件Touch事件的影响
+如果是从子控件点下去，然后进行滑动，那么滑出子控件的范围，继续在父控件滑动，也不会有父控件的滑动事件。

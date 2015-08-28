@@ -110,7 +110,7 @@ public class MainActivity extends Activity {
         groups.add(groupAndroid);
 
         Group groupList = new Group("ListView", new ArrayList<Child>());
-        groupList.getChildren().add(new Child("简单ListView", SimpleListViewActivity.class));
+        groupList.getChildren().add(new Child("ListView - ScrollListener", SimpleListViewActivity.class));
         groupList.getChildren().add(new Child("可上拉下拉ListView", MyListViewActivity.class));
         groupList.getChildren().add(new Child("分类ListView1-手机相关信息", Classify1Activity.class));
         groupList.getChildren().add(new Child("分类ListView2-手机相关信息", Classify2Activity.class));

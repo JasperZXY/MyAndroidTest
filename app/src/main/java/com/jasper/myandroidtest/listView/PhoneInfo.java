@@ -32,6 +32,7 @@ public class PhoneInfo {
     public List<IItem> getData(Activity activity) {
         List<IItem> items = new ArrayList<>();
         getPhoneInfo(activity, items);
+        getAppInfo(activity, items);
         getScreenInfo(activity, items);
         getMemoryInfo(activity, items);
         getStorageInfo(activity, items);
@@ -45,13 +46,21 @@ public class PhoneInfo {
         items.add(new ContentItem("手机型号", android.os.Build.MODEL));
         items.add(new ContentItem("SDK版本", android.os.Build.VERSION.SDK));
         items.add(new ContentItem("系统版本", android.os.Build.VERSION.RELEASE));
+    }
+
+    private void getAppInfo(Activity activity, List<IItem> items) {
+        items.add(new GroupItem("当前App信息"));
         try {
             PackageManager packageManager = activity.getPackageManager();
-            PackageInfo packageInfo = packageManager.getPackageInfo("com.jasper.myandroidtest", 0);
-            items.add(new ContentItem("本软件版本", packageInfo.versionName));
+            PackageInfo packageInfo = packageManager.getPackageInfo(activity.getPackageName(), 0);
+            items.add(new ContentItem("版本", packageInfo.versionName));
         } catch (Exception e) {
             e.printStackTrace();
         }
+        items.add(new ContentItem("maxMemory", Formatter.formatFileSize(activity, Runtime.getRuntime().maxMemory())));
+        items.add(new ContentItem("totalMemory", Formatter.formatFileSize(activity, Runtime.getRuntime().totalMemory())));
+        items.add(new ContentItem("freeMemory", Formatter.formatFileSize(activity, Runtime.getRuntime().freeMemory())));
+        items.add(new ContentItem("可用进程数", Integer.toString(Runtime.getRuntime().availableProcessors())));
     }
 
     private void getScreenInfo(Activity activity, List<IItem> items) {
@@ -184,7 +193,5 @@ public class PhoneInfo {
         items.add(new ContentItem("唯一的用户ID", tm.getSubscriberId()));
         items.add(new ContentItem("漫游", tm.isNetworkRoaming() ? "是" : "否"));
     }
-
-
 
 }

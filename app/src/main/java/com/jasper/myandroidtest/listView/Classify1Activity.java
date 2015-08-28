@@ -12,7 +12,7 @@ public class Classify1Activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phone_info);
+        setContentView(R.layout.activity_classify1);
 
         new PhoneInfo().getData(this);
         ListView listView = (ListView) findViewById(R.id.listView);

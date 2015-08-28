@@ -104,6 +104,26 @@
             android:text="普通子控件" />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="子控件Click事件对父控件Touch事件的影响" />
+
+    <LinearLayout
+        android:id="@+id/layout_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_btn"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_child"
+            style="@style/my_button"
+            android:layout_margin="10dp"
+            android:text="普通子控件" />
+    </LinearLayout>
+
     <EditText
         android:id="@+id/et_log"
         style="@style/my_edittext_log"

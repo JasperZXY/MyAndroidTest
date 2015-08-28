@@ -86,6 +86,29 @@ public class TouchClickActivity extends Activity {
                 btnLayout.setClickable(isChecked);
             }
         });
+
+        findViewById(R.id.btn_child).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                appendLog("Button", "click");
+            }
+        });
+        findViewById(R.id.layout_parent).setClickable(true);
+        findViewById(R.id.layout_parent).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    appendLog("Layout", "down");
+                }
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    appendLog("Layout", "up");
+                }
+                if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                    appendLog("Layout", "move");
+                }
+                return false;
+            }
+        });
     }
 
     private class TouchListener implements View.OnTouchListener {

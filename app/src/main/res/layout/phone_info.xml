@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:background="@color/blue_light"
         android:textSize="20sp"
-        android:padding="2dp"
-        android:layout_marginTop="2dp"
-        android:background="@android:color/darker_gray" />
+        android:textColor="@color/white"
+        android:padding="3dp" />
 
     <LinearLayout
         android:id="@+id/layout_content"
