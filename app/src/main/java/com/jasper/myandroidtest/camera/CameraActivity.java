@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.hardware.Camera;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -71,15 +73,44 @@ public class CameraActivity extends Activity implements View.OnClickListener {
         return getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA);
     }
 
+    /**
+     * 摄像头的状态
+     * @return
+     */
+    private String testCamera() {
+        if (! checkCameraHardware()) {
+            return "无摄像头设备";
+        }
+        Camera camera = null;
+        String msg = "";
+        try {
+            camera = Camera.open();
+        } catch (Exception e) {
+            //一般情况下是摄像头被占用
+            msg = e.getLocalizedMessage();
+        } finally {
+            if (camera == null) {
+                msg = "没权限";
+            } else {
+                camera.release();
+                msg = "有权限";
+            }
+        }
+        return msg;
+    }
+
+    private String testAudio() {
+        return "";
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_camera_test:
-                if (checkCameraHardware()) {
-                    Toast.makeText(this, "支持摄像头", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, "不支持摄像头", Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(this, testCamera(), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btn_audio_test:
+                Toast.makeText(this, testAudio(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_intent_photo:
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
