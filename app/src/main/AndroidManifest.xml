@@ -332,6 +332,10 @@
             android:name=".layout.CoordinateActivity"
             android:label="@string/title_activity_coordinate" >
         </activity>
+        <activity
+            android:name=".listView.ScrollListViewActivity"
+            android:label="@string/title_activity_scroll_list_view" >
+        </activity>
     </application>
 
 </manifest>

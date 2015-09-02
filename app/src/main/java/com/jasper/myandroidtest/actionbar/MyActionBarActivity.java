@@ -36,7 +36,6 @@ import java.lang.reflect.Method;
  */
 public class MyActionBarActivity extends Activity {
     private static final String TAG = "MyActionBarActivity";
-    private Context context;
     private FragmentPage01 fragment01 = new FragmentPage01();
     private FragmentPage02 fragment02 = new FragmentPage02();
     private boolean isSwitch = true;
@@ -45,7 +44,6 @@ public class MyActionBarActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_action_bar);
-        context = this;
 
         ActionBar actionBar = getActionBar();
         //ActionBar图标设置

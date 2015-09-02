@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ScrollView;
 
+import com.jasper.myandroidtest.R;
+
 /**
  * FlowLayout 使用
  */
@@ -26,6 +28,7 @@ public class FlowLayoutActivity extends Activity {
         }
 
         ScrollView scrollView = new ScrollView(this);
+        scrollView.setBackgroundResource(R.drawable.bg);
         scrollView.addView(layout);
         setContentView(scrollView);
     }

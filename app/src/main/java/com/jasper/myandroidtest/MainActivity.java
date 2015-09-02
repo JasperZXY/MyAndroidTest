@@ -31,6 +31,7 @@ import com.jasper.myandroidtest.layout.MarginPaddingActivity;
 import com.jasper.myandroidtest.listView.Classify1Activity;
 import com.jasper.myandroidtest.listView.Classify2Activity;
 import com.jasper.myandroidtest.listView.MyListViewActivity;
+import com.jasper.myandroidtest.listView.ScrollListViewActivity;
 import com.jasper.myandroidtest.listView.SimpleListViewActivity;
 import com.jasper.myandroidtest.effect.animator.AnimatorActivity;
 import com.jasper.myandroidtest.other.AsyncTaskActivity;
@@ -110,7 +111,8 @@ public class MainActivity extends Activity {
         groups.add(groupAndroid);
 
         Group groupList = new Group("ListView", new ArrayList<Child>());
-        groupList.getChildren().add(new Child("ListView - ScrollListener", SimpleListViewActivity.class));
+        groupList.getChildren().add(new Child("简单的ListView", SimpleListViewActivity.class));
+        groupList.getChildren().add(new Child(getString(R.string.title_activity_scroll_list_view), ScrollListViewActivity.class));
         groupList.getChildren().add(new Child("可上拉下拉ListView", MyListViewActivity.class));
         groupList.getChildren().add(new Child("分类ListView1-手机相关信息", Classify1Activity.class));
         groupList.getChildren().add(new Child("分类ListView2-手机相关信息", Classify2Activity.class));

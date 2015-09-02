@@ -12,12 +12,6 @@
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"></ListView>
-    <EditText
-        android:id="@+id/et_log"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        style="@style/my_edittext_log"/>
+        android:scrollbarThumbVertical="@drawable/my_transparent_bg"></ListView>
 
 </LinearLayout>

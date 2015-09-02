@@ -96,5 +96,6 @@
     <string name="title_activity_broadcast_receiver">BroadcastReceiver</string>
     <string name="title_activity_edit_text">EditText</string>
     <string name="title_activity_coordinate">动态确定坐标</string>
+    <string name="title_activity_scroll_list_view">滚动的ListView</string>
 
 </resources>

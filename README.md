@@ -150,3 +150,7 @@
 1. BroadcastReceiver学习例子
 2. EditText
 
+
+## 2015-09-02
+1. 所有的界面进行美化，统一风格
+

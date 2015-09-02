@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/bg" >
 
     <TextView
         android:id="@+id/textView01"
@@ -17,7 +19,8 @@
 
     <Button
         android:id="@+id/button03"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/my_button"
         android:text="更新progressbar" />
 </LinearLayout>

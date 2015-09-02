@@ -3,6 +3,8 @@
     <dimen name="activity_horizontal_margin">8dp</dimen>
     <dimen name="activity_vertical_margin">8dp</dimen>
 
+    <dimen name="activity_padding">8dp</dimen>
+
     <!--activity_image_view.xml-->
     <dimen name="image_view_width">80dp</dimen>
     <dimen name="image_view_height">60dp</dimen>
