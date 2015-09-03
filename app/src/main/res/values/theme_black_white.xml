@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--理论上这个应该定义在attrs.xml文件里面-->
+    <!--自定义属性-->
+    <attr name="styleBackground" format="color"></attr>
+
+    <!--理论上下面的属性应该定义在style.xml文件中-->
+    <!--用于主题的切换，一个是自定义属性，一个是系统属性-->
+    <style name="BlackBackgroundWhiteWordTheme" parent="android:style/Theme.Holo">
+        <item name="styleBackground">#333</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="WhiteBackgroundBlackWordTheme" parent="android:style/Theme.Holo.Light">
+        <item name="styleBackground">@color/white</item>
+        <item name="android:textColor">#333</item>
+    </style>
+</resources>

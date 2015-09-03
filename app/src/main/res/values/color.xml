@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#000</color>
+    <color name="black_light">#333</color>
     <color name="white">#fff</color>
     <color name="gray_dark">#aaa</color>
     <color name="gray_light">#ddd</color>
@@ -8,6 +9,8 @@
     <color name="silver">#E6E8FA</color>
 
     <color name="top_color">#17B3ED</color>
+    <color name="setting_item_press_color">#ccc</color>
+    <color name="setting_bg">#ddd</color>
 
     <color name="actionsheet_blue">#037BFF</color>
     <color name="actionsheet_red">#FD4A2E</color>

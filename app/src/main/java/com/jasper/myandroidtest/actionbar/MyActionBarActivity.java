@@ -72,6 +72,7 @@ public class MyActionBarActivity extends Activity {
         actionBar.setListNavigationCallbacks(arrayAdapter, mOnNavigationListener);
     }
 
+    //与ActionBar的返回键结合使用
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Nullable
     @Override

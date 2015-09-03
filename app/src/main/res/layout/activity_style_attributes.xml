@@ -1,0 +1,20 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_padding"
+    android:orientation="vertical"
+    android:background="?styleBackground"
+    tools:context="com.jasper.myandroidtest.other.StyleAttributesActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="
+        通过修改主题来实现修改样式，一个是背景，一个是字体颜色。\n
+        背景用的是自定义属性来实现，字体颜色用系统属性实现，如果是系统属性，可以不用在控件上设置，如不需要在TextView上设置textColor。\n
+        ActionBar的处理比较麻烦，现在的处理还是比较粗糙，只是换了一下ActionBar的样式。"
+        android:textColor="?android:textColor"/>
+
+</LinearLayout>

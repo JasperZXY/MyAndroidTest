@@ -36,9 +36,10 @@
             android:name="android.app.default_searchable"
             android:value=".SearchResultActivity" />
 
-        <activity android:name="com.jasper.myandroidtest.MainActivity" >
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -334,6 +335,14 @@
         <activity
             android:name=".listView.ScrollListViewActivity"
             android:label="@string/title_activity_scroll_list_view" >
+        </activity>
+        <activity
+            android:name=".other.StyleAttributesActivity"
+            android:label="@string/title_activity_style_attributes" >
+        </activity>
+        <activity
+            android:name=".other.SettingsActivity"
+            android:label="@string/title_activity_settings" >
         </activity>
     </application>
 

@@ -43,6 +43,8 @@ import com.jasper.myandroidtest.other.PermissionActivity;
 import com.jasper.myandroidtest.effect.SoftInputModeChooseActivity;
 import com.jasper.myandroidtest.effect.TouchClickActivity;
 import com.jasper.myandroidtest.other.ScreenActivity;
+import com.jasper.myandroidtest.other.SettingsActivity;
+import com.jasper.myandroidtest.other.StyleAttributesActivity;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
 import com.jasper.myandroidtest.service.BinderServiceActivity;
@@ -171,12 +173,14 @@ public class MainActivity extends Activity {
         groups.add(groupCV);
 
         Group groupOther = new Group("其他", new ArrayList<Child>());
-        groupImage.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
+        groupOther.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
+        groupOther.getChildren().add(new Child(getString(R.string.title_activity_style_attributes), StyleAttributesActivity.class));
         groupOther.getChildren().add(new Child("异步任务", AsyncTaskActivity.class));
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
         groupOther.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
         groupOther.getChildren().add(new Child("CursorLoader", CursorLoaderActivity.class));
         groupOther.getChildren().add(new Child(getString(R.string.title_activity_screen), ScreenActivity.class));
+        groupOther.getChildren().add(new Child(getString(R.string.title_activity_settings), SettingsActivity.class));
         groups.add(groupOther);
 
         return groups;
