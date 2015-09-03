@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.image;
+package com.jasper.myandroidtest.other;
 
 import android.app.Activity;
 import android.os.Bundle;

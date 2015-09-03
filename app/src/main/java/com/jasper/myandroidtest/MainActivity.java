@@ -37,6 +37,7 @@ import com.jasper.myandroidtest.effect.animator.AnimatorActivity;
 import com.jasper.myandroidtest.other.AsyncTaskActivity;
 import com.jasper.myandroidtest.other.BroadcastReceiverActivity;
 import com.jasper.myandroidtest.other.CursorLoaderActivity;
+import com.jasper.myandroidtest.other.DrawableActivity;
 import com.jasper.myandroidtest.other.MenuActivity;
 import com.jasper.myandroidtest.other.PermissionActivity;
 import com.jasper.myandroidtest.effect.SoftInputModeChooseActivity;
@@ -85,7 +86,6 @@ public class MainActivity extends Activity {
         elv.setGroupIndicator(null);
         elv.setAdapter(new MainAdapter(this, getData(), density));
         elv.setOverScrollMode(ExpandableListView.OVER_SCROLL_NEVER);
-
     }
 
     @Override
@@ -144,7 +144,6 @@ public class MainActivity extends Activity {
         groupImage.getChildren().add(new Child(getString(R.string.title_activity_image_view_different_dpi), ImageViewDifferentDPIActivity.class));
         groupImage.getChildren().add(new Child("图片-矩阵变化", MatrixActivity.class));
         groupImage.getChildren().add(new Child("BitmapCache使用", BitmapCacheActivity.class));
-        groupImage.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
         groupImage.getChildren().add(new Child("GifView（第三方库）", GifViewActivity.class));
         groups.add(groupImage);
 
@@ -172,6 +171,7 @@ public class MainActivity extends Activity {
         groups.add(groupCV);
 
         Group groupOther = new Group("其他", new ArrayList<Child>());
+        groupImage.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
         groupOther.getChildren().add(new Child("异步任务", AsyncTaskActivity.class));
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
         groupOther.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));

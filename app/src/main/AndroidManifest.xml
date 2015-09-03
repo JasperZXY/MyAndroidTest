@@ -36,10 +36,9 @@
             android:name="android.app.default_searchable"
             android:value=".SearchResultActivity" />
 
-        <activity android:name=".MainActivity" >
+        <activity android:name="com.jasper.myandroidtest.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -175,7 +174,7 @@
             android:label="@string/title_activity_flow_layout" >
         </activity>
         <activity
-            android:name=".image.DrawableActivity"
+            android:name=".other.DrawableActivity"
             android:label="@string/title_activity_drawable" >
         </activity>
         <activity
