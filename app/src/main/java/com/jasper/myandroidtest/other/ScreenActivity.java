@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.jasper.myandroidtest.R;
@@ -61,6 +62,10 @@ public class ScreenActivity extends Activity {
             button.setBackgroundResource(R.drawable.my_btn);
             viewGroup.addView(button, 0);
         }
+
+        TextView textView = new TextView(this);
+        textView.setText("这个功能要API 19以上才支持，即Android4.4");
+        viewGroup.addView(textView, 0);
 
     }
 

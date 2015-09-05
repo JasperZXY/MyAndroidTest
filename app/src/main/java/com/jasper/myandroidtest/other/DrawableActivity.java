@@ -1,7 +1,9 @@
 package com.jasper.myandroidtest.other;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.jasper.myandroidtest.R;
 
@@ -10,10 +12,19 @@ import com.jasper.myandroidtest.R;
  */
 public class DrawableActivity extends Activity {
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawable);
+
+        ((ImageView)findViewById(R.id.iv_level_max_0)).setImageLevel(0);
+        ((ImageView)findViewById(R.id.iv_level_max_2)).setImageLevel(2);
+        ((ImageView)findViewById(R.id.iv_level_max_6)).setImageLevel(6);
+
+        ((ImageView)findViewById(R.id.iv_level_min_0)).setImageLevel(0);
+        ((ImageView)findViewById(R.id.iv_level_min_3)).setImageLevel(3);
+        ((ImageView)findViewById(R.id.iv_level_min_5)).setImageLevel(5);
     }
 
 }

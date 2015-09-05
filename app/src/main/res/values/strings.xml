@@ -99,5 +99,12 @@
     <string name="title_activity_scroll_list_view">滚动的ListView</string>
     <string name="title_activity_style_attributes">Style Attributes</string>
     <string name="title_activity_settings">设置</string>
+    <string name="title_activity_string">字符串资源</string>
+    <plurals name="test_plurals">
+        <item quantity="one">%d song found.</item>
+        <item quantity="other">%d songs found.</item>
+    </plurals>
+    <string name="test_format">This is %1$s.</string>
+    <string name="test_html">Hello, %1$s! You have &lt;b>%2$d new messages&lt;/b>.</string>
 
 </resources>
