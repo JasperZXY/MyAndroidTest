@@ -61,6 +61,7 @@ import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
 import com.jasper.myandroidtest.effect.DragViewActivity;
 import com.jasper.myandroidtest.view.EditTextActivity;
+import com.jasper.myandroidtest.view.TextViewActivity;
 import com.jasper.myandroidtest.view.WebViewActivity;
 import com.jasper.myandroidtest.view.GridViewActivity;
 import com.jasper.myandroidtest.image.*;
@@ -140,6 +141,7 @@ public class MainActivity extends Activity {
         groupView.getChildren().add(new Child("GridView", GridViewActivity.class));
         groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
         groupView.getChildren().add(new Child("EditText", EditTextActivity.class));
+        groupView.getChildren().add(new Child("TextView", TextViewActivity.class));
         groups.add(groupView);
 
         Group groupImage = new Group("Image", new ArrayList<Child>());
@@ -192,7 +194,7 @@ public class MainActivity extends Activity {
         private Class activityClass;
         private String name;
 
-        public Child(String name, Class activityClass) {
+        public Child(String name, Class<? extends Activity> activityClass) {
             this.name = name;
             this.activityClass = activityClass;
         }

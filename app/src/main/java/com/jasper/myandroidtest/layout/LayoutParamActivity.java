@@ -20,6 +20,13 @@ public class LayoutParamActivity extends Activity {
         ImageView iv1 = (ImageView) findViewById(R.id.iv_1);
         ImageView iv2 = (ImageView) findViewById(R.id.iv_2);
         ImageView iv3 = (ImageView) findViewById(R.id.iv_3);
+        /**
+         * 这里这么写不是万能的，有时会失败，在其他项目遇到过。
+         * 用下面这种方式好一点，避免出错
+         * ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) iv1.getLayoutParams();
+         * marginLayoutParams.height = inputHeight;
+         * iv1.setLayoutParams(marginLayoutParams);
+         */
         iv1.getLayoutParams().width = 120;
         iv1.getLayoutParams().height = 120;
         iv2.getLayoutParams().width = 120;

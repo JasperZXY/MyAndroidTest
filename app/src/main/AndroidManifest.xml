@@ -348,6 +348,10 @@
             android:name=".other.StringActivity"
             android:label="@string/title_activity_string" >
         </activity>
+        <activity
+            android:name=".view.TextViewActivity"
+            android:label="@string/title_activity_text_view" >
+        </activity>
     </application>
 
 </manifest>
