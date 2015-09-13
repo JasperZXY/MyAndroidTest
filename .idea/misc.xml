@@ -3,15 +3,6 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="localRepository" value="F:\tool\m2\repository" />
-        <option name="mavenHome" value="F:/tool/apache-maven-3.1.1" />
-        <option name="userSettingsFile" value="F:\tool\m2\settings.xml" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
     <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />

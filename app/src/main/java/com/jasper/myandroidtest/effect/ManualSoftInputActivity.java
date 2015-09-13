@@ -3,23 +3,22 @@ package com.jasper.myandroidtest.effect;
 import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import com.jasper.myandroidtest.R;
 
 /**
- * 手动控制软键盘的显示，软键盘显示时，让输入框能够推上去。
+ * 手动控制软键盘的显示，软键盘显示时，让输入框能够能够缩小，输入框以下部分能够推上去。
  * 如果单纯用SOFT_INPUT_ADJUST_PAN，那么是整个页面都会被推上去。
- * TODO 以前还可以用的，最近在魅族上测试不通过
  */
 public class ManualSoftInputActivity extends Activity {
     public static final String TAG = "ManualSoftInputActivity";
     private EditText et;
-    private ViewGroup layout;
+    private RelativeLayout layout;
     private int etHeight = 0;
 
     @Override
@@ -30,21 +29,23 @@ public class ManualSoftInputActivity extends Activity {
         //除了SOFT_INPUT_ADJUST_NOTHING都可以
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         et = (EditText) findViewById(R.id.et);
-        layout = (ViewGroup) findViewById(R.id.layout);
+        /**
+         * 注意这里的布局，layout必须要为RelativeLayout才能成功，
+         * layout里面先画其他的，然后再画EditText，让EditText在其他控件上面即可
+         */
+        layout = (RelativeLayout) findViewById(R.id.layout);
         controlKeyboardLayout();
-//        ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) et.getLayoutParams();
-//        layoutParams.height = 511;
-//        et.setLayoutParams(layoutParams);
     }
 
-    /**
-     * 当软键盘出现时，Layout能跟着软键盘推上去
-     */
     private void controlKeyboardLayout() {
+        //由于需要final，这里用数组
+        final boolean[] isShowKeyboard = {false};
+
         layout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 if (etHeight <= 0) {
+                    //计算输入框的高度
                     etHeight = et.getHeight();
                     return;
                 }
@@ -56,16 +57,22 @@ public class ManualSoftInputActivity extends Activity {
                 ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) et.getLayoutParams();
                 //若不可视区域高度大于100，则键盘显示
                 if (viewInvisibleHeight > 100) {
-                    layout.scrollTo(0, viewInvisibleHeight);
-                    layoutParams.height = etHeight - viewInvisibleHeight;
-                    et.setLayoutParams(layoutParams);
-//                    Log.e("xxx", "1 height:" + (etHeight - viewInvisibleHeight));
+                    //这里一定要加判断，不然输入框在输入回车后，输入框无法回车跟进
+                    if (! isShowKeyboard[0]) {
+                        layout.scrollTo(0, viewInvisibleHeight);
+                        layoutParams.height = etHeight - viewInvisibleHeight;
+                        et.setLayoutParams(layoutParams);
+                    }
+                    isShowKeyboard[0] = true;
                 } else {
                     //键盘隐藏
-                    layout.scrollTo(0, 0);
-                    layoutParams.height = etHeight;
-                    et.setLayoutParams(layoutParams);
-//                    Log.e("xxx", "2 height:" + etHeight);
+                    //这里一定要加判断，不然输入框的内容无法显示完
+                    if (isShowKeyboard[0]) {
+                        layout.scrollTo(0, 0);
+                        layoutParams.height = etHeight;
+                        et.setLayoutParams(layoutParams);
+                    }
+                    isShowKeyboard[0] = false;
                 }
             }
         });
