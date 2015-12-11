@@ -30,3 +30,7 @@ view.getViewTreeObserver().addOnGlobalLayoutListener(
             int height = view.getHeight();
         }
     });
+
+6. 9png制作问题
+上边界和左边界的划线是负责拉伸扩展的，而下边界和右边界划线则是内容区域。
+所以 .9 图不允许右侧和下边界有两条划线，而左边界和上边界则没有问题。

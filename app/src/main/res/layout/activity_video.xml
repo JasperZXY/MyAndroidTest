@@ -20,6 +20,31 @@
         android:layout_height="wrap_content"
         style="@style/my_button"
         android:text="选择视频文件"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical">
+        <EditText
+            android:id="@+id/et_file"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/my_transparent_bg"
+            android:padding="3px"
+            android:lines="2" />
+        <Button
+            android:id="@+id/btn_et_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/my_button"
+            android:text="清除"/>
+        <Button
+            android:id="@+id/btn_et_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/my_button"
+            android:text="确定"/>
+    </LinearLayout>
     <TextView
         android:id="@+id/tv_file"
         android:layout_width="wrap_content"
