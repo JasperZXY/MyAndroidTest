@@ -107,5 +107,6 @@
     <string name="test_format">This is %1$s.</string>
     <string name="test_html">Hello, %1$s! You have &lt;b>%2$d new messages&lt;/b>.</string>
     <string name="title_activity_text_view">TextView</string>
+    <string name="title_activity_view">View</string>
 
 </resources>

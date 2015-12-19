@@ -68,4 +68,22 @@
         android:hint="字符长度5"
         android:ems="5"/>
 
+    <EditText
+        android:id="@+id/et_action_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        style="@style/my_edittext_single_line"
+        android:imeOptions="actionSend"
+        android:imeActionLabel="发送"
+        android:hint="自定义操作按钮标签"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/actv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        style="@style/my_edittext_single_line"
+        android:hint="自动提示输入框：万能应用"/>
+
 </LinearLayout>

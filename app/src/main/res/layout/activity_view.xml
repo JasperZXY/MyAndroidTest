@@ -1,0 +1,45 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context="com.jasper.myandroidtest.view.ViewActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="还需深入理解getMeasuredWidth与getWidth"/>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        style="@style/my_button"
+        android:text="获取数据"/>
+
+    <FrameLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@color/blue_light">
+        <View
+            android:id="@+id/view"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:padding="10dp"
+            android:layout_margin="20dp"
+            android:background="@color/gray_light" />
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/et_log"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        style="@style/my_edittext_log"
+        android:text="LOG"/>
+
+</LinearLayout>

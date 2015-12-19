@@ -352,6 +352,10 @@
             android:name=".view.TextViewActivity"
             android:label="@string/title_activity_text_view" >
         </activity>
+        <activity
+            android:name=".view.ViewActivity"
+            android:label="@string/title_activity_view" >
+        </activity>
     </application>
 
 </manifest>

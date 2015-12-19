@@ -62,6 +62,7 @@ import com.jasper.myandroidtest.video.VideoActivity;
 import com.jasper.myandroidtest.effect.DragViewActivity;
 import com.jasper.myandroidtest.view.EditTextActivity;
 import com.jasper.myandroidtest.view.TextViewActivity;
+import com.jasper.myandroidtest.view.ViewActivity;
 import com.jasper.myandroidtest.view.WebViewActivity;
 import com.jasper.myandroidtest.view.GridViewActivity;
 import com.jasper.myandroidtest.image.*;
@@ -138,6 +139,7 @@ public class MainActivity extends Activity {
         groups.add(groupLayout);
 
         Group groupView = new Group("View", new ArrayList<Child>());
+        groupView.getChildren().add(new Child("View", ViewActivity.class));
         groupView.getChildren().add(new Child("GridView", GridViewActivity.class));
         groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
         groupView.getChildren().add(new Child("EditText", EditTextActivity.class));
