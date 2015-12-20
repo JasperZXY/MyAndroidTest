@@ -16,6 +16,7 @@ import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.jasper.myandroidtest.actionbar.ActionProviderActivity;
 import com.jasper.myandroidtest.actionbar.MyActionBarActivity;
 import com.jasper.myandroidtest.activity.SimpleActivity;
 import com.jasper.myandroidtest.camera.CameraActivity;
@@ -163,6 +164,7 @@ public class MainActivity extends Activity {
 
         Group groupAMD = new Group("AMD", new ArrayList<Child>());
         groupAMD.getChildren().add(new Child("ActionBar", MyActionBarActivity.class));
+        groupAMD.getChildren().add(new Child("ActionBar Action Provider", ActionProviderActivity.class));
         groupAMD.getChildren().add(new Child("Menu", MenuActivity.class));
         groupAMD.getChildren().add(new Child("Dialog", DialogActivity.class));
         groups.add(groupAMD);

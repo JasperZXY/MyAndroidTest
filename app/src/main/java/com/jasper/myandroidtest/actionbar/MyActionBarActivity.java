@@ -38,7 +38,7 @@ public class MyActionBarActivity extends Activity {
     private static final String TAG = "MyActionBarActivity";
     private FragmentPage01 fragment01 = new FragmentPage01();
     private FragmentPage02 fragment02 = new FragmentPage02();
-    private boolean isSwitch = true;
+    private boolean isTab = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,19 +56,19 @@ public class MyActionBarActivity extends Activity {
         //实现Tabs
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         ActionBar.Tab tab = actionBar.newTab()
-                .setText("Fragment01")
+                .setText("Page01")
                 .setTabListener(new MyTabListener(fragment01));
         actionBar.addTab(tab);
         tab = actionBar.newTab()
-                .setText("Fragment02")
+                .setText("Page02")
                 .setTabListener(new MyTabListener(fragment02));
         actionBar.addTab(tab);
 
         //实现下拉菜单
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1);
-        arrayAdapter.add("Fragment01");
-        arrayAdapter.add("Fragment02");
+        arrayAdapter.add("Page01");
+        arrayAdapter.add("Page02");
         actionBar.setListNavigationCallbacks(arrayAdapter, mOnNavigationListener);
     }
 
@@ -133,12 +133,12 @@ public class MyActionBarActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_switch:
-                if (isSwitch) {
+                isTab = !isTab;
+                if (isTab) {
                     getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
                 } else {
                     getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
                 }
-                isSwitch = !isSwitch;
                 break;
             case R.id.item_search:
                 break;

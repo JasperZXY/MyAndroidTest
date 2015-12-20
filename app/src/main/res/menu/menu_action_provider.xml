@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.jasper.myandroidtest.actionbar.ActionProviderActivity">
+
+    <item
+        android:id="@+id/share_system"
+        android:orderInCategory="100"
+        android:title="系统分享"
+        android:actionProviderClass="android.widget.ShareActionProvider"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/share_custom"
+        android:orderInCategory="100"
+        android:title="自定义分享"
+        android:actionProviderClass="com.jasper.myandroidtest.actionbar.MyActionProvider"
+        app:showAsAction="ifRoom"/>
+</menu>

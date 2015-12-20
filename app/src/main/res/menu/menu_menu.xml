@@ -1,11 +1,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.jasper.myandroidtest.other.MenuActivity">
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.jasper.myandroidtest.other.MenuActivity">
     <item
         android:id="@+id/action_settings"
-        android:title="@string/action_settings" />
-    <item
-        android:title="item1" />
-    <item
-        android:title="item2" />
+        android:title="@string/action_settings"/>
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/menu_item1"
+            android:title="item1"/>
+        <item
+            android:id="@+id/menu_item2"
+            android:title="item2"/>
+        <item
+            android:id="@+id/menu_item3"
+            android:title="item3"/>
+    </group>
 </menu>

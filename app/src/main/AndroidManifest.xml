@@ -356,6 +356,10 @@
             android:name=".view.ViewActivity"
             android:label="@string/title_activity_view" >
         </activity>
+        <activity
+            android:name=".actionbar.ActionProviderActivity"
+            android:label="@string/title_activity_action_provider" >
+        </activity>
     </application>
 
 </manifest>

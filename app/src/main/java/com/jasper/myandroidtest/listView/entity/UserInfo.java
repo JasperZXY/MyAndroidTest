@@ -6,7 +6,6 @@ package com.jasper.myandroidtest.listView.entity;
 public class UserInfo {
     private String name;
     private String phone;
-    private String head;
 
     public String getName() {
         return name;
@@ -24,11 +23,4 @@ public class UserInfo {
         this.phone = phone;
     }
 
-    public String getHead() {
-        return head;
-    }
-
-    public void setHead(String head) {
-        this.head = head;
-    }
 }

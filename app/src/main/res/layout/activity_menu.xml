@@ -8,13 +8,6 @@
     android:background="@drawable/bg"
     tools:context="com.jasper.myandroidtest.other.MenuActivity">
 
-    <TextView
-        android:id="@+id/tv_context"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ContextMenu"
-        android:paddingBottom="20dp"/>
-
     <Button
         android:id="@+id/btn_popup"
         android:layout_width="wrap_content"
@@ -22,5 +15,33 @@
         style="@style/my_button"
         android:text="PopupMenu"
         android:paddingBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Context Menu"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"/>
+
+    <ListView
+        android:id="@+id/listView_context"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></ListView>
+
+    <TextView
+        android:id="@+id/tv_action_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contextual Action Mode"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"/>
+
+    <ListView
+        android:id="@+id/listView_action_mode"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></ListView>
 
 </LinearLayout>

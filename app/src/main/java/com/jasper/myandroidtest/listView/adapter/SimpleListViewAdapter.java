@@ -29,16 +29,21 @@ public class SimpleListViewAdapter extends BaseAdapter {
     private List<UserInfo> users;
 
     public SimpleListViewAdapter(Context context) {
-        this.context = context;
-        mInflater = LayoutInflater.from(context);
         users = new ArrayList<>();
         for (int i=0; i<50; i++) {
             UserInfo userInfo = new UserInfo();
-            userInfo.setHead("");
             userInfo.setName("名字" + i);
             userInfo.setPhone("135" + (int) (Math.random() * 1e8));
             users.add(userInfo);
         }
+        this.context = context;
+        mInflater = LayoutInflater.from(context);
+    }
+
+    public SimpleListViewAdapter(Context context, List<UserInfo> users) {
+        this.context = context;
+        mInflater = LayoutInflater.from(context);
+        this.users = users;
     }
 
     @Override
@@ -71,11 +76,7 @@ public class SimpleListViewAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        if (info.getHead() == null || info.getHead() == "") {
-            holder.head.setImageResource(R.drawable.android);
-        } else {
-            //加载本地或网络图片
-        }
+        holder.head.setImageResource(R.drawable.android);
         holder.name.setText(info.getName());
         holder.phone.setText(info.getPhone());
         return convertView;
