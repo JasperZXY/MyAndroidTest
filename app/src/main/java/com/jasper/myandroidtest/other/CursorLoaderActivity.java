@@ -75,6 +75,7 @@ public class CursorLoaderActivity extends Activity {
             item.setActionView(sv);
         }
 
+        @Override
         public boolean onQueryTextChange(String newText) {
             // Called when the action bar search text has changed.  Update
             // the search filter, and restart the loader to do a new query

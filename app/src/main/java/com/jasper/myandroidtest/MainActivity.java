@@ -162,7 +162,7 @@ public class MainActivity extends Activity {
         groupEffect.getChildren().add(new Child("动画", AnimatorActivity.class));
         groups.add(groupEffect);
 
-        Group groupAMD = new Group("AMD", new ArrayList<Child>());
+        Group groupAMD = new Group("ActionBar、Menu、Dialog", new ArrayList<Child>());
         groupAMD.getChildren().add(new Child("ActionBar", MyActionBarActivity.class));
         groupAMD.getChildren().add(new Child("ActionBar Action Provider", ActionProviderActivity.class));
         groupAMD.getChildren().add(new Child("Menu", MenuActivity.class));

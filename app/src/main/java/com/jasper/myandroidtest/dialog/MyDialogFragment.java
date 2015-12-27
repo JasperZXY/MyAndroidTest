@@ -7,11 +7,14 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,6 +22,8 @@ import com.jasper.myandroidtest.R;
 
 /**
  * 至少需要实现onCreateView或者onCreateDIalog方法
+ *
+ * 解决DialogFragment宽度无法自定义的问题，需要在onResume中进行设置才可以，但还是有边框距离
  */
 public class MyDialogFragment extends DialogFragment implements View.OnClickListener {
     private static final String TAG = MyDialogFragment.class.getSimpleName();
@@ -43,6 +48,18 @@ public class MyDialogFragment extends DialogFragment implements View.OnClickList
         View view = inflater.inflate(R.layout.dialog_login, container, false);
         init(view);
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Window dialogWindow = getDialog().getWindow();
+        WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.horizontalMargin = 0;
+        lp.alpha = 0.7f;
+        dialogWindow.setGravity(Gravity.CENTER);
+        dialogWindow.setAttributes(lp);
     }
 
 //    @Override

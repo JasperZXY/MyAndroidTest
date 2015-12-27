@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -97,6 +98,10 @@ public class DialogActivity extends Activity implements OnLoginListener, View.On
                         .setView(view);
                 final AlertDialog dialog6 = builder6.create();
                 dialog6.show();
+                WindowManager.LayoutParams params = dialog6.getWindow().getAttributes();
+                params.width = WindowManager.LayoutParams.MATCH_PARENT;
+                dialog6.getWindow().setAttributes(params);
+                dialog6.setView(view, 0, 0, 0, 0);
                 view.findViewById(R.id.btn_cancel).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
