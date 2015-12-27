@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.other;
+package com.jasper.myandroidtest.ui;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -111,7 +111,7 @@
             android:label="@string/title_activity_image_view_scale_type" >
         </activity>
         <activity
-            android:name=".other.MenuActivity"
+            android:name=".ui.MenuActivity"
             android:label="@string/title_activity_menu" >
         </activity>
         <activity
@@ -359,6 +359,17 @@
         <activity
             android:name=".actionbar.ActionProviderActivity"
             android:label="@string/title_activity_action_provider" >
+        </activity>
+        <activity
+            android:name=".ui.notification.NotificationActivity"
+            android:label="@string/title_activity_notification">
+        </activity>
+        <activity
+            android:name=".ui.notification.NotificationResultActivity"
+            android:label="@string/title_activity_notification_result"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:excludeFromRecents="true">
         </activity>
     </application>
 

@@ -164,5 +164,7 @@
 
 
 ## 2015-12-27
-1. 解决DialogFragment宽度无法自定义的问题，需要在onResume中进行设置才可以，但还是有边框距离。
+1. 解决DialogFragment宽度无法自定义的问题，需要在onResume中进行设置才可以，但还是有边框距离
+2. notification例子：添加显示、删除监听、自定义布局、Progress显示删除与线程停止
+3. 应用内红点
 

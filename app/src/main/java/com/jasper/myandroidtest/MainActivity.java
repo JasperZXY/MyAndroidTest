@@ -39,7 +39,7 @@ import com.jasper.myandroidtest.other.AsyncTaskActivity;
 import com.jasper.myandroidtest.other.BroadcastReceiverActivity;
 import com.jasper.myandroidtest.other.CursorLoaderActivity;
 import com.jasper.myandroidtest.other.DrawableActivity;
-import com.jasper.myandroidtest.other.MenuActivity;
+import com.jasper.myandroidtest.ui.MenuActivity;
 import com.jasper.myandroidtest.other.PermissionActivity;
 import com.jasper.myandroidtest.effect.SoftInputModeChooseActivity;
 import com.jasper.myandroidtest.effect.TouchClickActivity;
@@ -58,6 +58,7 @@ import com.jasper.myandroidtest.tabhost.Tabs1Activity;
 import com.jasper.myandroidtest.tabhost.Tabs2Activity;
 import com.jasper.myandroidtest.tabhost.Tabs3Activity;
 import com.jasper.myandroidtest.tabhost.Tabs4Activity;
+import com.jasper.myandroidtest.ui.notification.NotificationActivity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
 import com.jasper.myandroidtest.effect.DragViewActivity;
@@ -162,11 +163,12 @@ public class MainActivity extends Activity {
         groupEffect.getChildren().add(new Child("动画", AnimatorActivity.class));
         groups.add(groupEffect);
 
-        Group groupAMD = new Group("ActionBar、Menu、Dialog", new ArrayList<Child>());
+        Group groupAMD = new Group("ActionBar、Menu、Dialog、Notification", new ArrayList<Child>());
         groupAMD.getChildren().add(new Child("ActionBar", MyActionBarActivity.class));
         groupAMD.getChildren().add(new Child("ActionBar Action Provider", ActionProviderActivity.class));
         groupAMD.getChildren().add(new Child("Menu", MenuActivity.class));
         groupAMD.getChildren().add(new Child("Dialog", DialogActivity.class));
+        groupAMD.getChildren().add(new Child("Notification", NotificationActivity.class));
         groups.add(groupAMD);
 
         Group groupStore = new Group("store", new ArrayList<Child>());

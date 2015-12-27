@@ -109,5 +109,7 @@
     <string name="title_activity_text_view">TextView</string>
     <string name="title_activity_view">View</string>
     <string name="title_activity_action_provider">Action Provider</string>
+    <string name="title_activity_notification">Notification</string>
+    <string name="title_activity_notification_result">Notification Result</string>
 
 </resources>
