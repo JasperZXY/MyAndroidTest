@@ -148,7 +148,6 @@ public class NotificationActivity extends Activity implements View.OnClickListen
                 this, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT));
 
         Notification notification = mBuilder.build();
-        notification.number = count;
         notificationManager.notify(NOTIFY_ID_PRIVATE_MESSAGE, notification);
     }
 

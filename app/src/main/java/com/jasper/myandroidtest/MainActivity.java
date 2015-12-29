@@ -58,6 +58,7 @@ import com.jasper.myandroidtest.tabhost.Tabs1Activity;
 import com.jasper.myandroidtest.tabhost.Tabs2Activity;
 import com.jasper.myandroidtest.tabhost.Tabs3Activity;
 import com.jasper.myandroidtest.tabhost.Tabs4Activity;
+import com.jasper.myandroidtest.ui.ToastActivity;
 import com.jasper.myandroidtest.ui.notification.NotificationActivity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
@@ -148,6 +149,15 @@ public class MainActivity extends Activity {
         groupView.getChildren().add(new Child("TextView", TextViewActivity.class));
         groups.add(groupView);
 
+        Group groupUI = new Group("UI", new ArrayList<Child>());
+        groupUI.getChildren().add(new Child("ActionBar", MyActionBarActivity.class));
+        groupUI.getChildren().add(new Child("ActionBar Action Provider", ActionProviderActivity.class));
+        groupUI.getChildren().add(new Child("Menu", MenuActivity.class));
+        groupUI.getChildren().add(new Child("Dialog", DialogActivity.class));
+        groupUI.getChildren().add(new Child("Notification", NotificationActivity.class));
+        groupUI.getChildren().add(new Child("Toast", ToastActivity.class));
+        groups.add(groupUI);
+
         Group groupImage = new Group("Image", new ArrayList<Child>());
         groupImage.getChildren().add(new Child("ImageView的scaleType问题", ImageViewScaleTypeActivity.class));
         groupImage.getChildren().add(new Child(getString(R.string.title_activity_image_view_different_dpi), ImageViewDifferentDPIActivity.class));
@@ -162,14 +172,6 @@ public class MainActivity extends Activity {
         groupEffect.getChildren().add(new Child("软键盘", SoftInputModeChooseActivity.class));
         groupEffect.getChildren().add(new Child("动画", AnimatorActivity.class));
         groups.add(groupEffect);
-
-        Group groupAMD = new Group("ActionBar、Menu、Dialog、Notification", new ArrayList<Child>());
-        groupAMD.getChildren().add(new Child("ActionBar", MyActionBarActivity.class));
-        groupAMD.getChildren().add(new Child("ActionBar Action Provider", ActionProviderActivity.class));
-        groupAMD.getChildren().add(new Child("Menu", MenuActivity.class));
-        groupAMD.getChildren().add(new Child("Dialog", DialogActivity.class));
-        groupAMD.getChildren().add(new Child("Notification", NotificationActivity.class));
-        groups.add(groupAMD);
 
         Group groupStore = new Group("store", new ArrayList<Child>());
         groupStore.getChildren().add(new Child("文件读写", FileActivity.class));
