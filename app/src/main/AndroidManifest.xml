@@ -19,6 +19,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 读取联系人 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- 震动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <!-- 通过使用<uses-feature>元素，一个应用可以指定它所支持的硬件型号 -->
     <!-- 摄像头 硬件支持 -->
@@ -374,6 +376,10 @@
         <activity
             android:name=".ui.ToastActivity"
             android:label="@string/title_activity_toast" >
+        </activity>
+        <activity
+            android:name=".other.TipActivity"
+            android:label="@string/title_activity_tip" >
         </activity>
     </application>
 

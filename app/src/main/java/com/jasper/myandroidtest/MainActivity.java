@@ -39,6 +39,7 @@ import com.jasper.myandroidtest.other.AsyncTaskActivity;
 import com.jasper.myandroidtest.other.BroadcastReceiverActivity;
 import com.jasper.myandroidtest.other.CursorLoaderActivity;
 import com.jasper.myandroidtest.other.DrawableActivity;
+import com.jasper.myandroidtest.other.TipActivity;
 import com.jasper.myandroidtest.ui.MenuActivity;
 import com.jasper.myandroidtest.other.PermissionActivity;
 import com.jasper.myandroidtest.effect.SoftInputModeChooseActivity;
@@ -193,6 +194,7 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child("CursorLoader", CursorLoaderActivity.class));
         groupOther.getChildren().add(new Child(getString(R.string.title_activity_screen), ScreenActivity.class));
         groupOther.getChildren().add(new Child(getString(R.string.title_activity_settings), SettingsActivity.class));
+        groupOther.getChildren().add(new Child(getString(R.string.title_activity_tip), TipActivity.class));
         groups.add(groupOther);
 
         return groups;
