@@ -1,15 +1,17 @@
-package com.jasper.myandroidtest.actionbar;
+package com.jasper.myandroidtest.ui.search;
 
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.Intent;
+import android.provider.SearchRecentSuggestions;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +33,16 @@ public class SearchResultActivity extends Activity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         textView = (TextView) findViewById(R.id.tv);
         doSearchQuery(getIntent());
+
+        findViewById(R.id.btn_clean).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SearchRecentSuggestions suggestions = new SearchRecentSuggestions(
+                        SearchResultActivity.this,
+                        MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
+                suggestions.clearHistory();
+            }
+        });
     }
 
     @Nullable
@@ -53,6 +65,11 @@ public class SearchResultActivity extends Activity {
 
         if( Intent.ACTION_SEARCH.equals( intent.getAction())){  //如果是通过ACTION_SEARCH来调用，即如果通过搜索调用
             String queryString = intent.getStringExtra(SearchManager.QUERY); //获取搜索内容
+            //保存搜索记录
+            SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
+                    MySuggestionProvider.AUTHORITY, MySuggestionProvider.MODE);
+            suggestions.saveRecentQuery(queryString, null);
+
             textView.setText("要搜索的内容：" + queryString);
         }
 

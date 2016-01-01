@@ -1,386 +1,395 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jasper.myandroidtest" >
+<manifest package="com.jasper.myandroidtest"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- SDCard中创建与删除文件权限 -->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     <!-- 向SDCard写入数据权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!-- 摄像头 -->
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA"/>
     <!-- 录制音频 -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <!-- 网络权限 -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <!-- 获取网络状态权限 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!-- 读取电话信息 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <!-- 读取联系人 -->
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <!-- 震动 -->
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <!-- 通过使用<uses-feature>元素，一个应用可以指定它所支持的硬件型号 -->
     <!-- 摄像头 硬件支持 -->
-    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera"/>
 
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
 
         <!-- 这样声明就所有Activity都可以使用搜索，若放在Activity子项里面则只能该Activity可以使用 -->
         <meta-data
             android:name="android.app.default_searchable"
-            android:value=".SearchResultActivity" />
+            android:value=".ui.search.SearchResultActivity"/>
 
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".tabhost.Tabs1Activity"
-            android:label="@string/title_activity_tabs1" />
+            android:label="@string/title_activity_tabs1"/>
         <activity
             android:name=".tabhost.Tabs2Activity"
-            android:label="@string/title_activity_tabs2" />
+            android:label="@string/title_activity_tabs2"/>
         <activity
             android:name=".other.AsyncTaskActivity"
-            android:label="@string/title_activity_async_task" />
+            android:label="@string/title_activity_async_task"/>
         <activity
             android:name=".tabhost.Tabs3Activity"
-            android:label="@string/title_activity_tabs3" />
+            android:label="@string/title_activity_tabs3"/>
         <activity
             android:name=".store.FileActivity"
-            android:label="@string/title_activity_file" />
+            android:label="@string/title_activity_file"/>
         <activity
             android:name=".camera.CameraActivity"
             android:hardwareAccelerated="false"
-            android:label="@string/title_activity_camera" />
+            android:label="@string/title_activity_camera"/>
         <activity
             android:name=".actionbar.MyActionBarActivity"
-            android:label="@string/title_activity_my_action_bar" >
+            android:label="@string/title_activity_my_action_bar">
         </activity>
         <activity
-            android:name=".actionbar.SearchResultActivity"
-            android:label="@string/title_activity_search_result" >
+            android:name=".ui.search.SearchResultActivity"
+            android:label="@string/title_activity_search_result">
             <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
+                <action android:name="android.intent.action.SEARCH"/>
             </intent-filter>
 
             <meta-data
                 android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
+                android:resource="@xml/searchable"/>
         </activity>
         <!-- 首选项例子 -->
         <activity
             android:name=".preference.MyPreferenceActivity"
-            android:label="@string/title_activity_my_preference" >
+            android:label="@string/title_activity_my_preference">
         </activity>
         <activity
             android:name=".preference.ListPreferenceActivity"
-            android:label="@string/title_activity_list_preference" >
+            android:label="@string/title_activity_list_preference">
         </activity>
         <activity
             android:name=".preference.MyListPreferenceActivity"
-            android:label="@string/title_activity__my_list_preference" >
+            android:label="@string/title_activity__my_list_preference">
         </activity>
         <activity
             android:name=".preference.CheckboxPreferenceActivity"
-            android:label="@string/title_activity_checkbox_preference" >
+            android:label="@string/title_activity_checkbox_preference">
         </activity>
         <activity
             android:name=".preference.EditPreferenceActivity"
-            android:label="@string/title_activity_edit_preference" >
+            android:label="@string/title_activity_edit_preference">
         </activity>
         <activity
             android:name=".listView.SimpleListViewActivity"
-            android:label="@string/title_activity_simple_list_view" >
+            android:label="@string/title_activity_simple_list_view">
         </activity>
         <activity
             android:name=".listView.MyListViewActivity"
-            android:label="@string/title_activity_my_list_view" >
+            android:label="@string/title_activity_my_list_view">
         </activity>
         <activity
             android:name=".image.ImageViewScaleTypeActivity"
-            android:label="@string/title_activity_image_view_scale_type" >
+            android:label="@string/title_activity_image_view_scale_type">
         </activity>
         <activity
             android:name=".ui.MenuActivity"
-            android:label="@string/title_activity_menu" >
+            android:label="@string/title_activity_menu">
         </activity>
         <activity
             android:name=".other.PermissionActivity"
-            android:label="@string/title_activity_permission" >
+            android:label="@string/title_activity_permission">
         </activity>
         <activity
             android:name=".dialog.DialogActivity"
-            android:label="@string/title_activity_dialog" >
+            android:label="@string/title_activity_dialog">
         </activity>
         <activity
             android:name=".fragmentManager.FragmentManagerActivity"
-            android:label="@string/title_activity_fragment_manager" >
+            android:label="@string/title_activity_fragment_manager">
         </activity>
         <activity
             android:name=".view.WebViewActivity"
-            android:label="@string/title_activity_web_view" >
+            android:label="@string/title_activity_web_view">
         </activity>
         <activity
             android:name=".image.BitmapCacheActivity"
-            android:label="@string/title_activity_bitmap_cache" >
+            android:label="@string/title_activity_bitmap_cache">
         </activity>
         <activity
             android:name=".camera.PhotoActivity"
-            android:label="@string/title_activity_photo" >
+            android:label="@string/title_activity_photo">
         </activity>
         <activity
             android:name=".sensor.GradienterActivity"
-            android:label="@string/title_activity_gradienter" >
+            android:label="@string/title_activity_gradienter">
         </activity>
         <activity
             android:name=".listView.Classify1Activity"
-            android:label="@string/title_activity_phone_info" >
+            android:label="@string/title_activity_phone_info">
         </activity>
         <activity
             android:name=".listView.Classify2Activity"
-            android:label="@string/title_activity_phone_info" >
+            android:label="@string/title_activity_phone_info">
         </activity>
         <activity
             android:name=".sensor.SimpleSensorActivity"
-            android:label="@string/title_activity_simple_sensor" >
+            android:label="@string/title_activity_simple_sensor">
         </activity>
         <activity
             android:name=".image.MatrixActivity"
-            android:label="@string/title_activity_matrix" >
+            android:label="@string/title_activity_matrix">
         </activity>
         <activity
             android:name=".video.VideoActivity"
-            android:label="@string/title_activity_video" >
+            android:label="@string/title_activity_video">
         </activity>
         <activity
             android:name=".video.VideoViewActivity"
-            android:label="@string/title_activity_video_view" >
+            android:label="@string/title_activity_video_view">
         </activity>
         <activity
             android:name=".video.MediaPlayerActivity"
-            android:label="@string/title_activity_media_player" >
+            android:label="@string/title_activity_media_player">
         </activity>
         <activity
             android:name=".layout.FlowLayoutActivity"
-            android:label="@string/title_activity_flow_layout" >
+            android:label="@string/title_activity_flow_layout">
         </activity>
         <activity
             android:name=".other.DrawableActivity"
-            android:label="@string/title_activity_drawable" >
+            android:label="@string/title_activity_drawable">
         </activity>
         <activity
             android:name=".tabhost.Tabs4Activity"
-            android:label="@string/title_activity_tabs4" >
+            android:label="@string/title_activity_tabs4">
         </activity>
         <activity
             android:name=".tabhost.TabTest1Activity"
-            android:label="@string/title_activity_tab_test" >
+            android:label="@string/title_activity_tab_test">
         </activity>
         <activity
             android:name=".tabhost.TabTest2Activity"
-            android:label="@string/title_activity_tab_test" >
+            android:label="@string/title_activity_tab_test">
         </activity>
         <activity
             android:name=".tabhost.TabTest3Activity"
-            android:label="@string/title_activity_tab_test" >
+            android:label="@string/title_activity_tab_test">
         </activity>
         <activity
             android:name=".layout.ApiOverviewActivity"
-            android:label="@string/title_activity_api_overview" >
+            android:label="@string/title_activity_api_overview">
         </activity>
 
-        <service android:name=".service.MyService" >
+        <service android:name=".service.MyService">
             <intent-filter>
-                <action android:name="com.jasper.myandroidtest.myservice" />
+                <action android:name="com.jasper.myandroidtest.myservice"/>
             </intent-filter>
         </service>
 
         <activity
             android:name=".service.ServiceActivity"
-            android:label="@string/title_activity_service" >
+            android:label="@string/title_activity_service">
         </activity>
         <activity
             android:name=".view.GridViewActivity"
-            android:label="@string/title_activity_grid_view" >
+            android:label="@string/title_activity_grid_view">
         </activity>
         <activity
             android:name=".layout.LayoutParamActivity"
-            android:label="@string/title_activity_layout_param" >
+            android:label="@string/title_activity_layout_param">
         </activity>
         <activity
             android:name=".layout.MarginPaddingActivity"
-            android:label="@string/title_activity_margin_padding" >
+            android:label="@string/title_activity_margin_padding">
         </activity>
         <activity
             android:name=".effect.SoftInputActivity"
-            android:label="@string/title_activity_soft_input" >
+            android:label="@string/title_activity_soft_input">
         </activity>
         <activity
             android:name=".effect.SoftInputModeChooseActivity"
-            android:label="@string/title_activity_soft_input_mode_choose" >
+            android:label="@string/title_activity_soft_input_mode_choose">
         </activity>
         <activity
             android:name=".image.GifViewActivity"
-            android:label="@string/title_activity_gif_view" >
+            android:label="@string/title_activity_gif_view">
         </activity>
         <activity
             android:name=".effect.TouchClickActivity"
-            android:label="@string/title_activity_touch_click" >
+            android:label="@string/title_activity_touch_click">
         </activity>
         <activity
             android:name=".effect.animator.AnimatorActivity"
-            android:label="@string/title_activity_animator" >
+            android:label="@string/title_activity_animator">
         </activity>
         <activity
             android:name=".effect.DragViewActivity"
-            android:label="@string/title_activity_drag_view" >
+            android:label="@string/title_activity_drag_view">
         </activity>
         <activity
             android:name=".effect.animator.LayoutTransitionActivity"
-            android:label="@string/title_activity_layout_transition" >
+            android:label="@string/title_activity_layout_transition">
         </activity>
         <activity
             android:name=".effect.animator.LayoutAnimationActivity"
-            android:label="@string/title_activity_layout_animation" >
+            android:label="@string/title_activity_layout_animation">
         </activity>
         <activity
             android:name=".effect.ManualSoftInputActivity"
-            android:label="@string/title_activity_manual_soft_input" >
+            android:label="@string/title_activity_manual_soft_input">
         </activity>
         <activity
             android:name=".activity.SimpleActivity"
-            android:label="@string/title_activity_simple" >
+            android:label="@string/title_activity_simple">
         </activity>
         <activity
             android:name=".activity.InputActivity"
-            android:label="@string/title_activity_input" >
+            android:label="@string/title_activity_input">
         </activity>
         <activity
             android:name=".fragment.reader.ReaderActivity"
-            android:label="@string/title_activity_reader" >
+            android:label="@string/title_activity_reader">
         </activity>
         <activity
             android:name=".fragment.reader.DetailsActivity"
-            android:label="@string/title_activity_reader" >
+            android:label="@string/title_activity_reader">
         </activity>
         <activity
             android:name=".fragment.ListFragmentActivity"
-            android:label="@string/title_activity_list_fragment" >
+            android:label="@string/title_activity_list_fragment">
         </activity>
         <activity
             android:name=".other.CursorLoaderActivity"
-            android:label="@string/title_activity_cursor_loader" >
+            android:label="@string/title_activity_cursor_loader">
         </activity>
         <activity
             android:name=".other.ScreenActivity"
-            android:label="@string/title_activity_screen" >
+            android:label="@string/title_activity_screen">
         </activity>
         <activity
             android:name=".image.ImageViewDifferentDPIActivity"
-            android:label="@string/title_activity_image_view_different_dpi" >
+            android:label="@string/title_activity_image_view_different_dpi">
         </activity>
         <activity
             android:name=".service.BinderServiceActivity"
-            android:label="@string/title_activity_binder_service" >
+            android:label="@string/title_activity_binder_service">
         </activity>
 
-        <service android:name=".service.BinderService" >
+        <service android:name=".service.BinderService">
         </service>
 
         <activity
             android:name=".service.MessengerServiceActivity"
-            android:label="@string/title_activity_messenger_service" >
+            android:label="@string/title_activity_messenger_service">
         </activity>
 
         <service
             android:name=".service.MessengerService"
-            android:process=":MessengerService" >
+            android:process=":MessengerService">
         </service>
 
         <activity
             android:name=".service.aidl.MyAidlActivity"
-            android:label="@string/title_activity_my_aidl" >
+            android:label="@string/title_activity_my_aidl">
         </activity>
 
         <service
             android:name=".service.aidl.MyAidlRemoteService"
-            android:process=":MyAidlRemoteService" >
+            android:process=":MyAidlRemoteService">
             <intent-filter>
-                <action android:name="com.jasper.myandroidtest.service.aidl.IMyAidlRemoteService" />
+                <action android:name="com.jasper.myandroidtest.service.aidl.IMyAidlRemoteService"/>
             </intent-filter>
         </service>
 
         <activity
             android:name=".other.BroadcastReceiverActivity"
-            android:label="@string/title_activity_broadcast_receiver" >
+            android:label="@string/title_activity_broadcast_receiver">
         </activity>
         <activity
             android:name=".view.EditTextActivity"
-            android:label="@string/title_activity_edit_text" >
+            android:label="@string/title_activity_edit_text">
         </activity>
         <activity
             android:name=".layout.CoordinateActivity"
-            android:label="@string/title_activity_coordinate" >
+            android:label="@string/title_activity_coordinate">
         </activity>
         <activity
             android:name=".listView.ScrollListViewActivity"
-            android:label="@string/title_activity_scroll_list_view" >
+            android:label="@string/title_activity_scroll_list_view">
         </activity>
         <activity
             android:name=".other.StyleAttributesActivity"
-            android:label="@string/title_activity_style_attributes" >
+            android:label="@string/title_activity_style_attributes">
         </activity>
         <activity
             android:name=".other.SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:label="@string/title_activity_settings">
         </activity>
         <activity
             android:name=".other.StringActivity"
-            android:label="@string/title_activity_string" >
+            android:label="@string/title_activity_string">
         </activity>
         <activity
             android:name=".view.TextViewActivity"
-            android:label="@string/title_activity_text_view" >
+            android:label="@string/title_activity_text_view">
         </activity>
         <activity
             android:name=".view.ViewActivity"
-            android:label="@string/title_activity_view" >
+            android:label="@string/title_activity_view">
         </activity>
         <activity
             android:name=".actionbar.ActionProviderActivity"
-            android:label="@string/title_activity_action_provider" >
+            android:label="@string/title_activity_action_provider">
         </activity>
         <activity
             android:name=".ui.notification.NotificationActivity"
-            android:label="@string/title_activity_notification" >
+            android:label="@string/title_activity_notification">
         </activity>
         <activity
             android:name=".ui.notification.NotificationResultActivity"
             android:excludeFromRecents="true"
             android:label="@string/title_activity_notification_result"
             android:launchMode="singleTask"
-            android:taskAffinity="" >
+            android:taskAffinity="">
         </activity>
         <activity
             android:name=".ui.ToastActivity"
-            android:label="@string/title_activity_toast" >
+            android:label="@string/title_activity_toast">
         </activity>
         <activity
             android:name=".other.TipActivity"
-            android:label="@string/title_activity_tip" >
+            android:label="@string/title_activity_tip">
         </activity>
+        <activity
+            android:name=".ui.search.SearchActivity"
+            android:label="@string/title_activity_search">
+        </activity>
+
+        <provider
+            android:name=".ui.search.MySuggestionProvider"
+            android:authorities="com.jasper.myandroidtest.MySuggestionProvider"/>
+
     </application>
 
 </manifest>

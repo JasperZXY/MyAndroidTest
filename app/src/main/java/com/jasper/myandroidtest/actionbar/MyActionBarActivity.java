@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.jasper.myandroidtest.R;
 import com.jasper.myandroidtest.fragmentPage.FragmentPage01;
 import com.jasper.myandroidtest.fragmentPage.FragmentPage02;
+import com.jasper.myandroidtest.ui.search.SearchResultActivity;
 
 import java.lang.reflect.Method;
 
@@ -83,11 +84,9 @@ public class MyActionBarActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_my_action_bar, menu);
         final SearchView searchView = (SearchView) menu.findItem(R.id.item_search).getActionView();
         if (searchView == null) {
-            Log.e(TAG, "Fail to get Search View.");
             return true;
         }
 
@@ -95,9 +94,9 @@ public class MyActionBarActivity extends Activity {
         // 获取搜索服务管理器
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         // searchable activity的component name，由此系统可通过intent进行唤起
-        ComponentName cn = new ComponentName(this, SearchResultActivity.class);
+//        ComponentName cn = new ComponentName(this, SearchResultActivity.class);
         // 通过搜索管理器，从searchable activity中获取相关搜索信息，就是searchable的xml设置。如果返回null，表示该activity不存在，或者不是searchable
-        SearchableInfo info = searchManager.getSearchableInfo(cn);
+        SearchableInfo info = searchManager.getSearchableInfo(getComponentName());
         if (info == null) {
             Log.e(TAG, "Fail to get search info.");
         }

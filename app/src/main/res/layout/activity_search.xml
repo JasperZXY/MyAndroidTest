@@ -1,0 +1,17 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_padding"
+    tools:context="com.jasper.myandroidtest.ui.search.SearchActivity">
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        style="@style/my_button"
+        android:text="搜索"/>
+
+</LinearLayout>

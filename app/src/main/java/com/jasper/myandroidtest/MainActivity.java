@@ -61,6 +61,7 @@ import com.jasper.myandroidtest.tabhost.Tabs3Activity;
 import com.jasper.myandroidtest.tabhost.Tabs4Activity;
 import com.jasper.myandroidtest.ui.ToastActivity;
 import com.jasper.myandroidtest.ui.notification.NotificationActivity;
+import com.jasper.myandroidtest.ui.search.SearchActivity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
 import com.jasper.myandroidtest.effect.DragViewActivity;
@@ -150,15 +151,6 @@ public class MainActivity extends Activity {
         groupView.getChildren().add(new Child("TextView", TextViewActivity.class));
         groups.add(groupView);
 
-        Group groupUI = new Group("UI", new ArrayList<Child>());
-        groupUI.getChildren().add(new Child("ActionBar", MyActionBarActivity.class));
-        groupUI.getChildren().add(new Child("ActionBar Action Provider", ActionProviderActivity.class));
-        groupUI.getChildren().add(new Child("Menu", MenuActivity.class));
-        groupUI.getChildren().add(new Child("Dialog", DialogActivity.class));
-        groupUI.getChildren().add(new Child("Notification", NotificationActivity.class));
-        groupUI.getChildren().add(new Child("Toast", ToastActivity.class));
-        groups.add(groupUI);
-
         Group groupImage = new Group("Image", new ArrayList<Child>());
         groupImage.getChildren().add(new Child("ImageView的scaleType问题", ImageViewScaleTypeActivity.class));
         groupImage.getChildren().add(new Child(getString(R.string.title_activity_image_view_different_dpi), ImageViewDifferentDPIActivity.class));
@@ -166,6 +158,16 @@ public class MainActivity extends Activity {
         groupImage.getChildren().add(new Child("BitmapCache使用", BitmapCacheActivity.class));
         groupImage.getChildren().add(new Child("GifView（第三方库）", GifViewActivity.class));
         groups.add(groupImage);
+
+        Group groupUI = new Group("UI", new ArrayList<Child>());
+        groupUI.getChildren().add(new Child("ActionBar", MyActionBarActivity.class));
+        groupUI.getChildren().add(new Child("ActionBar Action Provider", ActionProviderActivity.class));
+        groupUI.getChildren().add(new Child("Menu", MenuActivity.class));
+        groupUI.getChildren().add(new Child("Dialog", DialogActivity.class));
+        groupUI.getChildren().add(new Child("Notification", NotificationActivity.class));
+        groupUI.getChildren().add(new Child(getResources().getString(R.string.title_activity_toast), ToastActivity.class));
+        groupUI.getChildren().add(new Child(getResources().getString(R.string.title_activity_search), SearchActivity.class));
+        groups.add(groupUI);
 
         Group groupEffect = new Group("效果", new ArrayList<Child>());
         groupEffect.getChildren().add(new Child("Touch跟Click", TouchClickActivity.class));
