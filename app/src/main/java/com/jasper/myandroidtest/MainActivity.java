@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Gravity;
@@ -24,6 +23,7 @@ import com.jasper.myandroidtest.actionbar.*;
 import com.jasper.myandroidtest.activity.*;
 import com.jasper.myandroidtest.camera.CameraActivity;
 import com.jasper.myandroidtest.dialog.DialogActivity;
+import com.jasper.myandroidtest.event.TouchClickActivity;
 import com.jasper.myandroidtest.fragment.*;
 import com.jasper.myandroidtest.fragment.reader.ReaderActivity;
 import com.jasper.myandroidtest.fragmentManager.FragmentManagerActivity;
@@ -38,7 +38,7 @@ import com.jasper.myandroidtest.service.aidl.MyAidlActivity;
 import com.jasper.myandroidtest.ui.*;
 import com.jasper.myandroidtest.effect.*;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
-import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
+import com.jasper.myandroidtest.event.sensor.SimpleSensorActivity;
 import com.jasper.myandroidtest.service.*;
 import com.jasper.myandroidtest.store.FileActivity;
 import com.jasper.myandroidtest.tabhost.*;
@@ -143,14 +143,6 @@ public class MainActivity extends Activity {
         groupList.getChildren().add(new Child("分类ListView2-手机相关信息", Classify2Activity.class));
         groups.add(groupList);
 
-        Group groupView = new Group("View", new ArrayList<Child>());
-        groupView.getChildren().add(new Child("View", ViewActivity.class));
-        groupView.getChildren().add(new Child("GridView", GridViewActivity.class));
-        groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
-        groupView.getChildren().add(new Child("EditText", EditTextActivity.class));
-        groupView.getChildren().add(new Child("TextView", TextViewActivity.class));
-        groups.add(groupView);
-
         Group groupImage = new Group("Image", new ArrayList<Child>());
         groupImage.getChildren().add(new Child("ImageView的scaleType问题", ImageViewScaleTypeActivity.class));
         groupImage.getChildren().add(new Child(getString(R.string.title_activity_image_view_different_dpi), ImageViewDifferentDPIActivity.class));
@@ -158,6 +150,14 @@ public class MainActivity extends Activity {
         groupImage.getChildren().add(new Child("BitmapCache使用", BitmapCacheActivity.class));
         groupImage.getChildren().add(new Child("GifView（第三方库）", GifViewActivity.class));
         groups.add(groupImage);
+
+        Group groupView = new Group("View", new ArrayList<Child>());
+        groupView.getChildren().add(new Child("View", ViewActivity.class));
+        groupView.getChildren().add(new Child("GridView", GridViewActivity.class));
+        groupView.getChildren().add(new Child("WebView", WebViewActivity.class));
+        groupView.getChildren().add(new Child("EditText", EditTextActivity.class));
+        groupView.getChildren().add(new Child("TextView", TextViewActivity.class));
+        groups.add(groupView);
 
         Group groupUI = new Group("UI", new ArrayList<Child>());
         groupUI.getChildren().add(new Child("ActionBar", MyActionBarActivity.class));
@@ -178,8 +178,12 @@ public class MainActivity extends Activity {
         groupResource.getChildren().add(new Child(getString(R.string.title_activity_string), StringActivity.class));
         groups.add(groupResource);
 
+        Group groupEvent = new Group("Event", new ArrayList<Child>());
+        groupEvent.getChildren().add(new Child("Touch跟Click", TouchClickActivity.class));
+        groupEvent.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
+        groups.add(groupEvent);
+
         Group groupEffect = new Group("效果", new ArrayList<Child>());
-        groupEffect.getChildren().add(new Child("Touch跟Click", TouchClickActivity.class));
         groupEffect.getChildren().add(new Child("控件拖动", DragViewActivity.class));
         groupEffect.getChildren().add(new Child("软键盘", SoftInputModeChooseActivity.class));
         groupEffect.getChildren().add(new Child("动画", AnimatorActivity.class));
@@ -198,7 +202,6 @@ public class MainActivity extends Activity {
         Group groupOther = new Group("其他", new ArrayList<Child>());
         groupOther.getChildren().add(new Child("异步任务", AsyncTaskActivity.class));
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
-        groupOther.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
         groupOther.getChildren().add(new Child("CursorLoader", CursorLoaderActivity.class));
         groupOther.getChildren().add(new Child(getString(R.string.title_activity_screen), ScreenActivity.class));
         groupOther.getChildren().add(new Child(getString(R.string.title_activity_settings), SettingsActivity.class));

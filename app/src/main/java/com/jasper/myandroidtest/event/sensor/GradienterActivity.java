@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.sensor;
+package com.jasper.myandroidtest.event.sensor;
 
 import android.app.Activity;
 import android.hardware.Sensor;

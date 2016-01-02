@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.effect;
+package com.jasper.myandroidtest.event;
 
 import android.app.Activity;
 import android.content.Intent;
