@@ -1,14 +1,18 @@
 package com.jasper.myandroidtest.utils;
 
 import android.app.Activity;
+import android.content.Context;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.jasper.myandroidtest.listView.entity.ContentItem;
+
 /**
  * Created by Jasper on 2016/1/1.
  */
-public class ViewUtil {
+public class UIUtil {
 
     /**
      * 获取Activity中的主容器
@@ -38,5 +42,11 @@ public class ViewUtil {
                 findButtonAndSetOnClickListenr((ViewGroup) viewGroup.getChildAt(i), listener);
             }
         }
+    }
+
+    public static int getScreenWidth(Activity activity) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics.widthPixels;
     }
 }

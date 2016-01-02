@@ -18,5 +18,6 @@
     <color name="actionsheet_background_normal">#CFFF</color>
     <color name="actionsheet_background_press">#CCCC</color>
     <color name="actionsheet_border">#CCC</color>
+    <color name="test">#FFCCCCCC</color>
 
 </resources>

@@ -3,10 +3,9 @@ package com.jasper.myandroidtest.ui.search;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 
 import com.jasper.myandroidtest.R;
-import com.jasper.myandroidtest.utils.ViewUtil;
+import com.jasper.myandroidtest.utils.UIUtil;
 
 public class SearchActivity extends Activity implements View.OnClickListener {
 
@@ -15,7 +14,7 @@ public class SearchActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        ViewUtil.findButtonAndSetOnClickListenr(this, this);
+        UIUtil.findButtonAndSetOnClickListenr(this, this);
 
     }
 

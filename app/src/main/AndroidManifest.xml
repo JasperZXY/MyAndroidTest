@@ -394,6 +394,14 @@
             android:name=".ui.DragDropActivity"
             android:label="@string/title_activity_drag_drop" >
         </activity>
+        <activity
+            android:name=".ui.draw.DrawActivity"
+            android:label="@string/title_activity_draw" >
+        </activity>
+        <activity
+            android:name=".ui.XfermodesActivity"
+            android:label="@string/title_activity_Xfermodes" >
+        </activity>
     </application>
 
 </manifest>
