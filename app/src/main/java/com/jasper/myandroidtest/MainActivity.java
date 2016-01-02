@@ -5,9 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -74,6 +77,25 @@ public class MainActivity extends Activity {
         elv.setDivider(null);
         elv.setAdapter(new MainAdapter(this, getData(), density));
         elv.setOverScrollMode(ExpandableListView.OVER_SCROLL_NEVER);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_collapse_all) {
+            for(int i=0; i<elv.getChildCount(); i++){
+                if(elv.isGroupExpanded(i)){
+                    elv.collapseGroup(i);
+                }
+            }
+            elv.smoothScrollToPosition(0);
+        }
+        return super.onContextItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
@@ -327,4 +349,5 @@ public class MainActivity extends Activity {
             return true;
         }
     }
+
 }
