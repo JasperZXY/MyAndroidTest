@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="#DDD"
     android:orientation="vertical"
     tools:context="com.jasper.myandroidtest.MainActivity">
 
@@ -11,7 +11,7 @@
         android:id="@+id/elv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/my_transparent_bg"
-        android:scrollbarThumbVertical="@drawable/my_transparent_bg"></ExpandableListView>
+        android:layout_margin="5dp"
+        />
 
 </LinearLayout>

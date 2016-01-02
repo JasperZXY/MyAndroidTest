@@ -68,7 +68,9 @@ public class MainActivity extends Activity {
         density = mDisplayMetrics.density;
         elv = (ExpandableListView) findViewById(R.id.elv);
         //让group不显示那个箭头
-        elv.setGroupIndicator(null);
+//        elv.setGroupIndicator(null);
+        //分隔条
+        elv.setDivider(null);
         elv.setAdapter(new MainAdapter(this, getData(), density));
         elv.setOverScrollMode(ExpandableListView.OVER_SCROLL_NEVER);
     }
@@ -285,12 +287,14 @@ public class MainActivity extends Activity {
                                  View convertView, ViewGroup parent) {
             LinearLayout ll = new LinearLayout(context);
             ll.setOrientation(LinearLayout.HORIZONTAL);
-            ll.setBackgroundColor(Color.rgb(215, 202, 153));
+//            ll.setBackgroundColor(Color.rgb(215, 202, 153));
+            ll.setBackgroundResource(R.drawable.item_home_group);
             TextView textView = getTextView();
             textView.setTextColor(Color.DKGRAY);
             Group group = (Group) getGroup(groupPosition);
             textView.setText(group.getName());
             ll.addView(textView);
+            ((LinearLayout.MarginLayoutParams)textView.getLayoutParams()).leftMargin = 80;
             return ll;
         }
 
@@ -299,6 +303,7 @@ public class MainActivity extends Activity {
                                  boolean isLastChild, View convertView, ViewGroup parent) {
             LinearLayout ll = new LinearLayout(context);
             ll.setOrientation(LinearLayout.HORIZONTAL);
+            ll.setBackgroundResource(R.drawable.item_home_child);
             TextView textView = getTextView();
             final Child child = (Child) getChild(groupPosition, childPosition);
             textView.setText(child.getName());
