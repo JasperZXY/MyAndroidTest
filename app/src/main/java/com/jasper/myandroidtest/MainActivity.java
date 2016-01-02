@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -288,7 +289,7 @@ public class MainActivity extends Activity {
             LinearLayout ll = new LinearLayout(context);
             ll.setOrientation(LinearLayout.HORIZONTAL);
 //            ll.setBackgroundColor(Color.rgb(215, 202, 153));
-            ll.setBackgroundResource(R.drawable.item_home_group);
+            ll.setBackgroundResource(R.drawable.item_home_menu);
             TextView textView = getTextView();
             textView.setTextColor(Color.DKGRAY);
             Group group = (Group) getGroup(groupPosition);
@@ -301,9 +302,13 @@ public class MainActivity extends Activity {
         @Override
         public View getChildView(int groupPosition, int childPosition,
                                  boolean isLastChild, View convertView, ViewGroup parent) {
+            FrameLayout layout = new FrameLayout(context);
             LinearLayout ll = new LinearLayout(context);
+            layout.addView(ll);
+            ((LinearLayout.MarginLayoutParams)ll.getLayoutParams()).leftMargin = 20;
+            ((LinearLayout.MarginLayoutParams)ll.getLayoutParams()).rightMargin = 20;
             ll.setOrientation(LinearLayout.HORIZONTAL);
-            ll.setBackgroundResource(R.drawable.item_home_child);
+            ll.setBackgroundResource(R.drawable.item_home_menu);
             TextView textView = getTextView();
             final Child child = (Child) getChild(groupPosition, childPosition);
             textView.setText(child.getName());
@@ -314,7 +319,7 @@ public class MainActivity extends Activity {
                     context.startActivity(new Intent(context, child.getActivityClass()));
                 }
             });
-            return ll;
+            return layout;
         }
 
         @Override
