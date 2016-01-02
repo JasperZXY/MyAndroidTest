@@ -27,6 +27,9 @@ import com.jasper.myandroidtest.layout.*;
 import com.jasper.myandroidtest.listView.*;
 import com.jasper.myandroidtest.effect.animator.AnimatorActivity;
 import com.jasper.myandroidtest.other.*;
+import com.jasper.myandroidtest.resource.DrawableActivity;
+import com.jasper.myandroidtest.resource.StringActivity;
+import com.jasper.myandroidtest.resource.StyleAttributesActivity;
 import com.jasper.myandroidtest.service.aidl.MyAidlActivity;
 import com.jasper.myandroidtest.ui.*;
 import com.jasper.myandroidtest.effect.*;
@@ -80,25 +83,17 @@ public class MainActivity extends Activity {
     private List<Group> getData() {
         List<Group> groups = new ArrayList<>();
 
-        Group groupAndroid = new Group("四大组件与Fragment", new ArrayList<Child>());
-        groupAndroid.getChildren().add(new Child("Activity", SimpleActivity.class));
-        groupAndroid.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
-        groupAndroid.getChildren().add(new Child(getString(R.string.title_activity_binder_service), BinderServiceActivity.class));
-        groupAndroid.getChildren().add(new Child(getString(R.string.title_activity_messenger_service), MessengerServiceActivity.class));
-        groupAndroid.getChildren().add(new Child(getString(R.string.title_activity_my_aidl), MyAidlActivity.class));
-        groupAndroid.getChildren().add(new Child("FragmentManager", FragmentManagerActivity.class));
-        groupAndroid.getChildren().add(new Child("ListFragment", ListFragmentActivity.class));
-        groupAndroid.getChildren().add(new Child("Fragment-Assets文件阅读器", ReaderActivity.class));
-        groupAndroid.getChildren().add(new Child(getString(R.string.title_activity_broadcast_receiver), BroadcastReceiverActivity.class));
-        groups.add(groupAndroid);
-
-        Group groupList = new Group("ListView", new ArrayList<Child>());
-        groupList.getChildren().add(new Child("简单的ListView", SimpleListViewActivity.class));
-        groupList.getChildren().add(new Child(getString(R.string.title_activity_scroll_list_view), ScrollListViewActivity.class));
-        groupList.getChildren().add(new Child("可上拉下拉ListView", MyListViewActivity.class));
-        groupList.getChildren().add(new Child("分类ListView1-手机相关信息", Classify1Activity.class));
-        groupList.getChildren().add(new Child("分类ListView2-手机相关信息", Classify2Activity.class));
-        groups.add(groupList);
+        Group groupBasic = new Group("四大组件与Fragment", new ArrayList<Child>());
+        groupBasic.getChildren().add(new Child("Activity", SimpleActivity.class));
+        groupBasic.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
+        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_binder_service), BinderServiceActivity.class));
+        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_messenger_service), MessengerServiceActivity.class));
+        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_my_aidl), MyAidlActivity.class));
+        groupBasic.getChildren().add(new Child("FragmentManager", FragmentManagerActivity.class));
+        groupBasic.getChildren().add(new Child("ListFragment", ListFragmentActivity.class));
+        groupBasic.getChildren().add(new Child("Fragment-Assets文件阅读器", ReaderActivity.class));
+        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_broadcast_receiver), BroadcastReceiverActivity.class));
+        groups.add(groupBasic);
 
         Group groupTab = new Group("TabHost", new ArrayList<Child>());
         groupTab.getChildren().add(new Child("FragmentTabHost", Tabs1Activity.class));
@@ -114,6 +109,14 @@ public class MainActivity extends Activity {
         groupLayout.getChildren().add(new Child("自定义FlowLayout", FlowLayoutActivity.class));
         groupLayout.getChildren().add(new Child("动态确定坐标", CoordinateActivity.class));
         groups.add(groupLayout);
+
+        Group groupList = new Group("ListView", new ArrayList<Child>());
+        groupList.getChildren().add(new Child("简单的ListView", SimpleListViewActivity.class));
+        groupList.getChildren().add(new Child(getString(R.string.title_activity_scroll_list_view), ScrollListViewActivity.class));
+        groupList.getChildren().add(new Child("可上拉下拉ListView", MyListViewActivity.class));
+        groupList.getChildren().add(new Child("分类ListView1-手机相关信息", Classify1Activity.class));
+        groupList.getChildren().add(new Child("分类ListView2-手机相关信息", Classify2Activity.class));
+        groups.add(groupList);
 
         Group groupView = new Group("View", new ArrayList<Child>());
         groupView.getChildren().add(new Child("View", ViewActivity.class));
@@ -144,6 +147,12 @@ public class MainActivity extends Activity {
         groupUI.getChildren().add(new Child(getResources().getString(R.string.title_activity_Xfermodes), XfermodesActivity.class));
         groups.add(groupUI);
 
+        Group groupResource = new Group("Resource", new ArrayList<Child>());
+        groupResource.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
+        groupResource.getChildren().add(new Child(getString(R.string.title_activity_style_attributes), StyleAttributesActivity.class));
+        groupResource.getChildren().add(new Child(getString(R.string.title_activity_string), StringActivity.class));
+        groups.add(groupResource);
+
         Group groupEffect = new Group("效果", new ArrayList<Child>());
         groupEffect.getChildren().add(new Child("Touch跟Click", TouchClickActivity.class));
         groupEffect.getChildren().add(new Child("控件拖动", DragViewActivity.class));
@@ -162,9 +171,6 @@ public class MainActivity extends Activity {
         groups.add(groupCV);
 
         Group groupOther = new Group("其他", new ArrayList<Child>());
-        groupOther.getChildren().add(new Child("Drawable资源", DrawableActivity.class));
-        groupOther.getChildren().add(new Child(getString(R.string.title_activity_style_attributes), StyleAttributesActivity.class));
-        groupOther.getChildren().add(new Child(getString(R.string.title_activity_string), StringActivity.class));
         groupOther.getChildren().add(new Child("异步任务", AsyncTaskActivity.class));
         groupOther.getChildren().add(new Child("权限相关", PermissionActivity.class));
         groupOther.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));

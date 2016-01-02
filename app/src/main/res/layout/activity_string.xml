@@ -6,7 +6,7 @@
     android:background="@drawable/bg"
     android:orientation="vertical"
     android:padding="@dimen/activity_padding"
-    tools:context="com.jasper.myandroidtest.other.StringActivity">
+    tools:context="com.jasper.myandroidtest.resource.StringActivity">
 
 
 </LinearLayout>

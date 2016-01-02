@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.other;
+package com.jasper.myandroidtest.resource;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

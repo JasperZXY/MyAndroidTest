@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jasper.myandroidtest.R;
+import com.jasper.myandroidtest.resource.StyleAttributesActivity;
 
 public class SettingsActivity extends Activity implements View.OnClickListener {
     public static final String THEME = "theme";

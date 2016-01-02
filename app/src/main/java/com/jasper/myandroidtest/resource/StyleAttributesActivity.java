@@ -1,17 +1,15 @@
-package com.jasper.myandroidtest.other;
+package com.jasper.myandroidtest.resource;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.jasper.myandroidtest.R;
+import com.jasper.myandroidtest.other.SettingsActivity;
 
 public class StyleAttributesActivity extends Activity {
 

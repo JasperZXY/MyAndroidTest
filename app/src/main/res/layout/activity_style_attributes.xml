@@ -6,7 +6,7 @@
     android:padding="@dimen/activity_padding"
     android:orientation="vertical"
     android:background="?styleBackground"
-    tools:context="com.jasper.myandroidtest.other.StyleAttributesActivity">
+    tools:context="com.jasper.myandroidtest.resource.StyleAttributesActivity">
 
     <TextView
         android:layout_width="wrap_content"

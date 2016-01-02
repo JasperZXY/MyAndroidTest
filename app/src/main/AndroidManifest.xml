@@ -177,7 +177,7 @@
             android:label="@string/title_activity_flow_layout" >
         </activity>
         <activity
-            android:name=".other.DrawableActivity"
+            android:name=".resource.DrawableActivity"
             android:label="@string/title_activity_drawable" >
         </activity>
         <activity
@@ -339,7 +339,7 @@
             android:label="@string/title_activity_scroll_list_view" >
         </activity>
         <activity
-            android:name=".other.StyleAttributesActivity"
+            android:name=".resource.StyleAttributesActivity"
             android:label="@string/title_activity_style_attributes" >
         </activity>
         <activity
@@ -347,7 +347,7 @@
             android:label="@string/title_activity_settings" >
         </activity>
         <activity
-            android:name=".other.StringActivity"
+            android:name=".resource.StringActivity"
             android:label="@string/title_activity_string" >
         </activity>
         <activity
