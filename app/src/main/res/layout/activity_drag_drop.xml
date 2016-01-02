@@ -1,0 +1,25 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="com.jasper.myandroidtest.ui.DragDropActivity">
+
+    <TextView
+        android:id="@+id/drag_room"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:text="room"
+        android:textSize="18dp"/>
+
+    <ImageView
+        android:id="@+id/drag_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/drag_room"
+        android:src="@drawable/android" />
+
+</RelativeLayout>

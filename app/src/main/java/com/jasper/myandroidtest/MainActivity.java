@@ -16,60 +16,31 @@ import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.jasper.myandroidtest.actionbar.ActionProviderActivity;
-import com.jasper.myandroidtest.actionbar.MyActionBarActivity;
-import com.jasper.myandroidtest.activity.SimpleActivity;
+import com.jasper.myandroidtest.actionbar.*;
+import com.jasper.myandroidtest.activity.*;
 import com.jasper.myandroidtest.camera.CameraActivity;
 import com.jasper.myandroidtest.dialog.DialogActivity;
-import com.jasper.myandroidtest.fragment.ListFragmentActivity;
+import com.jasper.myandroidtest.fragment.*;
 import com.jasper.myandroidtest.fragment.reader.ReaderActivity;
 import com.jasper.myandroidtest.fragmentManager.FragmentManagerActivity;
-import com.jasper.myandroidtest.layout.ApiOverviewActivity;
-import com.jasper.myandroidtest.layout.CoordinateActivity;
-import com.jasper.myandroidtest.layout.FlowLayoutActivity;
-import com.jasper.myandroidtest.layout.LayoutParamActivity;
-import com.jasper.myandroidtest.layout.MarginPaddingActivity;
-import com.jasper.myandroidtest.listView.Classify1Activity;
-import com.jasper.myandroidtest.listView.Classify2Activity;
-import com.jasper.myandroidtest.listView.MyListViewActivity;
-import com.jasper.myandroidtest.listView.ScrollListViewActivity;
-import com.jasper.myandroidtest.listView.SimpleListViewActivity;
+import com.jasper.myandroidtest.layout.*;
+import com.jasper.myandroidtest.listView.*;
 import com.jasper.myandroidtest.effect.animator.AnimatorActivity;
-import com.jasper.myandroidtest.other.AsyncTaskActivity;
-import com.jasper.myandroidtest.other.BroadcastReceiverActivity;
-import com.jasper.myandroidtest.other.CursorLoaderActivity;
-import com.jasper.myandroidtest.other.DrawableActivity;
-import com.jasper.myandroidtest.other.TipActivity;
-import com.jasper.myandroidtest.ui.MenuActivity;
-import com.jasper.myandroidtest.other.PermissionActivity;
-import com.jasper.myandroidtest.effect.SoftInputModeChooseActivity;
-import com.jasper.myandroidtest.effect.TouchClickActivity;
-import com.jasper.myandroidtest.other.ScreenActivity;
-import com.jasper.myandroidtest.other.SettingsActivity;
-import com.jasper.myandroidtest.other.StringActivity;
-import com.jasper.myandroidtest.other.StyleAttributesActivity;
+import com.jasper.myandroidtest.other.*;
+import com.jasper.myandroidtest.service.aidl.MyAidlActivity;
+import com.jasper.myandroidtest.ui.*;
+import com.jasper.myandroidtest.effect.*;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
 import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
-import com.jasper.myandroidtest.service.BinderServiceActivity;
-import com.jasper.myandroidtest.service.MessengerServiceActivity;
-import com.jasper.myandroidtest.service.ServiceActivity;
-import com.jasper.myandroidtest.service.aidl.MyAidlActivity;
+import com.jasper.myandroidtest.service.*;
 import com.jasper.myandroidtest.store.FileActivity;
-import com.jasper.myandroidtest.tabhost.Tabs1Activity;
-import com.jasper.myandroidtest.tabhost.Tabs2Activity;
-import com.jasper.myandroidtest.tabhost.Tabs3Activity;
-import com.jasper.myandroidtest.tabhost.Tabs4Activity;
-import com.jasper.myandroidtest.ui.ToastActivity;
+import com.jasper.myandroidtest.tabhost.*;
 import com.jasper.myandroidtest.ui.notification.NotificationActivity;
 import com.jasper.myandroidtest.ui.search.SearchActivity;
 import com.jasper.myandroidtest.utils.BitmapCache;
 import com.jasper.myandroidtest.video.VideoActivity;
 import com.jasper.myandroidtest.effect.DragViewActivity;
-import com.jasper.myandroidtest.view.EditTextActivity;
-import com.jasper.myandroidtest.view.TextViewActivity;
-import com.jasper.myandroidtest.view.ViewActivity;
-import com.jasper.myandroidtest.view.WebViewActivity;
-import com.jasper.myandroidtest.view.GridViewActivity;
+import com.jasper.myandroidtest.view.*;
 import com.jasper.myandroidtest.image.*;
 
 import java.util.ArrayList;
@@ -108,7 +79,7 @@ public class MainActivity extends Activity {
     private List<Group> getData() {
         List<Group> groups = new ArrayList<>();
 
-        Group groupAndroid  = new Group("四大组件与Fragment", new ArrayList<Child>());
+        Group groupAndroid = new Group("四大组件与Fragment", new ArrayList<Child>());
         groupAndroid.getChildren().add(new Child("Activity", SimpleActivity.class));
         groupAndroid.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
         groupAndroid.getChildren().add(new Child(getString(R.string.title_activity_binder_service), BinderServiceActivity.class));
@@ -128,7 +99,7 @@ public class MainActivity extends Activity {
         groupList.getChildren().add(new Child("分类ListView2-手机相关信息", Classify2Activity.class));
         groups.add(groupList);
 
-        Group groupTab  = new Group("TabHost", new ArrayList<Child>());
+        Group groupTab = new Group("TabHost", new ArrayList<Child>());
         groupTab.getChildren().add(new Child("FragmentTabHost", Tabs1Activity.class));
         groupTab.getChildren().add(new Child("Fragment+RadioGroup", Tabs2Activity.class));
         groupTab.getChildren().add(new Child("Fragment+ViewPager", Tabs3Activity.class));
@@ -167,6 +138,7 @@ public class MainActivity extends Activity {
         groupUI.getChildren().add(new Child("Notification", NotificationActivity.class));
         groupUI.getChildren().add(new Child(getResources().getString(R.string.title_activity_toast), ToastActivity.class));
         groupUI.getChildren().add(new Child(getResources().getString(R.string.title_activity_search), SearchActivity.class));
+        groupUI.getChildren().add(new Child(getResources().getString(R.string.title_activity_drag_drop), DragDropActivity.class));
         groups.add(groupUI);
 
         Group groupEffect = new Group("效果", new ArrayList<Child>());

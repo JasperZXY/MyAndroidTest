@@ -114,5 +114,6 @@
     <string name="title_activity_toast">Toast</string>
     <string name="title_activity_tip">提示</string>
     <string name="title_activity_search">搜索</string>
+    <string name="title_activity_drag_drop">Drag/Drop</string>
 
 </resources>
