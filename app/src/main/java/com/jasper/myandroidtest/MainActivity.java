@@ -43,6 +43,7 @@ import com.jasper.myandroidtest.service.*;
 import com.jasper.myandroidtest.store.FileActivity;
 import com.jasper.myandroidtest.tabhost.*;
 import com.jasper.myandroidtest.ui.draw.DrawActivity;
+import com.jasper.myandroidtest.ui.draw.LunarLanderActivity;
 import com.jasper.myandroidtest.ui.notification.NotificationActivity;
 import com.jasper.myandroidtest.ui.search.SearchActivity;
 import com.jasper.myandroidtest.utils.BitmapCache;
@@ -170,6 +171,7 @@ public class MainActivity extends Activity {
         groupUI.getChildren().add(new Child(getResources().getString(R.string.title_activity_drag_drop), DragDropActivity.class));
         groupUI.getChildren().add(new Child(getResources().getString(R.string.title_activity_draw), DrawActivity.class));
         groupUI.getChildren().add(new Child(getResources().getString(R.string.title_activity_Xfermodes), XfermodesActivity.class));
+        groupUI.getChildren().add(new Child(getResources().getString(R.string.title_activity_lunar_lander), LunarLanderActivity.class));
         groups.add(groupUI);
 
         Group groupResource = new Group("Resource", new ArrayList<Child>());

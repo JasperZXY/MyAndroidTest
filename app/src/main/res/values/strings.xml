@@ -117,5 +117,6 @@
     <string name="title_activity_drag_drop">Drag/Drop</string>
     <string name="title_activity_draw">绘画</string>
     <string name="title_activity_Xfermodes">Xfermodes</string>
+    <string name="title_activity_lunar_lander">LunarLander</string>
 
 </resources>

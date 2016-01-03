@@ -1,0 +1,29 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jasper.myandroidtest.ui.draw.LunarLanderActivity">
+
+    <com.jasper.myandroidtest.ui.draw.LunarView
+        android:id="@+id/lunar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:text="@string/lunar_layout_text_text"
+            android:textColor="#88ffffff"
+            android:textSize="24sp"
+            android:visibility="visible"/>
+    </RelativeLayout>
+
+</FrameLayout>

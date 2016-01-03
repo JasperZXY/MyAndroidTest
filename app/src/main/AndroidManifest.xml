@@ -402,6 +402,10 @@
             android:name=".ui.XfermodesActivity"
             android:label="@string/title_activity_Xfermodes" >
         </activity>
+        <activity
+            android:name=".ui.draw.LunarLanderActivity"
+            android:label="@string/title_activity_lunar_lander">
+        </activity>
     </application>
 
 </manifest>
