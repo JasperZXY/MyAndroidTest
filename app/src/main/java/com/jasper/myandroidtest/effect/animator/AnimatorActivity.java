@@ -31,7 +31,7 @@ import java.util.Random;
  * Interpolators（插值器）
  * 系统默认的有Interpolators有
  * AccelerateInterpolator 加速
- * Decelerate 减速
+ * DecelerateInterpolator 减速
  * AccelerateDecelerateInterpolator 开始，和结尾都很慢，但是，中间加速
  * AnticipateInterpolator 开始向后一点，然后，往前抛
  * OvershootInterpolator 往前抛超过一点，然后返回来

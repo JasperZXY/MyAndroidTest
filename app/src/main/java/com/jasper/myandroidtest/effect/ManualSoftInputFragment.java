@@ -12,10 +12,11 @@ import android.widget.RelativeLayout;
 
 import com.jasper.myandroidtest.R;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 /**
  * 原先这部分代码是写在ManualSoftInputActivity中的，这里是为了验证是否放到Fragment中也能正常控制。
  *
- * 这里的两份控制输入框的代码都能正常工作
  * @author Jasper
  */
 public class ManualSoftInputFragment extends Fragment {
@@ -41,14 +42,12 @@ public class ManualSoftInputFragment extends Fragment {
          * layout里面先画其他的，然后再画EditText，让EditText在其他控件上面即可
          */
         layoutInput = (RelativeLayout) mainLayout.findViewById(R.id.layout_input);
-//        controlKeyboardLayout1();
-        controlKeyboardLayout2();
+        controlKeyboardLayout();
         return mainLayout;
     }
 
-    private void controlKeyboardLayout1() {
-        //由于需要final，这里用数组
-        final boolean[] isShowKeyboard = {false};
+    private void controlKeyboardLayout() {
+        final AtomicBoolean isShowKeyboard = new AtomicBoolean(false);
 
         layoutInput.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -67,51 +66,23 @@ public class ManualSoftInputFragment extends Fragment {
                 //若不可视区域高度大于100，则键盘显示
                 if (viewInvisibleHeight > 100) {
                     //这里一定要加判断，不然输入框在输入回车后，输入框无法回车跟进
-                    if (!isShowKeyboard[0]) {
+                    if (!isShowKeyboard.get()) {
                         layoutInput.scrollTo(0, viewInvisibleHeight);
                         layoutParams.height = etHeight - viewInvisibleHeight;
                         et.setLayoutParams(layoutParams);
                     }
-                    isShowKeyboard[0] = true;
+                    isShowKeyboard.set(true);
                 } else {
                     //键盘隐藏
                     //这里一定要加判断，不然输入框的内容无法显示完
-                    if (isShowKeyboard[0]) {
+                    if (isShowKeyboard.get()) {
                         layoutInput.scrollTo(0, 0);
                         layoutParams.height = etHeight;
                         et.setLayoutParams(layoutParams);
                     }
-                    isShowKeyboard[0] = false;
+                    isShowKeyboard.set(false);
                 }
             }
         });
-    }
-
-    private void controlKeyboardLayout2() {
-        final View layoutTotal = layoutInput;
-
-        globalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                Rect rect = new Rect();
-                //获取main在窗体的可视区域
-                mainLayout.getWindowVisibleDisplayFrame(rect);
-                //获取layout在窗体的不可视区域高度(被其他View遮挡的区域高度)
-                int viewInvisibleHeight = mainLayout.getRootView().getHeight() - rect.bottom;
-//                //若不可视区域高度大于100，则键盘显示
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) et.getLayoutParams();
-                if (viewInvisibleHeight > 100) {
-                    layoutTotal.scrollTo(0, viewInvisibleHeight);
-                    marginLayoutParams.height = etHeight - viewInvisibleHeight;
-                    et.setLayoutParams(marginLayoutParams);
-                } else {
-                    //键盘隐藏
-                    layoutTotal.scrollTo(0, 0);
-                    marginLayoutParams.height = etHeight;
-                    et.setLayoutParams(marginLayoutParams);
-                }
-            }
-        };
-        mainLayout.getViewTreeObserver().addOnGlobalLayoutListener(globalLayoutListener);
     }
 }
