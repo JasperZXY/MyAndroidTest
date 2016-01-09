@@ -1,28 +1,41 @@
 package com.jasper.myandroidtest.camera;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.PixelFormat;
 import android.hardware.Camera;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Display;
 import android.view.OrientationEventListener;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.jasper.myandroidtest.R;
+import com.jasper.myandroidtest.utils.FileUtil;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * <strong>注意事项</strong>
@@ -45,11 +58,13 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
     private Intent intent;
     private CameraPreview cameraPreview;
     private OrientationEventListener orientationEventListener;
+    private Uri imgUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
+        imgUri = getIntent().getParcelableExtra(MediaStore.EXTRA_OUTPUT);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_photo);
         intent = getIntent();
@@ -110,8 +125,12 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
                 camera.takePicture(null, null, this);
                 break;
             case R.id.btn_sure:
-                intent.putExtra("data", bitmap);
-                setResult(CameraActivity.INTENT_TACK_PHOTO_MY_UI, intent);
+                if (imgUri == null) {
+                    intent.putExtra("data", bitmap);
+                } else {
+                    saveBitmap(bitmap, imgUri);
+                }
+                setResult(RESULT_OK, intent);
                 finish();
                 break;
             case R.id.btn_around:
@@ -119,6 +138,16 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
                 preview.removeAllViews();
                 preview.addView(cameraPreview);
                 break;
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private void saveBitmap(Bitmap bitmap, Uri uri) {
+        try (FileOutputStream fos = new FileOutputStream(uri.getEncodedPath())
+        ) {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+        } catch (Exception e) {
+            Log.e(TAG, "saveBitmap error", e);
         }
     }
 
@@ -209,10 +238,8 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
             if (checkCameraHardware()) {
                 if (isBackCamera) {
                     cameraId = findBackCamera();
-                    //                    camera = Camera.open(findBackCamera());
                 } else {
                     cameraId = findFrontCamera();
-                    //                    camera = Camera.open(findFrontCamera());
                 }
                 camera = Camera.open(cameraId);
                   /* 创建Camera.Parameters对象 */
@@ -220,9 +247,26 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
                  /* 设置相片格式为JPEG */
                 parameters.setPictureFormat(PixelFormat.JPEG);
                  /* 指定preview的屏幕大小 */
-                parameters.setPreviewSize(640, 480);
-                    /* 设置图片分辨率大小，不能设置太大，不然Intent传输的时候会报FAILED BINDER TRANSACTION */
-                parameters.setPictureSize(320, 240);
+                int previewWidth = 0;
+                int previewHeight = 0;
+                // 选择合适的预览尺寸
+                List<Camera.Size> sizeList = parameters.getSupportedPreviewSizes();
+                // 如果sizeList只有一个我们也没有必要做什么了，因为就他一个别无选择
+                if (sizeList.size() > 1) {
+                    Iterator<Camera.Size> itor = sizeList.iterator();
+                    while (itor.hasNext()) {
+                        Camera.Size cur = itor.next();
+                        if (cur.width >= previewWidth
+                                && cur.height >= previewHeight) {
+                            previewWidth = cur.width;
+                            previewHeight = cur.height;
+//                            break;
+                        }
+                    }
+                }
+                parameters.setPreviewSize(previewWidth, previewHeight);
+                /* 设置图片分辨率大小，不能设置太大，不然Intent传输的时候会报FAILED BINDER TRANSACTION，由于保存到文件，这里可以大一点 */
+                parameters.setPictureSize(1920, 1080);
                 camera.setParameters(parameters);
                 camera.setDisplayOrientation(90);
                 try {
@@ -231,7 +275,6 @@ public class PhotoActivity extends Activity implements View.OnClickListener, Cam
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                camera.startPreview();
             } else {
                 Toast.makeText(context, "摄像头不可用", Toast.LENGTH_LONG).show();
             }

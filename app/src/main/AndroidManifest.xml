@@ -404,7 +404,11 @@
         </activity>
         <activity
             android:name=".ui.draw.LunarLanderActivity"
-            android:label="@string/title_activity_lunar_lander">
+            android:label="@string/title_activity_lunar_lander" >
+        </activity>
+        <activity
+            android:name=".video.AudioActivity"
+            android:label="@string/title_activity_audio" >
         </activity>
     </application>
 

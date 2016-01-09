@@ -118,5 +118,6 @@
     <string name="title_activity_draw">绘画</string>
     <string name="title_activity_Xfermodes">Xfermodes</string>
     <string name="title_activity_lunar_lander">LunarLander</string>
+    <string name="title_activity_audio">录音</string>
 
 </resources>

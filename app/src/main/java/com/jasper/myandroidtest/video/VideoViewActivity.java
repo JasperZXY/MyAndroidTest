@@ -2,15 +2,13 @@ package com.jasper.myandroidtest.video;
 
 import android.app.Activity;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.jasper.myandroidtest.R;
+import com.jasper.myandroidtest.utils.Constants;
 
 /**
  * 中文路径的视频播放不了

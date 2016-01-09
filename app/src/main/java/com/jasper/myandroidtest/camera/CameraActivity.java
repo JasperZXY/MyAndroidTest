@@ -3,14 +3,11 @@ package com.jasper.myandroidtest.camera;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.hardware.Camera;
-import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.jasper.myandroidtest.R;
+import com.jasper.myandroidtest.utils.Constants;
+import com.jasper.myandroidtest.utils.FileUtil;
+import com.jasper.myandroidtest.video.VideoViewActivity;
 
 /**
  * 摄像头操作
@@ -31,7 +31,11 @@ public class CameraActivity extends Activity implements View.OnClickListener {
     private static final String TAG = "CameraActivity";
     public static final int INTENT_TACK_PHOTO = 100;
     public static final int INTENT_TACK_PHOTO_MY_UI = 101;
+    public static final int INTENT_VIDEO = 102;
+    public static final int INTENT_VIDEO_MY_UI = 103;
     private ImageView imageView;
+    private Uri imgUri;
+    private Uri videoUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +56,16 @@ public class CameraActivity extends Activity implements View.OnClickListener {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == INTENT_TACK_PHOTO || requestCode == INTENT_TACK_PHOTO_MY_UI) {
-            try {
-                if (data != null && data.getExtras() != null && data.getExtras().get("data") != null) {
-                    Bitmap photo = (Bitmap) data.getExtras().get("data");
-                    imageView.setImageBitmap(photo);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == INTENT_TACK_PHOTO || requestCode == INTENT_TACK_PHOTO_MY_UI) {
+                try {
+                    //如果intent不指定MediaStore.EXTRA_OUTPUT，则用(Bitmap) data.getExtras().get("data")
+                    imageView.setImageURI(imgUri);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } else if (requestCode == INTENT_VIDEO) {
+                Toast.makeText(this, "拍摄成功", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -87,7 +93,7 @@ public class CameraActivity extends Activity implements View.OnClickListener {
             camera = Camera.open();
         } catch (Exception e) {
             //一般情况下是摄像头被占用
-            msg = e.getLocalizedMessage();
+            Log.e(TAG, "testCamera error:", e);
         } finally {
             if (camera == null) {
                 msg = "没权限";
@@ -100,25 +106,63 @@ public class CameraActivity extends Activity implements View.OnClickListener {
     }
 
     private String testAudio() {
-        return "";
+        return "暂时无法判断";
     }
 
     @Override
     public void onClick(View view) {
+        Intent intent;
         switch (view.getId()) {
             case R.id.btn_camera_test:
                 Toast.makeText(this, testCamera(), Toast.LENGTH_SHORT).show();
                 break;
+
             case R.id.btn_audio_test:
                 Toast.makeText(this, testAudio(), Toast.LENGTH_SHORT).show();
                 break;
+
             case R.id.btn_intent_photo:
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                imgUri = Uri.fromFile(FileUtil.getCacheFile(CameraActivity.this, System.currentTimeMillis() + ".jpg"));
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, imgUri);
                 startActivityForResult(intent, INTENT_TACK_PHOTO);
                 break;
+
             case R.id.btn_photo:
-                startActivityForResult(new Intent(this, PhotoActivity.class), INTENT_TACK_PHOTO_MY_UI);
+                intent = new Intent(this, PhotoActivity.class);
+                imgUri = Uri.fromFile(FileUtil.getCacheFile(CameraActivity.this, System.currentTimeMillis() + ".jpg"));
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, imgUri);
+                startActivityForResult(intent, INTENT_TACK_PHOTO_MY_UI);
                 break;
+
+            case R.id.btn_intent_video:
+                intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                videoUri = Uri.fromFile(FileUtil.getCacheFile(this, System.currentTimeMillis() + ".mp4"));
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
+                intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0.8);
+                intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10);
+                startActivityForResult(intent, INTENT_VIDEO);
+                break;
+
+            case R.id.btn_video_my_UI:
+//                intent = new Intent(this, MicroVideoActivity.class);
+//                videoUri = Uri.fromFile(FileUtil.getCacheFile(this, System.currentTimeMillis() + ".mp4"));
+//                intent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
+//                intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10);
+//                startActivityForResult(intent, INTENT_VIDEO_MY_UI);
+                break;
+
+
+            case R.id.btn_video_play:
+                if (videoUri == null) {
+                    Toast.makeText(this, "还没拍摄视频！！！", Toast.LENGTH_SHORT).show();
+                } else {
+                    intent = new Intent(this, VideoViewActivity.class);
+                    intent.putExtra(Constants.VIDEO_PATH, videoUri.getEncodedPath());
+                    startActivity(intent);
+                }
+                break;
+
         }
     }
 }

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -18,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.jasper.myandroidtest.R;
+import com.jasper.myandroidtest.utils.Constants;
 
 public class MediaPlayerActivity extends Activity implements SurfaceHolder.Callback,
         MediaPlayer.OnPreparedListener, MediaPlayer.OnBufferingUpdateListener,

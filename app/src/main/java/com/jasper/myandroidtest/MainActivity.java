@@ -47,6 +47,7 @@ import com.jasper.myandroidtest.ui.draw.LunarLanderActivity;
 import com.jasper.myandroidtest.ui.notification.NotificationActivity;
 import com.jasper.myandroidtest.ui.search.SearchActivity;
 import com.jasper.myandroidtest.utils.BitmapCache;
+import com.jasper.myandroidtest.video.AudioActivity;
 import com.jasper.myandroidtest.video.VideoActivity;
 import com.jasper.myandroidtest.effect.DragViewActivity;
 import com.jasper.myandroidtest.view.*;
@@ -196,9 +197,10 @@ public class MainActivity extends Activity {
         groupStore.getChildren().add(new Child("首选项", MyPreferenceActivity.class));
         groups.add(groupStore);
 
-        Group groupCV = new Group("摄像头、视频", new ArrayList<Child>());
+        Group groupCV = new Group("摄像头、视频、音频", new ArrayList<Child>());
         groupCV.getChildren().add(new Child("摄像头", CameraActivity.class));
         groupCV.getChildren().add(new Child("视频", VideoActivity.class));
+        groupCV.getChildren().add(new Child(getResources().getString(R.string.title_activity_audio), AudioActivity.class));
         groups.add(groupCV);
 
         Group groupOther = new Group("其他", new ArrayList<Child>());

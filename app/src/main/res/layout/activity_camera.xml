@@ -1,46 +1,79 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:id="@+id/layout_main"
-    android:background="@drawable/bg"
-    tools:context="com.jasper.myandroidtest.camera.CameraActivity">
+<LinearLayout android:id="@+id/layout_main"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_vertical_margin"
+              tools:context="com.jasper.myandroidtest.camera.CameraActivity">
 
     <Button
         android:id="@+id/btn_camera_test"
         style="@style/my_button"
-        android:text="检测是否有权限使用摄像头" />
+        android:layout_width="match_parent"
+        android:text="检测是否有权限使用摄像头"/>
+
     <Button
         android:id="@+id/btn_audio_test"
         style="@style/my_button"
-        android:text="检测是否有权限录音" />
+        android:layout_width="match_parent"
+        android:text="检测是否有权限录音"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_intent_photo"
+            style="@style/my_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="系统拍照"/>
+
+        <Button
+            android:id="@+id/btn_photo"
+            style="@style/my_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="自定义UI拍照"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_intent_video"
+            style="@style/my_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="系统拍摄视频"/>
+
+        <Button
+            android:id="@+id/btn_video_my_UI"
+            style="@style/my_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="自定义UI拍摄"/>
+    </LinearLayout>
+
     <Button
-        android:id="@+id/btn_intent_photo"
+        android:id="@+id/btn_video_play"
         style="@style/my_button"
-        android:text="系统拍照" />
-    <Button
-        android:id="@+id/btn_photo"
-        style="@style/my_button"
-        android:text="自定义界面拍照" />
-    <Button
-        android:id="@+id/btn_intent_video"
-        style="@style/my_button"
-        android:text="系统拍摄视频" />
-    <Button
-        android:id="@+id/btn_video"
-        style="@style/my_button"
-        android:text="自定义拍摄视频" />
+        android:layout_width="match_parent"
+        android:text="视频播放"/>
 
     <ImageView
         android:id="@+id/img"
-        android:scaleType="fitCenter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/pic01" />
+        android:scaleType="fitCenter"
+        android:src="@drawable/pic01"/>
 
 </LinearLayout>
