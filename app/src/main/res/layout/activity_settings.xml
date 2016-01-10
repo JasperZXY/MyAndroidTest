@@ -66,6 +66,15 @@
                 android:text="预览"/>
 
             <TextView
+                android:id="@+id/tv_clean_cache"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/settings_item_bg"
+                android:padding="10dp"
+                android:text="清除缓存"/>
+
+            <TextView
                 android:id="@+id/tv_about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

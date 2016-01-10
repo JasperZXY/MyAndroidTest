@@ -24,12 +24,44 @@ public class FileUtil {
         return new File(context.getCacheDir(), filename);
     }
 
-    public static String Uri2String(Uri uri) {
-        if (uri == null) {
-            return null;
+    /**
+     * 删除文件或文件夹及其里面的所有文件
+     *
+     * @param file
+     */
+    public static void deleteFile(File file) {
+        if (file == null) {
+            return;
         }
-        String tmp = uri.toString();
-        return tmp.substring(tmp.indexOf("//") + 2);
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            for (int i = 0; i < files.length; i++) {
+                deleteFile(files[i]);
+            }
+        }
+        file.delete();
+    }
+
+    /**
+     * 获取文件夹及其所有文件的大小
+     * @param file
+     * @return
+     */
+    public static long getDirSize(File file) {
+        //判断文件是否存在
+        if (file.exists()) {
+            if (file.isDirectory()) {
+                File[] files = file.listFiles();
+                long size = 0;
+                for (File f : files)
+                    size += getDirSize(f);
+                return size;
+            } else {
+                return file.length();
+            }
+        } else {
+            return 0;
+        }
     }
 
 }
