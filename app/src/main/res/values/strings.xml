@@ -119,5 +119,7 @@
     <string name="title_activity_Xfermodes">Xfermodes</string>
     <string name="title_activity_lunar_lander">LunarLander</string>
     <string name="title_activity_audio">录音</string>
+    <string name="title_activity_video_record">录制视频</string>
+    <string name="title_activity_record_video">RecordVideoActivity</string>
 
 </resources>

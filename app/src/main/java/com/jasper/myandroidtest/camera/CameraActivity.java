@@ -19,6 +19,9 @@ import com.jasper.myandroidtest.utils.Constants;
 import com.jasper.myandroidtest.utils.FileUtil;
 import com.jasper.myandroidtest.video.VideoViewActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * 摄像头操作
  * 1. 通过Intent调用系统功能进行拍照，不需要权限
@@ -36,6 +39,7 @@ public class CameraActivity extends Activity implements View.OnClickListener {
     private ImageView imageView;
     private Uri imgUri;
     private Uri videoUri;
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd_HHmmss");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +68,11 @@ public class CameraActivity extends Activity implements View.OnClickListener {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            } else if (requestCode == INTENT_VIDEO) {
+            } else if (requestCode == INTENT_VIDEO || resultCode == INTENT_VIDEO_MY_UI) {
                 Toast.makeText(this, "拍摄成功", Toast.LENGTH_SHORT).show();
             }
+        } else if (resultCode == RESULT_CANCELED) {
+            Toast.makeText(this, "取消操作", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -81,10 +87,11 @@ public class CameraActivity extends Activity implements View.OnClickListener {
 
     /**
      * 摄像头的状态
+     *
      * @return
      */
     private String testCamera() {
-        if (! checkCameraHardware()) {
+        if (!checkCameraHardware()) {
             return "无摄像头设备";
         }
         Camera camera = null;
@@ -123,21 +130,21 @@ public class CameraActivity extends Activity implements View.OnClickListener {
 
             case R.id.btn_intent_photo:
                 intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                imgUri = Uri.fromFile(FileUtil.getCacheFile(CameraActivity.this, System.currentTimeMillis() + ".jpg"));
+                imgUri = Uri.fromFile(FileUtil.getCacheFile(CameraActivity.this, DATE_FORMAT.format(new Date()) + ".jpg"));
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, imgUri);
                 startActivityForResult(intent, INTENT_TACK_PHOTO);
                 break;
 
             case R.id.btn_photo:
                 intent = new Intent(this, PhotoActivity.class);
-                imgUri = Uri.fromFile(FileUtil.getCacheFile(CameraActivity.this, System.currentTimeMillis() + ".jpg"));
+                imgUri = Uri.fromFile(FileUtil.getCacheFile(CameraActivity.this, DATE_FORMAT.format(new Date()) + ".jpg"));
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, imgUri);
                 startActivityForResult(intent, INTENT_TACK_PHOTO_MY_UI);
                 break;
 
             case R.id.btn_intent_video:
                 intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-                videoUri = Uri.fromFile(FileUtil.getCacheFile(this, System.currentTimeMillis() + ".mp4"));
+                videoUri = Uri.fromFile(FileUtil.getCacheFile(this, DATE_FORMAT.format(new Date()) + ".mp4"));
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
                 intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0.8);
                 intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10);
@@ -145,13 +152,11 @@ public class CameraActivity extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.btn_video_my_UI:
-//                intent = new Intent(this, MicroVideoActivity.class);
-//                videoUri = Uri.fromFile(FileUtil.getCacheFile(this, System.currentTimeMillis() + ".mp4"));
-//                intent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
-//                intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10);
-//                startActivityForResult(intent, INTENT_VIDEO_MY_UI);
+                intent = new Intent(this, RecordVideoActivity.class);
+                videoUri = Uri.fromFile(FileUtil.getCacheFile(this, DATE_FORMAT.format(new Date()) + ".mp4"));
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
+                startActivityForResult(intent, INTENT_VIDEO_MY_UI);
                 break;
-
 
             case R.id.btn_video_play:
                 if (videoUri == null) {
@@ -164,5 +169,6 @@ public class CameraActivity extends Activity implements View.OnClickListener {
                 break;
 
         }
+
     }
 }

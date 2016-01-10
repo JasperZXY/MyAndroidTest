@@ -410,6 +410,10 @@
             android:name=".video.AudioActivity"
             android:label="@string/title_activity_audio" >
         </activity>
+        <activity
+            android:name=".camera.RecordVideoActivity"
+            android:label="@string/title_activity_record_video" >
+        </activity>
     </application>
 
 </manifest>
