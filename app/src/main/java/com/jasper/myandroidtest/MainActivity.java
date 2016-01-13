@@ -210,6 +210,7 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child(getString(R.string.title_activity_screen), ScreenActivity.class));
         groupOther.getChildren().add(new Child(getString(R.string.title_activity_settings), SettingsActivity.class));
         groupOther.getChildren().add(new Child(getString(R.string.title_activity_tip), TipActivity.class));
+        groupOther.getChildren().add(new Child(getString(R.string.title_activity_location), LocationActivity.class));
         groups.add(groupOther);
 
         return groups;

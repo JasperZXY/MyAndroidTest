@@ -121,5 +121,6 @@
     <string name="title_activity_audio">录音</string>
     <string name="title_activity_video_record">录制视频</string>
     <string name="title_activity_record_video">RecordVideoActivity</string>
+    <string name="title_activity_location">Location</string>
 
 </resources>

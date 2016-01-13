@@ -1,0 +1,43 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    tools:context="com.jasper.myandroidtest.other.LocationActivity">
+
+    <Button
+        android:id="@+id/btn_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/my_button"
+        android:text="获取地理位置"/>
+
+    <Button
+        android:id="@+id/btn_location_last_known"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/my_button"
+        android:text="LastKnownLocation"/>
+
+    <Button
+        android:id="@+id/btn_location_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/my_button"
+        android:text="根据新浪API获取位置信息"/>
+
+    <EditText
+        android:id="@+id/et_log"
+        android:text="@string/hello_world"
+        android:layout_marginTop="5dp"
+        style="@style/my_edittext_log"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
