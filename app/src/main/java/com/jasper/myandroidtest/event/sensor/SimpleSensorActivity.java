@@ -46,7 +46,7 @@ public class SimpleSensorActivity extends Activity
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        textView.setText(String.format("x:%s, y:%s, z:%s", event.values[0], event.values[1], event.values[2]));
+        textView.setText(String.format("x:%.3f, y:%.3f, z:%.3f", event.values[0], event.values[1], event.values[2]));
     }
 
     @Override
@@ -61,4 +61,4 @@ public class SimpleSensorActivity extends Activity
                 startActivity(new Intent(getApplicationContext(), GradienterActivity.class));
         }
     }
-}
+}id
