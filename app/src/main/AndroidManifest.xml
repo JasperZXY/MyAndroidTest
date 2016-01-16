@@ -143,7 +143,7 @@
             android:label="@string/title_activity_photo" >
         </activity>
         <activity
-            android:name=".event.sensor.GradienterActivity"
+            android:name=".sensor.GradienterActivity"
             android:label="@string/title_activity_gradienter" >
         </activity>
         <activity
@@ -155,7 +155,7 @@
             android:label="@string/title_activity_phone_info" >
         </activity>
         <activity
-            android:name=".event.sensor.SimpleSensorActivity"
+            android:name=".sensor.SimpleSensorActivity"
             android:label="@string/title_activity_simple_sensor" >
         </activity>
         <activity

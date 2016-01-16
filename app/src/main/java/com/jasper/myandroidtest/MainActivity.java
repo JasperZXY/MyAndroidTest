@@ -34,11 +34,12 @@ import com.jasper.myandroidtest.other.*;
 import com.jasper.myandroidtest.resource.DrawableActivity;
 import com.jasper.myandroidtest.resource.StringActivity;
 import com.jasper.myandroidtest.resource.StyleAttributesActivity;
+import com.jasper.myandroidtest.sensor.GradienterActivity;
 import com.jasper.myandroidtest.service.aidl.MyAidlActivity;
 import com.jasper.myandroidtest.ui.*;
 import com.jasper.myandroidtest.effect.*;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
-import com.jasper.myandroidtest.event.sensor.SimpleSensorActivity;
+import com.jasper.myandroidtest.sensor.SimpleSensorActivity;
 import com.jasper.myandroidtest.service.*;
 import com.jasper.myandroidtest.store.FileActivity;
 import com.jasper.myandroidtest.tabhost.*;
@@ -183,8 +184,12 @@ public class MainActivity extends Activity {
 
         Group groupEvent = new Group("Event", new ArrayList<Child>());
         groupEvent.getChildren().add(new Child("Touch跟Click", TouchClickActivity.class));
-        groupEvent.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
         groups.add(groupEvent);
+
+        Group groupSensor = new Group("Sensor", new ArrayList<Child>());
+        groupSensor.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
+        groupSensor.getChildren().add(new Child("重力感应-水平仪", GradienterActivity.class));
+        groups.add(groupSensor);
 
         Group groupEffect = new Group("效果", new ArrayList<Child>());
         groupEffect.getChildren().add(new Child("控件拖动", DragViewActivity.class));

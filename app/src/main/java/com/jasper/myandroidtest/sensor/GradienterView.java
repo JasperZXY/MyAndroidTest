@@ -1,4 +1,4 @@
-package com.jasper.myandroidtest.event.sensor;
+package com.jasper.myandroidtest.sensor;
 
 import android.content.Context;
 import android.graphics.Bitmap;
