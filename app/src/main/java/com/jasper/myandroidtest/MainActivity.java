@@ -34,6 +34,7 @@ import com.jasper.myandroidtest.other.*;
 import com.jasper.myandroidtest.resource.DrawableActivity;
 import com.jasper.myandroidtest.resource.StringActivity;
 import com.jasper.myandroidtest.resource.StyleAttributesActivity;
+import com.jasper.myandroidtest.sensor.EnvironmentSensorActivity;
 import com.jasper.myandroidtest.sensor.GradienterActivity;
 import com.jasper.myandroidtest.service.aidl.MyAidlActivity;
 import com.jasper.myandroidtest.ui.*;
@@ -188,7 +189,8 @@ public class MainActivity extends Activity {
 
         Group groupSensor = new Group("Sensor", new ArrayList<Child>());
         groupSensor.getChildren().add(new Child("重力感应", SimpleSensorActivity.class));
-        groupSensor.getChildren().add(new Child("重力感应-水平仪", GradienterActivity.class));
+        groupSensor.getChildren().add(new Child("重力感应——水平仪", GradienterActivity.class));
+        groupSensor.getChildren().add(new Child(getString(R.string.title_activity_environment_sensor), EnvironmentSensorActivity.class));
         groups.add(groupSensor);
 
         Group groupEffect = new Group("效果", new ArrayList<Child>());

@@ -420,6 +420,10 @@
             android:name=".other.LocationActivity"
             android:label="@string/title_activity_location" >
         </activity>
+        <activity
+            android:name=".sensor.EnvironmentSensorActivity"
+            android:label="@string/title_activity_environment_sensor" >
+        </activity>
     </application>
 
 </manifest>
