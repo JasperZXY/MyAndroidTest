@@ -39,10 +39,13 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.2'
     compile 'com.android.support:support-v4:21.0.2'
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.1.8'
-
-    //依赖库androidannotations使用
+    //androidannotations
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
+    //Butter Knife
+    compile 'com.jakewharton:butterknife:7.0.1'
+    //Retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
 }
 
 apt {

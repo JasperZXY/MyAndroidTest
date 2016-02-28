@@ -428,6 +428,10 @@
             android:name=".library.AndroidAnnotationsActivity_"
             android:label="@string/title_activity_android_annotations" >
         </activity>
+        <activity
+            android:name=".library.ButterKnifeActivity"
+            android:label="@string/title_activity_butter_knife" >
+        </activity>
     </application>
 
 </manifest>

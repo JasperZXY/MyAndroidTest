@@ -29,6 +29,7 @@ import com.jasper.myandroidtest.fragment.reader.ReaderActivity;
 import com.jasper.myandroidtest.fragmentManager.FragmentManagerActivity;
 import com.jasper.myandroidtest.layout.*;
 import com.jasper.myandroidtest.library.AndroidAnnotationsActivity_;
+import com.jasper.myandroidtest.library.ButterKnifeActivity;
 import com.jasper.myandroidtest.listView.*;
 import com.jasper.myandroidtest.effect.animator.AnimatorActivity;
 import com.jasper.myandroidtest.other.*;
@@ -245,6 +246,7 @@ public class MainActivity extends Activity {
 
         Group groupBasic = new Group("普通", new ArrayList<Child>());
         groupBasic.getChildren().add(new Child(getString(R.string.title_activity_android_annotations), AndroidAnnotationsActivity_.class));
+        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_butter_knife), ButterKnifeActivity.class));
         groups.add(groupBasic);
 
         return groups;
