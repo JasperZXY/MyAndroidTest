@@ -31,6 +31,7 @@ import com.jasper.myandroidtest.layout.*;
 import com.jasper.myandroidtest.library.AndroidAnnotationsActivity_;
 import com.jasper.myandroidtest.library.ButterKnifeActivity;
 import com.jasper.myandroidtest.library.RetrofitActivity;
+import com.jasper.myandroidtest.library.eventbus.EventBusActivity;
 import com.jasper.myandroidtest.listView.*;
 import com.jasper.myandroidtest.effect.animator.AnimatorActivity;
 import com.jasper.myandroidtest.other.*;
@@ -249,6 +250,7 @@ public class MainActivity extends Activity {
         groupBasic.getChildren().add(new Child(getString(R.string.title_activity_android_annotations), AndroidAnnotationsActivity_.class));
         groupBasic.getChildren().add(new Child(getString(R.string.title_activity_butter_knife), ButterKnifeActivity.class));
         groupBasic.getChildren().add(new Child(getString(R.string.title_activity_retrofit), RetrofitActivity.class));
+        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_event_bus), EventBusActivity.class));
         groups.add(groupBasic);
 
         return groups;

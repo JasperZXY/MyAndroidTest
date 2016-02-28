@@ -209,3 +209,4 @@
 2. androidannotations
 3. Butter Knife
 4. Retrofit
+5. EventBus

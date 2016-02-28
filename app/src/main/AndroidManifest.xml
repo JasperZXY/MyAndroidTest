@@ -436,6 +436,10 @@
             android:name=".library.RetrofitActivity"
             android:label="@string/title_activity_retrofit" >
         </activity>
+        <activity
+            android:name=".library.eventbus.EventBusActivity"
+            android:label="@string/title_activity_event_bus" >
+        </activity>
     </application>
 
 </manifest>

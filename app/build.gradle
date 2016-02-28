@@ -47,6 +47,8 @@ dependencies {
     //Retrofit
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    //EventBus
+    compile 'org.greenrobot:eventbus:3.0.0'
 }
 
 apt {
