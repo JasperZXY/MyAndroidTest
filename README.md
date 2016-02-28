@@ -208,3 +208,4 @@
 1. 升级为2.0版本，添加第三方库
 2. androidannotations
 3. Butter Knife
+4. Retrofit

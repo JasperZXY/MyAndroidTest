@@ -125,5 +125,6 @@
     <string name="title_activity_environment_sensor">Environment Sensor</string>
     <string name="title_activity_android_annotations">androidannotations</string>
     <string name="title_activity_butter_knife">Butter Knife</string>
+    <string name="title_activity_retrofit">Retrofit</string>
 
 </resources>
