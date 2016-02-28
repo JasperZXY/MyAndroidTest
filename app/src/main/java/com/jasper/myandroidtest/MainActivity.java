@@ -28,6 +28,7 @@ import com.jasper.myandroidtest.fragment.*;
 import com.jasper.myandroidtest.fragment.reader.ReaderActivity;
 import com.jasper.myandroidtest.fragmentManager.FragmentManagerActivity;
 import com.jasper.myandroidtest.layout.*;
+import com.jasper.myandroidtest.library.AndroidAnnotationsActivity_;
 import com.jasper.myandroidtest.listView.*;
 import com.jasper.myandroidtest.effect.animator.AnimatorActivity;
 import com.jasper.myandroidtest.other.*;
@@ -61,6 +62,8 @@ import java.util.List;
 public class MainActivity extends Activity {
     private ExpandableListView elv;
     private float density;
+    private MainAdapter simpleAdapter;  //普通例子用
+    private MainAdapter libraryAdapter; //第三方库例子用
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,19 +82,33 @@ public class MainActivity extends Activity {
 //        elv.setGroupIndicator(null);
         //分隔条
         elv.setDivider(null);
-        elv.setAdapter(new MainAdapter(this, getData(), density));
+
+        simpleAdapter = new MainAdapter(this, getMainData(), density);
+        libraryAdapter = new MainAdapter(this, getLibraryData(), density);
+
+        elv.setAdapter(simpleAdapter);
         elv.setOverScrollMode(ExpandableListView.OVER_SCROLL_NEVER);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_collapse_all) {
-            for(int i=0; i<elv.getChildCount(); i++){
-                if(elv.isGroupExpanded(i)){
-                    elv.collapseGroup(i);
+        switch (item.getItemId()) {
+            case R.id.action_collapse_all:
+                for(int i=0; i<elv.getChildCount(); i++){
+                    if(elv.isGroupExpanded(i)){
+                        elv.collapseGroup(i);
+                    }
                 }
-            }
-            elv.smoothScrollToPosition(0);
+                elv.smoothScrollToPosition(0);
+                break;
+
+            case R.id.action_simple:
+                elv.setAdapter(simpleAdapter);
+                break;
+
+            case R.id.action_library:
+                elv.setAdapter(libraryAdapter);
+                break;
         }
         return super.onContextItemSelected(item);
     }
@@ -109,7 +126,7 @@ public class MainActivity extends Activity {
         getApplication().onTerminate();
     }
 
-    private List<Group> getData() {
+    private List<Group> getMainData() {
         List<Group> groups = new ArrayList<>();
 
         Group groupBasic = new Group("四大组件与Fragment", new ArrayList<Child>());
@@ -219,6 +236,16 @@ public class MainActivity extends Activity {
         groupOther.getChildren().add(new Child(getString(R.string.title_activity_tip), TipActivity.class));
         groupOther.getChildren().add(new Child(getString(R.string.title_activity_location), LocationActivity.class));
         groups.add(groupOther);
+
+        return groups;
+    }
+
+    private List<Group> getLibraryData() {
+        List<Group> groups = new ArrayList<>();
+
+        Group groupBasic = new Group("普通", new ArrayList<Child>());
+        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_android_annotations), AndroidAnnotationsActivity_.class));
+        groups.add(groupBasic);
 
         return groups;
     }

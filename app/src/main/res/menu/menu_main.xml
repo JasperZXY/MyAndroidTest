@@ -5,4 +5,13 @@
         android:id="@+id/action_collapse_all"
         android:title="收起"
         android:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_simple"
+        android:title="例子"
+        android:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_library"
+        android:title="三方库"
+        android:showAsAction="ifRoom"/>
 </menu>

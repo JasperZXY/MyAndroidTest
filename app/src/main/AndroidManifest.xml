@@ -424,6 +424,10 @@
             android:name=".sensor.EnvironmentSensorActivity"
             android:label="@string/title_activity_environment_sensor" >
         </activity>
+        <activity
+            android:name=".library.AndroidAnnotationsActivity_"
+            android:label="@string/title_activity_android_annotations" >
+        </activity>
     </application>
 
 </manifest>

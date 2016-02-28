@@ -123,5 +123,6 @@
     <string name="title_activity_record_video">RecordVideoActivity</string>
     <string name="title_activity_location">Location</string>
     <string name="title_activity_environment_sensor">Environment Sensor</string>
+    <string name="title_activity_android_annotations">androidannotations</string>
 
 </resources>
