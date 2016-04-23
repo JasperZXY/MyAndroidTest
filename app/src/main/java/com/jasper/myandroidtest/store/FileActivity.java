@@ -22,6 +22,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * 文件读写操作，如果是sdcard，需要添加权限
@@ -31,6 +32,7 @@ public class FileActivity extends Activity implements View.OnClickListener {
     private static final String FILE_NAME = "test.txt";
     private static final String SDCARD_PATH = "/tmp/test.txt";
 
+    private TextView tvFile;
     private TextView textView;
     private TextView textViewSdcard;
     private EditText editText;
@@ -49,12 +51,18 @@ public class FileActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.btn_sdcard_write).setOnClickListener(this);
 
         textView = (TextView) findViewById(R.id.tv);
+        tvFile = (TextView) findViewById(R.id.tv_file);
         textViewSdcard = (TextView) findViewById(R.id.tv_sdcard);
         editText = (EditText) findViewById(R.id.et);
 
         if (isSdcard()) {
             textViewSdcard.setText("sdcard文件路径：" + Environment.getExternalStorageDirectory() + SDCARD_PATH);
         }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("SD卡缓存：" + getExternalCacheDir().getAbsolutePath());
+        stringBuilder.append("\n手机缓存：" + getCacheDir().getAbsolutePath());
+        tvFile.setText(stringBuilder.toString());
     }
 
     private boolean isSdcard() {
@@ -110,7 +118,7 @@ public class FileActivity extends Activity implements View.OnClickListener {
     private void sdcardWrite(String text) {
         try {
             File file = new File(Environment.getExternalStorageDirectory(), SDCARD_PATH);
-            if (! file.getParentFile().exists()) {
+            if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }
             //第二个参数意义是说是否以append方式添加内容
@@ -152,4 +160,5 @@ public class FileActivity extends Activity implements View.OnClickListener {
                 break;
         }
     }
+
 }
