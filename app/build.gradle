@@ -39,16 +39,20 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.2'
     compile 'com.android.support:support-v4:21.0.2'
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.1.8'
-    //androidannotations
+    // androidannotations
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
-    //Butter Knife
+    // Butter Knife
     compile 'com.jakewharton:butterknife:7.0.1'
-    //Retrofit
+    // Retrofit
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
-    //EventBus
+    // EventBus
     compile 'org.greenrobot:eventbus:3.0.0'
+    // universal-image-loader
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    // okhttp
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
 }
 
 apt {

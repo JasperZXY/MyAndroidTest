@@ -440,6 +440,18 @@
             android:name=".library.eventbus.EventBusActivity"
             android:label="@string/title_activity_event_bus" >
         </activity>
+        <activity
+            android:name=".library.uil.activity.UILActivity"
+            android:label="@string/title_activity_uil" >
+        </activity>
+        <activity
+            android:name=".library.uil.activity.ComplexImageActivity"
+            android:label="@string/ac_name_complex" >
+        </activity>
+        <activity
+            android:name=".library.uil.activity.SimpleImageActivity"
+            android:label="@string/ac_name_image_list" >
+        </activity>
     </application>
 
 </manifest>
