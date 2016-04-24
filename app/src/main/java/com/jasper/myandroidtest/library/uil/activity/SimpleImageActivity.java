@@ -24,7 +24,9 @@ import com.jasper.myandroidtest.library.uil.Constants;
 import com.jasper.myandroidtest.library.uil.fragment.ImageGalleryFragment;
 import com.jasper.myandroidtest.library.uil.fragment.ImageGridFragment;
 import com.jasper.myandroidtest.library.uil.fragment.ImageListFragment;
+import com.jasper.myandroidtest.library.uil.fragment.ImageListV3Fragment;
 import com.jasper.myandroidtest.library.uil.fragment.ImagePagerFragment;
+import com.jasper.myandroidtest.library.uil.fragment.ImageListV2Fragment;
 
 /**
  * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
@@ -40,6 +42,22 @@ public class SimpleImageActivity extends FragmentActivity {
 		int titleRes;
 		switch (frIndex) {
 			default:
+			case ImageListV2Fragment.INDEX:
+				tag = ImageListV2Fragment.class.getSimpleName();
+				fr = getSupportFragmentManager().findFragmentByTag(tag);
+				if (fr == null) {
+					fr = new ImageListV2Fragment();
+				}
+				titleRes = R.string.ac_name_image_list;
+				break;
+			case ImageListV3Fragment.INDEX:
+				tag = ImageListV3Fragment.class.getSimpleName();
+				fr = getSupportFragmentManager().findFragmentByTag(tag);
+				if (fr == null) {
+					fr = new ImageListV3Fragment();
+				}
+				titleRes = R.string.ac_name_image_list;
+				break;
 			case ImageListFragment.INDEX:
 				tag = ImageListFragment.class.getSimpleName();
 				fr = getSupportFragmentManager().findFragmentByTag(tag);

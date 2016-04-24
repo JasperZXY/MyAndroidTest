@@ -9,6 +9,8 @@ import android.util.Log;
 
 import com.jasper.myandroidtest.library.uil.Constants;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
+import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
@@ -49,7 +51,8 @@ public class MyApplication extends Application {
         config.threadPriority(Thread.NORM_PRIORITY - 2);
         config.denyCacheImageMultipleSizesInMemory();
         config.diskCacheFileNameGenerator(new Md5FileNameGenerator());
-        config.diskCacheSize(50 * 1024 * 1024); // 50 MiB
+        config.memoryCache(new LruMemoryCache((int) (Runtime.getRuntime().maxMemory() / 8)));
+        config.diskCacheSize(100 * 1024 * 1024); // 100 M
         config.tasksProcessingOrder(QueueProcessingType.LIFO);
 //        config.writeDebugLogs(); // Remove for release app
 

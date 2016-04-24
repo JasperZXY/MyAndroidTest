@@ -214,3 +214,5 @@
 
 ## 2016-4-24
 1. Universal Image Loader
+2. 初步抽象BaseAdapter
+3. 减少ListView在滑动过程中图片闪动的概率

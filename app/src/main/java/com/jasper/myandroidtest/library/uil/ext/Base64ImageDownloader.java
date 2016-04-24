@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright 2015 Sergey Tarasevich
- *
+ * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * <p/>
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p/>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -35,30 +35,30 @@ import java.io.InputStream;
 @TargetApi(Build.VERSION_CODES.FROYO)
 public class Base64ImageDownloader extends BaseImageDownloader {
 
-	public static final String BASE64_SCHEME = "base64";
-	public static final String BASE64_URI_PREFIX = BASE64_SCHEME + "://";
+    public static final String BASE64_SCHEME = "base64";
+    public static final String BASE64_URI_PREFIX = BASE64_SCHEME + "://";
 
-	public static final String BASE64_DATA_PREFIX = "base64,";
+    public static final String BASE64_DATA_PREFIX = "base64,";
 
-	public Base64ImageDownloader(Context context) {
-		super(context);
-	}
+    public Base64ImageDownloader(Context context) {
+        super(context);
+    }
 
-	public Base64ImageDownloader(Context context, int connectTimeout, int readTimeout) {
-		super(context, connectTimeout, readTimeout);
-	}
+    public Base64ImageDownloader(Context context, int connectTimeout, int readTimeout) {
+        super(context, connectTimeout, readTimeout);
+    }
 
-	@Override
-	public InputStream getStreamFromOtherSource(String imageUri, Object extra) throws IOException {
-		if (imageUri.startsWith(BASE64_URI_PREFIX)) {
-			return getStreamFormBase64(imageUri, extra);
-		}
-		return super.getStreamFromOtherSource(imageUri, extra);
-	}
+    @Override
+    public InputStream getStreamFromOtherSource(String imageUri, Object extra) throws IOException {
+        if (imageUri.startsWith(BASE64_URI_PREFIX)) {
+            return getStreamFormBase64(imageUri, extra);
+        }
+        return super.getStreamFromOtherSource(imageUri, extra);
+    }
 
-	protected InputStream getStreamFormBase64(String imageUri, Object extra) {
-		int dataStartIndex = imageUri.indexOf(BASE64_DATA_PREFIX) + BASE64_DATA_PREFIX.length();
-		String base64 = imageUri.substring(dataStartIndex);
-		return new ByteArrayInputStream(Base64.decode(base64, Base64.DEFAULT));
-	}
+    protected InputStream getStreamFormBase64(String imageUri, Object extra) {
+        int dataStartIndex = imageUri.indexOf(BASE64_DATA_PREFIX) + BASE64_DATA_PREFIX.length();
+        String base64 = imageUri.substring(dataStartIndex);
+        return new ByteArrayInputStream(Base64.decode(base64, Base64.DEFAULT));
+    }
 }

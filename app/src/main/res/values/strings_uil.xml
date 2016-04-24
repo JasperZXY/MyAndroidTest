@@ -9,6 +9,8 @@
     <!-- Labels -->
     <string name="label_examples">Examples</string>
     <string name="button_image_list">ListView</string>
+    <string name="button_image_list_v2">ListView V2</string>
+    <string name="button_image_list_v3">ListView V3</string>
     <string name="button_image_grid">GridView</string>
     <string name="button_image_pager">ViewPager</string>
     <string name="button_image_gallery">Gallery</string>
