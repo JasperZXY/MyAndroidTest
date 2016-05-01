@@ -15,6 +15,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  *  需要在AndroidManifest.xml中进行相应的配置
  */
@@ -41,6 +43,10 @@ public class MyApplication extends Application {
             StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyDeath().build());
         }
         initImageLoader(getApplicationContext());
+
+        // JPush
+        JPushInterface.setDebugMode(true);  // 正式发布时，这段代码要删除
+        JPushInterface.init(this);
     }
 
     public static void initImageLoader(Context context) {

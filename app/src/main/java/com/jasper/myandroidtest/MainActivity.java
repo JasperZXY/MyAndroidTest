@@ -42,6 +42,7 @@ import com.jasper.myandroidtest.resource.StyleAttributesActivity;
 import com.jasper.myandroidtest.sensor.EnvironmentSensorActivity;
 import com.jasper.myandroidtest.sensor.GradienterActivity;
 import com.jasper.myandroidtest.service.aidl.MyAidlActivity;
+import com.jasper.myandroidtest.thirdparty.jpush.JPushDetailActivity;
 import com.jasper.myandroidtest.ui.*;
 import com.jasper.myandroidtest.effect.*;
 import com.jasper.myandroidtest.preference.MyPreferenceActivity;
@@ -62,6 +63,8 @@ import com.jasper.myandroidtest.image.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.jpush.android.api.JPushInterface;
 
 public class MainActivity extends Activity {
     private ExpandableListView elv;
@@ -247,13 +250,17 @@ public class MainActivity extends Activity {
     private List<Group> getLibraryData() {
         List<Group> groups = new ArrayList<>();
 
-        Group groupBasic = new Group("待分类", new ArrayList<Child>());
-        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_android_annotations), AndroidAnnotationsActivity_.class));
-        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_butter_knife), ButterKnifeActivity.class));
-        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_retrofit), RetrofitActivity.class));
-        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_event_bus), EventBusActivity.class));
-        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_uil), UILActivity.class));
-        groups.add(groupBasic);
+        Group groupOpenProject = new Group("开源项目", new ArrayList<Child>());
+        groupOpenProject.getChildren().add(new Child(getString(R.string.title_activity_android_annotations), AndroidAnnotationsActivity_.class));
+        groupOpenProject.getChildren().add(new Child(getString(R.string.title_activity_butter_knife), ButterKnifeActivity.class));
+        groupOpenProject.getChildren().add(new Child(getString(R.string.title_activity_retrofit), RetrofitActivity.class));
+        groupOpenProject.getChildren().add(new Child(getString(R.string.title_activity_event_bus), EventBusActivity.class));
+        groupOpenProject.getChildren().add(new Child(getString(R.string.title_activity_uil), UILActivity.class));
+        groups.add(groupOpenProject);
+
+        Group groupThirdParty = new Group("第三方", new ArrayList<Child>());
+        groupThirdParty.getChildren().add(new Child(getString(R.string.title_activity_jpush_detail), JPushDetailActivity.class));
+        groups.add(groupThirdParty);
 
         return groups;
     }
@@ -399,5 +406,18 @@ public class MainActivity extends Activity {
             return true;
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
+
 
 }
