@@ -216,3 +216,7 @@
 1. Universal Image Loader
 2. 初步抽象BaseAdapter
 3. 减少ListView在滑动过程中图片闪动的概率
+
+
+## 2016-5-1
+1. 添加一个模块，模块名为“补助程序”

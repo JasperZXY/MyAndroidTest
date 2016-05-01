@@ -33,13 +33,14 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         Log.i(TAG, "onCreate");
+        super.onCreate();
         myApplication = this;
         // universalimageloader
         if (Constants.Config.DEVELOPER_MODE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyDialog().build());
             StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyDeath().build());
         }
-        super.onCreate();initImageLoader(getApplicationContext());
+        initImageLoader(getApplicationContext());
     }
 
     public static void initImageLoader(Context context) {
