@@ -19,20 +19,20 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.jasper.myandroidtest.testhelper.server.jpush.JPushActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends Activity {
     private ExpandableListView elv;
     private float density;
-    private MainAdapter simpleAdapter;  //普通例子用
+    private MainAdapter simpleAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        MyApplication application = (MyApplication) getApplication();
 
         DisplayMetrics mDisplayMetrics = new DisplayMetrics();//屏幕分辨率容器
         Display display = getWindowManager().getDefaultDisplay();
@@ -50,9 +50,7 @@ public class MainActivity extends Activity {
         elv.setOverScrollMode(ExpandableListView.OVER_SCROLL_NEVER);
 
         for(int i=0; i<elv.getChildCount(); i++){
-            if(! elv.isGroupExpanded(i)){
-                elv.expandGroup(i);
-            }
+            elv.expandGroup(i);
         }
         elv.smoothScrollToPosition(0);
     }
@@ -87,17 +85,9 @@ public class MainActivity extends Activity {
     private List<Group> getMainData() {
         List<Group> groups = new ArrayList<>();
 
-        Group groupBasic = new Group("待分类", new ArrayList<Child>());
-//        groupBasic.getChildren().add(new Child("Activity", SimpleActivity.class));
-//        groupBasic.getChildren().add(new Child("Service与Activity通信", ServiceActivity.class));
-//        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_binder_service), BinderServiceActivity.class));
-//        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_messenger_service), MessengerServiceActivity.class));
-//        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_my_aidl), MyAidlActivity.class));
-//        groupBasic.getChildren().add(new Child("FragmentManager", FragmentManagerActivity.class));
-//        groupBasic.getChildren().add(new Child("ListFragment", ListFragmentActivity.class));
-//        groupBasic.getChildren().add(new Child("Fragment-Assets文件阅读器", ReaderActivity.class));
-//        groupBasic.getChildren().add(new Child(getString(R.string.title_activity_broadcast_receiver), BroadcastReceiverActivity.class));
-        groups.add(groupBasic);
+        Group groupServer = new Group("服务端", new ArrayList<Child>());
+        groupServer.getChildren().add(new Child(getString(R.string.title_activity_jpush), JPushActivity.class));
+        groups.add(groupServer);
 
         return groups;
     }
