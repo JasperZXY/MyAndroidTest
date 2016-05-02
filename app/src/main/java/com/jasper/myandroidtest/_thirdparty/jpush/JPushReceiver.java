@@ -116,7 +116,7 @@ public class JPushReceiver extends BroadcastReceiver {
 
         nBuilder.setTicker("自定义消息");
         nBuilder.setContentTitle("自定义消息");
-        nBuilder.setContentText(bundle.getString(JPushInterface.EXTRA_MESSAGE));
+        nBuilder.setContentText(bundle.getString(JPushInterface.EXTRA_TITLE));
         nBuilder.setDefaults(NotificationCompat.DEFAULT_SOUND);
         Intent intent = new Intent(context, JPushDetailActivity.class);
         intent.putExtra(Constants.JPUSH_DETAIL_KEY, jPushDetail);

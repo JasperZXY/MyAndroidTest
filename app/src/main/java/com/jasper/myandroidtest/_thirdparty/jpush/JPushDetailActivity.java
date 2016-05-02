@@ -10,6 +10,11 @@ import android.widget.TextView;
 import com.jasper.myandroidtest.R;
 import com.jasper.myandroidtest.utils.Constants;
 
+/**
+ * 如果要支持富媒体，AndroidManifest.xml要配置cn.jpush.android.ui.PopWinActivity，
+ * 还需要导入res文件夹下“jpush_”开头的文件名，
+ * 这些资源文件基本都让我给改了名字，原先很多都不是“jpush_”开头的。
+ */
 public class JPushDetailActivity extends Activity {
     private TextView tvResult;
     private TextView tvRegId;

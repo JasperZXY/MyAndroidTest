@@ -109,6 +109,12 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
+        <!-- Rich push 核心功能 since 2.0.6 富媒体支持-->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:theme="@style/JPushDialogStyle"
+            android:exported="false">
+        </activity>
         <!-- Required SDK核心功能 -->
         <activity
             android:name="cn.jpush.android.ui.PushActivity"
