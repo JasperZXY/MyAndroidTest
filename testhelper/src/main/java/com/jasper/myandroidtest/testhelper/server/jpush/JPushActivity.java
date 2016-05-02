@@ -50,35 +50,33 @@ public class JPushActivity extends BaseActivity {
         String title = etTitle.getText().toString();
         String message = etMessage.getText().toString();
         PushResult pushResult = null;
+        // 本来是要调用sendMessageAll跟sendAndroidMessageWithRegistrationID，但有些字段没有，所有改用sendPush
+        // jPushClient.sendMessageAll(message);
+        // jPushClient.sendAndroidMessageWithRegistrationID(title, message, regId);
+        PushPayload.Builder pushPayloadBuilder = PushPayload.newBuilder();
         if (TextUtils.isEmpty(regId)) {
-            try {
-                pushResult = jPushClient.sendMessageAll(message);
-            } catch (APIConnectionException e) {
-                Log.e(TAG, "APIConnectionException:", e);
-                etLog.append("\nAPIConnectionException:" + Log.getStackTraceString(e));
-            } catch (APIRequestException e) {
-                Log.e(TAG, "APIRequestException:", e);
-                etLog.append("\nAPIRequestException:" + Log.getStackTraceString(e));
-            }
+            pushPayloadBuilder = pushPayloadBuilder.setPlatform(Platform.all())
+                    .setAudience(Audience.all());
         } else {
-            try {
-                //下面这个方法不支持发送自定义属性，改用下面的
-//                pushResult = jPushClient.sendAndroidMessageWithRegistrationID(title, message, regId);
-                PushPayload pushPayload = PushPayload.newBuilder()
-                        .setPlatform(Platform.android())
-                        .setAudience(Audience.registrationId(regId))
-                        .setMessage(
-                                Message.newBuilder().setTitle(title).setMsgContent(message).addExtras(extra).build())
-                        .build();
-                pushResult = jPushClient.sendPush(pushPayload);
-            } catch (APIConnectionException e) {
-                Log.e(TAG, "APIConnectionException:", e);
-                etLog.append("\nAPIConnectionException:" + Log.getStackTraceString(e));
-            } catch (APIRequestException e) {
-                Log.e(TAG, "APIRequestException:", e);
-                etLog.append("\nAPIRequestException:" + Log.getStackTraceString(e));
-            }
+            pushPayloadBuilder = pushPayloadBuilder.setPlatform(Platform.android())
+                    .setAudience(Audience.registrationId(regId));
         }
+        pushPayloadBuilder = pushPayloadBuilder
+                .setMessage(
+                        Message.newBuilder().setTitle(title).setMsgContent(message)
+                                .addExtras(extra).build())
+                ;
+        PushPayload pushPayload = pushPayloadBuilder.build();
+        try {
+            pushResult = jPushClient.sendPush(pushPayload);
+        } catch (APIConnectionException e) {
+            Log.e(TAG, "APIConnectionException:", e);
+            etLog.append("\nAPIConnectionException:" + Log.getStackTraceString(e));
+        } catch (APIRequestException e) {
+            Log.e(TAG, "APIRequestException:", e);
+            etLog.append("\nAPIRequestException:" + Log.getStackTraceString(e));
+        }
+
         if (pushResult == null) {
             etLog.append("\n发送结果为空");
         } else {

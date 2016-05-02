@@ -1,112 +1,120 @@
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.jasper.myandroidtest.testhelper.server.jpush.JPushActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="目前只支持发送Android用户"/>
+
+                <EditText
+                    android:id="@+id/et_regId"
+                    style="@style/my_edittext_single_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入Registration ID，为空则发送所有人"/>
+
+                <EditText
+                    android:id="@+id/et_title"
+                    style="@style/my_edittext_single_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="标题"/>
+
+                <EditText
+                    android:id="@+id/et_message"
+                    style="@style/my_edittext_single_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|top"
+                    android:hint="消息"
+                    android:lines="5"
+                    android:singleLine="false"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_extra_key0"
+                        style="@style/my_edittext_single_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="额外数据key"/>
+
+                    <EditText
+                        android:id="@+id/et_extra_value0"
+                        style="@style/my_edittext_single_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="额外数据value"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_extra_key1"
+                        style="@style/my_edittext_single_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="额外数据key"/>
+
+                    <EditText
+                        android:id="@+id/et_extra_value1"
+                        style="@style/my_edittext_single_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="额外数据value"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/bn_send"
+                    style="@style/my_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="发送"/>
+            </LinearLayout>
+        </ScrollView>
+
+        <EditText
+            android:id="@+id/et_log"
+            style="@style/my_edittext_log"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:orientation="vertical">
+            android:text="日志"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:text="目前只支持发送Android用户"/>
-
-            <EditText
-                android:id="@+id/et_regId"
-                style="@style/my_edittext_single_line"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="请输入Registration ID，为空则发送所有人"/>
-
-            <EditText
-                android:id="@+id/et_title"
-                style="@style/my_edittext_single_line"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="标题"/>
-
-            <EditText
-                android:id="@+id/et_message"
-                style="@style/my_edittext_single_line"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left|top"
-                android:hint="消息"
-                android:lines="5"
-                android:singleLine="false"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/et_extra_key0"
-                    style="@style/my_edittext_single_line"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="额外数据key"/>
-
-                <EditText
-                    android:id="@+id/et_extra_value0"
-                    style="@style/my_edittext_single_line"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="额外数据value"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/et_extra_key1"
-                    style="@style/my_edittext_single_line"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="额外数据key"/>
-
-                <EditText
-                    android:id="@+id/et_extra_value1"
-                    style="@style/my_edittext_single_line"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="额外数据value"/>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/bn_send"
-                style="@style/my_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="发送"/>
-
-            <EditText
-                android:id="@+id/et_log"
-                style="@style/my_edittext_log"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="日志"/>
-        </LinearLayout>
-    </ScrollView>
-
-</FrameLayout>
+    </LinearLayout>
+</LinearLayout>
