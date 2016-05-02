@@ -7,10 +7,9 @@ import android.os.Build;
 import android.os.StrictMode;
 import android.util.Log;
 
-import com.jasper.myandroidtest.library.uil.Constants;
+import com.jasper.myandroidtest._library.uil.Constants;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
-import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;

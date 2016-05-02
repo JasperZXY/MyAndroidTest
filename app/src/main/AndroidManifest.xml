@@ -132,7 +132,7 @@
 
         <!-- User defined. 用户自定义的广播接收器 -->
         <receiver
-            android:name=".thirdparty.jpush.JPushReceiver"
+            android:name="._thirdparty.jpush.JPushReceiver"
             android:enabled="true" >
             <intent-filter>
 
@@ -553,35 +553,35 @@
             android:label="@string/title_activity_environment_sensor" >
         </activity>
         <activity
-            android:name=".library.AndroidAnnotationsActivity_"
+            android:name="._library.AndroidAnnotationsActivity_"
             android:label="@string/title_activity_android_annotations" >
         </activity>
         <activity
-            android:name=".library.ButterKnifeActivity"
+            android:name="._library.ButterKnifeActivity"
             android:label="@string/title_activity_butter_knife" >
         </activity>
         <activity
-            android:name=".library.RetrofitActivity"
+            android:name="._library.RetrofitActivity"
             android:label="@string/title_activity_retrofit" >
         </activity>
         <activity
-            android:name=".library.eventbus.EventBusActivity"
+            android:name="._library.eventbus.EventBusActivity"
             android:label="@string/title_activity_event_bus" >
         </activity>
         <activity
-            android:name=".library.uil.activity.UILActivity"
+            android:name="._library.uil.activity.UILActivity"
             android:label="@string/title_activity_uil" >
         </activity>
         <activity
-            android:name=".library.uil.activity.ComplexImageActivity"
+            android:name="._library.uil.activity.ComplexImageActivity"
             android:label="@string/ac_name_complex" >
         </activity>
         <activity
-            android:name=".library.uil.activity.SimpleImageActivity"
+            android:name="._library.uil.activity.SimpleImageActivity"
             android:label="@string/ac_name_image_list" >
         </activity>
         <activity
-            android:name=".thirdparty.jpush.JPushDetailActivity"
+            android:name="._thirdparty.jpush.JPushDetailActivity"
             android:label="@string/title_activity_jpush_detail" >
         </activity>
     </application>
