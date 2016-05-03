@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.jasper.myandroidtest.testhelper.MainActivity">
+    <item
+        android:id="@+id/action_collapse_all"
+        android:title="收起"
+        android:showAsAction="ifRoom"/>
+</menu>

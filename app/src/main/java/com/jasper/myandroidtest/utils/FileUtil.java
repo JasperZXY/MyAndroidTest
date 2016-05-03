@@ -1,18 +1,20 @@
 package com.jasper.myandroidtest.utils;
 
-import android.app.Activity;
 import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Environment;
-import android.provider.MediaStore;
+import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * Created by Jasper on 2016/1/9.
  */
 public class FileUtil {
+    private static final String TAG = "FileUtil";
+
     public static File getCacheFileByTime(Context context) {
         return getCacheFile(context, System.currentTimeMillis() + "");
     }
@@ -62,6 +64,27 @@ public class FileUtil {
         } else {
             return 0;
         }
+    }
+
+    public static String getContent(String path) {
+        FileReader fr = null;
+        BufferedReader br = null;
+        try {
+            fr = new FileReader(path);
+            br = new BufferedReader(fr, 1024);
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
+            return sb.toString();
+        } catch (IOException e) {
+            Log.e(TAG, "getContent error, path:" + path, e);
+        } finally {
+            IOUtil.close(br);
+            IOUtil.close(fr);
+        }
+        return null;
     }
 
 }

@@ -13,12 +13,11 @@ import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
 import android.text.format.Formatter;
 import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.WindowManager;
 
 import com.jasper.myandroidtest.listView.entity.ContentItem;
 import com.jasper.myandroidtest.listView.entity.GroupItem;
 import com.jasper.myandroidtest.listView.entity.IItem;
+import com.jasper.myandroidtest.utils.FileUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -38,6 +37,7 @@ public class PhoneInfo {
         getStorageInfo(activity, items);
         getNetworkInfo(activity, items);
         getTelephonyInfo(activity, items);
+        getCPUInfo(activity, items);
         return items;
     }
 
@@ -192,6 +192,12 @@ public class PhoneInfo {
         items.add(new ContentItem("SIM的状态信息", tm.getSimState() + ""));
         items.add(new ContentItem("唯一的用户ID", tm.getSubscriberId()));
         items.add(new ContentItem("漫游", tm.isNetworkRoaming() ? "是" : "否"));
+    }
+
+    private void getCPUInfo(Activity activity, List<IItem> items) {
+        items.add(new GroupItem("CPU信息"));
+        String filePath = "/proc/cpuinfo";
+        items.add(new ContentItem("信息", FileUtil.getContent(filePath)));
     }
 
 }

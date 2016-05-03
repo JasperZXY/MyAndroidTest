@@ -12,6 +12,13 @@ android {
         versionCode 2
         versionName "2.0"
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
