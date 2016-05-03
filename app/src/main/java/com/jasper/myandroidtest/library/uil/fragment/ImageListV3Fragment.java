@@ -33,6 +33,7 @@ import com.jasper.myandroidtest.library.uil.Constants;
 import com.jasper.myandroidtest.utils.UIUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -61,7 +62,7 @@ public class ImageListV3Fragment extends AbsListViewBaseFragment {
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
                 .considerExifParams(true)
-//                .displayer(new RoundedBitmapDisplayer(30))
+                .displayer(new RoundedBitmapDisplayer(30))
                 .build();
 
         return rootView;
