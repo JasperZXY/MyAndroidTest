@@ -3,6 +3,7 @@ package com.jasper.myandroidtest.camera;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,8 +35,10 @@ public class CameraActivity extends Activity implements View.OnClickListener {
     private static final String TAG = "CameraActivity";
     public static final int INTENT_TACK_PHOTO = 100;
     public static final int INTENT_TACK_PHOTO_MY_UI = 101;
-    public static final int INTENT_VIDEO = 102;
-    public static final int INTENT_VIDEO_MY_UI = 103;
+    public static final int INTENT_PHOTO_PICK = 102;
+    public static final int INTENT_PHOTO_CROP = 103;
+    public static final int INTENT_VIDEO = 201;
+    public static final int INTENT_VIDEO_MY_UI = 202;
     private ImageView imageView;
     private Uri imgUri;
     private Uri videoUri;
@@ -61,19 +64,55 @@ public class CameraActivity extends Activity implements View.OnClickListener {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            if (requestCode == INTENT_TACK_PHOTO || requestCode == INTENT_TACK_PHOTO_MY_UI) {
-                try {
-                    //如果intent不指定MediaStore.EXTRA_OUTPUT，则用(Bitmap) data.getExtras().get("data")
-                    imageView.setImageURI(imgUri);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else if (requestCode == INTENT_VIDEO || resultCode == INTENT_VIDEO_MY_UI) {
-                Toast.makeText(this, "拍摄成功", Toast.LENGTH_SHORT).show();
+            switch (requestCode) {
+                case INTENT_TACK_PHOTO:
+                case INTENT_TACK_PHOTO_MY_UI:
+                    try {
+                        //如果intent不指定MediaStore.EXTRA_OUTPUT，则用(Bitmap) data.getExtras().get("data")
+                        imageView.setImageURI(imgUri);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+
+                case INTENT_PHOTO_PICK:
+                    photoCrop(data.getData());
+                    break;
+
+                case INTENT_PHOTO_CROP:
+                    try {
+                        imageView.setImageURI(imgUri);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+
+                case INTENT_VIDEO:
+                case INTENT_VIDEO_MY_UI:
+                    Toast.makeText(this, "拍摄成功", Toast.LENGTH_SHORT).show();
+                    break;
             }
         } else if (resultCode == RESULT_CANCELED) {
             Toast.makeText(this, "取消操作", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    // 图片裁切
+    private void photoCrop(Uri oriUri) {
+        imgUri = Uri.fromFile(FileUtil.getCacheFile(CameraActivity.this, DATE_FORMAT.format(new Date()) + ".jpg"));
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(oriUri, "image/*");
+        intent.putExtra("crop", "true"); //发送裁剪信号
+        intent.putExtra("aspectX", 1);  //X方向上的比例
+        intent.putExtra("aspectY", 1);  //Y方向上的比例
+        intent.putExtra("outputX", 1000); //裁剪区的宽
+        intent.putExtra("outputY", 1000); //裁剪区的高
+        intent.putExtra("scale", true);   //是否保留比例
+        intent.putExtra("return-data", false);  // 特别要注意这样要为false
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imgUri);
+        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+        intent.putExtra("noFaceDetection", true);
+        startActivityForResult(intent, INTENT_PHOTO_CROP);
     }
 
     /**
@@ -140,6 +179,12 @@ public class CameraActivity extends Activity implements View.OnClickListener {
                 imgUri = Uri.fromFile(FileUtil.getCacheFile(CameraActivity.this, DATE_FORMAT.format(new Date()) + ".jpg"));
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, imgUri);
                 startActivityForResult(intent, INTENT_TACK_PHOTO_MY_UI);
+                break;
+
+            case R.id.btn_photo_crop:
+                intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, INTENT_PHOTO_PICK);
                 break;
 
             case R.id.btn_intent_video:

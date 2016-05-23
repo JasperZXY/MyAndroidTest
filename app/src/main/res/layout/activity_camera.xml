@@ -43,6 +43,12 @@
             android:text="自定义UI拍照"/>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btn_photo_crop"
+        style="@style/my_button"
+        android:layout_width="match_parent"
+        android:text="获取相册图片并裁切"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
